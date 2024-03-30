@@ -29,26 +29,23 @@ RUN apt-get update \
     graphviz \
     libgtest-dev \
     clang-15 \
-    libomp-15-dev \
     clang-format-15 \
     llvm-15 \
-    lldb-15 \
+    llvm-15-dev \
     ninja-build \
     vim \
     openssh-client \
     gdb \
     wget \
     googletest \
-    && apt-get -yq clean \
-    && rm --recursive --force /var/lib/apt/lists/*
+    && apt-get -yq clean
 
 # Install OpenMPI
 RUN apt-get update \
     && apt-get -y -qq --no-install-recommends install \
     openmpi-bin \
     libopenmpi-dev \
-    && apt-get -yq clean \
-    && rm --recursive --force /var/lib/apt/lists/*
+    && apt-get -yq clean
 
 # Delete shmem headers from OpenMPI installation that could conflict with OpenSHMEM
 RUN rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem.h && \
@@ -59,15 +56,32 @@ RUN rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem.h && \
     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem-compat.h && \
     rm /lib/x86_64-linux-gnu/liboshmem.so*
 
+# Install PARCOACH
+RUN   wget https://gitlab.inria.fr/parcoach/parcoach/-/archive/2.4.2/parcoach-2.4.2.tar.gz && \
+      tar -xf parcoach-2.4.2.tar.gz && \
+      cd parcoach-2.4.2 && \
+      mkdir -p build && \
+      cd build && \
+      CC=clang-15 CXX=clang++-15 OMPI_CC=clang-15 OMPI_CXX=clang++-15 MPICH_CC=clang-15 MPICH_CXX=clang++-15 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/parcoach -DPARCOACH_ENABLE_TESTS=OFF .. && \
+      make -j$(nproc) install
 
-# ensure that LLVM 15 toolset is used
-RUN ln -s /usr/bin/FileCheck-15 /usr/bin/FileCheck
-RUN ln -s /usr/bin/clang-15 /usr/bin/clang
-RUN ln -s /usr/bin/clang++-15 /usr/bin/clang++
-RUN ln -s /usr/bin/clang-format-15 /usr/bin/clang-format
-RUN ln -s $(which llvm-link-15) /usr/bin/llvm-link
-RUN ln -s $(which opt-15) /usr/bin/opt
-RUN ln -s $(which llc-15) /usr/bin/llc
+RUN apt-get -y -qq --no-install-recommends install \
+    zstd \
+    libzstd-dev \
+    clang-16 \
+    libomp-16-dev \
+    clang-format-16 \
+    llvm-16 \
+    llvm-16-dev
+
+# ensure that LLVM 16 toolset is used
+RUN ln -s /usr/bin/FileCheck-16 /usr/bin/FileCheck
+RUN ln -s /usr/bin/clang-16 /usr/bin/clang
+RUN ln -s /usr/bin/clang++-16 /usr/bin/clang++
+RUN ln -s /usr/bin/clang-format-16 /usr/bin/clang-format
+RUN ln -s $(which llvm-link-16) /usr/bin/llvm-link
+RUN ln -s $(which opt-16) /usr/bin/opt
+RUN ln -s $(which llc-16) /usr/bin/llc
 
 # Install Python dependencies and ensure to activate virtualenv (by setting PATH variable)
 COPY classification_quality/rmaracebench/requirements.txt .
@@ -94,17 +108,11 @@ RUN    wget https://github.com/cc-hpc-itwm/GPI-2/archive/refs/tags/v1.5.1.tar.gz
        OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ CC=mpicc CXX=mpicxx ./configure --prefix=/usr --with-mpi --with-infiniband=no --with-ethernet --with-pbs=no && \
        make -j$(nproc) install
 
-# Install PARCOACH
-RUN   wget https://gitlab.inria.fr/parcoach/parcoach/-/archive/2.3.1/parcoach-2.3.1.tar.gz && \
-      tar -xf parcoach-2.3.1.tar.gz && \
-      cd parcoach-2.3.1 && \
-      mkdir -p build && \
-      cd build && \
-      CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/parcoach -DPARCOACH_ENABLE_TESTS=OFF .. && \
-      make -j$(nproc) install
-
 # Install MUST
 COPY MUST-RMA ./MUST-RMA
+RUN rm -rf ./MUST-RMA/.git && echo "0.0.0" > ./MUST-RMA/.version
+RUN rm -rf ./MUST-RMA/externals/GTI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/.version
+RUN rm -rf ./MUST-RMA/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/externals/PnMPI/.version
 RUN cd MUST-RMA && \
     mkdir -p build && \
     cd build && \
@@ -113,8 +121,11 @@ RUN cd MUST-RMA && \
     make -j$(nproc) -j32 install-prebuilds
 
 # Install RMASanitizer
-COPY rmasanitizer /rmasanitizer
-RUN cd /rmasanitizer && \
+COPY RMASanitizer ./rmasanitizer
+RUN rm -rf ./rmasanitizer/.git && echo "0.0.0" > ./rmasanitizer/.version
+RUN rm -rf ./rmasanitizer/externals/GTI/.git && echo "0.0.0" > ./rmasanitizer/externals/GTI/.version
+RUN rm -rf ./rmasanitizer/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./rmasanitizer/externals/GTI/externals/PnMPI/.version
+RUN cd ./rmasanitizer && \
     mkdir -p build && \
     cd build && \
     CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_PREFIX_PATH='/usr/lib/;/usr/lib64/' -DCMAKE_BUILD_TYPE=Release -DENABLE_STACKTRACE=OFF -DUSE_BACKWARD=OFF -DENABLE_FORTRAN=OFF -DENABLE_OPENSHMEM=ON -DENABLE_GASPI=ON -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/rmasanitizer .. && \
