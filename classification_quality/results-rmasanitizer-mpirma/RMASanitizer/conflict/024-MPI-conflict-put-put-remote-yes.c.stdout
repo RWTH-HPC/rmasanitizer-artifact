@@ -1,0 +1,35 @@
+Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+[MUST] Weaver ... success
+[MUST] Generating P^nMPI configuration ... success
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+Process 0: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 1
+Process 2: Execution finished, variable contents: value = 2, value2 = 2, win_base[0] = 0
+[MUST-REPORT] Error: from: call @1: Remote data race at rank 1 between a write of size 4 at  Concurrent region of reference 1 started at reference 3 and ended at reference 4. 
+[MUST-REPORT]  Concurrent region of reference 2 started at reference 5 and ended at reference 6. 
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call MPI_Putmain
+[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/conflict/024-MPI-conflict-put-put-remote-yes.c:68
+[MUST-REPORT]  @rank 2, threadid 1;
+[MUST-REPORT] Reference 2: call MPI_Putmain
+[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/conflict/024-MPI-conflict-put-put-remote-yes.c:62
+[MUST-REPORT]  @rank 0, threadid 1;
+[MUST-REPORT] Reference 3: call MPI_Win_fencemain
+[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/conflict/024-MPI-conflict-put-put-remote-yes.c:57
+[MUST-REPORT]  @rank 1, threadid 0;
+[MUST-REPORT] Reference 4: call MPI_Win_fencemain
+[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/conflict/024-MPI-conflict-put-put-remote-yes.c:71
+[MUST-REPORT]  @rank 1, threadid 0;
+[MUST-REPORT] Reference 5: call MPI_Win_fencemain
+[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/conflict/024-MPI-conflict-put-put-remote-yes.c:57
+[MUST-REPORT]  @rank 1, threadid 0;
+[MUST-REPORT] Reference 6: call MPI_Win_fencemain
+[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/conflict/024-MPI-conflict-put-put-remote-yes.c:71
+[MUST-REPORT]  @rank 1, threadid 0;
+[MUST] Execution finished.

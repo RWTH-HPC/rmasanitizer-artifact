@@ -1,0 +1,26 @@
+[e39e3696eb26:40170] *** Process received signal ***
+[e39e3696eb26:40170] Signal: Segmentation fault (11)
+[e39e3696eb26:40170] Signal code: Address not mapped (1)
+[e39e3696eb26:40170] Failing at address: 0xfffffffe
+Error when inserting memory access of type RMA_WRITE from file results-20240330-164421/PARCOACH-dynamic/atomic/002-MPI-atomic-customdatatype-remote-yes.c:72 with already inserted interval of type RMA_WRITE from file results-20240330-164421/PARCOACH-dynamic/atomic/002-MPI-atomic-customdatatype-remote-yes.c:66.
+The program will be exiting now with MPI_Abort.
+Error when inserting memory access of type RMA_WRITE from file results-20240330-164421/PARCOACH-dynamic/atomic/002-MPI-atomic-customdatatype-remote-yes.c:72 with already inserted interval of type LOCAL_READ from file results-20240330-164421/PARCOACH-dynamic/atomic/002-MPI-atomic-customdatatype-remote-yes.c:74.
+The program will be exiting now with MPI_Abort.
+[e39e3696eb26:40170] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f23ffce9050]
+[e39e3696eb26:40170] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4e01)[0x7f23ff641e01]
+[e39e3696eb26:40170] [ 2] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7f23ff84ee1c]
+[e39e3696eb26:40170] [ 3] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_request_default_test+0x30)[0x7f2400004560]
+[e39e3696eb26:40170] [ 4] --------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+/lib/x86_64-linux-gnu/libmpi.so.40(PMPI_Test+0x4e)[0x7f240004464e]
+[e39e3696eb26:40170] [ 5] /opt/parcoach/lib/libParcoachRMADynamic_MPI_C.so(+0x571f)[0x7f24000ff71f]
+[e39e3696eb26:40170] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xd44a3)[0x7f23ffb654a3]
+[e39e3696eb26:40170] [ 7] /lib/x86_64-linux-gnu/libc.so.6(+0x89134)[0x7f23ffd36134]
+[e39e3696eb26:40170] [ 8] /lib/x86_64-linux-gnu/libc.so.6(+0x1097dc)[0x7f23ffdb67dc]
+[e39e3696eb26:40170] *** End of error message ***

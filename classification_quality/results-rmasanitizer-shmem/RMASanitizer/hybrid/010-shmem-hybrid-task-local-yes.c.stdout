@@ -1,0 +1,29 @@
+Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+localbuf is 1
+[MUST-RUNTIME] [RMASanitize] epoch counter not found for context 1this should not happen.
+remote is 0
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 0
+Process 1: Execution finished, variable contents: remote = 0, localbuf = 1
+[MUST-REPORT] Error: from: call @0: Local buffer data race at rank 0 between a write of size 4 at  References of a representative process:
+[MUST-REPORT] Reference 1: call shmem_int_get_nbi.omp_outlined.
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/hybrid/010-shmem-hybrid-task-local-yes.c:74
+[MUST-REPORT] .omp_task_entry.
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/hybrid/010-shmem-hybrid-task-local-yes.c:70
+[MUST-REPORT]  @rank 0, threadid 2;
+[MUST-REPORT] Reference 2: call .omp_outlined._debug__
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/hybrid/010-shmem-hybrid-task-local-yes.c:81
+[MUST-REPORT]  @rank 0, threadid 0;
+[MUST-REPORT] Information: from: call MPI_Finalize@0-1: The following MPI functions were used but are not supported by MUST: 
+[MUST-REPORT] shmem_sync_all
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call shmem_sync_allmain
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/hybrid/010-shmem-hybrid-task-local-yes.c:84
+[MUST-REPORT]  @rank 0, threadid 1;
+[MUST] Execution finished.

@@ -1,0 +1,2 @@
+mpicc -fopenmp -O0 -g -S -emit-llvm results-20240330-164421/PARCOACH-static/hybrid/009-MPI-hybrid-task-local-yes.c -o results-20240330-164421/PARCOACH-static/hybrid/009-MPI-hybrid-task-local-yes.c.ll
+parcoach -S --check=rma results-20240330-164421/PARCOACH-static/hybrid/009-MPI-hybrid-task-local-yes.c.ll -o results-20240330-164421/PARCOACH-static/hybrid/009-MPI-hybrid-task-local-yes.c-instrumented.ll

@@ -1,0 +1,26 @@
+Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+PE 0: localbuf = 0, remote = 0, 
+PE 1: localbuf = 1, remote = 0, 
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 0
+Process 1: Execution finished, variable contents: remote = 0, localbuf = 1
+[MUST-REPORT] Error: from: call @0: Local buffer data race at rank 0 between a write of size 4 at  References of a representative process:
+[MUST-REPORT] Reference 1: call shmem_int_get_nbimain
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/conflict/005-shmem-conflict-getnbi-store-local-yes.c:48
+[MUST-REPORT]  @rank 0, threadid 1;
+[MUST-REPORT] Reference 2: call main
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/conflict/005-shmem-conflict-getnbi-store-local-yes.c:50
+[MUST-REPORT]  @rank 0, threadid 0;
+[MUST-REPORT] Information: from: call MPI_Finalize@0: The following MPI functions were used but are not supported by MUST: 
+[MUST-REPORT] shmem_int_get_nbi
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call shmem_int_get_nbimain
+[MUST-REPORT] /rmaracebench/results-20240330-172552/RMASanitizer/conflict/005-shmem-conflict-getnbi-store-local-yes.c:48
+[MUST-REPORT]  @rank 0, threadid 1;
+[MUST] Execution finished.
