@@ -104,8 +104,8 @@ RUN   wget https://gitlab.inria.fr/parcoach/parcoach/-/archive/2.3.1/parcoach-2.
       make -j$(nproc) install
 
 # Install MUST
-COPY MUST ./MUST
-RUN cd MUST && \
+COPY MUST-RMA ./MUST-RMA
+RUN cd MUST-RMA && \
     mkdir -p build && \
     cd build && \
     CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_BUILD_TYPE=Release -DUSE_BACKWARD=ON -DENABLE_FORTRAN=OFF -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/must .. && \
@@ -138,7 +138,7 @@ COPY classification_quality/rmaracebench/util/generate.py /rmaracebench/generate
 ENV OMPI_MCA_rmaps_base_oversubscribe=1
 
 # Run as non-privileged user
-RUN     useradd -ms /bin/bash user
+RUN useradd -ms /bin/bash user
 RUN chown -R user:user /rmaracebench
 USER user
 
