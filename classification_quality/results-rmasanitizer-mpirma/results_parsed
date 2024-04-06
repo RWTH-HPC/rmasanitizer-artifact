@@ -27,17 +27,17 @@
 026-MPI-conflict-put-acc-remote-yes.c                  conflict           TP
 027-MPI-conflict-acc-load-remote-yes.c                 conflict           TP
 028-MPI-conflict-acc-store-remote-yes.c                conflict           TP
-029-MPI-conflict-acc-acc-remote-no.c                   conflict           FP
-030-MPI-conflict-acc-gaccread-remote-no.c              conflict           FP
+029-MPI-conflict-acc-acc-remote-no.c                   conflict           TN
+030-MPI-conflict-acc-gaccread-remote-no.c              conflict           TN
 031-MPI-conflict-gaccread-gaccread-remote-no.c         conflict           TN
 032-MPI-conflict-gaccread-load-remote-no.c             conflict           TN
 033-MPI-conflict-gaccread-store-remote-yes.c           conflict           TP
 034-MPI-conflict-gacc-store-remote-yes.c               conflict           TP
-035-MPI-conflict-gacc-gacc-remote-no.c                 conflict           FP
-036-MPI-conflict-fop-fop-remote-no.c                   conflict           FP
+035-MPI-conflict-gacc-gacc-remote-no.c                 conflict           TN
+036-MPI-conflict-fop-fop-remote-no.c                   conflict           TN
 037-MPI-conflict-fop-store-remote-yes.c                conflict           TP
 038-MPI-conflict-cas-store-remote-yes.c                conflict           TP
-039-MPI-conflict-cas-cas-remote-no.c                   conflict           FP
+039-MPI-conflict-cas-cas-remote-no.c                   conflict           TN
 001-MPI-sync-fence-local-yes.c                             sync           TP
 002-MPI-sync-fence-local-no.c                              sync           TN
 003-MPI-sync-lock-local-yes.c                              sync           TP
@@ -74,15 +74,15 @@
 034-MPI-sync-pscw-remote-no.c                              sync           TN
 035-MPI-sync-pscw-remote-yes.c                             sync           TP
 036-MPI-sync-polling-remote-yes.c                          sync           TP
-001-MPI-atomic-customdatatype-remote-no.c                atomic           FP
+001-MPI-atomic-customdatatype-remote-no.c                atomic           TN
 002-MPI-atomic-customdatatype-remote-yes.c               atomic           TP
 003-MPI-atomic-disp-remote-yes.c                         atomic           TP
-004-MPI-atomic-disp-remote-no.c                          atomic           FP
+004-MPI-atomic-disp-remote-no.c                          atomic           TN
 005-MPI-atomic-short-int-remote-yes.c                    atomic           TP
 006-MPI-atomic-float-int-remote-yes.c                    atomic           TP
 007-MPI-atomic-float-int-sameorigin-remote-yes.c         atomic           TP
 008-MPI-atomic-double-float-remote-yes.c                 atomic           TP
-009-MPI-atomic-int-int-remote-no.c                       atomic           FP
+009-MPI-atomic-int-int-remote-no.c                       atomic           TN
 010-MPI-atomic-int-int-sameorigin-remote-no.c            atomic           TN
 001-MPI-hybrid-master-local-yes.c                        hybrid           TP
 002-MPI-hybrid-master-local-no.c                         hybrid           TN
@@ -107,11 +107,11 @@
 021-MPI-hybrid-section-barrier-origin-remote-yes.c       hybrid           FN
 022-MPI-hybrid-section-sendrecv-origin-remote-yes.c      hybrid           FN
               Precision  Recall  Accuracy
-RMASanitizer      0.884   0.968     0.907
+RMASanitizer      1.000   0.968     0.981
          RMASanitizer                            
                    TP FP  TN FN TO    P    R    A
-Conflict           26  5   8  0  0 0.84 1.00 0.87
+Conflict           26  0  13  0  0 1.00 1.00 1.00
 Sync               19  0  17  0  0 1.00 1.00 1.00
-Atomic              6  3   1  0  0 0.67 1.00 0.70
+Atomic              6  0   4  0  0 1.00 1.00 1.00
 Hybrid             10  0  10  2  0 1.00 0.83 0.91
-Total              61  8  36  2  0 0.88 0.97 0.91
+Total              61  0  44  2  0 1.00 0.97 0.98

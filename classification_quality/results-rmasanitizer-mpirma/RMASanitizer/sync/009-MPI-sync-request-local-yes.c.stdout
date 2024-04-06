@@ -1,27 +1,27 @@
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
-[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780" is present and used.
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
 value is 0
-Process 0: Execution finished, variable contents: value = 0, value2 = 2, win_base[0] = 0
 Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 0: Execution finished, variable contents: value = 0, value2 = 2, win_base[0] = 0
 [MUST-RUNTIME] Internal Error: BlockingState could not find information for a P2P op in P2PMatch!
 [MUST-REPORT] Error global: The application issued a set of MPI calls that can cause a deadlock! A graphical representation of this situation is available in a <a href="/rmaracebench/MUST_Output-files/MUST_Deadlock.html" title="detailed deadlock view"> detailed deadlock view (/rmaracebench/MUST_Output-files/MUST_Deadlock.html)</a>. References 1-1 list the involved calls (limited to the first 5 calls, further calls may be involved). The application still runs, if the deadlock manifested (e.g. caused a hang on this MPI implementation) you can attach to the involved ranks with a debugger or abort the application (if necessary). References of a representative process:
 [MUST-REPORT] Reference 1: call MPI_Waitmain
-[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/sync/009-MPI-sync-request-local-yes.c:79
+[MUST-REPORT] /rmaracebench/results-20240406-161127/RMASanitizer/sync/009-MPI-sync-request-local-yes.c:79
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-RUNTIME] ============MUST===============
 [MUST-RUNTIME] ERROR: MUST detected a deadlock, detailed information is available in the MUST output file. You should either investigate details with a debugger or abort, the operation of MUST will stop from now.
 [MUST-RUNTIME] ===============================
 [MUST-REPORT] Error: from: call @0: Local buffer data race at rank 0 between a write of size 4 at  References of a representative process:
 [MUST-REPORT] Reference 1: call MPI_Rgetmain
-[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/sync/009-MPI-sync-request-local-yes.c:76
+[MUST-REPORT] /rmaracebench/results-20240406-161127/RMASanitizer/sync/009-MPI-sync-request-local-yes.c:76
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-REPORT] Reference 2: call main
-[MUST-REPORT] /rmaracebench/results-20240330-171252/RMASanitizer/sync/009-MPI-sync-request-local-yes.c:78
+[MUST-REPORT] /rmaracebench/results-20240406-161127/RMASanitizer/sync/009-MPI-sync-request-local-yes.c:78
 [MUST-REPORT]  @rank 0, threadid 0;
 [MUST] Execution finished.
