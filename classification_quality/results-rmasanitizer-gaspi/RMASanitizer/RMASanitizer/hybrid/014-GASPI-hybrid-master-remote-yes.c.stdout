@@ -1,0 +1,34 @@
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+SN fatal error: Failed to bind to port.ThreadSanitizer:DEADLYSIGNAL
+ThreadSanitizer:DEADLYSIGNAL
+--------------------------------------------------------------------------
+mpiexec has exited due to process rank 1 with PID 0 on
+node efa67d29ebd7 exiting improperly. There are three reasons this could occur:
+
+1. this process did not call "init" before exiting, but others in
+the job did. This can cause a job to hang indefinitely while it waits
+for all processes to call "init". By rule, if one process calls "init",
+then ALL processes must call "init" prior to termination.
+
+2. this process called "init", but exited without calling "finalize".
+By rule, all processes that call "init" MUST call "finalize" prior to
+exiting or it will be considered an "abnormal termination"
+
+3. this process called "MPI_Abort" or "orte_abort" and the mca parameter
+orte_create_session_dirs is set to false. In this case, the run-time cannot
+detect that the abort call was an abnormal termination. Hence, the only
+error message you will receive is this one.
+
+This may have caused other processes in the application to be
+terminated by signals sent by mpiexec (as reported here).
+
+You can avoid this message by specifying -quiet on the mpiexec command line.
+--------------------------------------------------------------------------
+[MUST] Execution finished.
