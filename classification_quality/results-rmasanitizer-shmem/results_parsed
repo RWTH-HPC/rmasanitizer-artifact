@@ -75,9 +75,9 @@
 003-shmem-atomic-same-domain-remote-no.c                               atomic           TN
 004-shmem-atomic-int-int-remote-no.c                                   atomic           TN
 005-shmem-atomic-int-int-sameorigin-remote-no.c                        atomic           TN
-006-shmem-atomic-double-long-remote-yes.c                              atomic           TP
-007-shmem-atomic-int-long-remote-yes.c                                 atomic           TP
-008-shmem-atomic-int-float-remote-yes.c                                atomic           TP
+006-shmem-atomic-double-long-remote-yes.c                              atomic           FN
+007-shmem-atomic-int-long-remote-yes.c                                 atomic           FN
+008-shmem-atomic-int-float-remote-yes.c                                atomic           FN
 009-shmem-atomic-int-float-sameorigin-remote-yes.c                     atomic           TP
 001-shmem-hybrid-for-local-yes.c                                       hybrid           TP
 002-shmem-hybrid-for-ordered-local-no.c                                hybrid           TN
@@ -90,23 +90,23 @@
 009-shmem-hybrid-task-local-no.c                                       hybrid           TN
 010-shmem-hybrid-task-local-yes.c                                      hybrid           TP
 011-shmem-hybrid-for-ordered-remote-no.c                               hybrid           TN
-012-shmem-hybrid-for-remote-yes.c                                      hybrid           TP
+012-shmem-hybrid-for-remote-yes.c                                      hybrid           FN
 013-shmem-hybrid-master-remote-no.c                                    hybrid           TN
-014-shmem-hybrid-master-remote-yes.c                                   hybrid           TP
+014-shmem-hybrid-master-remote-yes.c                                   hybrid           FN
 015-shmem-hybrid-single-remote-no.c                                    hybrid           TN
-016-shmem-hybrid-single-remote-yes.c                                   hybrid           TP
+016-shmem-hybrid-single-remote-yes.c                                   hybrid           FN
 017-shmem-hybrid-section-remote-no.c                                   hybrid           TN
-018-shmem-hybrid-section-remote-yes.c                                  hybrid           TP
+018-shmem-hybrid-section-remote-yes.c                                  hybrid           FN
 019-shmem-hybrid-task-remote-no.c                                      hybrid           TN
-020-shmem-hybrid-task-remote-yes.c                                     hybrid           TP
+020-shmem-hybrid-task-remote-yes.c                                     hybrid           FN
 021-shmem-hybrid-lock-section-barrier-origin-remote-yes.c              hybrid           FN
 022-shmem-hybrid-lock-section-barrier-origin-signal-remote-yes.c       hybrid           FN
               Precision  Recall  Accuracy
-RMASanitizer      0.983   0.937     0.951
-         RMASanitizer                            
-                   TP FP  TN FN TO    P    R    A
-Conflict           35  0  14  0  0 1.00 1.00 1.00
-Sync               10  1  10  1  0 0.91 0.91 0.91
-Atomic              4  0   4  1  0 1.00 0.80 0.89
-Hybrid             10  0  10  2  0 1.00 0.83 0.91
-Total              59  1  38  4  0 0.98 0.94 0.95
+RMASanitizer      0.981   0.810     0.873
+         RMASanitizer                             
+                   TP FP  TN  FN TO    P    R    A
+Conflict           35  0  14   0  0 1.00 1.00 1.00
+Sync               10  1  10   1  0 0.91 0.91 0.91
+Atomic              1  0   4   4  0 1.00 0.20 0.56
+Hybrid              5  0  10   7  0 1.00 0.42 0.68
+Total              51  1  38  12  0 0.98 0.81 0.87
