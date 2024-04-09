@@ -1,162 +1,62 @@
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
-[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780" is present and used.
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] Initialized of total 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(1, 0, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(2, 0, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(2, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(3, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(3, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(4, 3, 3)
 [MUST-RUNTIME] [RMASanitize] epoch counter not found for context 0this should not happen.
 read result is 42
 gaspi_allreduce result is 3
 gaspi_allreduce result is 3
 gaspi_allreduce result is 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] Initialized of total 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(0, 0, 1)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(0, 0, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(2, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(2, 2, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(3, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(3, 3, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(6, 4, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(6, 4, 5)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(6, 4, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(8, 6, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(8, 6, 7)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 2 to rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] Initialized of total 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(0, 1, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(0, 2, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(2, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(2, 3, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(3, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(3, 4, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(6, 4, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(6, 5, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(6, 6, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(8, 6, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(8, 7, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 1 to rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(5, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(6, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(6, 4, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(7, 4, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(8, 4, 4)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(8, 6, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(9, 6, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 2 from rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] signalResource(8, 6, 7)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(8, 6, 8)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 2 to rank 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 1 from rank 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 0 to rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] signalResource(8, 6, 8)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(8, 6, 9)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 2 to rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] signalResource(9, 6, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 0 from rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] signalResource(8, 7, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 2 from rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] signalResource(8, 6, 9)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 2 from rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(10, 6, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 0 to rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(8, 8, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 1 to rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] signalResource(10, 6, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(11, 6, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 0 to rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] signalResource(8, 8, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 1 from rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(8, 6, 10)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 0 from rank 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 0 from rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] waitResource(8, 6, 10)
-[MUST-RUNTIME] [GASPIRMAWrapper] Wait for notification 0 and received 3 notifications
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(8, 9, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 1 to rank 2
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Waiting for notification 0...
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 1 from rank 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 2
-rank 2 (of 3), pid 76475 caught signal nr 11
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] signalResource(11, 6, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(12, 6, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] waitResource(12, 7, 7)
-[MUST-RUNTIME] [GASPIRMAWrapper] Wait for notification 0 and received 3 notifications
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 2
-rank 0 (of 3), pid 76473 caught signal nr 11
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x55c33857ce3a]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7f3eed7f7f18]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7f3eed7f805b]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x55c338562b20]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x558556241e3a]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fe7eed4cf18]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fe7eed4d05b]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x55c338563046]
-/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f3ef0210050]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x558556227b20]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x558556228046]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd55f8)[0x55c3386085f8]
-/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fe7f1662050]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd55f8)[0x5585562cd5f8]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f3ef01fb24a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f3ef01fb305]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fe7f164d24a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fe7f164d305]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x55c338554461]
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] signalResource(8, 9, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(8, 10, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] waitResource(10, 10, 8)
-[MUST-RUNTIME] [GASPIRMAWrapper] Wait for notification 0 and received 3 notifications
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 2
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x558556219461]
-rank 1 (of 3), pid 76474 caught signal nr 11
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x56337737ee3a]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fa044bf7f18]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fa044bf805b]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x563377364b20]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x563377365046]
-/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fa047750050]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd55f8)[0x56337740a5f8]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fa04773b24a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fa04773b305]
-/rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x563377356461]
+rank 1 (of 3), pid 76337 caught signal nr 11
+rank 2 (of 3), pid 76338 caught signal nr 11
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x561c2f651e3a]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fa2a71f7f18]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fa2a71f805b]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x560d48a0de3a]
+rank 0 (of 3), pid 76336 caught signal nr 11
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7f50a7df7f18]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x561c2f637b20]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7f50a7df805b]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x561c2f638046]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fa2a9d17050]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x560d489f3b20]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x561c2f6dd659]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fa2a9d0224a]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x560d489f4046]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x55e692fc5e3a]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fa7025d4f18]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fa2a9d02305]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fa7025d505b]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x561c2f629461]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f50aa908050]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x55e692fabb20]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x55e692fac046]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x560d48a99659]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fa7050ed050]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x55e693051659]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f50aa8f324a]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fa7050d824a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fa7050d8305]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f50aa8f3305]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x55e692f9d461]
+/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x560d489e5461]
 [MUST-REPORT] Error: from: call @1: Remote data race at rank 1 between a read of size 4 at  Concurrent region of reference 1 started at reference 3 and ended at reference 4. 
 [MUST-REPORT]  References of a representative process:
 [MUST-REPORT] Reference 1: call gaspi_readmain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:70
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:70
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-REPORT] Reference 2: call main
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:77
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:77
 [MUST-REPORT]  @rank 1, threadid 0;
 [MUST-REPORT] Reference 3: call gaspi_barriermain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:66
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:66
 [MUST-REPORT]  @rank 1, threadid 0;
 [MUST-REPORT] Reference 4: call main
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:77
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:77
 [MUST-REPORT]  @rank 1, threadid 0;
 Waiting up to 30 seconds for analyses to be finished.
 Waiting up to 30 seconds for analyses to be finished.
@@ -169,7 +69,7 @@ a non-zero exit code. Per user-direction, the job has been aborted.
 mpiexec detected that one or more processes exited with non-zero status, thus causing
 the job to be terminated. The first process to do so was:
 
-  Process name: [[43882,1],0]
+  Process name: [[21809,1],0]
   Exit code:    1
 --------------------------------------------------------------------------
 [MUST] Execution finished.

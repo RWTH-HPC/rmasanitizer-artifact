@@ -7,15 +7,14 @@ Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
 [MUST-RUNTIME] [RMASanitize] epoch counter not found for context 1this should not happen.
-[MUST-RUNTIME] Skip TargetRMAOp from rank 0 with unknown start point.
 remote is 1
-Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
 Process 1: Execution finished, variable contents: remote = 1, localbuf = 1
+Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
 [MUST-REPORT] Information: from: call MPI_Finalize@0: The following MPI functions were used but are not supported by MUST: 
 [MUST-REPORT] shmem_sync_all
 [MUST-REPORT]  References of a representative process:
 [MUST-REPORT] Reference 1: call shmem_sync_allmain
-[MUST-REPORT] /rmaracebench/results-20240406-162207/RMASanitizer/hybrid/019-shmem-hybrid-task-remote-no.c:63
+[MUST-REPORT] /rmaracebench/results-20240409-163106/RMASanitizer/hybrid/019-shmem-hybrid-task-remote-no.c:63
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
 [MUST] Execution finished.

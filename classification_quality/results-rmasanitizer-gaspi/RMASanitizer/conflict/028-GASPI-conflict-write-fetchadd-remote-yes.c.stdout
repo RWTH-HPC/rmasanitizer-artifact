@@ -1,115 +1,31 @@
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
-[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780" is present and used.
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] Initialized of total 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(0, 0, 1)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(0, 0, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(2, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(2, 2, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(3, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(3, 3, 4)
 [MUST-RUNTIME] [RMASanitize] epoch counter not found for context 0this should not happen.
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] Initialized of total 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(1, 0, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(2, 0, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(2, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(3, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(3, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(4, 3, 3)
 [MUST-RUNTIME] [RMASanitize] epoch counter not found for context 0this should not happen.
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(3, 3, 5)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(3, 3, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] allToAll(7, 5, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(7, 5, 7)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 2 to rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(5, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(6, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(7, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] allToAll(7, 5, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(8, 5, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 2 from rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] Initialized of total 3
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(0, 1, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(0, 2, 0)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(2, 2, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(2, 3, 2)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(3, 3, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(3, 4, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(3, 5, 3)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] allToAll(7, 5, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(7, 6, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 1 to rank 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 1 from rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] signalResource(7, 5, 7)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(7, 5, 8)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 2 to rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] signalResource(7, 6, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 2 from rank 2
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 0 to rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] signalResource(8, 5, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 0 from rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(7, 7, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 1 to rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] signalResource(7, 5, 8)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(7, 5, 9)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 2 to rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] signalResource(7, 5, 9)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 2 from rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] signalResource(7, 7, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 1 from rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(7, 8, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 1 to rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(9, 5, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 0 to rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] signalResource(7, 8, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 0 from rank 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 1 from rank 1
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] signalResource(9, 5, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(10, 5, 6)
-[MUST-RUNTIME] [GASPIRMAWrapper] Send notification 0 to rank 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] tick(7, 5, 10)
-[MUST-RUNTIME] [GASPIRMAWrapper] Receive notification 0 from rank 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] tick(7, 9, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|1] waitResource(9, 9, 8)
-[MUST-RUNTIME] [GASPIRMAWrapper] Wait for notification 0 and received 3 notifications
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 0
-[MUST-RUNTIME] [GASPI_VC_Wrapper|2] waitResource(7, 8, 10)
-[MUST-RUNTIME] [GASPIRMAWrapper] Wait for notification 0 and received 3 notifications
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 2
-Process 2: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 2
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] signalResource(10, 5, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] tick(11, 5, 6)
-[MUST-RUNTIME] [GASPI_VC_Wrapper|0] waitResource(11, 6, 7)
-[MUST-RUNTIME] [GASPIRMAWrapper] Wait for notification 0 and received 3 notifications
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 0
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 1
-[MUST-RUNTIME] [GASPIRMAWrapper] Notification 0 from 2
 Process 0: Execution finished, variable contents: localbuf[0] = 1, remote_data[0] = 0
+Process 2: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
 Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 1
 [MUST-REPORT] Error: from: call @1: Remote data race at rank 1 between a write of size 8 at  Concurrent region of reference 1 started at reference 3 and ended at reference 4. 
 [MUST-REPORT]  Concurrent region of reference 2 started at reference 5 and ended at reference 6. 
 [MUST-REPORT]  References of a representative process:
 [MUST-REPORT] Reference 1: call gaspi_atomic_fetch_addmain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:76
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:76
 [MUST-REPORT]  @rank 2, threadid 1;
 [MUST-REPORT] Reference 2: call gaspi_writemain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:69
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:69
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-REPORT] Reference 3: call gaspi_barriermain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:64
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:64
 [MUST-REPORT]  @rank 1, threadid 0;
 [MUST-REPORT] Reference 4: call  @rank 1, threadid 0;
 [MUST-REPORT] Reference 5: call gaspi_barriermain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:64
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:64
 [MUST-REPORT]  @rank 1, threadid 0;
 [MUST-REPORT] Reference 6: call  @rank 1, threadid 0;
 [MUST-REPORT] Information: from: call MPI_Finalize@0-2: The following MPI functions were used but are not supported by MUST: 
@@ -117,7 +33,7 @@ Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0
 [MUST-REPORT] gaspi_proc_term
 [MUST-REPORT]  References of a representative process:
 [MUST-REPORT] Reference 1: call gaspi_proc_rankmain
-[MUST-REPORT] /rmaracebench/results-20240330-173751/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:39
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/conflict/028-GASPI-conflict-write-fetchadd-remote-yes.c:39
 [MUST-REPORT]  @rank 1, threadid 1;
 [MUST-REPORT] Reference 2: call gaspi_proc_term??
 [MUST-REPORT] ??:0
@@ -125,15 +41,15 @@ Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0
 *** The MPI_Finalize() function was called after MPI_FINALIZE was invoked.
 *** This is disallowed by the MPI standard.
 *** Your MPI job will now abort.
-[4bf54a6d4440:68369] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
+[2d4db3254d3c:68233] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
 *** The MPI_Finalize() function was called after MPI_FINALIZE was invoked.
 *** This is disallowed by the MPI standard.
 *** Your MPI job will now abort.
-[4bf54a6d4440:68371] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
+[2d4db3254d3c:68234] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
 *** The MPI_Finalize() function was called after MPI_FINALIZE was invoked.
 *** This is disallowed by the MPI standard.
 *** Your MPI job will now abort.
-[4bf54a6d4440:68370] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
+[2d4db3254d3c:68232] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
 a non-zero exit code. Per user-direction, the job has been aborted.
@@ -142,7 +58,7 @@ a non-zero exit code. Per user-direction, the job has been aborted.
 mpiexec detected that one or more processes exited with non-zero status, thus causing
 the job to be terminated. The first process to do so was:
 
-  Process name: [[35538,1],0]
+  Process name: [[30105,1],1]
   Exit code:    1
 --------------------------------------------------------------------------
 [MUST] Execution finished.

@@ -1,34 +1,42 @@
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-Using prebuild /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
-[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3
-[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/3ceb8dba3ca5ad416757181e9fcd32f3" is present and used.
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780" is present and used.
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
-ThreadSanitizer:DEADLYSIGNAL
-ThreadSanitizer:DEADLYSIGNAL
+[MUST-RUNTIME] [RMASanitize] epoch counter not found for context 0this should not happen.
+Process 1: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 42
+Process 0: Execution finished, variable contents: localbuf[0] = 0, remote_data[0] = 0
+[MUST-REPORT] Information: from: call MPI_Finalize@0-1: The following MPI functions were used but are not supported by MUST: 
+[MUST-REPORT] gaspi_proc_rank
+[MUST-REPORT] gaspi_proc_term
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call gaspi_proc_rankmain
+[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/hybrid/021-GASPI-hybrid-lock-section-barrier-origin-remote-yes.c:42
+[MUST-REPORT]  @rank 0, threadid 1;
+[MUST-REPORT] Reference 2: call gaspi_proc_term??
+[MUST-REPORT] ??:0
+[MUST-REPORT]  @rank 0, threadid 1;
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+*** The MPI_Finalize() function was called after MPI_FINALIZE was invoked.
+*** This is disallowed by the MPI standard.
+*** Your MPI job will now abort.
+[2d4db3254d3c:83650] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
+*** The MPI_Finalize() function was called after MPI_FINALIZE was invoked.
+*** This is disallowed by the MPI standard.
+*** Your MPI job will now abort.
+[2d4db3254d3c:83651] Local abort after MPI_FINALIZE started completed successfully, but am not able to aggregate error messages, and not able to guarantee that all other processes were killed!
 --------------------------------------------------------------------------
-mpiexec has exited due to process rank 1 with PID 0 on
-node 4bf54a6d4440 exiting improperly. There are three reasons this could occur:
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
 
-1. this process did not call "init" before exiting, but others in
-the job did. This can cause a job to hang indefinitely while it waits
-for all processes to call "init". By rule, if one process calls "init",
-then ALL processes must call "init" prior to termination.
-
-2. this process called "init", but exited without calling "finalize".
-By rule, all processes that call "init" MUST call "finalize" prior to
-exiting or it will be considered an "abnormal termination"
-
-3. this process called "MPI_Abort" or "orte_abort" and the mca parameter
-orte_create_session_dirs is set to false. In this case, the run-time cannot
-detect that the abort call was an abnormal termination. Hence, the only
-error message you will receive is this one.
-
-This may have caused other processes in the application to be
-terminated by signals sent by mpiexec (as reported here).
-
-You can avoid this message by specifying -quiet on the mpiexec command line.
+  Process name: [[14755,1],1]
+  Exit code:    1
 --------------------------------------------------------------------------
 [MUST] Execution finished.

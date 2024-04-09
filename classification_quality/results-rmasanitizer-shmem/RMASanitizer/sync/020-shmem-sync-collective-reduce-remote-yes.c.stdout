@@ -7,18 +7,18 @@ Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
 PE 0: 4
+PE 1: 0
 PE 2: 4
 PE 3: 4
-PE 1: 0
 Process 0: Execution finished, variable contents: remote = 0, localbuf = 1
-Process 2: Execution finished, variable contents: remote = 0, localbuf = 1
 Process 3: Execution finished, variable contents: remote = 0, localbuf = 1
+Process 2: Execution finished, variable contents: remote = 0, localbuf = 1
 Process 1: Execution finished, variable contents: remote = 0, localbuf = 1
 [MUST-REPORT] Error: from: call shmem_int_put@0: Found RMA data race (overlapping accesses) on rank 1 originating from rank 0 References of a representative process:
 [MUST-REPORT] Reference 1: call shmem_int_putmain
-[MUST-REPORT] /rmaracebench/results-20240406-162207/RMASanitizer/sync/020-shmem-sync-collective-reduce-remote-yes.c:58
+[MUST-REPORT] /rmaracebench/results-20240409-163106/RMASanitizer/sync/020-shmem-sync-collective-reduce-remote-yes.c:58
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-REPORT] Reference 2: call shmem_int_sum_reducemain
-[MUST-REPORT] /rmaracebench/results-20240406-162207/RMASanitizer/sync/020-shmem-sync-collective-reduce-remote-yes.c:53
+[MUST-REPORT] /rmaracebench/results-20240409-163106/RMASanitizer/sync/020-shmem-sync-collective-reduce-remote-yes.c:53
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST] Execution finished.
