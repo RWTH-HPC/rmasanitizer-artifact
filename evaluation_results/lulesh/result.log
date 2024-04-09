@@ -1,0 +1,1182 @@
+[2024-04-06 00:08:51,184]:DEBUG: No data found for analyser "analyse" in benchmark run 14. Run analyse step automatically.
+[2024-04-06 00:08:51,184]:DEBUG: Run analyser "analyse"
+[2024-04-06 00:08:51,184]:DEBUG:   available pattern:
+[2024-04-06 00:08:51,186]:DEBUG:          | pattern      | value                                    |
+[2024-04-06 00:08:51,186]:DEBUG:          |--------------|------------------------------------------|
+[2024-04-06 00:08:51,186]:DEBUG:          | memory_total | \(max_rss\): ${jube_pat_fp} MiB          |
+[2024-04-06 00:08:51,186]:DEBUG:          | time         | Elapsed time .* ${jube_pat_fp}           |
+[2024-04-06 00:08:51,186]:DEBUG:          | verification | EXECUTION VERIFICATION CHECK:            |
+[2024-04-06 00:08:51,186]:DEBUG:          |              | ${jube_pat_wrd}                          |
+[2024-04-06 00:08:51,187]:DEBUG: 
+[2024-04-06 00:08:51,187]:DEBUG:   available derived pattern:
+[2024-04-06 00:08:51,187]:DEBUG:          | pattern | value |
+[2024-04-06 00:08:51,187]:DEBUG:          |---------|-------|
+[2024-04-06 00:08:51,188]:DEBUG:   analyse step "execute"
+[2024-04-06 00:08:51,191]:DEBUG:     scan file lulesh.benchmarks/000014/000029_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,195]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,196]:DEBUG:          | memory_total |        first:217492.188, min:217492.188, |
+[2024-04-06 00:08:51,196]:DEBUG:          |              | max:217492.188, sum:217492.188,          |
+[2024-04-06 00:08:51,196]:DEBUG:          |              | sum2:47302851841.02734, cnt:1,           |
+[2024-04-06 00:08:51,196]:DEBUG:          |              | avg:217492.188, std:0, last:217492.188   |
+[2024-04-06 00:08:51,196]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,196]:DEBUG:          |         time |       first:850.0, min:850.0, max:850.0, |
+[2024-04-06 00:08:51,196]:DEBUG:          |              | sum:850.0, sum2:722500.0, cnt:1,         |
+[2024-04-06 00:08:51,197]:DEBUG:          |              | avg:850.0, std:0, last:850.0             |
+[2024-04-06 00:08:51,200]:DEBUG:     scan file lulesh.benchmarks/000014/000026_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,203]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,204]:DEBUG:          | memory_total |        first:217492.188, min:217492.188, |
+[2024-04-06 00:08:51,204]:DEBUG:          |              | max:217936.492, sum:435428.68,           |
+[2024-04-06 00:08:51,204]:DEBUG:          |              | sum2:94799166386.2934, cnt:2,            |
+[2024-04-06 00:08:51,204]:DEBUG:          |              | avg:217714.34, std:314.1703712980237,    |
+[2024-04-06 00:08:51,204]:DEBUG:          |              | last:217936.492                          |
+[2024-04-06 00:08:51,204]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,204]:DEBUG:          |         time |       first:850.0, min:850.0, max:870.0, |
+[2024-04-06 00:08:51,205]:DEBUG:          |              | sum:1720.0, sum2:1479400.0, cnt:2,       |
+[2024-04-06 00:08:51,205]:DEBUG:          |              | avg:860.0, std:14.142135623730951,       |
+[2024-04-06 00:08:51,205]:DEBUG:          |              | last:870.0                               |
+[2024-04-06 00:08:51,208]:DEBUG:     scan file lulesh.benchmarks/000014/000028_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,212]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,212]:DEBUG:          | memory_total |        first:217492.188, min:217492.188, |
+[2024-04-06 00:08:51,212]:DEBUG:          |              | max:217936.492, sum:653107.5279999999,   |
+[2024-04-06 00:08:51,212]:DEBUG:          |              | sum2:142183247252.9005, cnt:3,           |
+[2024-04-06 00:08:51,212]:DEBUG:          |              | avg:217702.50933333332,                  |
+[2024-04-06 00:08:51,212]:DEBUG:          |              | std:223.0950585201483, last:217678.848   |
+[2024-04-06 00:08:51,212]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,212]:DEBUG:          |         time |       first:850.0, min:840.0, max:870.0, |
+[2024-04-06 00:08:51,213]:DEBUG:          |              | sum:2560.0, sum2:2185000.0, cnt:3,       |
+[2024-04-06 00:08:51,213]:DEBUG:          |              | avg:853.3333333333334,                   |
+[2024-04-06 00:08:51,213]:DEBUG:          |              | std:15.275252316516926, last:840.0       |
+[2024-04-06 00:08:51,216]:DEBUG:     scan file lulesh.benchmarks/000014/000025_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,220]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,220]:DEBUG:          | memory_total |        first:217492.188, min:217411.148, |
+[2024-04-06 00:08:51,220]:DEBUG:          |              | max:217936.492, sum:870518.676,          |
+[2024-04-06 00:08:51,220]:DEBUG:          |              | sum2:189450854527.5784, cnt:4,           |
+[2024-04-06 00:08:51,220]:DEBUG:          |              | avg:217629.669, std:233.24620765582358,  |
+[2024-04-06 00:08:51,221]:DEBUG:          |              | last:217411.148                          |
+[2024-04-06 00:08:51,221]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,221]:DEBUG:          |         time |       first:850.0, min:840.0, max:870.0, |
+[2024-04-06 00:08:51,221]:DEBUG:          |              | sum:3400.0, sum2:2890600.0, cnt:4,       |
+[2024-04-06 00:08:51,222]:DEBUG:          |              | avg:850.0, std:14.142135623730951,       |
+[2024-04-06 00:08:51,222]:DEBUG:          |              | last:840.0                               |
+[2024-04-06 00:08:51,225]:DEBUG:     scan file lulesh.benchmarks/000014/000027_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,228]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,228]:DEBUG:          | memory_total |        first:217492.188, min:217411.148, |
+[2024-04-06 00:08:51,228]:DEBUG:          |              | max:217936.492, sum:1088172.946,         |
+[2024-04-06 00:08:51,228]:DEBUG:          |              | sum2:236824235776.81128, cnt:5,          |
+[2024-04-06 00:08:51,229]:DEBUG:          |              | avg:217634.5892, std:202.2965320487904,  |
+[2024-04-06 00:08:51,229]:DEBUG:          |              | last:217654.27                           |
+[2024-04-06 00:08:51,229]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,229]:DEBUG:          |         time |       first:850.0, min:840.0, max:870.0, |
+[2024-04-06 00:08:51,230]:DEBUG:          |              | sum:4250.0, sum2:3613100.0, cnt:5,       |
+[2024-04-06 00:08:51,230]:DEBUG:          |              | avg:850.0, std:12.24744871391589,        |
+[2024-04-06 00:08:51,230]:DEBUG:          |              | last:850.0                               |
+[2024-04-06 00:08:51,232]:DEBUG:     scan file lulesh.benchmarks/000014/000009_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,236]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,236]:DEBUG:          | memory_total |            first:6749.383, min:6749.383, |
+[2024-04-06 00:08:51,236]:DEBUG:          |              | max:6749.383, sum:6749.383,              |
+[2024-04-06 00:08:51,236]:DEBUG:          |              | sum2:45554170.880688995, cnt:1,          |
+[2024-04-06 00:08:51,236]:DEBUG:          |              | avg:6749.383, std:0, last:6749.383       |
+[2024-04-06 00:08:51,237]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,237]:DEBUG:          |         time |       first:230.0, min:230.0, max:230.0, |
+[2024-04-06 00:08:51,237]:DEBUG:          |              | sum:230.0, sum2:52900.0, cnt:1,          |
+[2024-04-06 00:08:51,237]:DEBUG:          |              | avg:230.0, std:0, last:230.0             |
+[2024-04-06 00:08:51,240]:DEBUG:     scan file lulesh.benchmarks/000014/000005_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,244]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,244]:DEBUG:          | memory_total |            first:6749.383, min:6749.383, |
+[2024-04-06 00:08:51,244]:DEBUG:          |              | max:6763.512, sum:13512.895,             |
+[2024-04-06 00:08:51,244]:DEBUG:          |              | sum2:91299265.454833, cnt:2,             |
+[2024-04-06 00:08:51,244]:DEBUG:          |              | avg:6756.4475, std:9.990711710872464,    |
+[2024-04-06 00:08:51,245]:DEBUG:          |              | last:6763.512                            |
+[2024-04-06 00:08:51,245]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,245]:DEBUG:          |         time |       first:230.0, min:230.0, max:230.0, |
+[2024-04-06 00:08:51,245]:DEBUG:          |              | sum:460.0, sum2:105800.0, cnt:2,         |
+[2024-04-06 00:08:51,245]:DEBUG:          |              | avg:230.0, std:0.0, last:230.0           |
+[2024-04-06 00:08:51,248]:DEBUG:     scan file lulesh.benchmarks/000014/000008_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,252]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,252]:DEBUG:          | memory_total |            first:6749.383, min:6749.383, |
+[2024-04-06 00:08:51,252]:DEBUG:          |              | max:6763.512, sum:20265.762000000002,    |
+[2024-04-06 00:08:51,252]:DEBUG:          |              | sum2:136900478.174522, cnt:3,            |
+[2024-04-06 00:08:51,252]:DEBUG:          |              | avg:6755.254000000001,                   |
+[2024-04-06 00:08:51,252]:DEBUG:          |              | std:7.360739568277194, last:6752.867     |
+[2024-04-06 00:08:51,252]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,252]:DEBUG:          |         time |       first:230.0, min:230.0, max:230.0, |
+[2024-04-06 00:08:51,253]:DEBUG:          |              | sum:690.0, sum2:158700.0, cnt:3,         |
+[2024-04-06 00:08:51,253]:DEBUG:          |              | avg:230.0, std:0.0, last:230.0           |
+[2024-04-06 00:08:51,254]:DEBUG:     scan file lulesh.benchmarks/000014/000007_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,257]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,257]:DEBUG:          | memory_total |            first:6749.383, min:6749.383, |
+[2024-04-06 00:08:51,257]:DEBUG:          |              | max:6763.512, sum:27020.239,             |
+[2024-04-06 00:08:51,257]:DEBUG:          |              | sum2:182523437.71805102, cnt:4,          |
+[2024-04-06 00:08:51,257]:DEBUG:          |              | avg:6755.05975, std:6.022562321283312,   |
+[2024-04-06 00:08:51,258]:DEBUG:          |              | last:6754.477                            |
+[2024-04-06 00:08:51,258]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,258]:DEBUG:          |         time |       first:230.0, min:230.0, max:230.0, |
+[2024-04-06 00:08:51,259]:DEBUG:          |              | sum:920.0, sum2:211600.0, cnt:4,         |
+[2024-04-06 00:08:51,259]:DEBUG:          |              | avg:230.0, std:0.0, last:230.0           |
+[2024-04-06 00:08:51,262]:DEBUG:     scan file lulesh.benchmarks/000014/000006_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,265]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,265]:DEBUG:          | memory_total |            first:6749.383, min:6749.383, |
+[2024-04-06 00:08:51,265]:DEBUG:          |              | max:6801.816, sum:33822.055,             |
+[2024-04-06 00:08:51,265]:DEBUG:          |              | sum2:228788138.615907, cnt:5,            |
+[2024-04-06 00:08:51,265]:DEBUG:          |              | avg:6764.411, std:21.550703596362762,    |
+[2024-04-06 00:08:51,266]:DEBUG:          |              | last:6801.816                            |
+[2024-04-06 00:08:51,266]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,266]:DEBUG:          |         time |       first:230.0, min:230.0, max:230.0, |
+[2024-04-06 00:08:51,266]:DEBUG:          |              | sum:1150.0, sum2:264500.0, cnt:5,        |
+[2024-04-06 00:08:51,267]:DEBUG:          |              | avg:230.0, std:0.0, last:230.0           |
+[2024-04-06 00:08:51,270]:DEBUG:     scan file lulesh.benchmarks/000014/000044_execute_base_base/work/job.out
+[2024-04-06 00:08:51,273]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,273]:DEBUG:          | memory_total |            first:2219.871, min:2219.871, |
+[2024-04-06 00:08:51,273]:DEBUG:          |              | max:2219.871, sum:2219.871,              |
+[2024-04-06 00:08:51,273]:DEBUG:          |              | sum2:4927827.2566410005, cnt:1,          |
+[2024-04-06 00:08:51,273]:DEBUG:          |              | avg:2219.871, std:0, last:2219.871       |
+[2024-04-06 00:08:51,274]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,274]:DEBUG:          |         time |          first:35.0, min:35.0, max:35.0, |
+[2024-04-06 00:08:51,274]:DEBUG:          |              | sum:35.0, sum2:1225.0, cnt:1, avg:35.0,  |
+[2024-04-06 00:08:51,274]:DEBUG:          |              | std:0, last:35.0                         |
+[2024-04-06 00:08:51,278]:DEBUG:     scan file lulesh.benchmarks/000014/000041_execute_base_base/work/job.out
+[2024-04-06 00:08:51,281]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,281]:DEBUG:          | memory_total |            first:2219.871, min:2214.832, |
+[2024-04-06 00:08:51,281]:DEBUG:          |              | max:2219.871, sum:4434.7029999999995,    |
+[2024-04-06 00:08:51,281]:DEBUG:          |              | sum2:9833308.044865001, cnt:2,           |
+[2024-04-06 00:08:51,281]:DEBUG:          |              | avg:2217.3514999999998,                  |
+[2024-04-06 00:08:51,282]:DEBUG:          |              | std:3.5631110708777087, last:2214.832    |
+[2024-04-06 00:08:51,282]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,282]:DEBUG:          |         time |          first:35.0, min:35.0, max:35.0, |
+[2024-04-06 00:08:51,283]:DEBUG:          |              | sum:70.0, sum2:2450.0, cnt:2, avg:35.0,  |
+[2024-04-06 00:08:51,283]:DEBUG:          |              | std:0.0, last:35.0                       |
+[2024-04-06 00:08:51,286]:DEBUG:     scan file lulesh.benchmarks/000014/000040_execute_base_base/work/job.out
+[2024-04-06 00:08:51,289]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,289]:DEBUG:          | memory_total |            first:2219.871, min:2214.832, |
+[2024-04-06 00:08:51,289]:DEBUG:          |              | max:2219.871, sum:6652.9839999999995,    |
+[2024-04-06 00:08:51,289]:DEBUG:          |              | sum2:14754078.639826, cnt:3,             |
+[2024-04-06 00:08:51,289]:DEBUG:          |              | avg:2217.661333333333,                   |
+[2024-04-06 00:08:51,290]:DEBUG:          |              | std:2.57601831005934, last:2218.281      |
+[2024-04-06 00:08:51,290]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,290]:DEBUG:          |         time |          first:35.0, min:35.0, max:35.0, |
+[2024-04-06 00:08:51,291]:DEBUG:          |              | sum:105.0, sum2:3675.0, cnt:3, avg:35.0, |
+[2024-04-06 00:08:51,291]:DEBUG:          |              | std:0.0, last:35.0                       |
+[2024-04-06 00:08:51,294]:DEBUG:     scan file lulesh.benchmarks/000014/000043_execute_base_base/work/job.out
+[2024-04-06 00:08:51,297]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,297]:DEBUG:          | memory_total |            first:2219.871, min:2214.832, |
+[2024-04-06 00:08:51,297]:DEBUG:          |              | max:2219.871, sum:8869.206999999999,     |
+[2024-04-06 00:08:51,297]:DEBUG:          |              | sum2:19665723.025555, cnt:4,             |
+[2024-04-06 00:08:51,297]:DEBUG:          |              | avg:2217.3017499999996,                  |
+[2024-04-06 00:08:51,298]:DEBUG:          |              | std:2.222861725751806, last:2216.223     |
+[2024-04-06 00:08:51,298]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,298]:DEBUG:          |         time |          first:35.0, min:35.0, max:35.0, |
+[2024-04-06 00:08:51,298]:DEBUG:          |              | sum:140.0, sum2:4900.0, cnt:4, avg:35.0, |
+[2024-04-06 00:08:51,298]:DEBUG:          |              | std:0.0, last:35.0                       |
+[2024-04-06 00:08:51,301]:DEBUG:     scan file lulesh.benchmarks/000014/000042_execute_base_base/work/job.out
+[2024-04-06 00:08:51,304]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,304]:DEBUG:          | memory_total |            first:2219.871, min:2214.832, |
+[2024-04-06 00:08:51,304]:DEBUG:          |              | max:2219.871, sum:11087.909999999998,    |
+[2024-04-06 00:08:51,304]:DEBUG:          |              | sum2:24588366.027764, cnt:5,             |
+[2024-04-06 00:08:51,304]:DEBUG:          |              | avg:2217.5819999999994,                  |
+[2024-04-06 00:08:51,305]:DEBUG:          |              | std:2.024484132427244, last:2218.703     |
+[2024-04-06 00:08:51,305]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,305]:DEBUG:          |         time |          first:35.0, min:35.0, max:35.0, |
+[2024-04-06 00:08:51,306]:DEBUG:          |              | sum:175.0, sum2:6125.0, cnt:5, avg:35.0, |
+[2024-04-06 00:08:51,306]:DEBUG:          |              | std:0.0, last:35.0                       |
+[2024-04-06 00:08:51,309]:DEBUG:     scan file lulesh.benchmarks/000014/000017_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,312]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,312]:DEBUG:          | memory_total |          first:49254.965, min:49254.965, |
+[2024-04-06 00:08:51,312]:DEBUG:          |              | max:49254.965, sum:49254.965,            |
+[2024-04-06 00:08:51,313]:DEBUG:          |              | sum2:2426051577.1512246, cnt:1,          |
+[2024-04-06 00:08:51,313]:DEBUG:          |              | avg:49254.965, std:0, last:49254.965     |
+[2024-04-06 00:08:51,313]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,313]:DEBUG:          |         time |       first:490.0, min:490.0, max:490.0, |
+[2024-04-06 00:08:51,313]:DEBUG:          |              | sum:490.0, sum2:240100.0, cnt:1,         |
+[2024-04-06 00:08:51,313]:DEBUG:          |              | avg:490.0, std:0, last:490.0             |
+[2024-04-06 00:08:51,315]:DEBUG:     scan file lulesh.benchmarks/000014/000019_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,318]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,318]:DEBUG:          | memory_total |          first:49254.965, min:49028.641, |
+[2024-04-06 00:08:51,319]:DEBUG:          |              | max:49254.965, sum:98283.606,            |
+[2024-04-06 00:08:51,319]:DEBUG:          |              | sum2:4829859215.458106, cnt:2,           |
+[2024-04-06 00:08:51,319]:DEBUG:          |              | avg:49141.803, std:160.0352351462144,    |
+[2024-04-06 00:08:51,319]:DEBUG:          |              | last:49028.641                           |
+[2024-04-06 00:08:51,319]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,320]:DEBUG:          |         time |       first:490.0, min:490.0, max:500.0, |
+[2024-04-06 00:08:51,320]:DEBUG:          |              | sum:990.0, sum2:490100.0, cnt:2,         |
+[2024-04-06 00:08:51,320]:DEBUG:          |              | avg:495.0, std:7.0710678118654755,       |
+[2024-04-06 00:08:51,320]:DEBUG:          |              | last:500.0                               |
+[2024-04-06 00:08:51,323]:DEBUG:     scan file lulesh.benchmarks/000014/000016_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,326]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,326]:DEBUG:          | memory_total |          first:49254.965, min:49028.641, |
+[2024-04-06 00:08:51,326]:DEBUG:          |              | max:49254.965, sum:147438.688,           |
+[2024-04-06 00:08:51,326]:DEBUG:          |              | sum2:7246081301.88483, cnt:3,            |
+[2024-04-06 00:08:51,326]:DEBUG:          |              | avg:49146.22933333333,                   |
+[2024-04-06 00:08:51,327]:DEBUG:          |              | std:113.42140681969856, last:49155.082   |
+[2024-04-06 00:08:51,327]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,327]:DEBUG:          |         time |       first:490.0, min:490.0, max:510.0, |
+[2024-04-06 00:08:51,328]:DEBUG:          |              | sum:1500.0, sum2:750200.0, cnt:3,        |
+[2024-04-06 00:08:51,328]:DEBUG:          |              | avg:500.0, std:10.0, last:510.0          |
+[2024-04-06 00:08:51,330]:DEBUG:     scan file lulesh.benchmarks/000014/000018_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,334]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,334]:DEBUG:          | memory_total |          first:49254.965, min:49028.641, |
+[2024-04-06 00:08:51,334]:DEBUG:          |              | max:49540.371, sum:196979.059,           |
+[2024-04-06 00:08:51,334]:DEBUG:          |              | sum2:9700329660.70247, cnt:4,            |
+[2024-04-06 00:08:51,334]:DEBUG:          |              | avg:49244.76475, std:217.7457011441213,  |
+[2024-04-06 00:08:51,334]:DEBUG:          |              | last:49540.371                           |
+[2024-04-06 00:08:51,334]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,334]:DEBUG:          |         time |       first:490.0, min:490.0, max:510.0, |
+[2024-04-06 00:08:51,334]:DEBUG:          |              | sum:1990.0, sum2:990300.0, cnt:4,        |
+[2024-04-06 00:08:51,335]:DEBUG:          |              | avg:497.5, std:9.574271077563381,        |
+[2024-04-06 00:08:51,335]:DEBUG:          |              | last:490.0                               |
+[2024-04-06 00:08:51,338]:DEBUG:     scan file lulesh.benchmarks/000014/000015_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,341]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,341]:DEBUG:          | memory_total |          first:49254.965, min:49028.641, |
+[2024-04-06 00:08:51,341]:DEBUG:          |              | max:49540.371, sum:246427.42200000002,   |
+[2024-04-06 00:08:51,341]:DEBUG:          |              | sum2:12145470264.08224, cnt:5,           |
+[2024-04-06 00:08:51,341]:DEBUG:          |              | avg:49285.4844, std:209.40473312491173,  |
+[2024-04-06 00:08:51,342]:DEBUG:          |              | last:49448.363                           |
+[2024-04-06 00:08:51,342]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,342]:DEBUG:          |         time |       first:490.0, min:490.0, max:510.0, |
+[2024-04-06 00:08:51,343]:DEBUG:          |              | sum:2480.0, sum2:1230400.0, cnt:5,       |
+[2024-04-06 00:08:51,343]:DEBUG:          |              | avg:496.0, std:8.94427190999916,         |
+[2024-04-06 00:08:51,343]:DEBUG:          |              | last:490.0                               |
+[2024-04-06 00:08:51,346]:DEBUG:     scan file lulesh.benchmarks/000014/000067_execute_base_base/work/job.out
+[2024-04-06 00:08:51,349]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,349]:DEBUG:          | memory_total |          first:81397.785, min:81397.785, |
+[2024-04-06 00:08:51,349]:DEBUG:          |              | max:81397.785, sum:81397.785,            |
+[2024-04-06 00:08:51,349]:DEBUG:          |              | sum2:6625599402.906225, cnt:1,           |
+[2024-04-06 00:08:51,349]:DEBUG:          |              | avg:81397.785, std:0, last:81397.785     |
+[2024-04-06 00:08:51,350]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,350]:DEBUG:          |         time |       first:120.0, min:120.0, max:120.0, |
+[2024-04-06 00:08:51,350]:DEBUG:          |              | sum:120.0, sum2:14400.0, cnt:1,          |
+[2024-04-06 00:08:51,351]:DEBUG:          |              | avg:120.0, std:0, last:120.0             |
+[2024-04-06 00:08:51,354]:DEBUG:     scan file lulesh.benchmarks/000014/000069_execute_base_base/work/job.out
+[2024-04-06 00:08:51,357]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,357]:DEBUG:          | memory_total |          first:81397.785, min:81397.785, |
+[2024-04-06 00:08:51,357]:DEBUG:          |              | max:81414.859, sum:162812.644,           |
+[2024-04-06 00:08:51,357]:DEBUG:          |              | sum2:13253978668.896107, cnt:2,          |
+[2024-04-06 00:08:51,357]:DEBUG:          |              | avg:81406.322, std:12.073141197418455,   |
+[2024-04-06 00:08:51,358]:DEBUG:          |              | last:81414.859                           |
+[2024-04-06 00:08:51,358]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,358]:DEBUG:          |         time |       first:120.0, min:120.0, max:120.0, |
+[2024-04-06 00:08:51,358]:DEBUG:          |              | sum:240.0, sum2:28800.0, cnt:2,          |
+[2024-04-06 00:08:51,359]:DEBUG:          |              | avg:120.0, std:0.0, last:120.0           |
+[2024-04-06 00:08:51,361]:DEBUG:     scan file lulesh.benchmarks/000014/000066_execute_base_base/work/job.out
+[2024-04-06 00:08:51,365]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,365]:DEBUG:          | memory_total |          first:81397.785, min:81397.785, |
+[2024-04-06 00:08:51,365]:DEBUG:          |              | max:81416.281, sum:244228.925,           |
+[2024-04-06 00:08:51,365]:DEBUG:          |              | sum2:19882589480.767067, cnt:3,          |
+[2024-04-06 00:08:51,365]:DEBUG:          |              | avg:81409.64166666666,                   |
+[2024-04-06 00:08:51,366]:DEBUG:          |              | std:10.292761112558205, last:81416.281   |
+[2024-04-06 00:08:51,366]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,366]:DEBUG:          |         time |       first:120.0, min:120.0, max:120.0, |
+[2024-04-06 00:08:51,366]:DEBUG:          |              | sum:360.0, sum2:43200.0, cnt:3,          |
+[2024-04-06 00:08:51,366]:DEBUG:          |              | avg:120.0, std:0.0, last:120.0           |
+[2024-04-06 00:08:51,369]:DEBUG:     scan file lulesh.benchmarks/000014/000068_execute_base_base/work/job.out
+[2024-04-06 00:08:51,373]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,373]:DEBUG:          | memory_total |          first:81397.785, min:81397.785, |
+[2024-04-06 00:08:51,373]:DEBUG:          |              | max:81417.75, sum:325646.675,            |
+[2024-04-06 00:08:51,373]:DEBUG:          |              | sum2:26511439495.829567, cnt:4,          |
+[2024-04-06 00:08:51,373]:DEBUG:          |              | avg:81411.66875, std:9.330785289996285,  |
+[2024-04-06 00:08:51,373]:DEBUG:          |              | last:81417.75                            |
+[2024-04-06 00:08:51,374]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,374]:DEBUG:          |         time |       first:120.0, min:120.0, max:120.0, |
+[2024-04-06 00:08:51,374]:DEBUG:          |              | sum:480.0, sum2:57600.0, cnt:4,          |
+[2024-04-06 00:08:51,375]:DEBUG:          |              | avg:120.0, std:0.0, last:120.0           |
+[2024-04-06 00:08:51,378]:DEBUG:     scan file lulesh.benchmarks/000014/000065_execute_base_base/work/job.out
+[2024-04-06 00:08:51,381]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,381]:DEBUG:          | memory_total |          first:81397.785, min:81384.562, |
+[2024-04-06 00:08:51,381]:DEBUG:          |              | max:81417.75, sum:407031.23699999996,    |
+[2024-04-06 00:08:51,381]:DEBUG:          |              | sum2:33134886427.761414, cnt:5,          |
+[2024-04-06 00:08:51,381]:DEBUG:          |              | avg:81406.2474, std:14.568899950379238,  |
+[2024-04-06 00:08:51,382]:DEBUG:          |              | last:81384.562                           |
+[2024-04-06 00:08:51,382]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,382]:DEBUG:          |         time |       first:120.0, min:120.0, max:120.0, |
+[2024-04-06 00:08:51,383]:DEBUG:          |              | sum:600.0, sum2:72000.0, cnt:5,          |
+[2024-04-06 00:08:51,383]:DEBUG:          |              | avg:120.0, std:0.0, last:120.0           |
+[2024-04-06 00:08:51,386]:DEBUG:     scan file lulesh.benchmarks/000014/000052_execute_base_base/work/job.out
+[2024-04-06 00:08:51,389]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,389]:DEBUG:          | memory_total |          first:19097.617, min:19097.617, |
+[2024-04-06 00:08:51,389]:DEBUG:          |              | max:19097.617, sum:19097.617,            |
+[2024-04-06 00:08:51,390]:DEBUG:          |              | sum2:364718975.0786889, cnt:1,           |
+[2024-04-06 00:08:51,390]:DEBUG:          |              | avg:19097.617, std:0, last:19097.617     |
+[2024-04-06 00:08:51,390]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,390]:DEBUG:          |         time |          first:63.0, min:63.0, max:63.0, |
+[2024-04-06 00:08:51,391]:DEBUG:          |              | sum:63.0, sum2:3969.0, cnt:1, avg:63.0,  |
+[2024-04-06 00:08:51,391]:DEBUG:          |              | std:0, last:63.0                         |
+[2024-04-06 00:08:51,394]:DEBUG:     scan file lulesh.benchmarks/000014/000054_execute_base_base/work/job.out
+[2024-04-06 00:08:51,398]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,398]:DEBUG:          | memory_total |          first:19097.617, min:19087.445, |
+[2024-04-06 00:08:51,398]:DEBUG:          |              | max:19097.617, sum:38185.062,            |
+[2024-04-06 00:08:51,398]:DEBUG:          |              | sum2:729049531.7067139, cnt:2,           |
+[2024-04-06 00:08:51,398]:DEBUG:          |              | avg:19092.531, std:7.192690177819065,    |
+[2024-04-06 00:08:51,398]:DEBUG:          |              | last:19087.445                           |
+[2024-04-06 00:08:51,398]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,398]:DEBUG:          |         time |          first:63.0, min:62.0, max:63.0, |
+[2024-04-06 00:08:51,399]:DEBUG:          |              | sum:125.0, sum2:7813.0, cnt:2, avg:62.5, |
+[2024-04-06 00:08:51,399]:DEBUG:          |              | std:0.7071067811865476, last:62.0        |
+[2024-04-06 00:08:51,402]:DEBUG:     scan file lulesh.benchmarks/000014/000051_execute_base_base/work/job.out
+[2024-04-06 00:08:51,405]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,405]:DEBUG:          | memory_total |          first:19097.617, min:19087.445, |
+[2024-04-06 00:08:51,405]:DEBUG:          |              | max:19100.164, sum:57285.225999999995,   |
+[2024-04-06 00:08:51,405]:DEBUG:          |              | sum2:1093865796.5336099, cnt:3,          |
+[2024-04-06 00:08:51,405]:DEBUG:          |              | avg:19095.07533333333,                   |
+[2024-04-06 00:08:51,406]:DEBUG:          |              | std:6.72965766505104, last:19100.164     |
+[2024-04-06 00:08:51,406]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,406]:DEBUG:          |         time |          first:63.0, min:62.0, max:63.0, |
+[2024-04-06 00:08:51,406]:DEBUG:          |              | sum:187.0, sum2:11657.0, cnt:3,          |
+[2024-04-06 00:08:51,407]:DEBUG:          |              | avg:62.333333333333336,                  |
+[2024-04-06 00:08:51,407]:DEBUG:          |              | std:0.5773502691893632, last:62.0        |
+[2024-04-06 00:08:51,410]:DEBUG:     scan file lulesh.benchmarks/000014/000053_execute_base_base/work/job.out
+[2024-04-06 00:08:51,413]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,413]:DEBUG:          | memory_total |          first:19097.617, min:19084.812, |
+[2024-04-06 00:08:51,413]:DEBUG:          |              | max:19100.164, sum:76370.038,            |
+[2024-04-06 00:08:51,413]:DEBUG:          |              | sum2:1458095845.608954, cnt:4,           |
+[2024-04-06 00:08:51,413]:DEBUG:          |              | avg:19092.5095, std:7.518390630440152,   |
+[2024-04-06 00:08:51,414]:DEBUG:          |              | last:19084.812                           |
+[2024-04-06 00:08:51,414]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,414]:DEBUG:          |         time |          first:63.0, min:62.0, max:65.0, |
+[2024-04-06 00:08:51,414]:DEBUG:          |              | sum:252.0, sum2:15882.0, cnt:4,          |
+[2024-04-06 00:08:51,414]:DEBUG:          |              | avg:63.0, std:1.4142135623730951,        |
+[2024-04-06 00:08:51,414]:DEBUG:          |              | last:65.0                                |
+[2024-04-06 00:08:51,417]:DEBUG:     scan file lulesh.benchmarks/000014/000050_execute_base_base/work/job.out
+[2024-04-06 00:08:51,421]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,421]:DEBUG:          | memory_total |          first:19097.617, min:19084.812, |
+[2024-04-06 00:08:51,421]:DEBUG:          |              | max:19115.078, sum:95485.11600000001,    |
+[2024-04-06 00:08:51,421]:DEBUG:          |              | sum2:1823482052.555038, cnt:5,           |
+[2024-04-06 00:08:51,421]:DEBUG:          |              | avg:19097.023200000003,                  |
+[2024-04-06 00:08:51,421]:DEBUG:          |              | std:12.010915311909727, last:19115.078   |
+[2024-04-06 00:08:51,421]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,421]:DEBUG:          |         time |          first:63.0, min:62.0, max:65.0, |
+[2024-04-06 00:08:51,421]:DEBUG:          |              | sum:315.0, sum2:19851.0, cnt:5,          |
+[2024-04-06 00:08:51,422]:DEBUG:          |              | avg:63.0, std:1.224744871391589,         |
+[2024-04-06 00:08:51,422]:DEBUG:          |              | last:63.0                                |
+[2024-04-06 00:08:51,425]:DEBUG:     scan file lulesh.benchmarks/000014/000032_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,429]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,429]:DEBUG:          | memory_total |        first:401436.891, min:401436.891, |
+[2024-04-06 00:08:51,429]:DEBUG:          |              | max:401436.891, sum:401436.891,          |
+[2024-04-06 00:08:51,429]:DEBUG:          |              | sum2:161151577455.74588, cnt:1,          |
+[2024-04-06 00:08:51,429]:DEBUG:          |              | avg:401436.891, std:0, last:401436.891   |
+[2024-04-06 00:08:51,429]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,429]:DEBUG:          |         time |    first:1100.0, min:1100.0, max:1100.0, |
+[2024-04-06 00:08:51,429]:DEBUG:          |              | sum:1100.0, sum2:1210000.0, cnt:1,       |
+[2024-04-06 00:08:51,430]:DEBUG:          |              | avg:1100.0, std:0, last:1100.0           |
+[2024-04-06 00:08:51,433]:DEBUG:     scan file lulesh.benchmarks/000014/000034_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,436]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,436]:DEBUG:          | memory_total |        first:401436.891, min:400466.637, |
+[2024-04-06 00:08:51,436]:DEBUG:          |              | max:401436.891, sum:801903.5279999999,   |
+[2024-04-06 00:08:51,436]:DEBUG:          |              | sum2:321525104805.83563, cnt:2,          |
+[2024-04-06 00:08:51,436]:DEBUG:          |              | avg:400951.76399999997,                  |
+[2024-04-06 00:08:51,437]:DEBUG:          |              | std:686.0731828985014, last:400466.637   |
+[2024-04-06 00:08:51,437]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,437]:DEBUG:          |         time |    first:1100.0, min:1100.0, max:1100.0, |
+[2024-04-06 00:08:51,437]:DEBUG:          |              | sum:2200.0, sum2:2420000.0, cnt:2,       |
+[2024-04-06 00:08:51,438]:DEBUG:          |              | avg:1100.0, std:0.0, last:1100.0         |
+[2024-04-06 00:08:51,441]:DEBUG:     scan file lulesh.benchmarks/000014/000031_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,445]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,445]:DEBUG:          | memory_total |        first:401436.891, min:400466.637, |
+[2024-04-06 00:08:51,445]:DEBUG:          |              | max:401436.891, sum:1203146.45,          |
+[2024-04-06 00:08:51,445]:DEBUG:          |              | sum2:482520987260.9337, cnt:3,           |
+[2024-04-06 00:08:51,445]:DEBUG:          |              | avg:401048.81666666665,                  |
+[2024-04-06 00:08:51,445]:DEBUG:          |              | std:513.4256192337851, last:401242.922   |
+[2024-04-06 00:08:51,445]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,445]:DEBUG:          |         time |    first:1100.0, min:1100.0, max:1100.0, |
+[2024-04-06 00:08:51,445]:DEBUG:          |              | sum:3300.0, sum2:3630000.0, cnt:3,       |
+[2024-04-06 00:08:51,446]:DEBUG:          |              | avg:1100.0, std:0.0, last:1100.0         |
+[2024-04-06 00:08:51,449]:DEBUG:     scan file lulesh.benchmarks/000014/000033_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,453]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,453]:DEBUG:          | memory_total |        first:401436.891, min:400466.637, |
+[2024-04-06 00:08:51,453]:DEBUG:          |              | max:401436.891, sum:1604403.454,         |
+[2024-04-06 00:08:51,453]:DEBUG:          |              | sum2:643528170519.9897, cnt:4,           |
+[2024-04-06 00:08:51,453]:DEBUG:          |              | avg:401100.8635, std:431.940662311924,   |
+[2024-04-06 00:08:51,453]:DEBUG:          |              | last:401257.004                          |
+[2024-04-06 00:08:51,453]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,454]:DEBUG:          |         time |    first:1100.0, min:1100.0, max:1100.0, |
+[2024-04-06 00:08:51,454]:DEBUG:          |              | sum:4400.0, sum2:4840000.0, cnt:4,       |
+[2024-04-06 00:08:51,454]:DEBUG:          |              | avg:1100.0, std:0.0, last:1100.0         |
+[2024-04-06 00:08:51,457]:DEBUG:     scan file lulesh.benchmarks/000014/000030_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,461]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,461]:DEBUG:          | memory_total |        first:401436.891, min:400466.637, |
+[2024-04-06 00:08:51,461]:DEBUG:          |              | max:401750.121, sum:2006153.575,         |
+[2024-04-06 00:08:51,461]:DEBUG:          |              | sum2:804931330243.5044, cnt:5,           |
+[2024-04-06 00:08:51,461]:DEBUG:          |              | avg:401230.71499999997,                  |
+[2024-04-06 00:08:51,461]:DEBUG:          |              | std:473.5362838168417, last:401750.121   |
+[2024-04-06 00:08:51,461]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,461]:DEBUG:          |         time |    first:1100.0, min:1100.0, max:1100.0, |
+[2024-04-06 00:08:51,461]:DEBUG:          |              | sum:5500.0, sum2:6050000.0, cnt:5,       |
+[2024-04-06 00:08:51,462]:DEBUG:          |              | avg:1100.0, std:0.0, last:1100.0         |
+[2024-04-06 00:08:51,465]:DEBUG:     scan file lulesh.benchmarks/000014/000056_execute_base_base/work/job.out
+[2024-04-06 00:08:51,468]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,468]:DEBUG:          | memory_total |          first:33540.281, min:33540.281, |
+[2024-04-06 00:08:51,468]:DEBUG:          |              | max:33540.281, sum:33540.281,            |
+[2024-04-06 00:08:51,468]:DEBUG:          |              | sum2:1124950449.5589612, cnt:1,          |
+[2024-04-06 00:08:51,468]:DEBUG:          |              | avg:33540.281, std:0, last:33540.281     |
+[2024-04-06 00:08:51,469]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,469]:DEBUG:          |         time |          first:91.0, min:91.0, max:91.0, |
+[2024-04-06 00:08:51,469]:DEBUG:          |              | sum:91.0, sum2:8281.0, cnt:1, avg:91.0,  |
+[2024-04-06 00:08:51,469]:DEBUG:          |              | std:0, last:91.0                         |
+[2024-04-06 00:08:51,472]:DEBUG:     scan file lulesh.benchmarks/000014/000058_execute_base_base/work/job.out
+[2024-04-06 00:08:51,475]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,475]:DEBUG:          | memory_total |          first:33540.281, min:33540.281, |
+[2024-04-06 00:08:51,475]:DEBUG:          |              | max:33556.879, sum:67097.16,             |
+[2024-04-06 00:08:51,475]:DEBUG:          |              | sum2:2251014577.779602, cnt:2,           |
+[2024-04-06 00:08:51,475]:DEBUG:          |              | avg:33548.58, std:11.736558347879498,    |
+[2024-04-06 00:08:51,476]:DEBUG:          |              | last:33556.879                           |
+[2024-04-06 00:08:51,476]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,476]:DEBUG:          |         time |          first:91.0, min:83.0, max:91.0, |
+[2024-04-06 00:08:51,476]:DEBUG:          |              | sum:174.0, sum2:15170.0, cnt:2,          |
+[2024-04-06 00:08:51,477]:DEBUG:          |              | avg:87.0, std:5.656854249492381,         |
+[2024-04-06 00:08:51,477]:DEBUG:          |              | last:83.0                                |
+[2024-04-06 00:08:51,480]:DEBUG:     scan file lulesh.benchmarks/000014/000055_execute_base_base/work/job.out
+[2024-04-06 00:08:51,483]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,483]:DEBUG:          | memory_total |          first:33540.281, min:33535.344, |
+[2024-04-06 00:08:51,483]:DEBUG:          |              | max:33556.879, sum:100632.504,           |
+[2024-04-06 00:08:51,483]:DEBUG:          |              | sum2:3375633874.9779377, cnt:3,          |
+[2024-04-06 00:08:51,483]:DEBUG:          |              | avg:33544.168, std:11.281428665902004,   |
+[2024-04-06 00:08:51,483]:DEBUG:          |              | last:33535.344                           |
+[2024-04-06 00:08:51,483]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,483]:DEBUG:          |         time |          first:91.0, min:83.0, max:91.0, |
+[2024-04-06 00:08:51,484]:DEBUG:          |              | sum:257.0, sum2:22059.0, cnt:3,          |
+[2024-04-06 00:08:51,484]:DEBUG:          |              | avg:85.66666666666667,                   |
+[2024-04-06 00:08:51,484]:DEBUG:          |              | std:4.618802153517072, last:83.0         |
+[2024-04-06 00:08:51,487]:DEBUG:     scan file lulesh.benchmarks/000014/000057_execute_base_base/work/job.out
+[2024-04-06 00:08:51,490]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,490]:DEBUG:          | memory_total |          first:33540.281, min:33535.344, |
+[2024-04-06 00:08:51,490]:DEBUG:          |              | max:33556.879, sum:134175.91,            |
+[2024-04-06 00:08:51,490]:DEBUG:          |              | sum2:4500793961.058774, cnt:4,           |
+[2024-04-06 00:08:51,490]:DEBUG:          |              | avg:33543.9775, std:9.219124117226677,   |
+[2024-04-06 00:08:51,491]:DEBUG:          |              | last:33543.406                           |
+[2024-04-06 00:08:51,491]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,491]:DEBUG:          |         time |          first:91.0, min:83.0, max:91.0, |
+[2024-04-06 00:08:51,491]:DEBUG:          |              | sum:340.0, sum2:28948.0, cnt:4,          |
+[2024-04-06 00:08:51,491]:DEBUG:          |              | avg:85.0, std:4.0, last:83.0             |
+[2024-04-06 00:08:51,494]:DEBUG:     scan file lulesh.benchmarks/000014/000059_execute_base_base/work/job.out
+[2024-04-06 00:08:51,498]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,498]:DEBUG:          | memory_total |          first:33540.281, min:33535.344, |
+[2024-04-06 00:08:51,498]:DEBUG:          |              | max:33559.84, sum:167735.75,             |
+[2024-04-06 00:08:51,498]:DEBUG:          |              | sum2:5627056821.884374, cnt:5,           |
+[2024-04-06 00:08:51,498]:DEBUG:          |              | avg:33547.15, std:10.680260688229023,    |
+[2024-04-06 00:08:51,498]:DEBUG:          |              | last:33559.84                            |
+[2024-04-06 00:08:51,498]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,498]:DEBUG:          |         time |          first:91.0, min:83.0, max:91.0, |
+[2024-04-06 00:08:51,499]:DEBUG:          |              | sum:423.0, sum2:35837.0, cnt:5,          |
+[2024-04-06 00:08:51,499]:DEBUG:          |              | avg:84.6, std:3.5777087639995617,        |
+[2024-04-06 00:08:51,499]:DEBUG:          |              | last:83.0                                |
+[2024-04-06 00:08:51,502]:DEBUG:     scan file lulesh.benchmarks/000014/000023_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,505]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,505]:DEBUG:          | memory_total |        first:104804.137, min:104804.137, |
+[2024-04-06 00:08:51,505]:DEBUG:          |              | max:104804.137, sum:104804.137,          |
+[2024-04-06 00:08:51,505]:DEBUG:          |              | sum2:10983907132.31477, cnt:1,           |
+[2024-04-06 00:08:51,505]:DEBUG:          |              | avg:104804.137, std:0, last:104804.137   |
+[2024-04-06 00:08:51,506]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,506]:DEBUG:          |         time |       first:680.0, min:680.0, max:680.0, |
+[2024-04-06 00:08:51,506]:DEBUG:          |              | sum:680.0, sum2:462400.0, cnt:1,         |
+[2024-04-06 00:08:51,507]:DEBUG:          |              | avg:680.0, std:0, last:680.0             |
+[2024-04-06 00:08:51,509]:DEBUG:     scan file lulesh.benchmarks/000014/000020_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,513]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,513]:DEBUG:          | memory_total |        first:104804.137, min:104804.137, |
+[2024-04-06 00:08:51,513]:DEBUG:          |              | max:105247.777, sum:210051.914,          |
+[2024-04-06 00:08:51,513]:DEBUG:          |              | sum2:22061001695.7565, cnt:2,            |
+[2024-04-06 00:08:51,513]:DEBUG:          |              | avg:105025.957, std:313.7008524118552,   |
+[2024-04-06 00:08:51,513]:DEBUG:          |              | last:105247.777                          |
+[2024-04-06 00:08:51,513]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,513]:DEBUG:          |         time |       first:680.0, min:680.0, max:680.0, |
+[2024-04-06 00:08:51,514]:DEBUG:          |              | sum:1360.0, sum2:924800.0, cnt:2,        |
+[2024-04-06 00:08:51,514]:DEBUG:          |              | avg:680.0, std:0.0, last:680.0           |
+[2024-04-06 00:08:51,517]:DEBUG:     scan file lulesh.benchmarks/000014/000022_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,521]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,521]:DEBUG:          | memory_total |        first:104804.137, min:104804.137, |
+[2024-04-06 00:08:51,521]:DEBUG:          |              | max:105450.312, sum:315502.226,          |
+[2024-04-06 00:08:51,521]:DEBUG:          |              | sum2:33180769996.653847, cnt:3,          |
+[2024-04-06 00:08:51,521]:DEBUG:          |              | avg:105167.40866666667,                  |
+[2024-04-06 00:08:51,521]:DEBUG:          |              | std:330.49937126688513, last:105450.312  |
+[2024-04-06 00:08:51,521]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,521]:DEBUG:          |         time |       first:680.0, min:680.0, max:710.0, |
+[2024-04-06 00:08:51,522]:DEBUG:          |              | sum:2070.0, sum2:1428900.0, cnt:3,       |
+[2024-04-06 00:08:51,522]:DEBUG:          |              | avg:690.0, std:17.320508075688775,       |
+[2024-04-06 00:08:51,522]:DEBUG:          |              | last:710.0                               |
+[2024-04-06 00:08:51,523]:DEBUG:     scan file lulesh.benchmarks/000014/000024_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,526]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,526]:DEBUG:          | memory_total |        first:104804.137, min:104522.027, |
+[2024-04-06 00:08:51,526]:DEBUG:          |              | max:105450.312, sum:420024.253,          |
+[2024-04-06 00:08:51,527]:DEBUG:          |              | sum2:44105624124.842575, cnt:4,          |
+[2024-04-06 00:08:51,527]:DEBUG:          |              | avg:105006.06325,                        |
+[2024-04-06 00:08:51,527]:DEBUG:          |              | std:420.65337692906996, last:104522.027  |
+[2024-04-06 00:08:51,527]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,527]:DEBUG:          |         time |       first:680.0, min:680.0, max:710.0, |
+[2024-04-06 00:08:51,527]:DEBUG:          |              | sum:2750.0, sum2:1891300.0, cnt:4,       |
+[2024-04-06 00:08:51,528]:DEBUG:          |              | avg:687.5, std:15.0, last:680.0          |
+[2024-04-06 00:08:51,531]:DEBUG:     scan file lulesh.benchmarks/000014/000021_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,535]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,535]:DEBUG:          | memory_total |        first:104804.137, min:104522.027, |
+[2024-04-06 00:08:51,535]:DEBUG:          |              | max:105450.312, sum:524990.398,          |
+[2024-04-06 00:08:51,535]:DEBUG:          |              | sum2:55123515721.0036, cnt:5,            |
+[2024-04-06 00:08:51,535]:DEBUG:          |              | avg:104998.07960000001,                  |
+[2024-04-06 00:08:51,535]:DEBUG:          |              | std:364.7336575910795, last:104966.145   |
+[2024-04-06 00:08:51,535]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,535]:DEBUG:          |         time |       first:680.0, min:680.0, max:710.0, |
+[2024-04-06 00:08:51,535]:DEBUG:          |              | sum:3440.0, sum2:2367400.0, cnt:5,       |
+[2024-04-06 00:08:51,536]:DEBUG:          |              | avg:688.0, std:13.038404810405298,       |
+[2024-04-06 00:08:51,536]:DEBUG:          |              | last:690.0                               |
+[2024-04-06 00:08:51,539]:DEBUG:     scan file lulesh.benchmarks/000014/000049_execute_base_base/work/job.out
+[2024-04-06 00:08:51,542]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,542]:DEBUG:          | memory_total |            first:9503.672, min:9503.672, |
+[2024-04-06 00:08:51,542]:DEBUG:          |              | max:9503.672, sum:9503.672,              |
+[2024-04-06 00:08:51,542]:DEBUG:          |              | sum2:90319781.48358402, cnt:1,           |
+[2024-04-06 00:08:51,542]:DEBUG:          |              | avg:9503.672, std:0, last:9503.672       |
+[2024-04-06 00:08:51,543]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,543]:DEBUG:          |         time |          first:48.0, min:48.0, max:48.0, |
+[2024-04-06 00:08:51,543]:DEBUG:          |              | sum:48.0, sum2:2304.0, cnt:1, avg:48.0,  |
+[2024-04-06 00:08:51,543]:DEBUG:          |              | std:0, last:48.0                         |
+[2024-04-06 00:08:51,547]:DEBUG:     scan file lulesh.benchmarks/000014/000046_execute_base_base/work/job.out
+[2024-04-06 00:08:51,550]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,550]:DEBUG:          | memory_total |            first:9503.672, min:9494.133, |
+[2024-04-06 00:08:51,550]:DEBUG:          |              | max:9503.672, sum:18997.805,             |
+[2024-04-06 00:08:51,550]:DEBUG:          |              | sum2:180458342.90527302, cnt:2,          |
+[2024-04-06 00:08:51,550]:DEBUG:          |              | avg:9498.9025, std:6.745091587502432,    |
+[2024-04-06 00:08:51,551]:DEBUG:          |              | last:9494.133                            |
+[2024-04-06 00:08:51,551]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,551]:DEBUG:          |         time |          first:48.0, min:48.0, max:48.0, |
+[2024-04-06 00:08:51,552]:DEBUG:          |              | sum:96.0, sum2:4608.0, cnt:2, avg:48.0,  |
+[2024-04-06 00:08:51,552]:DEBUG:          |              | std:0.0, last:48.0                       |
+[2024-04-06 00:08:51,555]:DEBUG:     scan file lulesh.benchmarks/000014/000045_execute_base_base/work/job.out
+[2024-04-06 00:08:51,558]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,558]:DEBUG:          | memory_total |            first:9503.672, min:9494.133, |
+[2024-04-06 00:08:51,558]:DEBUG:          |              | max:9503.672, sum:28499.575,             |
+[2024-04-06 00:08:51,558]:DEBUG:          |              | sum2:270741976.038173, cnt:3,            |
+[2024-04-06 00:08:51,558]:DEBUG:          |              | avg:9499.858333333334,                   |
+[2024-04-06 00:08:51,559]:DEBUG:          |              | std:5.048661438424233, last:9501.77      |
+[2024-04-06 00:08:51,559]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,559]:DEBUG:          |         time |          first:48.0, min:48.0, max:48.0, |
+[2024-04-06 00:08:51,559]:DEBUG:          |              | sum:144.0, sum2:6912.0, cnt:3, avg:48.0, |
+[2024-04-06 00:08:51,559]:DEBUG:          |              | std:0.0, last:48.0                       |
+[2024-04-06 00:08:51,562]:DEBUG:     scan file lulesh.benchmarks/000014/000048_execute_base_base/work/job.out
+[2024-04-06 00:08:51,565]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,565]:DEBUG:          | memory_total |            first:9503.672, min:9494.133, |
+[2024-04-06 00:08:51,565]:DEBUG:          |              | max:9503.672, sum:37996.692,             |
+[2024-04-06 00:08:51,565]:DEBUG:          |              | sum2:360937207.34986204, cnt:4,          |
+[2024-04-06 00:08:51,565]:DEBUG:          |              | avg:9499.173, std:4.344120394057022,     |
+[2024-04-06 00:08:51,566]:DEBUG:          |              | last:9497.117                            |
+[2024-04-06 00:08:51,566]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,566]:DEBUG:          |         time |          first:48.0, min:48.0, max:48.0, |
+[2024-04-06 00:08:51,566]:DEBUG:          |              | sum:192.0, sum2:9216.0, cnt:4, avg:48.0, |
+[2024-04-06 00:08:51,567]:DEBUG:          |              | std:0.0, last:48.0                       |
+[2024-04-06 00:08:51,570]:DEBUG:     scan file lulesh.benchmarks/000014/000047_execute_base_base/work/job.out
+[2024-04-06 00:08:51,573]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,573]:DEBUG:          | memory_total |            first:9503.672, min:9494.133, |
+[2024-04-06 00:08:51,573]:DEBUG:          |              | max:9503.672, sum:47493.922000000006,    |
+[2024-04-06 00:08:51,573]:DEBUG:          |              | sum2:451134585.02276206, cnt:5,          |
+[2024-04-06 00:08:51,573]:DEBUG:          |              | avg:9498.7844, std:3.8611638502604078,   |
+[2024-04-06 00:08:51,574]:DEBUG:          |              | last:9497.23                             |
+[2024-04-06 00:08:51,574]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,574]:DEBUG:          |         time |          first:48.0, min:48.0, max:48.0, |
+[2024-04-06 00:08:51,574]:DEBUG:          |              | sum:240.0, sum2:11520.0, cnt:5,          |
+[2024-04-06 00:08:51,574]:DEBUG:          |              | avg:48.0, std:0.0, last:48.0             |
+[2024-04-06 00:08:51,577]:DEBUG:     scan file lulesh.benchmarks/000014/000073_execute_base_base/work/job.out
+[2024-04-06 00:08:51,581]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,581]:DEBUG:          | memory_total |        first:117634.684, min:117634.684, |
+[2024-04-06 00:08:51,581]:DEBUG:          |              | max:117634.684, sum:117634.684,          |
+[2024-04-06 00:08:51,581]:DEBUG:          |              | sum2:13837918879.779854, cnt:1,          |
+[2024-04-06 00:08:51,581]:DEBUG:          |              | avg:117634.684, std:0, last:117634.684   |
+[2024-04-06 00:08:51,582]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,582]:DEBUG:          |         time |       first:140.0, min:140.0, max:140.0, |
+[2024-04-06 00:08:51,582]:DEBUG:          |              | sum:140.0, sum2:19600.0, cnt:1,          |
+[2024-04-06 00:08:51,582]:DEBUG:          |              | avg:140.0, std:0, last:140.0             |
+[2024-04-06 00:08:51,585]:DEBUG:     scan file lulesh.benchmarks/000014/000070_execute_base_base/work/job.out
+[2024-04-06 00:08:51,589]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,589]:DEBUG:          | memory_total |        first:117634.684, min:117634.684, |
+[2024-04-06 00:08:51,589]:DEBUG:          |              | max:117702.93, sum:235337.614,           |
+[2024-04-06 00:08:51,589]:DEBUG:          |              | sum2:27691898610.364754, cnt:2,          |
+[2024-04-06 00:08:51,589]:DEBUG:          |              | avg:117668.807, std:48.25720935782427,   |
+[2024-04-06 00:08:51,590]:DEBUG:          |              | last:117702.93                           |
+[2024-04-06 00:08:51,590]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,590]:DEBUG:          |         time |       first:140.0, min:130.0, max:140.0, |
+[2024-04-06 00:08:51,592]:DEBUG:          |              | sum:270.0, sum2:36500.0, cnt:2,          |
+[2024-04-06 00:08:51,592]:DEBUG:          |              | avg:135.0, std:7.0710678118654755,       |
+[2024-04-06 00:08:51,592]:DEBUG:          |              | last:130.0                               |
+[2024-04-06 00:08:51,594]:DEBUG:     scan file lulesh.benchmarks/000014/000072_execute_base_base/work/job.out
+[2024-04-06 00:08:51,598]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,598]:DEBUG:          | memory_total |        first:117634.684, min:117634.684, |
+[2024-04-06 00:08:51,598]:DEBUG:          |              | max:117702.93, sum:353021.86,            |
+[2024-04-06 00:08:51,598]:DEBUG:          |              | sum2:41541480366.95327, cnt:3,           |
+[2024-04-06 00:08:51,598]:DEBUG:          |              | avg:117673.95333333332,                  |
+[2024-04-06 00:08:51,599]:DEBUG:          |              | std:35.268021920838436, last:117684.246  |
+[2024-04-06 00:08:51,599]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,599]:DEBUG:          |         time |       first:140.0, min:130.0, max:140.0, |
+[2024-04-06 00:08:51,599]:DEBUG:          |              | sum:400.0, sum2:53400.0, cnt:3,          |
+[2024-04-06 00:08:51,599]:DEBUG:          |              | avg:133.33333333333334,                  |
+[2024-04-06 00:08:51,599]:DEBUG:          |              | std:5.7735026918961525, last:130.0       |
+[2024-04-06 00:08:51,602]:DEBUG:     scan file lulesh.benchmarks/000014/000071_execute_base_base/work/job.out
+[2024-04-06 00:08:51,606]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,606]:DEBUG:          | memory_total |        first:117634.684, min:117634.684, |
+[2024-04-06 00:08:51,606]:DEBUG:          |              | max:117702.93, sum:470701.23099999997,   |
+[2024-04-06 00:08:51,606]:DEBUG:          |              | sum2:55389914725.90891, cnt:4,           |
+[2024-04-06 00:08:51,606]:DEBUG:          |              | avg:117675.30774999999,                  |
+[2024-04-06 00:08:51,607]:DEBUG:          |              | std:28.923347412307596, last:117679.371  |
+[2024-04-06 00:08:51,607]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,607]:DEBUG:          |         time |       first:140.0, min:130.0, max:140.0, |
+[2024-04-06 00:08:51,607]:DEBUG:          |              | sum:540.0, sum2:73000.0, cnt:4,          |
+[2024-04-06 00:08:51,607]:DEBUG:          |              | avg:135.0, std:5.773502691896258,        |
+[2024-04-06 00:08:51,607]:DEBUG:          |              | last:140.0                               |
+[2024-04-06 00:08:51,610]:DEBUG:     scan file lulesh.benchmarks/000014/000074_execute_base_base/work/job.out
+[2024-04-06 00:08:51,614]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,614]:DEBUG:          | memory_total |        first:117634.684, min:117634.684, |
+[2024-04-06 00:08:51,614]:DEBUG:          |              | max:117702.93, sum:588384.215,           |
+[2024-04-06 00:08:51,614]:DEBUG:          |              | sum2:69239199449.05316, cnt:5,           |
+[2024-04-06 00:08:51,614]:DEBUG:          |              | avg:117676.843, std:25.2825034152647,    |
+[2024-04-06 00:08:51,614]:DEBUG:          |              | last:117682.984                          |
+[2024-04-06 00:08:51,614]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,614]:DEBUG:          |         time |       first:140.0, min:130.0, max:140.0, |
+[2024-04-06 00:08:51,614]:DEBUG:          |              | sum:670.0, sum2:89900.0, cnt:5,          |
+[2024-04-06 00:08:51,615]:DEBUG:          |              | avg:134.0, std:5.477225575051661,        |
+[2024-04-06 00:08:51,615]:DEBUG:          |              | last:130.0                               |
+[2024-04-06 00:08:51,618]:DEBUG:     scan file lulesh.benchmarks/000014/000012_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,622]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,622]:DEBUG:          | memory_total |          first:22012.746, min:22012.746, |
+[2024-04-06 00:08:51,622]:DEBUG:          |              | max:22012.746, sum:22012.746,            |
+[2024-04-06 00:08:51,622]:DEBUG:          |              | sum2:484560986.460516, cnt:1,            |
+[2024-04-06 00:08:51,622]:DEBUG:          |              | avg:22012.746, std:0, last:22012.746     |
+[2024-04-06 00:08:51,622]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,622]:DEBUG:          |         time |       first:340.0, min:340.0, max:340.0, |
+[2024-04-06 00:08:51,622]:DEBUG:          |              | sum:340.0, sum2:115600.0, cnt:1,         |
+[2024-04-06 00:08:51,623]:DEBUG:          |              | avg:340.0, std:0, last:340.0             |
+[2024-04-06 00:08:51,627]:DEBUG:     scan file lulesh.benchmarks/000014/000014_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,630]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,630]:DEBUG:          | memory_total |          first:22012.746, min:22012.746, |
+[2024-04-06 00:08:51,630]:DEBUG:          |              | max:22056.039, sum:44068.785,            |
+[2024-04-06 00:08:51,630]:DEBUG:          |              | sum2:971029842.830037, cnt:2,            |
+[2024-04-06 00:08:51,630]:DEBUG:          |              | avg:22034.3925, std:30.61277387596975,   |
+[2024-04-06 00:08:51,631]:DEBUG:          |              | last:22056.039                           |
+[2024-04-06 00:08:51,631]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,631]:DEBUG:          |         time |       first:340.0, min:340.0, max:340.0, |
+[2024-04-06 00:08:51,631]:DEBUG:          |              | sum:680.0, sum2:231200.0, cnt:2,         |
+[2024-04-06 00:08:51,631]:DEBUG:          |              | avg:340.0, std:0.0, last:340.0           |
+[2024-04-06 00:08:51,634]:DEBUG:     scan file lulesh.benchmarks/000014/000011_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,638]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,638]:DEBUG:          | memory_total |          first:22012.746, min:22005.477, |
+[2024-04-06 00:08:51,638]:DEBUG:          |              | max:22056.039, sum:66074.262,            |
+[2024-04-06 00:08:51,638]:DEBUG:          |              | sum2:1455270860.827566, cnt:3,           |
+[2024-04-06 00:08:51,638]:DEBUG:          |              | avg:22024.754, std:27.336294716427734,   |
+[2024-04-06 00:08:51,639]:DEBUG:          |              | last:22005.477                           |
+[2024-04-06 00:08:51,639]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,639]:DEBUG:          |         time |       first:340.0, min:340.0, max:340.0, |
+[2024-04-06 00:08:51,639]:DEBUG:          |              | sum:1020.0, sum2:346800.0, cnt:3,        |
+[2024-04-06 00:08:51,639]:DEBUG:          |              | avg:340.0, std:0.0, last:340.0           |
+[2024-04-06 00:08:51,642]:DEBUG:     scan file lulesh.benchmarks/000014/000013_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,646]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,646]:DEBUG:          | memory_total |          first:22012.746, min:22005.477, |
+[2024-04-06 00:08:51,646]:DEBUG:          |              | max:22056.039, sum:88120.258,            |
+[2024-04-06 00:08:51,646]:DEBUG:          |              | sum2:1941296800.4595819, cnt:4,          |
+[2024-04-06 00:08:51,646]:DEBUG:          |              | avg:22030.0645, std:24.71816431083898,   |
+[2024-04-06 00:08:51,646]:DEBUG:          |              | last:22045.996                           |
+[2024-04-06 00:08:51,646]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,646]:DEBUG:          |         time |       first:340.0, min:340.0, max:340.0, |
+[2024-04-06 00:08:51,646]:DEBUG:          |              | sum:1360.0, sum2:462400.0, cnt:4,        |
+[2024-04-06 00:08:51,647]:DEBUG:          |              | avg:340.0, std:0.0, last:340.0           |
+[2024-04-06 00:08:51,650]:DEBUG:     scan file lulesh.benchmarks/000014/000010_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,653]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,653]:DEBUG:          | memory_total |          first:22012.746, min:22005.477, |
+[2024-04-06 00:08:51,653]:DEBUG:          |              | max:22056.039, sum:110168.27,            |
+[2024-04-06 00:08:51,653]:DEBUG:          |              | sum2:2427411633.611726, cnt:5,           |
+[2024-04-06 00:08:51,653]:DEBUG:          |              | avg:22033.654000000002,                  |
+[2024-04-06 00:08:51,654]:DEBUG:          |              | std:22.86183033896291, last:22048.012    |
+[2024-04-06 00:08:51,654]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,654]:DEBUG:          |         time |       first:340.0, min:340.0, max:340.0, |
+[2024-04-06 00:08:51,654]:DEBUG:          |              | sum:1700.0, sum2:578000.0, cnt:5,        |
+[2024-04-06 00:08:51,655]:DEBUG:          |              | avg:340.0, std:0.0, last:340.0           |
+[2024-04-06 00:08:51,658]:DEBUG:     scan file lulesh.benchmarks/000014/000038_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,662]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,662]:DEBUG:          | memory_total |          first:787100.66, min:787100.66, |
+[2024-04-06 00:08:51,662]:DEBUG:          |              | max:787100.66, sum:787100.66,            |
+[2024-04-06 00:08:51,662]:DEBUG:          |              | sum2:619527448972.4357, cnt:1,           |
+[2024-04-06 00:08:51,662]:DEBUG:          |              | avg:787100.66, std:0, last:787100.66     |
+[2024-04-06 00:08:51,662]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,663]:DEBUG:          |         time |    first:1300.0, min:1300.0, max:1300.0, |
+[2024-04-06 00:08:51,663]:DEBUG:          |              | sum:1300.0, sum2:1690000.0, cnt:1,       |
+[2024-04-06 00:08:51,663]:DEBUG:          |              | avg:1300.0, std:0, last:1300.0           |
+[2024-04-06 00:08:51,668]:DEBUG:     scan file lulesh.benchmarks/000014/000035_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,672]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,672]:DEBUG:          | memory_total |          first:787100.66, min:787100.66, |
+[2024-04-06 00:08:51,672]:DEBUG:          |              | max:789457.777, sum:1576558.437,         |
+[2024-04-06 00:08:51,672]:DEBUG:          |              | sum2:1242771030638.2173, cnt:2,          |
+[2024-04-06 00:08:51,672]:DEBUG:          |              | avg:788279.2185, std:1666.7334147604129, |
+[2024-04-06 00:08:51,673]:DEBUG:          |              | last:789457.777                          |
+[2024-04-06 00:08:51,673]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,673]:DEBUG:          |         time |    first:1300.0, min:1300.0, max:1300.0, |
+[2024-04-06 00:08:51,674]:DEBUG:          |              | sum:2600.0, sum2:3380000.0, cnt:2,       |
+[2024-04-06 00:08:51,674]:DEBUG:          |              | avg:1300.0, std:0.0, last:1300.0         |
+[2024-04-06 00:08:51,677]:DEBUG:     scan file lulesh.benchmarks/000014/000037_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,681]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,681]:DEBUG:          | memory_total |          first:787100.66, min:787100.66, |
+[2024-04-06 00:08:51,681]:DEBUG:          |              | max:789457.777, sum:2363889.6909999996,  |
+[2024-04-06 00:08:51,681]:DEBUG:          |              | sum2:1862661534163.4297, cnt:3,          |
+[2024-04-06 00:08:51,681]:DEBUG:          |              | avg:787963.2303333333,                   |
+[2024-04-06 00:08:51,682]:DEBUG:          |              | std:1299.440534428047, last:787331.254   |
+[2024-04-06 00:08:51,682]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,682]:DEBUG:          |         time |    first:1300.0, min:1300.0, max:1300.0, |
+[2024-04-06 00:08:51,682]:DEBUG:          |              | sum:3900.0, sum2:5070000.0, cnt:3,       |
+[2024-04-06 00:08:51,683]:DEBUG:          |              | avg:1300.0, std:0.0, last:1300.0         |
+[2024-04-06 00:08:51,686]:DEBUG:     scan file lulesh.benchmarks/000014/000039_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,690]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,690]:DEBUG:          | memory_total |         first:787100.66, min:786630.297, |
+[2024-04-06 00:08:51,690]:DEBUG:          |              | max:789457.777, sum:3150519.988,         |
+[2024-04-06 00:08:51,690]:DEBUG:          |              | sum2:2481448758321.738, cnt:4,           |
+[2024-04-06 00:08:51,690]:DEBUG:          |              | avg:787629.997, std:1252.9465082902457,  |
+[2024-04-06 00:08:51,691]:DEBUG:          |              | last:786630.297                          |
+[2024-04-06 00:08:51,691]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,691]:DEBUG:          |         time |    first:1300.0, min:1300.0, max:1300.0, |
+[2024-04-06 00:08:51,692]:DEBUG:          |              | sum:5200.0, sum2:6760000.0, cnt:4,       |
+[2024-04-06 00:08:51,692]:DEBUG:          |              | avg:1300.0, std:0.0, last:1300.0         |
+[2024-04-06 00:08:51,694]:DEBUG:     scan file lulesh.benchmarks/000014/000036_execute_tsan-opt_must/work/job.out
+[2024-04-06 00:08:51,699]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,699]:DEBUG:          | memory_total |         first:787100.66, min:786630.297, |
+[2024-04-06 00:08:51,699]:DEBUG:          |              | max:789457.777, sum:3937531.035,         |
+[2024-04-06 00:08:51,699]:DEBUG:          |              | sum2:3100835146421.774, cnt:5,           |
+[2024-04-06 00:08:51,699]:DEBUG:          |              | avg:787506.207, std:1119.8330388553954,  |
+[2024-04-06 00:08:51,699]:DEBUG:          |              | last:787011.047                          |
+[2024-04-06 00:08:51,699]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,699]:DEBUG:          |         time |    first:1300.0, min:1300.0, max:1300.0, |
+[2024-04-06 00:08:51,700]:DEBUG:          |              | sum:6500.0, sum2:8450000.0, cnt:5,       |
+[2024-04-06 00:08:51,700]:DEBUG:          |              | avg:1300.0, std:0.0, last:1300.0         |
+[2024-04-06 00:08:51,705]:DEBUG:     scan file lulesh.benchmarks/000014/000064_execute_base_base/work/job.out
+[2024-04-06 00:08:51,708]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,708]:DEBUG:          | memory_total |          first:53802.984, min:53802.984, |
+[2024-04-06 00:08:51,708]:DEBUG:          |              | max:53802.984, sum:53802.984,            |
+[2024-04-06 00:08:51,708]:DEBUG:          |              | sum2:2894761087.3042555, cnt:1,          |
+[2024-04-06 00:08:51,708]:DEBUG:          |              | avg:53802.984, std:0, last:53802.984     |
+[2024-04-06 00:08:51,709]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,710]:DEBUG:          |         time |          first:98.0, min:98.0, max:98.0, |
+[2024-04-06 00:08:51,710]:DEBUG:          |              | sum:98.0, sum2:9604.0, cnt:1, avg:98.0,  |
+[2024-04-06 00:08:51,710]:DEBUG:          |              | std:0, last:98.0                         |
+[2024-04-06 00:08:51,714]:DEBUG:     scan file lulesh.benchmarks/000014/000061_execute_base_base/work/job.out
+[2024-04-06 00:08:51,717]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,717]:DEBUG:          | memory_total |          first:53802.984, min:53760.949, |
+[2024-04-06 00:08:51,717]:DEBUG:          |              | max:53802.984, sum:107563.93299999999,   |
+[2024-04-06 00:08:51,717]:DEBUG:          |              | sum2:5785000724.684856, cnt:2,           |
+[2024-04-06 00:08:51,717]:DEBUG:          |              | avg:53781.966499999995,                  |
+[2024-04-06 00:08:51,718]:DEBUG:          |              | std:29.72323354761288, last:53760.949    |
+[2024-04-06 00:08:51,718]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-04-06 00:08:51,718]:DEBUG:          |         time |         first:98.0, min:98.0, max:110.0, |
+[2024-04-06 00:08:51,719]:DEBUG:          |              | sum:208.0, sum2:21704.0, cnt:2,          |
+[2024-04-06 00:08:51,719]:DEBUG:          |              | avg:104.0, std:8.48528137423857,         |
+[2024-04-06 00:08:51,719]:DEBUG:          |              | last:110.0                               |
+[2024-04-06 00:08:51,722]:DEBUG:     scan file lulesh.benchmarks/000014/000063_execute_base_base/work/job.out
+[2024-04-06 00:08:51,725]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,725]:DEBUG:          | memory_total |          first:53802.984, min:53760.949, |
+[2024-04-06 00:08:51,725]:DEBUG:          |              | max:53802.984, sum:161342.378,           |
+[2024-04-06 00:08:51,725]:DEBUG:          |              | sum2:8677121871.302881, cnt:3,           |
+[2024-04-06 00:08:51,725]:DEBUG:          |              | avg:53780.79266666667,                   |
+[2024-04-06 00:08:51,726]:DEBUG:          |              | std:21.11560940111732, last:53778.445    |
+[2024-04-06 00:08:51,726]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-04-06 00:08:51,726]:DEBUG:          |         time |         first:98.0, min:98.0, max:110.0, |
+[2024-04-06 00:08:51,726]:DEBUG:          |              | sum:307.0, sum2:31505.0, cnt:3,          |
+[2024-04-06 00:08:51,726]:DEBUG:          |              | avg:102.33333333333333,                  |
+[2024-04-06 00:08:51,726]:DEBUG:          |              | std:6.658328118479439, last:99.0         |
+[2024-04-06 00:08:51,729]:DEBUG:     scan file lulesh.benchmarks/000014/000060_execute_base_base/work/job.out
+[2024-04-06 00:08:51,733]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,733]:DEBUG:          | memory_total |          first:53802.984, min:53755.527, |
+[2024-04-06 00:08:51,733]:DEBUG:          |              | max:53802.984, sum:215097.905,           |
+[2024-04-06 00:08:51,733]:DEBUG:          |              | sum2:11566778554.35061, cnt:4,           |
+[2024-04-06 00:08:51,733]:DEBUG:          |              | avg:53774.47625, std:21.373685963712834, |
+[2024-04-06 00:08:51,733]:DEBUG:          |              | last:53755.527                           |
+[2024-04-06 00:08:51,733]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-04-06 00:08:51,733]:DEBUG:          |         time |         first:98.0, min:98.0, max:110.0, |
+[2024-04-06 00:08:51,733]:DEBUG:          |              | sum:405.0, sum2:41109.0, cnt:4,          |
+[2024-04-06 00:08:51,734]:DEBUG:          |              | avg:101.25, std:5.852349955359813,       |
+[2024-04-06 00:08:51,734]:DEBUG:          |              | last:98.0                                |
+[2024-04-06 00:08:51,737]:DEBUG:     scan file lulesh.benchmarks/000014/000062_execute_base_base/work/job.out
+[2024-04-06 00:08:51,741]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,741]:DEBUG:          | memory_total |          first:53802.984, min:53755.527, |
+[2024-04-06 00:08:51,741]:DEBUG:          |              | max:53802.984, sum:268889.26,            |
+[2024-04-06 00:08:51,741]:DEBUG:          |              | sum2:14460288427.086636, cnt:5,          |
+[2024-04-06 00:08:51,741]:DEBUG:          |              | avg:53777.852, std:19.990104516096284,   |
+[2024-04-06 00:08:51,741]:DEBUG:          |              | last:53791.355                           |
+[2024-04-06 00:08:51,741]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-04-06 00:08:51,742]:DEBUG:          |         time |         first:98.0, min:98.0, max:110.0, |
+[2024-04-06 00:08:51,742]:DEBUG:          |              | sum:504.0, sum2:50910.0, cnt:5,          |
+[2024-04-06 00:08:51,742]:DEBUG:          |              | avg:100.8, std:5.167204273105596,        |
+[2024-04-06 00:08:51,742]:DEBUG:          |              | last:99.0                                |
+[2024-04-06 00:08:51,757]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-06 00:08:51,760]:DEBUG: bench_id;wp_id;compile;measurement;tasks;size;time_avg;time_std;verification
+[2024-04-06 00:08:51,760]:DEBUG: 14;41;base;base;27;20;35.0;0.0;SUCCESS
+[2024-04-06 00:08:51,760]:DEBUG: 14;5;tsan-opt;must;27;20;230.0;0.0;SUCCESS
+[2024-04-06 00:08:51,760]:DEBUG: 14;45;base;base;64;20;48.0;0.0;SUCCESS
+[2024-04-06 00:08:51,760]:DEBUG: 14;10;tsan-opt;must;64;20;340.0;0.0;SUCCESS
+[2024-04-06 00:08:51,761]:DEBUG: 14;54;base;base;125;20;63.0;1.224744871391589;SUCCESS
+[2024-04-06 00:08:51,761]:DEBUG: 14;17;tsan-opt;must;125;20;496.0;8.94427190999916;SUCCESS
+[2024-04-06 00:08:51,761]:DEBUG: 14;55;base;base;216;20;84.6;3.5777087639995617;SUCCESS
+[2024-04-06 00:08:51,761]:DEBUG: 14;20;tsan-opt;must;216;20;688.0;13.038404810405298;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 14;60;base;base;343;20;100.8;5.167204273105596;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 14;29;tsan-opt;must;343;20;850.0;12.24744871391589;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 14;65;base;base;512;20;120.0;0.0;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 14;30;tsan-opt;must;512;20;1100.0;0.0;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 14;70;base;base;729;20;134.0;5.477225575051661;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 14;35;tsan-opt;must;729;20;1300.0;0.0;SUCCESS
+[2024-04-06 00:08:51,762]:DEBUG: 
+[2024-04-06 00:08:51,773]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-06 00:08:51,773]:DEBUG: result:
+[2024-04-06 00:08:51,774]:DEBUG: | bench_id | wp_id |  compile | measurement | tasks | size | time_avg | time_std | verification |
+[2024-04-06 00:08:51,774]:DEBUG: |----------|-------|----------|-------------|-------|------|----------|----------|--------------|
+[2024-04-06 00:08:51,774]:DEBUG: |       14 |    41 |     base |        base |    27 |   20 |   35.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,774]:DEBUG: |       14 |     5 | tsan-opt |        must |    27 |   20 |  230.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,774]:DEBUG: |       14 |    45 |     base |        base |    64 |   20 |   48.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,774]:DEBUG: |       14 |    10 | tsan-opt |        must |    64 |   20 |  340.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,774]:DEBUG: |       14 |    54 |     base |        base |   125 |   20 |   63.000 |    1.225 |      SUCCESS |
+[2024-04-06 00:08:51,774]:DEBUG: |       14 |    17 | tsan-opt |        must |   125 |   20 |  496.000 |    8.944 |      SUCCESS |
+[2024-04-06 00:08:51,775]:DEBUG: |       14 |    55 |     base |        base |   216 |   20 |   84.600 |    3.578 |      SUCCESS |
+[2024-04-06 00:08:51,775]:DEBUG: |       14 |    20 | tsan-opt |        must |   216 |   20 |  688.000 |   13.038 |      SUCCESS |
+[2024-04-06 00:08:51,776]:DEBUG: |       14 |    60 |     base |        base |   343 |   20 |  100.800 |    5.167 |      SUCCESS |
+[2024-04-06 00:08:51,776]:DEBUG: |       14 |    29 | tsan-opt |        must |   343 |   20 |  850.000 |   12.247 |      SUCCESS |
+[2024-04-06 00:08:51,776]:DEBUG: |       14 |    65 |     base |        base |   512 |   20 |  120.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,776]:DEBUG: |       14 |    30 | tsan-opt |        must |   512 |   20 | 1100.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,776]:DEBUG: |       14 |    70 |     base |        base |   729 |   20 |  134.000 |    5.477 |      SUCCESS |
+[2024-04-06 00:08:51,777]:DEBUG: |       14 |    35 | tsan-opt |        must |   729 |   20 | 1300.000 |    0.000 |      SUCCESS |
+[2024-04-06 00:08:51,777]:DEBUG: 
+[2024-04-06 00:08:51,780]:DEBUG: No data found for analyser "PnMPI_analyse" in benchmark run 14. Run analyse step automatically.
+[2024-04-06 00:08:51,780]:DEBUG: Run analyser "PnMPI_analyse"
+[2024-04-06 00:08:51,780]:DEBUG:   available pattern:
+[2024-04-06 00:08:51,781]:DEBUG:          | pattern      | value                                    |
+[2024-04-06 00:08:51,781]:DEBUG:          |--------------|------------------------------------------|
+[2024-04-06 00:08:51,781]:DEBUG:          | memory_total | \(max_rss\): ${jube_pat_fp} MiB          |
+[2024-04-06 00:08:51,781]:DEBUG:          | time         | Elapsed time .* ${jube_pat_fp}           |
+[2024-04-06 00:08:51,781]:DEBUG:          | verification | EXECUTION VERIFICATION CHECK:            |
+[2024-04-06 00:08:51,781]:DEBUG:          |              | ${jube_pat_wrd}                          |
+[2024-04-06 00:08:51,781]:DEBUG: 
+[2024-04-06 00:08:51,781]:DEBUG:   available derived pattern:
+[2024-04-06 00:08:51,782]:DEBUG:          | pattern | value |
+[2024-04-06 00:08:51,782]:DEBUG:          |---------|-------|
+[2024-04-06 00:08:51,782]:DEBUG:   analyse step "PnMPI_execute"
+[2024-04-06 00:08:51,785]:DEBUG:     scan file lulesh.benchmarks/000014/000075_PnMPI_execute/work/job.out
+[2024-04-06 00:08:51,819]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,819]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,819]:DEBUG:          |                 time |          first:35.0, min:35.0, max:35.0, |
+[2024-04-06 00:08:51,819]:DEBUG:          |                      | sum:35.0, sum2:1225.0, cnt:1, avg:35.0,  |
+[2024-04-06 00:08:51,819]:DEBUG:          |                      | std:0, last:35.0                         |
+[2024-04-06 00:08:51,819]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:51,819]:DEBUG:          |         PnMPI_Reduce |        first:27, min:27, max:27, sum:27, |
+[2024-04-06 00:08:51,819]:DEBUG:          |                      | sum2:729, cnt:1, avg:27.0, std:0,        |
+[2024-04-06 00:08:51,819]:DEBUG:          |                      | last:27                                  |
+[2024-04-06 00:08:51,819]:DEBUG:          |      PnMPI_Allreduce |       first:54810, min:54810, max:54810, |
+[2024-04-06 00:08:51,820]:DEBUG:          |                      | sum:54810, sum2:3004136100, cnt:1,       |
+[2024-04-06 00:08:51,820]:DEBUG:          |                      | avg:54810.0, std:0, last:54810           |
+[2024-04-06 00:08:51,820]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:51,821]:DEBUG:          |        PnMPI_Barrier |    first:329130, min:329130, max:329130, |
+[2024-04-06 00:08:51,821]:DEBUG:          |                      | sum:329130, sum2:108326556900, cnt:1,    |
+[2024-04-06 00:08:51,821]:DEBUG:          |                      | avg:329130.0, std:0, last:329130         |
+[2024-04-06 00:08:51,821]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:51,821]:DEBUG:          |            PnMPI_Get | first:1182358, min:1182358, max:1182358, |
+[2024-04-06 00:08:51,821]:DEBUG:          |                      | sum:1182358, sum2:1397970440164, cnt:1,  |
+[2024-04-06 00:08:51,821]:DEBUG:          |                      | avg:1182358.0, std:0, last:1182358       |
+[2024-04-06 00:08:51,821]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:51,821]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:51,822]:DEBUG:          |      PnMPI_Win_fence |    first:164592, min:164592, max:164592, |
+[2024-04-06 00:08:51,822]:DEBUG:          |                      | sum:164592, sum2:27090526464, cnt:1,     |
+[2024-04-06 00:08:51,822]:DEBUG:          |                      | avg:164592.0, std:0, last:164592         |
+[2024-04-06 00:08:51,822]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:51,822]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:51,822]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:51,823]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:51,823]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:51,823]:DEBUG:          |   PnMPI_Win_allocate |        first:27, min:27, max:27, sum:27, |
+[2024-04-06 00:08:51,823]:DEBUG:          |                      | sum2:729, cnt:1, avg:27.0, std:0,        |
+[2024-04-06 00:08:51,824]:DEBUG:          |                      | last:27                                  |
+[2024-04-06 00:08:51,824]:DEBUG:          |       PnMPI_Win_free |        first:27, min:27, max:27, sum:27, |
+[2024-04-06 00:08:51,824]:DEBUG:          |                      | sum2:729, cnt:1, avg:27.0, std:0,        |
+[2024-04-06 00:08:51,824]:DEBUG:          |                      | last:27                                  |
+[2024-04-06 00:08:51,827]:DEBUG:     scan file lulesh.benchmarks/000014/000076_PnMPI_execute/work/job.out
+[2024-04-06 00:08:51,860]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,860]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,860]:DEBUG:          |                 time |          first:48.0, min:48.0, max:48.0, |
+[2024-04-06 00:08:51,860]:DEBUG:          |                      | sum:48.0, sum2:2304.0, cnt:1, avg:48.0,  |
+[2024-04-06 00:08:51,860]:DEBUG:          |                      | std:0, last:48.0                         |
+[2024-04-06 00:08:51,860]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:51,860]:DEBUG:          |         PnMPI_Reduce |        first:64, min:64, max:64, sum:64, |
+[2024-04-06 00:08:51,860]:DEBUG:          |                      | sum2:4096, cnt:1, avg:64.0, std:0,       |
+[2024-04-06 00:08:51,860]:DEBUG:          |                      | last:64                                  |
+[2024-04-06 00:08:51,860]:DEBUG:          |      PnMPI_Allreduce |    first:177472, min:177472, max:177472, |
+[2024-04-06 00:08:51,861]:DEBUG:          |                      | sum:177472, sum2:31496310784, cnt:1,     |
+[2024-04-06 00:08:51,861]:DEBUG:          |                      | avg:177472.0, std:0, last:177472         |
+[2024-04-06 00:08:51,861]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:51,862]:DEBUG:          |        PnMPI_Barrier | first:1065472, min:1065472, max:1065472, |
+[2024-04-06 00:08:51,862]:DEBUG:          |                      | sum:1065472, sum2:1135230582784, cnt:1,  |
+[2024-04-06 00:08:51,862]:DEBUG:          |                      | avg:1065472.0, std:0, last:1065472       |
+[2024-04-06 00:08:51,862]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:51,862]:DEBUG:          |            PnMPI_Get | first:4694544, min:4694544, max:4694544, |
+[2024-04-06 00:08:51,862]:DEBUG:          |                      | sum:4694544, sum2:22038743367936, cnt:1, |
+[2024-04-06 00:08:51,862]:DEBUG:          |                      | avg:4694544.0, std:0, last:4694544       |
+[2024-04-06 00:08:51,862]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:51,863]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:51,863]:DEBUG:          |      PnMPI_Win_fence |    first:532800, min:532800, max:532800, |
+[2024-04-06 00:08:51,863]:DEBUG:          |                      | sum:532800, sum2:283875840000, cnt:1,    |
+[2024-04-06 00:08:51,863]:DEBUG:          |                      | avg:532800.0, std:0, last:532800         |
+[2024-04-06 00:08:51,864]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:51,864]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:51,864]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:51,864]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:51,864]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:51,864]:DEBUG:          |   PnMPI_Win_allocate |        first:64, min:64, max:64, sum:64, |
+[2024-04-06 00:08:51,865]:DEBUG:          |                      | sum2:4096, cnt:1, avg:64.0, std:0,       |
+[2024-04-06 00:08:51,865]:DEBUG:          |                      | last:64                                  |
+[2024-04-06 00:08:51,865]:DEBUG:          |       PnMPI_Win_free |        first:64, min:64, max:64, sum:64, |
+[2024-04-06 00:08:51,865]:DEBUG:          |                      | sum2:4096, cnt:1, avg:64.0, std:0,       |
+[2024-04-06 00:08:51,865]:DEBUG:          |                      | last:64                                  |
+[2024-04-06 00:08:51,868]:DEBUG:     scan file lulesh.benchmarks/000014/000077_PnMPI_execute/work/job.out
+[2024-04-06 00:08:51,903]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,903]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,903]:DEBUG:          |                 time |          first:62.0, min:62.0, max:62.0, |
+[2024-04-06 00:08:51,903]:DEBUG:          |                      | sum:62.0, sum2:3844.0, cnt:1, avg:62.0,  |
+[2024-04-06 00:08:51,903]:DEBUG:          |                      | std:0, last:62.0                         |
+[2024-04-06 00:08:51,903]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:51,903]:DEBUG:          |         PnMPI_Reduce |    first:125, min:125, max:125, sum:125, |
+[2024-04-06 00:08:51,903]:DEBUG:          |                      | sum2:15625, cnt:1, avg:125.0, std:0,     |
+[2024-04-06 00:08:51,903]:DEBUG:          |                      | last:125                                 |
+[2024-04-06 00:08:51,903]:DEBUG:          |      PnMPI_Allreduce |    first:439500, min:439500, max:439500, |
+[2024-04-06 00:08:51,904]:DEBUG:          |                      | sum:439500, sum2:193160250000, cnt:1,    |
+[2024-04-06 00:08:51,904]:DEBUG:          |                      | avg:439500.0, std:0, last:439500         |
+[2024-04-06 00:08:51,904]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:51,904]:DEBUG:          |        PnMPI_Barrier | first:2638250, min:2638250, max:2638250, |
+[2024-04-06 00:08:51,904]:DEBUG:          |                      | sum:2638250, sum2:6960363062500, cnt:1,  |
+[2024-04-06 00:08:51,904]:DEBUG:          |                      | avg:2638250.0, std:0, last:2638250       |
+[2024-04-06 00:08:51,904]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:51,904]:DEBUG:          |            PnMPI_Get |            first:13043108, min:13043108, |
+[2024-04-06 00:08:51,904]:DEBUG:          |                      | max:13043108, sum:13043108,              |
+[2024-04-06 00:08:51,905]:DEBUG:          |                      | sum2:170122666299664, cnt:1,             |
+[2024-04-06 00:08:51,905]:DEBUG:          |                      | avg:13043108.0, std:0, last:13043108     |
+[2024-04-06 00:08:51,905]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:51,905]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:51,906]:DEBUG:          |      PnMPI_Win_fence | first:1319250, min:1319250, max:1319250, |
+[2024-04-06 00:08:51,906]:DEBUG:          |                      | sum:1319250, sum2:1740420562500, cnt:1,  |
+[2024-04-06 00:08:51,906]:DEBUG:          |                      | avg:1319250.0, std:0, last:1319250       |
+[2024-04-06 00:08:51,906]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:51,906]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:51,907]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:51,907]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:51,907]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:51,907]:DEBUG:          |   PnMPI_Win_allocate |    first:125, min:125, max:125, sum:125, |
+[2024-04-06 00:08:51,907]:DEBUG:          |                      | sum2:15625, cnt:1, avg:125.0, std:0,     |
+[2024-04-06 00:08:51,907]:DEBUG:          |                      | last:125                                 |
+[2024-04-06 00:08:51,907]:DEBUG:          |       PnMPI_Win_free |    first:125, min:125, max:125, sum:125, |
+[2024-04-06 00:08:51,907]:DEBUG:          |                      | sum2:15625, cnt:1, avg:125.0, std:0,     |
+[2024-04-06 00:08:51,907]:DEBUG:          |                      | last:125                                 |
+[2024-04-06 00:08:51,911]:DEBUG:     scan file lulesh.benchmarks/000014/000078_PnMPI_execute/work/job.out
+[2024-04-06 00:08:51,947]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,947]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,947]:DEBUG:          |                 time |          first:83.0, min:83.0, max:83.0, |
+[2024-04-06 00:08:51,947]:DEBUG:          |                      | sum:83.0, sum2:6889.0, cnt:1, avg:83.0,  |
+[2024-04-06 00:08:51,947]:DEBUG:          |                      | std:0, last:83.0                         |
+[2024-04-06 00:08:51,947]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:51,947]:DEBUG:          |         PnMPI_Reduce |    first:216, min:216, max:216, sum:216, |
+[2024-04-06 00:08:51,947]:DEBUG:          |                      | sum2:46656, cnt:1, avg:216.0, std:0,     |
+[2024-04-06 00:08:51,947]:DEBUG:          |                      | last:216                                 |
+[2024-04-06 00:08:51,948]:DEBUG:          |      PnMPI_Allreduce |    first:920808, min:920808, max:920808, |
+[2024-04-06 00:08:51,948]:DEBUG:          |                      | sum:920808, sum2:847887372864, cnt:1,    |
+[2024-04-06 00:08:51,948]:DEBUG:          |                      | avg:920808.0, std:0, last:920808         |
+[2024-04-06 00:08:51,948]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:51,949]:DEBUG:          |        PnMPI_Barrier | first:5527008, min:5527008, max:5527008, |
+[2024-04-06 00:08:51,949]:DEBUG:          |                      | sum:5527008, sum2:30547817432064, cnt:1, |
+[2024-04-06 00:08:51,949]:DEBUG:          |                      | avg:5527008.0, std:0, last:5527008       |
+[2024-04-06 00:08:51,949]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:51,949]:DEBUG:          |            PnMPI_Get |            first:29425480, min:29425480, |
+[2024-04-06 00:08:51,949]:DEBUG:          |                      | max:29425480, sum:29425480,              |
+[2024-04-06 00:08:51,949]:DEBUG:          |                      | sum2:865858873230400, cnt:1,             |
+[2024-04-06 00:08:51,949]:DEBUG:          |                      | avg:29425480.0, std:0, last:29425480     |
+[2024-04-06 00:08:51,949]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:51,949]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:51,950]:DEBUG:          |      PnMPI_Win_fence | first:2763720, min:2763720, max:2763720, |
+[2024-04-06 00:08:51,950]:DEBUG:          |                      | sum:2763720, sum2:7638148238400, cnt:1,  |
+[2024-04-06 00:08:51,950]:DEBUG:          |                      | avg:2763720.0, std:0, last:2763720       |
+[2024-04-06 00:08:51,950]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:51,950]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:51,950]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:51,951]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:51,951]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:51,951]:DEBUG:          |   PnMPI_Win_allocate |    first:216, min:216, max:216, sum:216, |
+[2024-04-06 00:08:51,951]:DEBUG:          |                      | sum2:46656, cnt:1, avg:216.0, std:0,     |
+[2024-04-06 00:08:51,951]:DEBUG:          |                      | last:216                                 |
+[2024-04-06 00:08:51,951]:DEBUG:          |       PnMPI_Win_free |    first:216, min:216, max:216, sum:216, |
+[2024-04-06 00:08:51,951]:DEBUG:          |                      | sum2:46656, cnt:1, avg:216.0, std:0,     |
+[2024-04-06 00:08:51,951]:DEBUG:          |                      | last:216                                 |
+[2024-04-06 00:08:51,954]:DEBUG:     scan file lulesh.benchmarks/000014/000079_PnMPI_execute/work/job.out
+[2024-04-06 00:08:51,992]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:51,992]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:51,992]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:51,992]:DEBUG:          |                 time |          first:98.0, min:98.0, max:98.0, |
+[2024-04-06 00:08:51,993]:DEBUG:          |                      | sum:98.0, sum2:9604.0, cnt:1, avg:98.0,  |
+[2024-04-06 00:08:51,993]:DEBUG:          |                      | std:0, last:98.0                         |
+[2024-04-06 00:08:51,993]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:51,993]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:51,993]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:51,993]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:51,993]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:51,993]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:51,993]:DEBUG:          |         PnMPI_Reduce |    first:343, min:343, max:343, sum:343, |
+[2024-04-06 00:08:51,993]:DEBUG:          |                      | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-04-06 00:08:51,993]:DEBUG:          |                      | last:343                                 |
+[2024-04-06 00:08:51,993]:DEBUG:          |      PnMPI_Allreduce | first:1717401, min:1717401, max:1717401, |
+[2024-04-06 00:08:51,993]:DEBUG:          |                      | sum:1717401, sum2:2949466194801, cnt:1,  |
+[2024-04-06 00:08:51,993]:DEBUG:          |                      | avg:1717401.0, std:0, last:1717401       |
+[2024-04-06 00:08:51,993]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:51,994]:DEBUG:          |        PnMPI_Barrier |            first:10307836, min:10307836, |
+[2024-04-06 00:08:51,994]:DEBUG:          |                      | max:10307836, sum:10307836,              |
+[2024-04-06 00:08:51,994]:DEBUG:          |                      | sum2:106251483002896, cnt:1,             |
+[2024-04-06 00:08:51,994]:DEBUG:          |                      | avg:10307836.0, std:0, last:10307836     |
+[2024-04-06 00:08:51,994]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:51,995]:DEBUG:          |            PnMPI_Get |            first:57788820, min:57788820, |
+[2024-04-06 00:08:51,995]:DEBUG:          |                      | max:57788820, sum:57788820,              |
+[2024-04-06 00:08:51,995]:DEBUG:          |                      | sum2:3339547716992400, cnt:1,            |
+[2024-04-06 00:08:51,995]:DEBUG:          |                      | avg:57788820.0, std:0, last:57788820     |
+[2024-04-06 00:08:51,996]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:51,996]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:51,996]:DEBUG:          |      PnMPI_Win_fence | first:5154261, min:5154261, max:5154261, |
+[2024-04-06 00:08:51,996]:DEBUG:          |                      | sum:5154261, sum2:26566406456121, cnt:1, |
+[2024-04-06 00:08:51,996]:DEBUG:          |                      | avg:5154261.0, std:0, last:5154261       |
+[2024-04-06 00:08:51,996]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:51,996]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:51,996]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:51,996]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:51,997]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:51,997]:DEBUG:          |   PnMPI_Win_allocate |    first:343, min:343, max:343, sum:343, |
+[2024-04-06 00:08:51,997]:DEBUG:          |                      | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-04-06 00:08:51,997]:DEBUG:          |                      | last:343                                 |
+[2024-04-06 00:08:51,997]:DEBUG:          |       PnMPI_Win_free |    first:343, min:343, max:343, sum:343, |
+[2024-04-06 00:08:51,997]:DEBUG:          |                      | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-04-06 00:08:51,998]:DEBUG:          |                      | last:343                                 |
+[2024-04-06 00:08:52,001]:DEBUG:     scan file lulesh.benchmarks/000014/000080_PnMPI_execute/work/job.out
+[2024-04-06 00:08:52,043]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:52,043]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:52,043]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:52,043]:DEBUG:          |                 time |       first:120.0, min:120.0, max:120.0, |
+[2024-04-06 00:08:52,043]:DEBUG:          |                      | sum:120.0, sum2:14400.0, cnt:1,          |
+[2024-04-06 00:08:52,043]:DEBUG:          |                      | avg:120.0, std:0, last:120.0             |
+[2024-04-06 00:08:52,043]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:52,044]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:52,044]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:52,044]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:52,044]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:52,045]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:52,045]:DEBUG:          |         PnMPI_Reduce |    first:512, min:512, max:512, sum:512, |
+[2024-04-06 00:08:52,045]:DEBUG:          |                      | sum2:262144, cnt:1, avg:512.0, std:0,    |
+[2024-04-06 00:08:52,046]:DEBUG:          |                      | last:512                                 |
+[2024-04-06 00:08:52,046]:DEBUG:          |      PnMPI_Allreduce | first:2945024, min:2945024, max:2945024, |
+[2024-04-06 00:08:52,046]:DEBUG:          |                      | sum:2945024, sum2:8673166360576, cnt:1,  |
+[2024-04-06 00:08:52,046]:DEBUG:          |                      | avg:2945024.0, std:0, last:2945024       |
+[2024-04-06 00:08:52,047]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:52,047]:DEBUG:          |        PnMPI_Barrier |            first:17675264, min:17675264, |
+[2024-04-06 00:08:52,047]:DEBUG:          |                      | max:17675264, sum:17675264,              |
+[2024-04-06 00:08:52,048]:DEBUG:          |                      | sum2:312414957469696, cnt:1,             |
+[2024-04-06 00:08:52,048]:DEBUG:          |                      | avg:17675264.0, std:0, last:17675264     |
+[2024-04-06 00:08:52,048]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:52,048]:DEBUG:          |            PnMPI_Get |          first:102942812, min:102942812, |
+[2024-04-06 00:08:52,048]:DEBUG:          |                      | max:102942812, sum:102942812,            |
+[2024-04-06 00:08:52,048]:DEBUG:          |                      | sum2:10597222542467344, cnt:1,           |
+[2024-04-06 00:08:52,048]:DEBUG:          |                      | avg:102942812.0, std:0, last:102942812   |
+[2024-04-06 00:08:52,048]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:52,049]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:52,049]:DEBUG:          |      PnMPI_Win_fence | first:8838144, min:8838144, max:8838144, |
+[2024-04-06 00:08:52,049]:DEBUG:          |                      | sum:8838144, sum2:78112789364736, cnt:1, |
+[2024-04-06 00:08:52,049]:DEBUG:          |                      | avg:8838144.0, std:0, last:8838144       |
+[2024-04-06 00:08:52,049]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:52,050]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:52,050]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:52,050]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:52,050]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:52,050]:DEBUG:          |   PnMPI_Win_allocate |    first:512, min:512, max:512, sum:512, |
+[2024-04-06 00:08:52,050]:DEBUG:          |                      | sum2:262144, cnt:1, avg:512.0, std:0,    |
+[2024-04-06 00:08:52,050]:DEBUG:          |                      | last:512                                 |
+[2024-04-06 00:08:52,050]:DEBUG:          |       PnMPI_Win_free |    first:512, min:512, max:512, sum:512, |
+[2024-04-06 00:08:52,050]:DEBUG:          |                      | sum2:262144, cnt:1, avg:512.0, std:0,    |
+[2024-04-06 00:08:52,050]:DEBUG:          |                      | last:512                                 |
+[2024-04-06 00:08:52,054]:DEBUG:     scan file lulesh.benchmarks/000014/000081_PnMPI_execute/work/job.out
+[2024-04-06 00:08:52,100]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-06 00:08:52,100]:DEBUG:          |         memory_total |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |         verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-04-06 00:08:52,100]:DEBUG:          |                 time |       first:140.0, min:140.0, max:140.0, |
+[2024-04-06 00:08:52,100]:DEBUG:          |                      | sum:140.0, sum2:19600.0, cnt:1,          |
+[2024-04-06 00:08:52,100]:DEBUG:          |                      | avg:140.0, std:0, last:140.0             |
+[2024-04-06 00:08:52,100]:DEBUG:          |          PnMPI_Empty |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |           PnMPI_Send |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |          PnMPI_Isend |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |           PnMPI_Recv |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |          PnMPI_Irecv |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |       PnMPI_Sendrecv |                                          |
+[2024-04-06 00:08:52,100]:DEBUG:          |         PnMPI_Reduce |    first:729, min:729, max:729, sum:729, |
+[2024-04-06 00:08:52,100]:DEBUG:          |                      | sum2:531441, cnt:1, avg:729.0, std:0,    |
+[2024-04-06 00:08:52,100]:DEBUG:          |                      | last:729                                 |
+[2024-04-06 00:08:52,100]:DEBUG:          |      PnMPI_Allreduce | first:4737042, min:4737042, max:4737042, |
+[2024-04-06 00:08:52,100]:DEBUG:          |                      | sum:4737042, sum2:22439566909764, cnt:1, |
+[2024-04-06 00:08:52,100]:DEBUG:          |                      | avg:4737042.0, std:0, last:4737042       |
+[2024-04-06 00:08:52,100]:DEBUG:          |        PnMPI_Scatter |                                          |
+[2024-04-06 00:08:52,101]:DEBUG:          |        PnMPI_Barrier |            first:28429542, min:28429542, |
+[2024-04-06 00:08:52,102]:DEBUG:          |                      | max:28429542, sum:28429542,              |
+[2024-04-06 00:08:52,102]:DEBUG:          |                      | sum2:808238858329764, cnt:1,             |
+[2024-04-06 00:08:52,103]:DEBUG:          |                      | avg:28429542.0, std:0, last:28429542     |
+[2024-04-06 00:08:52,103]:DEBUG:          |            PnMPI_Put |                                          |
+[2024-04-06 00:08:52,103]:DEBUG:          |            PnMPI_Get |          first:170496664, min:170496664, |
+[2024-04-06 00:08:52,103]:DEBUG:          |                      | max:170496664, sum:170496664,            |
+[2024-04-06 00:08:52,103]:DEBUG:          |                      | sum2:29069112435128896, cnt:1,           |
+[2024-04-06 00:08:52,104]:DEBUG:          |                      | avg:170496664.0, std:0, last:170496664   |
+[2024-04-06 00:08:52,104]:DEBUG:          |      PnMPI_Win_flush |                                          |
+[2024-04-06 00:08:52,104]:DEBUG:          |  PnMPI_Win_flush_all |                                          |
+[2024-04-06 00:08:52,104]:DEBUG:          |      PnMPI_Win_fence |            first:14215500, min:14215500, |
+[2024-04-06 00:08:52,104]:DEBUG:          |                      | max:14215500, sum:14215500,              |
+[2024-04-06 00:08:52,104]:DEBUG:          |                      | sum2:202080440250000, cnt:1,             |
+[2024-04-06 00:08:52,104]:DEBUG:          |                      | avg:14215500.0, std:0, last:14215500     |
+[2024-04-06 00:08:52,105]:DEBUG:          |       PnMPI_Win_lock |                                          |
+[2024-04-06 00:08:52,105]:DEBUG:          |   PnMPI_Win_lock_all |                                          |
+[2024-04-06 00:08:52,105]:DEBUG:          |     PnMPI_Win_unlock |                                          |
+[2024-04-06 00:08:52,105]:DEBUG:          | PnMPI_Win_unlock_all |                                          |
+[2024-04-06 00:08:52,106]:DEBUG:          |     PnMPI_Win_create |                                          |
+[2024-04-06 00:08:52,106]:DEBUG:          |   PnMPI_Win_allocate |    first:729, min:729, max:729, sum:729, |
+[2024-04-06 00:08:52,106]:DEBUG:          |                      | sum2:531441, cnt:1, avg:729.0, std:0,    |
+[2024-04-06 00:08:52,106]:DEBUG:          |                      | last:729                                 |
+[2024-04-06 00:08:52,106]:DEBUG:          |       PnMPI_Win_free |    first:729, min:729, max:729, sum:729, |
+[2024-04-06 00:08:52,107]:DEBUG:          |                      | sum2:531441, cnt:1, avg:729.0, std:0,    |
+[2024-04-06 00:08:52,107]:DEBUG:          |                      | last:729                                 |
+[2024-04-06 00:08:52,128]:DEBUG: sort using: tasks
+[2024-04-06 00:08:52,129]:DEBUG: PnMPI_result:
+[2024-04-06 00:08:52,129]:DEBUG: | jube_benchmark_id |          14 |          14 |          14 |          14 |          14 |          14 |          14 |
+[2024-04-06 00:08:52,129]:DEBUG: |        jube_wp_id |          75 |          76 |          77 |          78 |          79 |          80 |          81 |
+[2024-04-06 00:08:52,130]:DEBUG: |        RMA_target | -DUSE_RMA=1 | -DUSE_RMA=1 | -DUSE_RMA=1 | -DUSE_RMA=1 | -DUSE_RMA=1 | -DUSE_RMA=1 | -DUSE_RMA=1 |
+[2024-04-06 00:08:52,130]:DEBUG: |             tasks |          27 |          64 |         125 |         216 |         343 |         512 |         729 |
+[2024-04-06 00:08:52,130]:DEBUG: |                   |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,130]:DEBUG: |             #Send |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,130]:DEBUG: |            #Isend |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,131]:DEBUG: |             #Recv |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,131]:DEBUG: |            #Irecv |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,131]:DEBUG: |         #Sendrecv |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,131]:DEBUG: |           #Reduce |          27 |          64 |         125 |         216 |         343 |         512 |         729 |
+[2024-04-06 00:08:52,131]:DEBUG: |        #Allreduce |       54810 |      177472 |      439500 |      920808 |     1717401 |     2945024 |     4737042 |
+[2024-04-06 00:08:52,131]:DEBUG: |          #Scatter |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,131]:DEBUG: |          #Barrier |      329130 |     1065472 |     2638250 |     5527008 |    10307836 |    17675264 |    28429542 |
+[2024-04-06 00:08:52,131]:DEBUG: |              #Put |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,132]:DEBUG: |              #Get |     1182358 |     4694544 |    13043108 |    29425480 |    57788820 |   102942812 |   170496664 |
+[2024-04-06 00:08:52,132]:DEBUG: |             #lock |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,132]:DEBUG: |           #unlock |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,132]:DEBUG: |         #lock_all |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,133]:DEBUG: |       #unlock_all |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,133]:DEBUG: |            #fence |      164592 |      532800 |     1319250 |     2763720 |     5154261 |     8838144 |    14215500 |
+[2024-04-06 00:08:52,133]:DEBUG: |            #flush |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,133]:DEBUG: |        #flush_all |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,133]:DEBUG: |       #Win_create |             |             |             |             |             |             |             |
+[2024-04-06 00:08:52,133]:DEBUG: |     #Win_allocate |          27 |          64 |         125 |         216 |         343 |         512 |         729 |
+[2024-04-06 00:08:52,133]:DEBUG: |         #Win_free |          27 |          64 |         125 |         216 |         343 |         512 |         729 |
+[2024-04-06 00:08:52,134]:DEBUG: 

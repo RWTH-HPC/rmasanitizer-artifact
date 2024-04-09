@@ -1,0 +1,15 @@
+result:
+| bench_id | wp_id |  compile | measurement | tasks | CLASS | SOLVER | EXCHG | time_avg | time_std | verification |
+|----------|-------|----------|-------------|-------|-------|--------|-------|----------|----------|--------------|
+|       74 |     5 |     base |        base |    49 |     D |  FENCE | FENCE |  310.298 |    0.507 |   SUCCESSFUL |
+|       74 |    35 | tsan-opt |        must |    49 |     D |  FENCE | FENCE |  315.516 |    0.081 |   SUCCESSFUL |
+|       74 |    10 |     base |        base |   100 |     D |  FENCE | FENCE |  144.404 |    0.276 |   SUCCESSFUL |
+|       74 |    40 | tsan-opt |        must |   100 |     D |  FENCE | FENCE |  149.618 |    1.119 |   SUCCESSFUL |
+|       74 |    15 |     base |        base |   196 |     D |  FENCE | FENCE |   75.052 |    1.616 |   SUCCESSFUL |
+|       74 |    45 | tsan-opt |        must |   196 |     D |  FENCE | FENCE |   78.696 |    1.652 |   SUCCESSFUL |
+|       74 |    20 |     base |        base |   225 |     D |  FENCE | FENCE |   68.122 |    0.215 |   SUCCESSFUL |
+|       74 |    50 | tsan-opt |        must |   225 |     D |  FENCE | FENCE |   74.074 |    1.346 |   SUCCESSFUL |
+|       74 |    29 |     base |        base |   361 |     D |  FENCE | FENCE |   43.530 |    0.797 |   SUCCESSFUL |
+|       74 |    58 | tsan-opt |        must |   361 |     D |  FENCE | FENCE |   47.042 |    0.130 |   SUCCESSFUL |
+|       74 |    30 |     base |        base |   729 |     D |  FENCE | FENCE |   23.766 |    0.211 |   SUCCESSFUL |
+|       74 |    60 | tsan-opt |        must |   729 |     D |  FENCE | FENCE |   26.452 |    0.906 |   SUCCESSFUL |

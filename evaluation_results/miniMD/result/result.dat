@@ -1,0 +1,13 @@
+result:
+| bench_id | wp_id |  compile | measurement | tasks | timesteps | size | time_avg | time_std | verification |
+|----------|-------|----------|-------------|-------|-----------|------|----------|----------|--------------|
+|       36 |     5 |     base |        base |    48 |       400 |  146 |   33.622 |    0.011 |      SUCCESS |
+|       36 |    35 | tsan-opt |        must |    48 |       400 |  146 |   99.539 |    1.662 |      SUCCESS |
+|       36 |    10 |     base |        base |    96 |       400 |  184 |   34.351 |    0.028 |      SUCCESS |
+|       36 |    41 | tsan-opt |        must |    96 |       400 |  184 |  110.231 |    0.962 |      SUCCESS |
+|       36 |    19 |     base |        base |   192 |       400 |  231 |   34.510 |    0.137 |      SUCCESS |
+|       36 |    45 | tsan-opt |        must |   192 |       400 |  231 |  123.732 |    1.003 |      SUCCESS |
+|       36 |    20 |     base |        base |   384 |       400 |  291 |   35.272 |    0.116 |      SUCCESS |
+|       36 |    50 | tsan-opt |        must |   384 |       400 |  291 |  139.291 |    1.650 |      SUCCESS |
+|       36 |    25 |     base |        base |   768 |       400 |  367 |   35.965 |    0.302 |      SUCCESS |
+|       36 |    56 | tsan-opt |        must |   768 |       400 |  367 |  168.885 |    0.909 |      SUCCESS |
