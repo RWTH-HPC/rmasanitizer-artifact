@@ -19,6 +19,7 @@ benchmark_name_map = {
 benchmark_task_selector = {
     # "PRK_stencil": [48,192,768],
     "BT-RMA": [49,100,225,361,729],
+    "BT-SHMEM": [49,100,225,361,729],
     "lulesh": [64,125,216,343,729],
     # "miniMD": [48,192,768],
     #"BT-SHMEM": [49,225,361]
