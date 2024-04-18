@@ -97,9 +97,10 @@ def create_plots(dfs) -> None:
             df = df[df['tasks'].isin(benchmark_task_selector[benchmark])]
 
         df['tasks'] = df['tasks'].astype(str)
-        
+
         df.plot.bar(x='tasks', y='tool slowdown', color=palette, edgecolor="black", width=0.8, rot=0, ax=ax)
         ax2 = ax.twinx()
+
         ax.get_legend().remove()
         
         ax.set_title(benchmark_name_map[benchmark], fontsize=8)
@@ -110,7 +111,7 @@ def create_plots(dfs) -> None:
         ax.set_ymargin(0.35)
         ax.grid(False)
  
-        # exis on the right side
+        # axis on the right side
         ax.spines["right"].set_visible(True)
         ax.yaxis.set_label_position('right')
         ax.yaxis.set_ticks_position('right')
@@ -118,28 +119,90 @@ def create_plots(dfs) -> None:
             ax.set_ylim(0, 15)
 
         # Show values
-        for i in ax.containers:
-             texts = ax.bar_label(i, fmt='%.2f', rotation=0, fontsize=7)
-             for text in texts:
-                 text.set(y=2, zorder=1000)
+        # for i in ax.containers:
+        #      texts = ax.bar_label(i, fmt='%.2f', rotation=0, fontsize=7)
+        #      for text in texts:
+        #          text.set(y=2, zorder=1000)
 
         # ax2.set_zorder(10)
         ax2.set_ylabel("Runtime [s]", fontsize=8)
         df.plot(kind='line', x='tasks', y='rmasan_avg', color='blue', ax=ax2, style='.-')
         df.plot(kind='line', x='tasks', y='base_avg', color='red', ax=ax2, style='.-')
-        ax2.set_ylim(bottom=0, top=df['rmasan_avg'].max()*1.1)
-        ax2.set_ymargin(0.2)
+
+        
+        # ================================
+        # Prevent marker cutoff
+        # =================================
+        # get markersize in pixel
+        markersize = ax2.get_children()[0].get_markersize()
+        # transform pixel markersize to markersize based on the axis
+        markersize_data = (ax2.transData.inverted().transform((1, 1)) - ax2.transData.inverted().transform((0, 0)))[1]*markersize
+        # calculate ymargin at the bottom such that the marker are not cutoff
+        ymargin_bottom = min(0, df['rmasan_avg'].min() - markersize_data, df['base_avg'].min() - markersize_data)
+        ax2.set_ylim(bottom=0 + ymargin_bottom, top=df['rmasan_avg'].max()*1.1)
         ax2.get_legend().remove()
 
         # axis on the left side
         ax2.spines["left"].set_visible(True)
         ax2.yaxis.set_label_position('left')
         ax2.yaxis.set_ticks_position('left')
-        ax2.grid(zorder=0)
         ax2.set_axisbelow(True)
         ax2.tick_params(axis='x', labelsize=7, pad=0)
         ax2.tick_params(axis='y', labelsize=7, pad=0)
+        
+        # ================================
+        # Background Grid
+        # =================================
+        # Z-order only works inside of an axis, but not across different axis 
+        # Instead we create a new axis axBG, and use it as an empty axis for the background grid
+        axBG=ax2.twinx()
+        axBG.set_zorder(-10)  
+        # remove the ticks and labels of the background axis
+        axBG.tick_params(left=False, labelleft = False, right=False, labelright=False) 
+        # Remove background of ax and ax2
+        ax.patch.set_visible(False)
+        ax2.patch.set_visible(False)
+        # Turn on the background of axBG
+        axBG.patch.set_visible(True)
+        #Remove grids of ax and ax2
+        ax.grid(False)
+        ax2.grid(False)
+        
+        #Set ticks and limits of the background axis to the respective values of axis ax2  
+        axBG.set_ylim(ax2.get_ylim())   
+        # only show ticks that are in the limits and are larger than 0
+        axBG.set_yticks([i for i in ax2.get_yticks().tolist() if i >= 0 and i <= axBG.get_ylim()[1]])
+        ax2.set_yticks(axBG.get_yticks())
+        
+        #Use Locators to set the ticks of axBG and ax2 such that they are the same and the grid of axBG aligns with ax2
+        nticks = 3
+        axBG.yaxis.set_major_locator(mticker.MaxNLocator(nbins=nticks, min_n_ticks=3, steps=[1, 2.5, 5, 10]))
+        ax2.yaxis.set_major_locator(mticker.MaxNLocator(nbins=nticks, min_n_ticks=3, steps=[1, 2.5, 5, 10])) 
+        
+        # ================================
+        # Bar labels
+        # =================================
+        # Create a new axis for bar labels
+        ax_text = ax.twinx()
+        ax_text.set_zorder(9000000)  
+        # Remove background of ax_text
+        ax_text.patch.set_visible(False)
+        #Remove grids of ax_text
+        ax_text.grid(False)        
+        # remove the ticks and labels of ax_text
+        ax_text.tick_params(left=False, labelleft = False, right=False, labelright=False) 
+        # Set the limits of the twin axis to be the same as the original axis
+        ax_text.set_ylim(ax.get_ylim())
+        # Plot text on the twin axis
+        for bar in ax.containers[0]:
+            height = bar.get_height()
+            ax_text.text(bar.get_x() + bar.get_width() / 2., height + 1, '%.2f' % height, ha='center', fontsize=7)
 
+        # Set axis ax back on the right side
+        ax.spines["right"].set_visible(True)
+        ax.yaxis.set_label_position('right')
+        ax.yaxis.set_ticks_position('right')
+        
         # avoid rendering issues of ytick labels
         ax.yaxis.get_major_formatter()._usetex = False
         ax2.yaxis.get_major_formatter()._usetex = False
