@@ -128,7 +128,7 @@ RUN rm -rf ./rmasanitizer/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > .
 RUN cd ./rmasanitizer && \
     mkdir -p build && \
     cd build && \
-    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_PREFIX_PATH='/usr/lib/;/usr/lib64/' -DCMAKE_BUILD_TYPE=Release -DENABLE_STACKTRACE=OFF -DUSE_BACKWARD=OFF -DENABLE_FORTRAN=OFF -DENABLE_OPENSHMEM=ON -DENABLE_GASPI=ON -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/rmasanitizer .. && \
+    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_PREFIX_PATH='/usr/lib/llvm-16/;/usr/lib/;/usr/lib64/' -DCMAKE_BUILD_TYPE=Release -DENABLE_STACKTRACE=OFF -DUSE_BACKWARD=OFF -DENABLE_FORTRAN=OFF -DENABLE_OPENSHMEM=ON -DENABLE_GASPI=ON -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/rmasanitizer .. && \
     make -j$(nproc) install
 
 # Clean up externals
