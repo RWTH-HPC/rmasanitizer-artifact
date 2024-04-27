@@ -12,7 +12,7 @@ benchmark_name_map = {
     "miniMD": "miniMD -- weak (MPI RMA)\n{400 timesteps, LJ, 260000 atoms per proc}",
     "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{1000 iters, $48 \cdot 10^6$ elements per proc }",
     "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class D (162 x 162 x 162)}",
-    "CFD-Proxy": "CFD-Proxy - strong (GASPI)\n{1000 iters, F6 airplane mesh}"
+    "CFD-Proxy": "CFD-Proxy -- strong (GASPI)\n{1000 iters, F6 airplane mesh}"
 }
 
 benchmark_task_selector = {
@@ -97,11 +97,11 @@ def create_plots(dfs) -> None:
 
         ax.get_legend().remove()
         
-        ax.set_title(benchmark_name_map[benchmark], fontsize=8)
-        ax.set_xlabel("\# Processes", fontsize=8)
-        ax.set_ylabel("Tool Slowdown", fontsize=8)
-        ax.tick_params(axis='x', labelsize=7, pad=0)
-        ax.tick_params(axis='y', labelsize=7, pad=0)
+        ax.set_title(benchmark_name_map[benchmark], fontsize=9)
+        ax.set_xlabel("\# Processes", fontsize=9)
+        ax.set_ylabel("Tool Slowdown", fontsize=9)
+        ax.tick_params(axis='x', labelsize=8, pad=0)
+        ax.tick_params(axis='y', labelsize=8, pad=0)
         ax.set_ymargin(0.35)
         ax.grid(False)
  
@@ -111,8 +111,10 @@ def create_plots(dfs) -> None:
         ax.yaxis.set_ticks_position('right')
         if benchmark not in ["CFD-Proxy", "BT-RMA"]:
             ax.set_ylim(0, 15)
+        else:
+            ax.set_ylim(0, 40)
 
-        ax2.set_ylabel("Runtime [s]", fontsize=8)
+        ax2.set_ylabel("Runtime [s]", fontsize=9)
         
         if benchmark in mustrma_benchmark_paths:
             mustrma_df = read_csv(benchmark, mustrma_benchmark_paths[benchmark])
