@@ -1,0 +1,65 @@
+
+\documentclass[twoside]{article}
+
+\usepackage{url}
+
+
+\begin{document}
+
+This is the artifact description for the paper ``RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications'' submitted to the ICPP'24 conference.
+
+\noindent Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Jenke, Felix Tomski, Matthias S. Müller, IT Center, RWTH Aachen University
+
+\subsection*{Main Contributions}
+The paper corresponding to this artifact contributes a generalized race detection tool for Remote Memory Access Programs. In the paper, we make the following contributions: (1) We provide a generalized RMA race detection model compatible with state-of-the-art RMA programming models. (2) We present RMASanitizer, an on-the-fly race detector that works with MPI RMA, OpenSHMEM, and GASPI. (3) We evaluate the classification quality of RMASanitizer and present overhead studies on different RMA proxy apps.
+
+\subsection*{Role of the Artifact}
+The artifact provides the source code of RMASanitizer itself to review and understand the software architecture of RMASanitizer described in the paper. Further, it provides all raw data that was gathered during the experiments to generate the classification quality benchmark (Table 3 of the paper) and overhead study results (Figure 9 of the paper). Also, the artifact provides all resources to reproduce the results of the classification quality benchmark (Table 3 of the paper) in the paper as well as the overhead study results (Figure 9 of the paper).
+
+
+\subsection*{Computational Artifact Structure}
+The computational artifact is available at \url{https://hpc.rwth-aachen.de/papers/icpp24-rmasanitizer.tar.gz}.
+It contains the following folders:
+\begin{itemize}
+    \item \texttt{RMASanitizer}: Source code of RMASanitizer (for a detailed explanation, see the computational artifact)
+    \item \texttt{classification\_quality}: Results of RMASanitizer, MUST-RMA and PARCOACH-(dynamic,static) on RMARaceBench
+    \item \texttt{evaluation\_results}: Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper
+\end{itemize}
+
+
+\subsection*{Classification Quality Results}
+We ran each tool on the entire RMARaceBench suite. 
+For easier comparison, the RMASanitizer runs are separated from those of the other three tools.
+
+In the computational artifact, the results can be found in the folder \texttt{classification\_quality}.
+Each output folder also includes the parsed output from the RMARaceBench evaluation script, \texttt{results\_parsed}.
+Those result values were copied into Table 3.
+
+The following software versions were used:
+\begin{itemize}
+\item OpenMPI 4.1.6 for MPI RMA, Sandia SHMEM 1.5.2 for OpenSHMEM, GPI-2 1.5.1 for GASPI
+\item Clang 16 as compiler
+\item RMASanitizer / MUST-RMA / PARCOACH as provided by this repository
+\item All required software is shipped with the Docker container defined in \texttt{Dockerfile}.
+\end{itemize}
+
+The classification quality benchmarks can be executed on any arbitrary system with Docker or Podman installed.
+
+
+\subsection*{Overhead Study Results}
+The performance evaluation uses the JUBE benchmarking environment for reproducible benchmark setups.
+
+The raw performance results are available in the folder evaluation\_results/ for RMASanitizer and MUST-RMA in subfolders for each benchmark. In particular, each subfolder has a folder `result` that contains the measured results in a CSV file \texttt{result\_csv.dat} and in a human-readable \texttt{result.dat} format.
+
+The following software versions were used:
+\begin{itemize}
+\item OpenMPI 4.1.6 for MPI RMA, Sandia SHMEM 1.5.2 for OpenSHMEM, GPI-2 1.5.1 for GASPI
+\item Clang / Classic-Flang 16 as compiler
+\item RMASanitizer / MUST-RMA / PARCOACH as provided by this repository
+\item JUBE 2.6.1
+\item Slurm scheduler to schedule the jobs generated with JUBE
+\end{itemize}
+
+The overhead benchmarks were executed on the CLAIX-23 cluster of RWTH Aachen University where each node is equipped with 2x Intel Xeon 8468 Sapphire Rapids with disabled SMT and 256 GB of main memory. The nodes are connected via InfiniBand. As the overhead studies run experiments with up to 768 processes (requiring up to 1536 cores), any cluster with up to 1536 cores should be feasible to run the experiments. We used UCX to connect to the InfiniBand network, but any other library should in principle also work.
+
+\end{document}
