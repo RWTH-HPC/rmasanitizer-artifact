@@ -1,0 +1,24 @@
+nodelist=n23m[0065-0068]
+.
+*** COMPILE FLAGS
+ -DUSE_PACK_IN_BULK_SYNC -DUSE_GASPI
+
+*** SETUP
+                                 nProc: 192
+                              NTHREADS: 1
+                                 NITER: 1000
+                              N_MEDIAN: 1
+
+*** TIMINGS
+                             comm_free: total:   0.000000, median:   0.000000
+            exchange_dbl_mpi_bulk_sync: total:   0.000000, median:   0.000000
+           exchange_dbl_mpi_early_recv: total:   0.000000, median:   0.000000
+                exchange_dbl_mpi_async: total:   0.000000, median:   0.000000
+          exchange_dbl_gaspi_bulk_sync: total:   0.950383, median:   0.950383
+              exchange_dbl_gaspi_async: total:   0.000000, median:   0.000000
+      exchange_dbl_mpi_fence_bulk_sync: total:   0.000000, median:   0.000000
+          exchange_dbl_mpi_fence_async: total:   0.000000, median:   0.000000
+       exchange_dbl_mpi_pscw_bulk_sync: total:   0.000000, median:   0.000000
+           exchange_dbl_mpi_pscw_async: total:   0.000000, median:   0.000000
+*** SUCCESS
+EXECUTION VERIFICATION CHECK: SUCCESS

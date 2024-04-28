@@ -22,20 +22,20 @@ benchmark_task_selector = {
 }
 
 rmasanitizer_benchmark_paths = {
-    "PRK_stencil": "../RMASanitizer/PRK_stencil/result/result_csv.dat",
-    "BT-RMA": "../RMASanitizer/BT-RMA/result/result_csv.dat",
-    "lulesh": "../RMASanitizer/lulesh/result/result_csv.dat",
-    "miniMD": "../RMASanitizer/miniMD/result/result_csv.dat",
-    "PRK_stencil_shmem": "../RMASanitizer/PRK_stencil_shmem/result/result_csv.dat",
-    "BT-SHMEM": "../RMASanitizer/BT-SHMEM/result/result_csv.dat",
-    "CFD-Proxy": "../RMASanitizer/CFD-Proxy/result/result_csv.dat",
+    "PRK_stencil": "../RMASanitizer/PRK_stencil/000000/result/result_csv.dat",
+    "BT-RMA": "../RMASanitizer/BT-RMA/000000/result/result_csv.dat",
+    "lulesh": "../RMASanitizer/lulesh/000000/result/result_csv.dat",
+    "miniMD": "../RMASanitizer/miniMD/000000/result/result_csv.dat",
+    "PRK_stencil_shmem": "../RMASanitizer/PRK_stencil_shmem/000000/result/result_csv.dat",
+    "BT-SHMEM": "../RMASanitizer/BT-SHMEM/000000/result/result_csv.dat",
+    "CFD-Proxy": "../RMASanitizer/CFD-Proxy/000000/result/result_csv.dat",
 }
 
 mustrma_benchmark_paths = {
-    "PRK_stencil": "../MUST-RMA/PRK_stencil/result/result_csv.dat",
-    "BT-RMA": "../MUST-RMA/BT-RMA/result/result_csv.dat",
-    "lulesh": "../MUST-RMA/lulesh/result/result_csv.dat",
-    "miniMD": "../MUST-RMA/miniMD/result/result_csv.dat",
+    "PRK_stencil": "../MUST-RMA/PRK_stencil/000000/result/result_csv.dat",
+    "BT-RMA": "../MUST-RMA/BT-RMA/000000/result/result_csv.dat",
+    "lulesh": "../MUST-RMA/lulesh/000000/result/result_csv.dat",
+    "miniMD": "../MUST-RMA/miniMD/000000/result/result_csv.dat",
 }
 
 plt.rc('pdf', fonttype=42)

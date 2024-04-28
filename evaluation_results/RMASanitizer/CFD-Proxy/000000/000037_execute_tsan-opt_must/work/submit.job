@@ -1,0 +1,54 @@
+#!/bin/bash -x
+#SBATCH --job-name="CFD-Proxy_must_tsan-opt_37"
+#SBATCH --mail-user=
+#SBATCH --mail-type=NONE
+#SBATCH --nodes=4
+#SBATCH --ntasks=192
+#SBATCH --cpus-per-task=2
+#SBATCH --time=00:40:00
+#SBATCH --output=job.out
+#SBATCH --error=job.err
+#SBATCH --partition=c23test
+#SBATCH --gres=NONE
+#SBATCH --account=supp0006
+#SBATCH --exclusive
+#SBATCH --hwctr=likwid
+#SBATCH --ntasks-per-node=48
+${perftool_job_config}
+
+export MUST_RMASANITIZER_PRINT_STATISTICS="1"
+export OMP_NUM_THREADS="1"
+export time_output_file="/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/CFD-Proxy/CFD-Proxy.benchmarks/000061/000004_compile_tsan-opt/work/time.out"
+export TSAN_OPTIONS="$TSAN_OPTIONS ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout"
+
+
+echo "nodelist=$SLURM_JOB_NODELIST"     
+          SOURCE_DIR=compile/copy_source;
+          LAYOUT_DIR=$PWD;
+          COMPILE_DIR=compile;
+          module use /home/rwth1269/modules/; module purge; for path in /home/rwth1269/modules; do module use $path; done; for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3; do module load $modulename; done;
+          for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m  ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/CFD-Proxy/../../dep/MUST/00fc12af05de4d1d572fa57899019d10/install/bin:$PATH; do export "$item"; done;
+
+JUBE_ERR_CODE=$?
+if [ $JUBE_ERR_CODE -ne 0 ]; then
+    touch error
+    exit $JUBE_ERR_CODE
+fi
+
+ mustrun  --must:output stdout --must:mpiexec srun --must:rma-only -n 192 --must:rma-mode shadow  -- compile/hybrid.f6.exe.tsan-opt.f686f791bbfcf8d98529e0563aaa0ef7 -lvl 2 /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/CFD-Proxy/cfd-proxy/f6/192/dualgrid
+
+JUBE_ERR_CODE=$?
+if [ $JUBE_ERR_CODE -ne 0 ]; then
+    touch error
+    exit $JUBE_ERR_CODE
+fi
+
+printf "EXECUTION VERIFICATION CHECK: ";if grep -q "\[MUST-REPORT\] Error.*race" job.out || grep -q "^srun: error:" job.err; then echo "FAILURE"; else echo "SUCCESS"; fi
+
+JUBE_ERR_CODE=$?
+if [ $JUBE_ERR_CODE -ne 0 ]; then
+    touch error
+    exit $JUBE_ERR_CODE
+fi
+
+touch ready

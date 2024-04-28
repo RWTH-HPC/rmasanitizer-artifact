@@ -1,0 +1,1157 @@
+; ModuleID = '/tmp/ss540294/n23m0037_17902/get_active_nprocs-5462e8.ll'
+source_filename = "/tmp/ss540294/n23m0037_17902/get_active_nprocs-5462e8.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.STATICS1 = type <{ [200 x i8] }>
+%structmpi_fortran_bottom_ = type <{ [4 x i8] }>
+%structmpi_fortran_in_place_ = type <{ [4 x i8] }>
+%structmpi_fortran_argv_null_ = type <{ [1 x i8] }>
+%structmpi_fortran_argvs_null_ = type <{ [1 x i8] }>
+%structmpi_fortran_errcodes_ignore_ = type <{ [4 x i8] }>
+%structmpi_fortran_status_ignore_ = type <{ [24 x i8] }>
+%structmpi_fortran_statuses_ignore_ = type <{ [24 x i8] }>
+%structmpi_fortran_unweighted_ = type <{ [4 x i8] }>
+%structmpi_fortran_weights_empty_ = type <{ [4 x i8] }>
+
+@.STATICS1 = internal global %struct.STATICS1 <{ [200 x i8] c"\FB\FF\FF\FF.\00\00\00 *** ERROR determining processor topology for \00\00\CA\FF\FF\FF\FB\FF\FF\FF\0A\00\00\00 processes\00\00\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\FB\FF\FF\FF\11\00\00\00     Expecting a \00\00\00\E1\FF\FF\FF\FB\FF\FF\FF\14\00\00\00 number of processes\FB\FF\FF\FF\0A\00\00\00 (such as \00\00\CA\FF\FF\FF\FB\FF\FF\FF\01\00\00\00)\00\00\00\FF\FF\FF\FF\00\00\00\00" }>, align 16
+@.C360_get_active_nprocs_ = internal constant i32 16
+@.C749_get_active_nprocs_ = internal constant [12 x i8] c"power-of-two"
+@.C748_get_active_nprocs_ = internal constant i32 97
+@.C747_get_active_nprocs_ = internal constant [26 x i8] c"grid (nx*ny, nx/2<=ny<=nx)"
+@.C746_get_active_nprocs_ = internal constant i32 95
+@.C744_get_active_nprocs_ = internal constant [6 x i8] c"square"
+@.C525_get_active_nprocs_ = internal constant i32 14
+@.C742_get_active_nprocs_ = internal constant i32 93
+@.C731_get_active_nprocs_ = internal constant [21 x i8] c"get_active_nprocs.f90"
+@.C733_get_active_nprocs_ = internal constant i32 89
+@.C339_get_active_nprocs_ = internal constant i32 6
+@.C729_get_active_nprocs_ = internal constant [1 x i8] c"F"
+@.C728_get_active_nprocs_ = internal constant [1 x i8] c"f"
+@.C727_get_active_nprocs_ = internal constant [1 x i8] c"N"
+@.C726_get_active_nprocs_ = internal constant [1 x i8] c"n"
+@.C725_get_active_nprocs_ = internal constant [3 x i8] c"OFF"
+@.C724_get_active_nprocs_ = internal constant [3 x i8] c"off"
+@.C722_get_active_nprocs_ = internal constant [1 x i8] c"-"
+@.C721_get_active_nprocs_ = internal constant [1 x i8] c"0"
+@.C343_get_active_nprocs_ = internal constant i32 4
+@.C720_get_active_nprocs_ = internal constant [17 x i8] c"NPB_NPROCS_STRICT"
+@.C313_get_active_nprocs_ = internal constant i32 1
+@.C311_get_active_nprocs_ = internal constant i32 0
+@mpi_fortran_bottom_ = common local_unnamed_addr global %structmpi_fortran_bottom_ zeroinitializer, align 64
+@mpi_fortran_in_place_ = common local_unnamed_addr global %structmpi_fortran_in_place_ zeroinitializer, align 64
+@mpi_fortran_argv_null_ = common local_unnamed_addr global %structmpi_fortran_argv_null_ zeroinitializer, align 64
+@mpi_fortran_argvs_null_ = common local_unnamed_addr global %structmpi_fortran_argvs_null_ zeroinitializer, align 64
+@mpi_fortran_errcodes_ignore_ = common local_unnamed_addr global %structmpi_fortran_errcodes_ignore_ zeroinitializer, align 64
+@mpi_fortran_status_ignore_ = common local_unnamed_addr global %structmpi_fortran_status_ignore_ zeroinitializer, align 64
+@mpi_fortran_statuses_ignore_ = common local_unnamed_addr global %structmpi_fortran_statuses_ignore_ zeroinitializer, align 64
+@mpi_fortran_unweighted_ = common local_unnamed_addr global %structmpi_fortran_unweighted_ zeroinitializer, align 64
+@mpi_fortran_weights_empty_ = common local_unnamed_addr global %structmpi_fortran_weights_empty_ zeroinitializer, align 64
+@llvm.compiler.used = appending global [3 x ptr] [ptr @__pd_log_2, ptr @__pd_log_4, ptr @__pd_log_8], section "llvm.metadata"
+
+define void @get_active_nprocs_(ptr nocapture readonly %pkind, ptr nocapture %np1, ptr nocapture %np2, ptr nocapture %npa, ptr %nprocs, ptr %rank, ptr %comm_out, ptr %active) local_unnamed_addr #0 !dbg !20 {
+L.entry:
+  %comm_in_708 = alloca i32, align 4
+  %ios_714 = alloca i32, align 4
+  %val_715 = alloca [40 x i8], align 16
+  %ic_713 = alloca i32, align 4
+  call void @llvm.dbg.declare(metadata ptr %pkind, metadata !25, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %np1, metadata !26, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %np2, metadata !27, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %npa, metadata !28, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %nprocs, metadata !29, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %rank, metadata !30, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %comm_out, metadata !31, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.declare(metadata ptr %active, metadata !32, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !34, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !35, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !36, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !37, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !38, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !39, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !40, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !41, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 255, metadata !42, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 255, metadata !43, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 63, metadata !44, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 255, metadata !45, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 35, metadata !46, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 255, metadata !47, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1023, metadata !48, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 127, metadata !49, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !50, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !51, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -1, metadata !52, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -1, metadata !53, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !54, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 128, metadata !55, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !56, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !57, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 13, metadata !58, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !59, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 15, metadata !60, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 16, metadata !61, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 14, metadata !62, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !63, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 18, metadata !64, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 7, metadata !65, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 5, metadata !66, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !67, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !68, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 9, metadata !69, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !70, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 17, metadata !71, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 11, metadata !72, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 10, metadata !73, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 12, metadata !74, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !75, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !76, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !77, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !78, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !79, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -1, metadata !80, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !81, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !82, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !83, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 20, metadata !84, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 21, metadata !85, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 13, metadata !86, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 22, metadata !87, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 23, metadata !88, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 24, metadata !89, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !90, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 5, metadata !91, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 25, metadata !92, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !93, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 12, metadata !94, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 26, metadata !95, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 27, metadata !96, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 30, metadata !97, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 28, metadata !98, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 29, metadata !99, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 9, metadata !100, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 34, metadata !101, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 31, metadata !102, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 32, metadata !103, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 33, metadata !104, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 17, metadata !105, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 18, metadata !106, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 35, metadata !107, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 36, metadata !108, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 92, metadata !109, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 37, metadata !110, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 38, metadata !111, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 40, metadata !112, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 39, metadata !113, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 41, metadata !114, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 42, metadata !115, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 10, metadata !116, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 16, metadata !117, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 19, metadata !118, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 43, metadata !119, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 44, metadata !120, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !121, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 45, metadata !122, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 7, metadata !123, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 69, metadata !124, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 46, metadata !125, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 70, metadata !126, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 68, metadata !127, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 71, metadata !128, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 47, metadata !129, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !130, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 48, metadata !131, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 49, metadata !132, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 50, metadata !133, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !134, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 11, metadata !135, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 15, metadata !136, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !137, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 14, metadata !138, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 51, metadata !139, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 52, metadata !140, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 53, metadata !141, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !142, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !143, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !144, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !145, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -1, metadata !146, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 5, metadata !147, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !148, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !149, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !150, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !151, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !152, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !153, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 16, metadata !154, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !155, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !156, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -2, metadata !157, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -4, metadata !158, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !159, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !160, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !161, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !162, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !163, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !164, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !165, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !166, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !167, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !168, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !169, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !170, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !171, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 56, metadata !172, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 64, metadata !173, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 63, metadata !174, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 72, metadata !175, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 59, metadata !176, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 57, metadata !177, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 58, metadata !178, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 62, metadata !179, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 54, metadata !180, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 55, metadata !181, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 60, metadata !182, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 61, metadata !183, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 67, metadata !184, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 65, metadata !185, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 66, metadata !186, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 -32766, metadata !187, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !188, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !189, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !190, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 7, metadata !191, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 10, metadata !192, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 9, metadata !193, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !194, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !195, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !196, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !197, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 11, metadata !198, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !199, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !200, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !201, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !202, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !203, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 11, metadata !204, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !205, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 10, metadata !206, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 9, metadata !207, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !208, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !209, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !210, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 5, metadata !211, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !212, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 7, metadata !213, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !214, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 26, metadata !215, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 27, metadata !216, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 24, metadata !217, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 52, metadata !218, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 25, metadata !219, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 23, metadata !220, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 66, metadata !221, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !222, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !223, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 10, metadata !224, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !225, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 34, metadata !226, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 5, metadata !227, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !228, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !229, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !230, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 18, metadata !231, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 20, metadata !232, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 21, metadata !233, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 19, metadata !234, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 72, metadata !235, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 54, metadata !236, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 55, metadata !237, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 56, metadata !238, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 55, metadata !239, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 57, metadata !240, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 68, metadata !241, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 69, metadata !242, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 70, metadata !243, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 69, metadata !244, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 71, metadata !245, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !246, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 46, metadata !247, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 22, metadata !248, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 49, metadata !249, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 17, metadata !250, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !251, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !252, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !253, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 45, metadata !254, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 48, metadata !255, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !256, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !257, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !258, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !259, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 39, metadata !260, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 60, metadata !261, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 62, metadata !262, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 64, metadata !263, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 58, metadata !264, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 7, metadata !265, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !266, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 12, metadata !267, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 9, metadata !268, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 10, metadata !269, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 11, metadata !270, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 5, metadata !271, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !272, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !273, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 29, metadata !274, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 30, metadata !275, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 31, metadata !276, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 32, metadata !277, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 41, metadata !278, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 47, metadata !279, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 50, metadata !280, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 51, metadata !281, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 43, metadata !282, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 43, metadata !283, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 7, metadata !284, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 9, metadata !285, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !286, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 11, metadata !287, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !288, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !289, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !290, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 12, metadata !291, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 14, metadata !292, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 67, metadata !293, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !294, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !295, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !296, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 13, metadata !297, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 16, metadata !298, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 28, metadata !299, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 14, metadata !300, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 15, metadata !301, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 13, metadata !302, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !303, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 37, metadata !304, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 53, metadata !305, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 36, metadata !306, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !307, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 3, metadata !308, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 61, metadata !309, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 63, metadata !310, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 65, metadata !311, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 59, metadata !312, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 40, metadata !313, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 35, metadata !314, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 42, metadata !315, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 44, metadata !316, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 38, metadata !317, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 33, metadata !318, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !319, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 128, metadata !320, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !321, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 16, metadata !322, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 64, metadata !323, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !324, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 8, metadata !325, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 256, metadata !326, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 32, metadata !327, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !328, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 602, metadata !329, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 604, metadata !330, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 600, metadata !331, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i64 -54278278, metadata !332, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !334, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !335, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 6, metadata !336, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !337, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !338, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !339, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 1, metadata !340, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 2, metadata !341, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !342, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 4, metadata !343, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 0, metadata !344, metadata !DIExpression()), !dbg !33
+  store i32 0, ptr %comm_in_708, align 4, !dbg !345, !tbaa !346
+  call void @llvm.dbg.value(metadata ptr %comm_in_708, metadata !344, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ios_714, metadata !350, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void (ptr, ptr, ptr, ...) @mpi_comm_size_(ptr nonnull %comm_in_708, ptr %nprocs, ptr nonnull %ios_714), !dbg !351
+  call void (ptr, ptr, ptr, ...) @mpi_comm_rank_(ptr nonnull %comm_in_708, ptr %rank, ptr nonnull %ios_714), !dbg !352
+  %0 = load i32, ptr %pkind, align 4, !dbg !353, !tbaa !354
+  %1 = icmp sgt i32 %0, 1, !dbg !353
+  %2 = load i32, ptr %nprocs, align 4, !dbg !33, !tbaa !356
+  %.fr = freeze i32 %2, !dbg !358
+  %3 = sitofp i32 %.fr to double, !dbg !33
+  %4 = fadd double %3, 1.000000e-03, !dbg !33
+  br i1 %1, label %L.LB1_761, label %L.LB1_761.thread, !dbg !353
+
+L.LB1_761.thread:                                 ; preds = %L.entry
+  %5 = call double @llvm.sqrt.f64(double %4), !dbg !359
+  %6 = fptosi double %5 to i32, !dbg !359
+  store i32 %6, ptr %np2, align 4, !dbg !359, !tbaa !360
+  store i32 %6, ptr %np1, align 4, !dbg !362, !tbaa !363
+  %7 = mul nsw i32 %6, %6, !dbg !365
+  store i32 %7, ptr %npa, align 4, !dbg !365, !tbaa !366
+  br label %L.LB1_762, !dbg !368
+
+L.LB1_761:                                        ; preds = %L.entry
+  %8 = call double @__pd_log_1(double %4) #4, !dbg !369
+  %9 = call double @__pd_log_1(double 2.000000e+00) #4, !dbg !369
+  %10 = fdiv double %8, %9, !dbg !369
+  %11 = fptosi double %10 to i32, !dbg !369
+  %12 = lshr i32 %11, 31, !dbg !370
+  %13 = add nsw i32 %12, %11, !dbg !370
+  %14 = ashr i32 %13, 1, !dbg !370
+  %15 = sub nsw i32 %11, %14, !dbg !371
+  %16 = shl nuw nsw i32 1, %15, !dbg !372
+  %isnotneg.inv = icmp slt i32 %15, 0, !dbg !372
+  %17 = select i1 %isnotneg.inv, i32 0, i32 %16, !dbg !372
+  store i32 %17, ptr %np1, align 4, !dbg !372, !tbaa !363
+  %18 = shl nuw nsw i32 1, %14, !dbg !373
+  %isnotneg.inv27 = icmp slt i32 %13, 0, !dbg !373
+  %19 = select i1 %isnotneg.inv27, i32 0, i32 %18, !dbg !373
+  store i32 %19, ptr %np2, align 4, !dbg !373, !tbaa !360
+  %20 = mul nsw i32 %17, %19, !dbg !365
+  store i32 %20, ptr %npa, align 4, !dbg !365, !tbaa !366
+  %.not = icmp eq i32 %0, 2, !dbg !368
+  %.not16 = icmp slt i32 %20, %.fr, !dbg !368
+  %or.cond33 = select i1 %.not, i1 %.not16, i1 false, !dbg !368
+  br i1 %or.cond33, label %L.LB1_865, label %L.LB1_762, !dbg !368
+
+L.LB1_865:                                        ; preds = %L.LB1_761
+  call void @llvm.dbg.value(metadata i32 undef, metadata !374, metadata !DIExpression()), !dbg !33
+  %21 = shl nsw i32 %.fr, 1, !dbg !375
+  %22 = insertelement <2 x i32> poison, i32 %21, i64 0, !dbg !376
+  %23 = insertelement <2 x i32> %22, i32 %.fr, i64 1, !dbg !376
+  %24 = sitofp <2 x i32> %23 to <2 x double>, !dbg !375
+  %25 = fadd <2 x double> %24, <double 1.000000e-03, double 1.000000e-03>, !dbg !375
+  %26 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %25), !dbg !375
+  %27 = fptosi <2 x double> %26 to <2 x i32>, !dbg !375
+  call void @llvm.dbg.value(metadata i32 undef, metadata !377, metadata !DIExpression()), !dbg !33
+  %28 = extractelement <2 x i32> %27, i64 0, !dbg !378
+  %29 = extractelement <2 x i32> %27, i64 1, !dbg !378
+  %30 = sub nsw i32 %28, %29, !dbg !378
+  call void @llvm.dbg.value(metadata i32 undef, metadata !379, metadata !DIExpression()), !dbg !33
+  %31 = icmp slt i32 %30, 0, !dbg !378
+  br i1 %31, label %L.LB1_762, label %L.LB1_763.preheader, !dbg !378
+
+L.LB1_763.preheader:                              ; preds = %L.LB1_865
+  %32 = add nuw nsw i32 %30, 1, !dbg !378
+  %.not18 = icmp eq i32 %.fr, 3
+  br label %L.LB1_763, !dbg !378
+
+L.LB1_763:                                        ; preds = %L.LB1_763.preheader, %L.LB1_767
+  %npaw_712.032 = phi i32 [ %npaw_712.031, %L.LB1_767 ], [ %20, %L.LB1_763.preheader ]
+  %.dY0001_765.0 = phi i32 [ %37, %L.LB1_767 ], [ %32, %L.LB1_763.preheader ], !dbg !33
+  %n_709.0 = phi i32 [ %36, %L.LB1_767 ], [ %29, %L.LB1_763.preheader ], !dbg !33
+  call void @llvm.dbg.value(metadata i32 %n_709.0, metadata !379, metadata !DIExpression()), !dbg !33
+  %33 = srem i32 %.fr, %n_709.0, !dbg !358
+  %34 = sub nsw i32 %.fr, %33, !dbg !358
+  call void @llvm.dbg.value(metadata i32 %34, metadata !380, metadata !DIExpression()), !dbg !33
+  %.not17 = icmp eq i32 %n_709.0, 1, !dbg !381
+  %or.cond28 = and i1 %.not18, %.not17, !dbg !381
+  %npaw_712.0 = select i1 %or.cond28, i32 2, i32 %34, !dbg !381
+  call void @llvm.dbg.value(metadata i32 %npaw_712.0, metadata !380, metadata !DIExpression()), !dbg !33
+  %.not19 = icmp sgt i32 %npaw_712.0, %npaw_712.032, !dbg !382
+  br i1 %.not19, label %L.LB1_868, label %L.LB1_767, !dbg !382
+
+L.LB1_868:                                        ; preds = %L.LB1_763
+  call void @llvm.dbg.value(metadata i32 %npaw_712.0, metadata !380, metadata !DIExpression()), !dbg !33
+  store i32 %npaw_712.0, ptr %npa, align 4, !dbg !383, !tbaa !366
+  call void @llvm.dbg.value(metadata i32 %n_709.0, metadata !379, metadata !DIExpression()), !dbg !33
+  %35 = sdiv i32 %npaw_712.0, %n_709.0, !dbg !384
+  store i32 %35, ptr %np1, align 4, !dbg !384, !tbaa !363
+  %.not20 = icmp slt i32 %35, %n_709.0, !dbg !385
+  br i1 %.not20, label %L.LB1_869, label %L.LB1_767.sink.split, !dbg !385
+
+L.LB1_869:                                        ; preds = %L.LB1_868
+  store i32 %35, ptr %np2, align 4, !dbg !386, !tbaa !360
+  call void @llvm.dbg.value(metadata i32 %n_709.0, metadata !379, metadata !DIExpression()), !dbg !33
+  br label %L.LB1_767.sink.split, !dbg !387
+
+L.LB1_767.sink.split:                             ; preds = %L.LB1_868, %L.LB1_869
+  %np1.sink = phi ptr [ %np1, %L.LB1_869 ], [ %np2, %L.LB1_868 ]
+  store i32 %n_709.0, ptr %np1.sink, align 4, !dbg !33, !tbaa !388
+  br label %L.LB1_767, !dbg !389
+
+L.LB1_767:                                        ; preds = %L.LB1_767.sink.split, %L.LB1_763
+  %npaw_712.031 = phi i32 [ %npaw_712.032, %L.LB1_763 ], [ %npaw_712.0, %L.LB1_767.sink.split ]
+  call void @llvm.dbg.value(metadata i32 %n_709.0, metadata !379, metadata !DIExpression()), !dbg !33
+  %36 = add nsw i32 %n_709.0, 1, !dbg !389
+  call void @llvm.dbg.value(metadata i32 %36, metadata !379, metadata !DIExpression()), !dbg !33
+  %37 = add nsw i32 %.dY0001_765.0, -1, !dbg !389
+  %38 = icmp sgt i32 %.dY0001_765.0, 1, !dbg !389
+  br i1 %38, label %L.LB1_763, label %L.LB1_762, !dbg !389, !llvm.loop !390
+
+L.LB1_762:                                        ; preds = %L.LB1_767, %L.LB1_761.thread, %L.LB1_865, %L.LB1_761
+  %39 = phi i32 [ %7, %L.LB1_761.thread ], [ %20, %L.LB1_865 ], [ %20, %L.LB1_761 ], [ %npaw_712.031, %L.LB1_767 ], !dbg !391
+  %40 = load i32, ptr %comm_in_708, align 4, !dbg !392, !tbaa !346
+  call void @llvm.dbg.value(metadata i32 %40, metadata !344, metadata !DIExpression()), !dbg !33
+  store i32 %40, ptr %comm_out, align 4, !dbg !392, !tbaa !393
+  store i32 -1, ptr %active, align 4, !dbg !395, !tbaa !396
+  %41 = icmp eq i32 %.fr, %39, !dbg !391
+  br i1 %41, label %L.LB1_757, label %L.LB1_870, !dbg !391
+
+L.LB1_870:                                        ; preds = %L.LB1_762
+  %42 = load i32, ptr %rank, align 4, !dbg !398, !tbaa !399
+  %.not21 = icmp eq i32 %42, 0, !dbg !398
+  br i1 %.not21, label %L.LB1_871, label %L.LB1_772, !dbg !398
+
+L.LB1_871:                                        ; preds = %L.LB1_870
+  call void @llvm.dbg.declare(metadata ptr %val_715, metadata !401, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ios_714, metadata !350, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ic_713, metadata !403, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void (ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ...) @f90_get_env_vara(ptr nonnull @.C720_get_active_nprocs_, ptr nonnull %val_715, ptr nonnull %ic_713, ptr nonnull %ios_714, ptr null, ptr nonnull @.C343_get_active_nprocs_, i64 17, i64 40), !dbg !404
+  %43 = load i32, ptr %ios_714, align 4, !dbg !405, !tbaa !406
+  call void @llvm.dbg.value(metadata i32 %43, metadata !350, metadata !DIExpression()), !dbg !33
+  %44 = icmp ne i32 %43, 0, !dbg !405
+  %45 = load i32, ptr %ic_713, align 4, !dbg !405
+  call void @llvm.dbg.value(metadata i32 %45, metadata !403, metadata !DIExpression()), !dbg !33
+  %46 = icmp slt i32 %45, 1, !dbg !405
+  %or.cond = select i1 %44, i1 true, i1 %46, !dbg !405
+  br i1 %or.cond, label %L.LB1_772, label %L.LB1_873, !dbg !405
+
+L.LB1_873:                                        ; preds = %L.LB1_871
+  %47 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr nonnull %val_715, ptr nonnull @.C721_get_active_nprocs_, i64 40, i64 1), !dbg !408
+  %48 = icmp eq i32 %47, 0, !dbg !408
+  br i1 %48, label %L.LB1_772.sink.split, label %L.LB1_874, !dbg !408
+
+L.LB1_874:                                        ; preds = %L.LB1_873
+  %49 = load volatile i8, ptr %val_715, align 16, !dbg !408, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %49, metadata !401, metadata !DIExpression()), !dbg !33
+  %50 = load volatile i8, ptr @.C722_get_active_nprocs_, align 1, !dbg !408, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %50, metadata !411, metadata !DIExpression()), !dbg !33
+  %.not22 = icmp eq i8 %49, %50, !dbg !408
+  br i1 %.not22, label %L.LB1_772.sink.split, label %L.LB1_774, !dbg !408
+
+L.LB1_774:                                        ; preds = %L.LB1_874
+  %51 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr nonnull %val_715, ptr nonnull @.C724_get_active_nprocs_, i64 40, i64 3), !dbg !413
+  %52 = icmp eq i32 %51, 0, !dbg !413
+  br i1 %52, label %L.LB1_772.sink.split, label %L.LB1_875, !dbg !413
+
+L.LB1_875:                                        ; preds = %L.LB1_774
+  %53 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr nonnull %val_715, ptr nonnull @.C725_get_active_nprocs_, i64 40, i64 3), !dbg !413
+  %54 = icmp eq i32 %53, 0, !dbg !413
+  br i1 %54, label %L.LB1_772.sink.split, label %L.LB1_876, !dbg !413
+
+L.LB1_876:                                        ; preds = %L.LB1_875
+  %55 = load volatile i8, ptr %val_715, align 16, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %55, metadata !401, metadata !DIExpression()), !dbg !33
+  %56 = load volatile i8, ptr @.C726_get_active_nprocs_, align 1, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %56, metadata !411, metadata !DIExpression()), !dbg !33
+  %57 = icmp eq i8 %55, %56, !dbg !413
+  br i1 %57, label %L.LB1_772.sink.split, label %L.LB1_877, !dbg !413
+
+L.LB1_877:                                        ; preds = %L.LB1_876
+  %58 = load volatile i8, ptr %val_715, align 16, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %58, metadata !401, metadata !DIExpression()), !dbg !33
+  %59 = load volatile i8, ptr @.C727_get_active_nprocs_, align 1, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %59, metadata !411, metadata !DIExpression()), !dbg !33
+  %60 = icmp eq i8 %58, %59, !dbg !413
+  br i1 %60, label %L.LB1_772.sink.split, label %L.LB1_878, !dbg !413
+
+L.LB1_878:                                        ; preds = %L.LB1_877
+  %61 = load volatile i8, ptr %val_715, align 16, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %61, metadata !401, metadata !DIExpression()), !dbg !33
+  %62 = load volatile i8, ptr @.C728_get_active_nprocs_, align 1, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %62, metadata !411, metadata !DIExpression()), !dbg !33
+  %63 = icmp eq i8 %61, %62, !dbg !413
+  br i1 %63, label %L.LB1_772.sink.split, label %L.LB1_879, !dbg !413
+
+L.LB1_879:                                        ; preds = %L.LB1_878
+  %64 = load volatile i8, ptr %val_715, align 16, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %64, metadata !401, metadata !DIExpression()), !dbg !33
+  %65 = load volatile i8, ptr @.C729_get_active_nprocs_, align 1, !dbg !413, !tbaa !409
+  call void @llvm.dbg.value(metadata i8 %65, metadata !411, metadata !DIExpression()), !dbg !33
+  %.not26 = icmp eq i8 %64, %65, !dbg !413
+  br i1 %.not26, label %L.LB1_772.sink.split, label %L.LB1_772, !dbg !413
+
+L.LB1_772.sink.split:                             ; preds = %L.LB1_774, %L.LB1_875, %L.LB1_876, %L.LB1_877, %L.LB1_878, %L.LB1_879, %L.LB1_873, %L.LB1_874
+  store i32 0, ptr %active, align 4, !dbg !33, !tbaa !396
+  br label %L.LB1_772, !dbg !414
+
+L.LB1_772:                                        ; preds = %L.LB1_772.sink.split, %L.LB1_871, %L.LB1_879, %L.LB1_870
+  call void @llvm.dbg.value(metadata ptr %comm_in_708, metadata !344, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ios_714, metadata !350, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void (ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_bcast_(ptr nonnull %active, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C339_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull %comm_in_708, ptr nonnull %ios_714), !dbg !414
+  %66 = load i32, ptr %active, align 4, !dbg !415, !tbaa !396
+  %67 = and i32 %66, 1, !dbg !415
+  %68 = icmp eq i32 %67, 0, !dbg !415
+  br i1 %68, label %L.LB1_778, label %L.LB1_880, !dbg !415
+
+L.LB1_880:                                        ; preds = %L.LB1_772
+  %69 = load i32, ptr %rank, align 4, !dbg !416, !tbaa !399
+  %.not23 = icmp eq i32 %69, 0, !dbg !416
+  br i1 %.not23, label %L.LB1_881, label %L.LB1_779, !dbg !416
+
+L.LB1_881:                                        ; preds = %L.LB1_880
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C733_get_active_nprocs_, ptr nonnull @.C731_get_active_nprocs_, i64 21), !dbg !417
+  %70 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.STATICS1, ptr null, i64 0), !dbg !417
+  call void @llvm.dbg.value(metadata i32 %70, metadata !418, metadata !DIExpression()), !dbg !33
+  %71 = load i32, ptr %nprocs, align 4, !dbg !417, !tbaa !356
+  %72 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %71, i32 25), !dbg !417
+  call void @llvm.dbg.value(metadata i32 %72, metadata !418, metadata !DIExpression()), !dbg !33
+  %73 = call i32 (...) @f90io_fmtw_end(), !dbg !417
+  call void @llvm.dbg.value(metadata i32 %73, metadata !418, metadata !DIExpression()), !dbg !33
+  %74 = load i32, ptr %pkind, align 4, !dbg !419, !tbaa !354
+  %75 = icmp sgt i32 %74, 1, !dbg !419
+  br i1 %75, label %L.LB1_780, label %L.LB1_882, !dbg !419
+
+L.LB1_882:                                        ; preds = %L.LB1_881
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C742_get_active_nprocs_, ptr nonnull @.C731_get_active_nprocs_, i64 21), !dbg !420
+  %76 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull getelementptr inbounds (%struct.STATICS1, ptr @.STATICS1, i64 0, i32 0, i64 96), ptr null, i64 0), !dbg !420
+  call void @llvm.dbg.value(metadata i32 %76, metadata !418, metadata !DIExpression()), !dbg !33
+  %77 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr nonnull @.C525_get_active_nprocs_, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C744_get_active_nprocs_, i64 6), !dbg !420
+  call void @llvm.dbg.value(metadata i32 %77, metadata !418, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 %83, metadata !418, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 %84, metadata !418, metadata !DIExpression()), !dbg !33
+  br label %L.LB1_779.sink.split, !dbg !421
+
+L.LB1_780:                                        ; preds = %L.LB1_881
+  %.not25 = icmp eq i32 %74, 2, !dbg !421
+  br i1 %.not25, label %L.LB1_883, label %L.LB1_781, !dbg !421
+
+L.LB1_883:                                        ; preds = %L.LB1_780
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C746_get_active_nprocs_, ptr nonnull @.C731_get_active_nprocs_, i64 21), !dbg !422
+  %78 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull getelementptr inbounds (%struct.STATICS1, ptr @.STATICS1, i64 0, i32 0, i64 96), ptr null, i64 0), !dbg !422
+  call void @llvm.dbg.value(metadata i32 %78, metadata !418, metadata !DIExpression()), !dbg !33
+  %79 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr nonnull @.C525_get_active_nprocs_, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C747_get_active_nprocs_, i64 26), !dbg !422
+  call void @llvm.dbg.value(metadata i32 %79, metadata !418, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 %83, metadata !418, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 %84, metadata !418, metadata !DIExpression()), !dbg !33
+  br label %L.LB1_779.sink.split, !dbg !423
+
+L.LB1_781:                                        ; preds = %L.LB1_780
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C748_get_active_nprocs_, ptr nonnull @.C731_get_active_nprocs_, i64 21), !dbg !424
+  %80 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull getelementptr inbounds (%struct.STATICS1, ptr @.STATICS1, i64 0, i32 0, i64 96), ptr null, i64 0), !dbg !424
+  call void @llvm.dbg.value(metadata i32 %80, metadata !418, metadata !DIExpression()), !dbg !33
+  %81 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr nonnull @.C525_get_active_nprocs_, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C749_get_active_nprocs_, i64 12), !dbg !424
+  call void @llvm.dbg.value(metadata i32 %81, metadata !418, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 %83, metadata !418, metadata !DIExpression()), !dbg !33
+  call void @llvm.dbg.value(metadata i32 %84, metadata !418, metadata !DIExpression()), !dbg !33
+  br label %L.LB1_779.sink.split
+
+L.LB1_779.sink.split:                             ; preds = %L.LB1_883, %L.LB1_781, %L.LB1_882
+  %82 = load i32, ptr %npa, align 4, !dbg !33, !tbaa !366
+  %83 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %82, i32 25), !dbg !33
+  %84 = call i32 (...) @f90io_fmtw_end(), !dbg !33
+  br label %L.LB1_779, !dbg !425
+
+L.LB1_779:                                        ; preds = %L.LB1_779.sink.split, %L.LB1_880
+  call void @llvm.dbg.value(metadata ptr %comm_in_708, metadata !344, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ios_714, metadata !350, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void (ptr, ptr, ptr, ...) @mpi_abort_(ptr nonnull %comm_in_708, ptr nonnull @.C360_get_active_nprocs_, ptr nonnull %ios_714), !dbg !425
+  call void (ptr, ptr, i64, ...) @f90_stop08a(ptr nonnull @.C311_get_active_nprocs_, ptr null, i64 0), !dbg !426
+  br label %L.LB1_778
+
+L.LB1_778:                                        ; preds = %L.LB1_779, %L.LB1_772
+  %85 = load i32, ptr %rank, align 4, !dbg !427, !tbaa !399
+  %86 = load i32, ptr %npa, align 4, !dbg !427, !tbaa !366
+  %87 = icmp slt i32 %85, %86, !dbg !427
+  %. = sext i1 %87 to i32
+  %not. = xor i1 %87, true
+  %.29 = zext i1 %not. to i32
+  store i32 %., ptr %active, align 4, !dbg !33, !tbaa !396
+  store i32 %.29, ptr %ic_713, align 4, !dbg !33, !tbaa !428
+  call void @llvm.dbg.value(metadata ptr %comm_in_708, metadata !344, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ios_714, metadata !350, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void @llvm.dbg.value(metadata ptr %ic_713, metadata !403, metadata !DIExpression(DW_OP_deref)), !dbg !33
+  call void (ptr, ptr, ptr, ptr, ptr, ...) @mpi_comm_split_(ptr nonnull %comm_in_708, ptr nonnull %ic_713, ptr nonnull %rank, ptr nonnull %comm_out, ptr nonnull %ios_714), !dbg !430
+  br label %L.LB1_757
+
+L.LB1_757:                                        ; preds = %L.LB1_778, %L.LB1_762
+  ret void, !dbg !431
+}
+
+declare void @mpi_comm_split_(...) local_unnamed_addr #0
+
+declare void @f90_stop08a(...) local_unnamed_addr #0
+
+declare void @mpi_abort_(...) local_unnamed_addr #0
+
+declare signext i32 @f90io_fmt_writea(...) local_unnamed_addr #0
+
+declare signext i32 @f90io_fmtw_end(...) local_unnamed_addr #0
+
+declare signext i32 @f90io_sc_i_fmt_write(...) local_unnamed_addr #0
+
+declare signext i32 @f90io_fmtw_inita(...) local_unnamed_addr #0
+
+declare void @f90io_src_info03a(...) local_unnamed_addr #0
+
+declare void @mpi_bcast_(...) local_unnamed_addr #0
+
+declare signext i32 @f90_strcmp_klen(...) local_unnamed_addr #0
+
+declare void @f90_get_env_vara(...) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #1
+
+declare void @mpi_comm_rank_(...) local_unnamed_addr #0
+
+declare void @mpi_comm_size_(...) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare double @__pd_log_1(double) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare void @llvm.dbg.value(metadata, metadata, metadata) #1
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare <2 x double> @__pd_log_2(<2 x double>) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare <4 x double> @__pd_log_4(<4 x double>) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare <8 x double> @__pd_log_8(<8 x double>) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #3
+
+attributes #0 = { "fp-contract"="fast" "no-frame-pointer-elim-non-leaf" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "fp-contract"="fast" "no-frame-pointer-elim-non-leaf" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { "vector-function-abi-variant"="_ZGV_LLVM_N2v___pd_log_1(__pd_log_2),_ZGV_LLVM_N4v___pd_log_1(__pd_log_4),_ZGV_LLVM_N8v___pd_log_1(__pd_log_8)" }
+
+!llvm.module.flags = !{!0, !1}
+!llvm.dbg.cu = !{!2}
+
+!0 = !{i32 2, !"Dwarf Version", i32 4}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: true, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -O3 -g get_active_nprocs.f90 -I/work/rwth1269/software/openmpi/4.1.6/include -I/work/rwth1269/software/openmpi/4.1.6/lib'", runtimeVersion: 0, emissionKind: FullDebug, enums: !4, retainedTypes: !4, globals: !5, imports: !4, nameTableKind: None)
+!3 = !DIFile(filename: "get_active_nprocs.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000144/000001_copy_source/work/common")
+!4 = !{}
+!5 = !{!6, !13, !15}
+!6 = !DIGlobalVariableExpression(var: !7, expr: !DIExpression())
+!7 = distinct !DIGlobalVariable(name: "integer_kinds$ac", scope: !8, file: !3, type: !9, isLocal: false, isDefinition: true)
+!8 = !DIModule(scope: !2, name: "iso_fortran_env", file: !3)
+!9 = !DICompositeType(tag: DW_TAG_array_type, baseType: !10, size: 128, align: 32, elements: !11)
+!10 = !DIBasicType(name: "integer", size: 32, align: 32, encoding: DW_ATE_signed)
+!11 = !{!12}
+!12 = !DISubrange(lowerBound: 1, upperBound: 4)
+!13 = !DIGlobalVariableExpression(var: !14, expr: !DIExpression(DW_OP_plus_uconst, 16))
+!14 = distinct !DIGlobalVariable(name: "logical_kinds$ac", scope: !8, file: !3, type: !9, isLocal: false, isDefinition: true)
+!15 = !DIGlobalVariableExpression(var: !16, expr: !DIExpression(DW_OP_plus_uconst, 32))
+!16 = distinct !DIGlobalVariable(name: "real_kinds$ac", scope: !8, file: !3, type: !17, isLocal: false, isDefinition: true)
+!17 = !DICompositeType(tag: DW_TAG_array_type, baseType: !10, size: 96, align: 32, elements: !18)
+!18 = !{!19}
+!19 = !DISubrange(lowerBound: 1, upperBound: 3)
+!20 = distinct !DISubprogram(name: "get_active_nprocs", scope: !2, file: !3, line: 13, type: !21, scopeLine: 13, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !2, retainedNodes: !24)
+!21 = !DISubroutineType(types: !22)
+!22 = !{null, !10, !10, !10, !10, !10, !10, !10, !23}
+!23 = !DIBasicType(name: "logical", size: 32, align: 32, encoding: DW_ATE_boolean)
+!24 = !{!25, !26, !27, !28, !29, !30, !31, !32}
+!25 = !DILocalVariable(name: "pkind", arg: 1, scope: !20, file: !3, line: 13, type: !10)
+!26 = !DILocalVariable(name: "np1", arg: 2, scope: !20, file: !3, line: 13, type: !10)
+!27 = !DILocalVariable(name: "np2", arg: 3, scope: !20, file: !3, line: 13, type: !10)
+!28 = !DILocalVariable(name: "npa", arg: 4, scope: !20, file: !3, line: 13, type: !10)
+!29 = !DILocalVariable(name: "nprocs", arg: 5, scope: !20, file: !3, line: 13, type: !10)
+!30 = !DILocalVariable(name: "rank", arg: 6, scope: !20, file: !3, line: 13, type: !10)
+!31 = !DILocalVariable(name: "comm_out", arg: 7, scope: !20, file: !3, line: 13, type: !10)
+!32 = !DILocalVariable(name: "active", arg: 8, scope: !20, file: !3, line: 13, type: !23)
+!33 = !DILocation(line: 0, scope: !20)
+!34 = !DILocalVariable(name: "ompi_major_version", scope: !20, file: !3, type: !10)
+!35 = !DILocalVariable(name: "ompi_minor_version", scope: !20, file: !3, type: !10)
+!36 = !DILocalVariable(name: "ompi_release_version", scope: !20, file: !3, type: !10)
+!37 = !DILocalVariable(name: "mpi_offset_kind", scope: !20, file: !3, type: !10)
+!38 = !DILocalVariable(name: "mpi_address_kind", scope: !20, file: !3, type: !10)
+!39 = !DILocalVariable(name: "mpi_integer_kind", scope: !20, file: !3, type: !10)
+!40 = !DILocalVariable(name: "mpi_count_kind", scope: !20, file: !3, type: !10)
+!41 = !DILocalVariable(name: "mpi_status_size", scope: !20, file: !3, type: !10)
+!42 = !DILocalVariable(name: "mpi_max_processor_name", scope: !20, file: !3, type: !10)
+!43 = !DILocalVariable(name: "mpi_max_error_string", scope: !20, file: !3, type: !10)
+!44 = !DILocalVariable(name: "mpi_max_object_name", scope: !20, file: !3, type: !10)
+!45 = !DILocalVariable(name: "mpi_max_library_version_string", scope: !20, file: !3, type: !10)
+!46 = !DILocalVariable(name: "mpi_max_info_key", scope: !20, file: !3, type: !10)
+!47 = !DILocalVariable(name: "mpi_max_info_val", scope: !20, file: !3, type: !10)
+!48 = !DILocalVariable(name: "mpi_max_port_name", scope: !20, file: !3, type: !10)
+!49 = !DILocalVariable(name: "mpi_max_datarep_string", scope: !20, file: !3, type: !10)
+!50 = !DILocalVariable(name: "mpi_subarrays_supported", scope: !20, file: !3, type: !23)
+!51 = !DILocalVariable(name: "mpi_async_protects_nonblocking", scope: !20, file: !3, type: !23)
+!52 = !DILocalVariable(name: "mpi_any_source", scope: !20, file: !3, type: !10)
+!53 = !DILocalVariable(name: "mpi_any_tag", scope: !20, file: !3, type: !10)
+!54 = !DILocalVariable(name: "mpi_appnum", scope: !20, file: !3, type: !10)
+!55 = !DILocalVariable(name: "mpi_bsend_overhead", scope: !20, file: !3, type: !10)
+!56 = !DILocalVariable(name: "mpi_cart", scope: !20, file: !3, type: !10)
+!57 = !DILocalVariable(name: "mpi_combiner_contiguous", scope: !20, file: !3, type: !10)
+!58 = !DILocalVariable(name: "mpi_combiner_darray", scope: !20, file: !3, type: !10)
+!59 = !DILocalVariable(name: "mpi_combiner_dup", scope: !20, file: !3, type: !10)
+!60 = !DILocalVariable(name: "mpi_combiner_f90_complex", scope: !20, file: !3, type: !10)
+!61 = !DILocalVariable(name: "mpi_combiner_f90_integer", scope: !20, file: !3, type: !10)
+!62 = !DILocalVariable(name: "mpi_combiner_f90_real", scope: !20, file: !3, type: !10)
+!63 = !DILocalVariable(name: "mpi_combiner_hindexed", scope: !20, file: !3, type: !10)
+!64 = !DILocalVariable(name: "mpi_combiner_hindexed_block", scope: !20, file: !3, type: !10)
+!65 = !DILocalVariable(name: "mpi_combiner_hindexed_integer", scope: !20, file: !3, type: !10)
+!66 = !DILocalVariable(name: "mpi_combiner_hvector", scope: !20, file: !3, type: !10)
+!67 = !DILocalVariable(name: "mpi_combiner_hvector_integer", scope: !20, file: !3, type: !10)
+!68 = !DILocalVariable(name: "mpi_combiner_indexed", scope: !20, file: !3, type: !10)
+!69 = !DILocalVariable(name: "mpi_combiner_indexed_block", scope: !20, file: !3, type: !10)
+!70 = !DILocalVariable(name: "mpi_combiner_named", scope: !20, file: !3, type: !10)
+!71 = !DILocalVariable(name: "mpi_combiner_resized", scope: !20, file: !3, type: !10)
+!72 = !DILocalVariable(name: "mpi_combiner_struct", scope: !20, file: !3, type: !10)
+!73 = !DILocalVariable(name: "mpi_combiner_struct_integer", scope: !20, file: !3, type: !10)
+!74 = !DILocalVariable(name: "mpi_combiner_subarray", scope: !20, file: !3, type: !10)
+!75 = !DILocalVariable(name: "mpi_combiner_vector", scope: !20, file: !3, type: !10)
+!76 = !DILocalVariable(name: "mpi_comm_type_shared", scope: !20, file: !3, type: !10)
+!77 = !DILocalVariable(name: "mpi_congruent", scope: !20, file: !3, type: !10)
+!78 = !DILocalVariable(name: "mpi_distribute_block", scope: !20, file: !3, type: !10)
+!79 = !DILocalVariable(name: "mpi_distribute_cyclic", scope: !20, file: !3, type: !10)
+!80 = !DILocalVariable(name: "mpi_distribute_dflt_darg", scope: !20, file: !3, type: !10)
+!81 = !DILocalVariable(name: "mpi_distribute_none", scope: !20, file: !3, type: !10)
+!82 = !DILocalVariable(name: "mpi_dist_graph", scope: !20, file: !3, type: !10)
+!83 = !DILocalVariable(name: "mpi_error", scope: !20, file: !3, type: !10)
+!84 = !DILocalVariable(name: "mpi_err_access", scope: !20, file: !3, type: !10)
+!85 = !DILocalVariable(name: "mpi_err_amode", scope: !20, file: !3, type: !10)
+!86 = !DILocalVariable(name: "mpi_err_arg", scope: !20, file: !3, type: !10)
+!87 = !DILocalVariable(name: "mpi_err_assert", scope: !20, file: !3, type: !10)
+!88 = !DILocalVariable(name: "mpi_err_bad_file", scope: !20, file: !3, type: !10)
+!89 = !DILocalVariable(name: "mpi_err_base", scope: !20, file: !3, type: !10)
+!90 = !DILocalVariable(name: "mpi_err_buffer", scope: !20, file: !3, type: !10)
+!91 = !DILocalVariable(name: "mpi_err_comm", scope: !20, file: !3, type: !10)
+!92 = !DILocalVariable(name: "mpi_err_conversion", scope: !20, file: !3, type: !10)
+!93 = !DILocalVariable(name: "mpi_err_count", scope: !20, file: !3, type: !10)
+!94 = !DILocalVariable(name: "mpi_err_dims", scope: !20, file: !3, type: !10)
+!95 = !DILocalVariable(name: "mpi_err_disp", scope: !20, file: !3, type: !10)
+!96 = !DILocalVariable(name: "mpi_err_dup_datarep", scope: !20, file: !3, type: !10)
+!97 = !DILocalVariable(name: "mpi_err_file", scope: !20, file: !3, type: !10)
+!98 = !DILocalVariable(name: "mpi_err_file_exists", scope: !20, file: !3, type: !10)
+!99 = !DILocalVariable(name: "mpi_err_file_in_use", scope: !20, file: !3, type: !10)
+!100 = !DILocalVariable(name: "mpi_err_group", scope: !20, file: !3, type: !10)
+!101 = !DILocalVariable(name: "mpi_err_info", scope: !20, file: !3, type: !10)
+!102 = !DILocalVariable(name: "mpi_err_info_key", scope: !20, file: !3, type: !10)
+!103 = !DILocalVariable(name: "mpi_err_info_nokey", scope: !20, file: !3, type: !10)
+!104 = !DILocalVariable(name: "mpi_err_info_value", scope: !20, file: !3, type: !10)
+!105 = !DILocalVariable(name: "mpi_err_intern", scope: !20, file: !3, type: !10)
+!106 = !DILocalVariable(name: "mpi_err_in_status", scope: !20, file: !3, type: !10)
+!107 = !DILocalVariable(name: "mpi_err_io", scope: !20, file: !3, type: !10)
+!108 = !DILocalVariable(name: "mpi_err_keyval", scope: !20, file: !3, type: !10)
+!109 = !DILocalVariable(name: "mpi_err_lastcode", scope: !20, file: !3, type: !10)
+!110 = !DILocalVariable(name: "mpi_err_locktype", scope: !20, file: !3, type: !10)
+!111 = !DILocalVariable(name: "mpi_err_name", scope: !20, file: !3, type: !10)
+!112 = !DILocalVariable(name: "mpi_err_not_same", scope: !20, file: !3, type: !10)
+!113 = !DILocalVariable(name: "mpi_err_no_mem", scope: !20, file: !3, type: !10)
+!114 = !DILocalVariable(name: "mpi_err_no_space", scope: !20, file: !3, type: !10)
+!115 = !DILocalVariable(name: "mpi_err_no_such_file", scope: !20, file: !3, type: !10)
+!116 = !DILocalVariable(name: "mpi_err_op", scope: !20, file: !3, type: !10)
+!117 = !DILocalVariable(name: "mpi_err_other", scope: !20, file: !3, type: !10)
+!118 = !DILocalVariable(name: "mpi_err_pending", scope: !20, file: !3, type: !10)
+!119 = !DILocalVariable(name: "mpi_err_port", scope: !20, file: !3, type: !10)
+!120 = !DILocalVariable(name: "mpi_err_quota", scope: !20, file: !3, type: !10)
+!121 = !DILocalVariable(name: "mpi_err_rank", scope: !20, file: !3, type: !10)
+!122 = !DILocalVariable(name: "mpi_err_read_only", scope: !20, file: !3, type: !10)
+!123 = !DILocalVariable(name: "mpi_err_request", scope: !20, file: !3, type: !10)
+!124 = !DILocalVariable(name: "mpi_err_rma_attach", scope: !20, file: !3, type: !10)
+!125 = !DILocalVariable(name: "mpi_err_rma_conflict", scope: !20, file: !3, type: !10)
+!126 = !DILocalVariable(name: "mpi_err_rma_flavor", scope: !20, file: !3, type: !10)
+!127 = !DILocalVariable(name: "mpi_err_rma_range", scope: !20, file: !3, type: !10)
+!128 = !DILocalVariable(name: "mpi_err_rma_shared", scope: !20, file: !3, type: !10)
+!129 = !DILocalVariable(name: "mpi_err_rma_sync", scope: !20, file: !3, type: !10)
+!130 = !DILocalVariable(name: "mpi_err_root", scope: !20, file: !3, type: !10)
+!131 = !DILocalVariable(name: "mpi_err_service", scope: !20, file: !3, type: !10)
+!132 = !DILocalVariable(name: "mpi_err_size", scope: !20, file: !3, type: !10)
+!133 = !DILocalVariable(name: "mpi_err_spawn", scope: !20, file: !3, type: !10)
+!134 = !DILocalVariable(name: "mpi_err_tag", scope: !20, file: !3, type: !10)
+!135 = !DILocalVariable(name: "mpi_err_topology", scope: !20, file: !3, type: !10)
+!136 = !DILocalVariable(name: "mpi_err_truncate", scope: !20, file: !3, type: !10)
+!137 = !DILocalVariable(name: "mpi_err_type", scope: !20, file: !3, type: !10)
+!138 = !DILocalVariable(name: "mpi_err_unknown", scope: !20, file: !3, type: !10)
+!139 = !DILocalVariable(name: "mpi_err_unsupported_datarep", scope: !20, file: !3, type: !10)
+!140 = !DILocalVariable(name: "mpi_err_unsupported_operation", scope: !20, file: !3, type: !10)
+!141 = !DILocalVariable(name: "mpi_err_win", scope: !20, file: !3, type: !10)
+!142 = !DILocalVariable(name: "mpi_graph", scope: !20, file: !3, type: !10)
+!143 = !DILocalVariable(name: "mpi_host", scope: !20, file: !3, type: !10)
+!144 = !DILocalVariable(name: "mpi_ident", scope: !20, file: !3, type: !10)
+!145 = !DILocalVariable(name: "mpi_io", scope: !20, file: !3, type: !10)
+!146 = !DILocalVariable(name: "mpi_keyval_invalid", scope: !20, file: !3, type: !10)
+!147 = !DILocalVariable(name: "mpi_lastusedcode", scope: !20, file: !3, type: !10)
+!148 = !DILocalVariable(name: "mpi_lock_exclusive", scope: !20, file: !3, type: !10)
+!149 = !DILocalVariable(name: "mpi_lock_shared", scope: !20, file: !3, type: !10)
+!150 = !DILocalVariable(name: "mpi_mode_nocheck", scope: !20, file: !3, type: !10)
+!151 = !DILocalVariable(name: "mpi_mode_noprecede", scope: !20, file: !3, type: !10)
+!152 = !DILocalVariable(name: "mpi_mode_noput", scope: !20, file: !3, type: !10)
+!153 = !DILocalVariable(name: "mpi_mode_nostore", scope: !20, file: !3, type: !10)
+!154 = !DILocalVariable(name: "mpi_mode_nosucceed", scope: !20, file: !3, type: !10)
+!155 = !DILocalVariable(name: "mpi_order_c", scope: !20, file: !3, type: !10)
+!156 = !DILocalVariable(name: "mpi_order_fortran", scope: !20, file: !3, type: !10)
+!157 = !DILocalVariable(name: "mpi_proc_null", scope: !20, file: !3, type: !10)
+!158 = !DILocalVariable(name: "mpi_root", scope: !20, file: !3, type: !10)
+!159 = !DILocalVariable(name: "mpi_similar", scope: !20, file: !3, type: !10)
+!160 = !DILocalVariable(name: "mpi_source", scope: !20, file: !3, type: !10)
+!161 = !DILocalVariable(name: "mpi_subversion", scope: !20, file: !3, type: !10)
+!162 = !DILocalVariable(name: "mpi_success", scope: !20, file: !3, type: !10)
+!163 = !DILocalVariable(name: "mpi_tag", scope: !20, file: !3, type: !10)
+!164 = !DILocalVariable(name: "mpi_tag_ub", scope: !20, file: !3, type: !10)
+!165 = !DILocalVariable(name: "mpi_thread_funneled", scope: !20, file: !3, type: !10)
+!166 = !DILocalVariable(name: "mpi_thread_multiple", scope: !20, file: !3, type: !10)
+!167 = !DILocalVariable(name: "mpi_thread_serialized", scope: !20, file: !3, type: !10)
+!168 = !DILocalVariable(name: "mpi_thread_single", scope: !20, file: !3, type: !10)
+!169 = !DILocalVariable(name: "mpi_typeclass_complex", scope: !20, file: !3, type: !10)
+!170 = !DILocalVariable(name: "mpi_typeclass_integer", scope: !20, file: !3, type: !10)
+!171 = !DILocalVariable(name: "mpi_typeclass_real", scope: !20, file: !3, type: !10)
+!172 = !DILocalVariable(name: "mpi_t_err_cannot_init", scope: !20, file: !3, type: !10)
+!173 = !DILocalVariable(name: "mpi_t_err_cvar_set_never", scope: !20, file: !3, type: !10)
+!174 = !DILocalVariable(name: "mpi_t_err_cvar_set_not_now", scope: !20, file: !3, type: !10)
+!175 = !DILocalVariable(name: "mpi_t_err_invalid", scope: !20, file: !3, type: !10)
+!176 = !DILocalVariable(name: "mpi_t_err_invalid_handle", scope: !20, file: !3, type: !10)
+!177 = !DILocalVariable(name: "mpi_t_err_invalid_index", scope: !20, file: !3, type: !10)
+!178 = !DILocalVariable(name: "mpi_t_err_invalid_item", scope: !20, file: !3, type: !10)
+!179 = !DILocalVariable(name: "mpi_t_err_invalid_session", scope: !20, file: !3, type: !10)
+!180 = !DILocalVariable(name: "mpi_t_err_memory", scope: !20, file: !3, type: !10)
+!181 = !DILocalVariable(name: "mpi_t_err_not_initialized", scope: !20, file: !3, type: !10)
+!182 = !DILocalVariable(name: "mpi_t_err_out_of_handles", scope: !20, file: !3, type: !10)
+!183 = !DILocalVariable(name: "mpi_t_err_out_of_sessions", scope: !20, file: !3, type: !10)
+!184 = !DILocalVariable(name: "mpi_t_err_pvar_no_atomic", scope: !20, file: !3, type: !10)
+!185 = !DILocalVariable(name: "mpi_t_err_pvar_no_startstop", scope: !20, file: !3, type: !10)
+!186 = !DILocalVariable(name: "mpi_t_err_pvar_no_write", scope: !20, file: !3, type: !10)
+!187 = !DILocalVariable(name: "mpi_undefined", scope: !20, file: !3, type: !10)
+!188 = !DILocalVariable(name: "mpi_unequal", scope: !20, file: !3, type: !10)
+!189 = !DILocalVariable(name: "mpi_universe_size", scope: !20, file: !3, type: !10)
+!190 = !DILocalVariable(name: "mpi_version", scope: !20, file: !3, type: !10)
+!191 = !DILocalVariable(name: "mpi_win_base", scope: !20, file: !3, type: !10)
+!192 = !DILocalVariable(name: "mpi_win_create_flavor", scope: !20, file: !3, type: !10)
+!193 = !DILocalVariable(name: "mpi_win_disp_unit", scope: !20, file: !3, type: !10)
+!194 = !DILocalVariable(name: "mpi_win_flavor_allocate", scope: !20, file: !3, type: !10)
+!195 = !DILocalVariable(name: "mpi_win_flavor_create", scope: !20, file: !3, type: !10)
+!196 = !DILocalVariable(name: "mpi_win_flavor_dynamic", scope: !20, file: !3, type: !10)
+!197 = !DILocalVariable(name: "mpi_win_flavor_shared", scope: !20, file: !3, type: !10)
+!198 = !DILocalVariable(name: "mpi_win_model", scope: !20, file: !3, type: !10)
+!199 = !DILocalVariable(name: "mpi_win_separate", scope: !20, file: !3, type: !10)
+!200 = !DILocalVariable(name: "mpi_win_size", scope: !20, file: !3, type: !10)
+!201 = !DILocalVariable(name: "mpi_win_unified", scope: !20, file: !3, type: !10)
+!202 = !DILocalVariable(name: "mpi_wtime_is_global", scope: !20, file: !3, type: !10)
+!203 = !DILocalVariable(name: "ompi_comm_type_board", scope: !20, file: !3, type: !10)
+!204 = !DILocalVariable(name: "ompi_comm_type_cluster", scope: !20, file: !3, type: !10)
+!205 = !DILocalVariable(name: "ompi_comm_type_core", scope: !20, file: !3, type: !10)
+!206 = !DILocalVariable(name: "ompi_comm_type_cu", scope: !20, file: !3, type: !10)
+!207 = !DILocalVariable(name: "ompi_comm_type_host", scope: !20, file: !3, type: !10)
+!208 = !DILocalVariable(name: "ompi_comm_type_hwthread", scope: !20, file: !3, type: !10)
+!209 = !DILocalVariable(name: "ompi_comm_type_l1cache", scope: !20, file: !3, type: !10)
+!210 = !DILocalVariable(name: "ompi_comm_type_l2cache", scope: !20, file: !3, type: !10)
+!211 = !DILocalVariable(name: "ompi_comm_type_l3cache", scope: !20, file: !3, type: !10)
+!212 = !DILocalVariable(name: "ompi_comm_type_node", scope: !20, file: !3, type: !10)
+!213 = !DILocalVariable(name: "ompi_comm_type_numa", scope: !20, file: !3, type: !10)
+!214 = !DILocalVariable(name: "ompi_comm_type_socket", scope: !20, file: !3, type: !10)
+!215 = !DILocalVariable(name: "mpi_2complex", scope: !20, file: !3, type: !10)
+!216 = !DILocalVariable(name: "mpi_2double_complex", scope: !20, file: !3, type: !10)
+!217 = !DILocalVariable(name: "mpi_2double_precision", scope: !20, file: !3, type: !10)
+!218 = !DILocalVariable(name: "mpi_2int", scope: !20, file: !3, type: !10)
+!219 = !DILocalVariable(name: "mpi_2integer", scope: !20, file: !3, type: !10)
+!220 = !DILocalVariable(name: "mpi_2real", scope: !20, file: !3, type: !10)
+!221 = !DILocalVariable(name: "mpi_aint", scope: !20, file: !3, type: !10)
+!222 = !DILocalVariable(name: "mpi_band", scope: !20, file: !3, type: !10)
+!223 = !DILocalVariable(name: "mpi_bor", scope: !20, file: !3, type: !10)
+!224 = !DILocalVariable(name: "mpi_bxor", scope: !20, file: !3, type: !10)
+!225 = !DILocalVariable(name: "mpi_byte", scope: !20, file: !3, type: !10)
+!226 = !DILocalVariable(name: "mpi_char", scope: !20, file: !3, type: !10)
+!227 = !DILocalVariable(name: "mpi_character", scope: !20, file: !3, type: !10)
+!228 = !DILocalVariable(name: "mpi_comm_null", scope: !20, file: !3, type: !10)
+!229 = !DILocalVariable(name: "mpi_comm_self", scope: !20, file: !3, type: !10)
+!230 = !DILocalVariable(name: "mpi_comm_world", scope: !20, file: !3, type: !10)
+!231 = !DILocalVariable(name: "mpi_complex", scope: !20, file: !3, type: !10)
+!232 = !DILocalVariable(name: "mpi_complex16", scope: !20, file: !3, type: !10)
+!233 = !DILocalVariable(name: "mpi_complex32", scope: !20, file: !3, type: !10)
+!234 = !DILocalVariable(name: "mpi_complex8", scope: !20, file: !3, type: !10)
+!235 = !DILocalVariable(name: "mpi_count", scope: !20, file: !3, type: !10)
+!236 = !DILocalVariable(name: "mpi_cxx_bool", scope: !20, file: !3, type: !10)
+!237 = !DILocalVariable(name: "mpi_cxx_complex", scope: !20, file: !3, type: !10)
+!238 = !DILocalVariable(name: "mpi_cxx_double_complex", scope: !20, file: !3, type: !10)
+!239 = !DILocalVariable(name: "mpi_cxx_float_complex", scope: !20, file: !3, type: !10)
+!240 = !DILocalVariable(name: "mpi_cxx_long_double_complex", scope: !20, file: !3, type: !10)
+!241 = !DILocalVariable(name: "mpi_c_bool", scope: !20, file: !3, type: !10)
+!242 = !DILocalVariable(name: "mpi_c_complex", scope: !20, file: !3, type: !10)
+!243 = !DILocalVariable(name: "mpi_c_double_complex", scope: !20, file: !3, type: !10)
+!244 = !DILocalVariable(name: "mpi_c_float_complex", scope: !20, file: !3, type: !10)
+!245 = !DILocalVariable(name: "mpi_c_long_double_complex", scope: !20, file: !3, type: !10)
+!246 = !DILocalVariable(name: "mpi_datatype_null", scope: !20, file: !3, type: !10)
+!247 = !DILocalVariable(name: "mpi_double", scope: !20, file: !3, type: !10)
+!248 = !DILocalVariable(name: "mpi_double_complex", scope: !20, file: !3, type: !10)
+!249 = !DILocalVariable(name: "mpi_double_int", scope: !20, file: !3, type: !10)
+!250 = !DILocalVariable(name: "mpi_double_precision", scope: !20, file: !3, type: !10)
+!251 = !DILocalVariable(name: "mpi_errhandler_null", scope: !20, file: !3, type: !10)
+!252 = !DILocalVariable(name: "mpi_errors_are_fatal", scope: !20, file: !3, type: !10)
+!253 = !DILocalVariable(name: "mpi_errors_return", scope: !20, file: !3, type: !10)
+!254 = !DILocalVariable(name: "mpi_float", scope: !20, file: !3, type: !10)
+!255 = !DILocalVariable(name: "mpi_float_int", scope: !20, file: !3, type: !10)
+!256 = !DILocalVariable(name: "mpi_group_empty", scope: !20, file: !3, type: !10)
+!257 = !DILocalVariable(name: "mpi_group_null", scope: !20, file: !3, type: !10)
+!258 = !DILocalVariable(name: "mpi_info_env", scope: !20, file: !3, type: !10)
+!259 = !DILocalVariable(name: "mpi_info_null", scope: !20, file: !3, type: !10)
+!260 = !DILocalVariable(name: "mpi_int", scope: !20, file: !3, type: !10)
+!261 = !DILocalVariable(name: "mpi_int16_t", scope: !20, file: !3, type: !10)
+!262 = !DILocalVariable(name: "mpi_int32_t", scope: !20, file: !3, type: !10)
+!263 = !DILocalVariable(name: "mpi_int64_t", scope: !20, file: !3, type: !10)
+!264 = !DILocalVariable(name: "mpi_int8_t", scope: !20, file: !3, type: !10)
+!265 = !DILocalVariable(name: "mpi_integer", scope: !20, file: !3, type: !10)
+!266 = !DILocalVariable(name: "mpi_integer1", scope: !20, file: !3, type: !10)
+!267 = !DILocalVariable(name: "mpi_integer16", scope: !20, file: !3, type: !10)
+!268 = !DILocalVariable(name: "mpi_integer2", scope: !20, file: !3, type: !10)
+!269 = !DILocalVariable(name: "mpi_integer4", scope: !20, file: !3, type: !10)
+!270 = !DILocalVariable(name: "mpi_integer8", scope: !20, file: !3, type: !10)
+!271 = !DILocalVariable(name: "mpi_land", scope: !20, file: !3, type: !10)
+!272 = !DILocalVariable(name: "mpi_lb", scope: !20, file: !3, type: !10)
+!273 = !DILocalVariable(name: "mpi_logical", scope: !20, file: !3, type: !10)
+!274 = !DILocalVariable(name: "mpi_logical1", scope: !20, file: !3, type: !10)
+!275 = !DILocalVariable(name: "mpi_logical2", scope: !20, file: !3, type: !10)
+!276 = !DILocalVariable(name: "mpi_logical4", scope: !20, file: !3, type: !10)
+!277 = !DILocalVariable(name: "mpi_logical8", scope: !20, file: !3, type: !10)
+!278 = !DILocalVariable(name: "mpi_long", scope: !20, file: !3, type: !10)
+!279 = !DILocalVariable(name: "mpi_long_double", scope: !20, file: !3, type: !10)
+!280 = !DILocalVariable(name: "mpi_long_double_int", scope: !20, file: !3, type: !10)
+!281 = !DILocalVariable(name: "mpi_long_int", scope: !20, file: !3, type: !10)
+!282 = !DILocalVariable(name: "mpi_long_long", scope: !20, file: !3, type: !10)
+!283 = !DILocalVariable(name: "mpi_long_long_int", scope: !20, file: !3, type: !10)
+!284 = !DILocalVariable(name: "mpi_lor", scope: !20, file: !3, type: !10)
+!285 = !DILocalVariable(name: "mpi_lxor", scope: !20, file: !3, type: !10)
+!286 = !DILocalVariable(name: "mpi_max", scope: !20, file: !3, type: !10)
+!287 = !DILocalVariable(name: "mpi_maxloc", scope: !20, file: !3, type: !10)
+!288 = !DILocalVariable(name: "mpi_message_no_proc", scope: !20, file: !3, type: !10)
+!289 = !DILocalVariable(name: "mpi_message_null", scope: !20, file: !3, type: !10)
+!290 = !DILocalVariable(name: "mpi_min", scope: !20, file: !3, type: !10)
+!291 = !DILocalVariable(name: "mpi_minloc", scope: !20, file: !3, type: !10)
+!292 = !DILocalVariable(name: "mpi_no_op", scope: !20, file: !3, type: !10)
+!293 = !DILocalVariable(name: "mpi_offset", scope: !20, file: !3, type: !10)
+!294 = !DILocalVariable(name: "mpi_op_null", scope: !20, file: !3, type: !10)
+!295 = !DILocalVariable(name: "mpi_packed", scope: !20, file: !3, type: !10)
+!296 = !DILocalVariable(name: "mpi_prod", scope: !20, file: !3, type: !10)
+!297 = !DILocalVariable(name: "mpi_real", scope: !20, file: !3, type: !10)
+!298 = !DILocalVariable(name: "mpi_real16", scope: !20, file: !3, type: !10)
+!299 = !DILocalVariable(name: "mpi_real2", scope: !20, file: !3, type: !10)
+!300 = !DILocalVariable(name: "mpi_real4", scope: !20, file: !3, type: !10)
+!301 = !DILocalVariable(name: "mpi_real8", scope: !20, file: !3, type: !10)
+!302 = !DILocalVariable(name: "mpi_replace", scope: !20, file: !3, type: !10)
+!303 = !DILocalVariable(name: "mpi_request_null", scope: !20, file: !3, type: !10)
+!304 = !DILocalVariable(name: "mpi_short", scope: !20, file: !3, type: !10)
+!305 = !DILocalVariable(name: "mpi_short_int", scope: !20, file: !3, type: !10)
+!306 = !DILocalVariable(name: "mpi_signed_char", scope: !20, file: !3, type: !10)
+!307 = !DILocalVariable(name: "mpi_sum", scope: !20, file: !3, type: !10)
+!308 = !DILocalVariable(name: "mpi_ub", scope: !20, file: !3, type: !10)
+!309 = !DILocalVariable(name: "mpi_uint16_t", scope: !20, file: !3, type: !10)
+!310 = !DILocalVariable(name: "mpi_uint32_t", scope: !20, file: !3, type: !10)
+!311 = !DILocalVariable(name: "mpi_uint64_t", scope: !20, file: !3, type: !10)
+!312 = !DILocalVariable(name: "mpi_uint8_t", scope: !20, file: !3, type: !10)
+!313 = !DILocalVariable(name: "mpi_unsigned", scope: !20, file: !3, type: !10)
+!314 = !DILocalVariable(name: "mpi_unsigned_char", scope: !20, file: !3, type: !10)
+!315 = !DILocalVariable(name: "mpi_unsigned_long", scope: !20, file: !3, type: !10)
+!316 = !DILocalVariable(name: "mpi_unsigned_long_long", scope: !20, file: !3, type: !10)
+!317 = !DILocalVariable(name: "mpi_unsigned_short", scope: !20, file: !3, type: !10)
+!318 = !DILocalVariable(name: "mpi_wchar", scope: !20, file: !3, type: !10)
+!319 = !DILocalVariable(name: "mpi_win_null", scope: !20, file: !3, type: !10)
+!320 = !DILocalVariable(name: "mpi_mode_append", scope: !20, file: !3, type: !10)
+!321 = !DILocalVariable(name: "mpi_mode_create", scope: !20, file: !3, type: !10)
+!322 = !DILocalVariable(name: "mpi_mode_delete_on_close", scope: !20, file: !3, type: !10)
+!323 = !DILocalVariable(name: "mpi_mode_excl", scope: !20, file: !3, type: !10)
+!324 = !DILocalVariable(name: "mpi_mode_rdonly", scope: !20, file: !3, type: !10)
+!325 = !DILocalVariable(name: "mpi_mode_rdwr", scope: !20, file: !3, type: !10)
+!326 = !DILocalVariable(name: "mpi_mode_sequential", scope: !20, file: !3, type: !10)
+!327 = !DILocalVariable(name: "mpi_mode_unique_open", scope: !20, file: !3, type: !10)
+!328 = !DILocalVariable(name: "mpi_mode_wronly", scope: !20, file: !3, type: !10)
+!329 = !DILocalVariable(name: "mpi_seek_cur", scope: !20, file: !3, type: !10)
+!330 = !DILocalVariable(name: "mpi_seek_end", scope: !20, file: !3, type: !10)
+!331 = !DILocalVariable(name: "mpi_seek_set", scope: !20, file: !3, type: !10)
+!332 = !DILocalVariable(name: "mpi_displacement_current", scope: !20, file: !3, type: !333)
+!333 = !DIBasicType(name: "integer*8", size: 64, align: 64, encoding: DW_ATE_signed)
+!334 = !DILocalVariable(name: "mpi_file_null", scope: !20, file: !3, type: !10)
+!335 = !DILocalVariable(name: "error_unit", scope: !20, file: !3, type: !10)
+!336 = !DILocalVariable(name: "output_unit", scope: !20, file: !3, type: !10)
+!337 = !DILocalVariable(name: "int8", scope: !20, file: !3, type: !10)
+!338 = !DILocalVariable(name: "int16", scope: !20, file: !3, type: !10)
+!339 = !DILocalVariable(name: "int32", scope: !20, file: !3, type: !10)
+!340 = !DILocalVariable(name: "logical8", scope: !20, file: !3, type: !10)
+!341 = !DILocalVariable(name: "logical16", scope: !20, file: !3, type: !10)
+!342 = !DILocalVariable(name: "logical32", scope: !20, file: !3, type: !10)
+!343 = !DILocalVariable(name: "real32", scope: !20, file: !3, type: !10)
+!344 = !DILocalVariable(name: "comm_in", scope: !20, file: !3, type: !10)
+!345 = !DILocation(line: 27, column: 1, scope: !20)
+!346 = !{!347, !347, i64 0}
+!347 = !{!"t1.2", !348, i64 0}
+!348 = !{!"unlimited ptr", !349, i64 0}
+!349 = !{!"Flang FAA 1"}
+!350 = !DILocalVariable(name: "ios", scope: !20, file: !3, type: !10)
+!351 = !DILocation(line: 28, column: 1, scope: !20)
+!352 = !DILocation(line: 29, column: 1, scope: !20)
+!353 = !DILocation(line: 31, column: 1, scope: !20)
+!354 = !{!355, !355, i64 0}
+!355 = !{!"t1.8", !348, i64 0}
+!356 = !{!357, !357, i64 0}
+!357 = !{!"t1.3", !348, i64 0}
+!358 = !DILocation(line: 50, column: 1, scope: !20)
+!359 = !DILocation(line: 33, column: 1, scope: !20)
+!360 = !{!361, !361, i64 0}
+!361 = !{!"t1.a", !348, i64 0}
+!362 = !DILocation(line: 34, column: 1, scope: !20)
+!363 = !{!364, !364, i64 0}
+!364 = !{!"t1.c", !348, i64 0}
+!365 = !DILocation(line: 43, column: 1, scope: !20)
+!366 = !{!367, !367, i64 0}
+!367 = !{!"t1.e", !348, i64 0}
+!368 = !DILocation(line: 46, column: 1, scope: !20)
+!369 = !DILocation(line: 37, column: 1, scope: !20)
+!370 = !DILocation(line: 38, column: 1, scope: !20)
+!371 = !DILocation(line: 39, column: 1, scope: !20)
+!372 = !DILocation(line: 40, column: 1, scope: !20)
+!373 = !DILocation(line: 41, column: 1, scope: !20)
+!374 = !DILocalVariable(name: "np1w", scope: !20, file: !3, type: !10)
+!375 = !DILocation(line: 48, column: 1, scope: !20)
+!376 = !DILocation(line: 47, column: 1, scope: !20)
+!377 = !DILocalVariable(name: "np2w", scope: !20, file: !3, type: !10)
+!378 = !DILocation(line: 49, column: 1, scope: !20)
+!379 = !DILocalVariable(name: "n", scope: !20, file: !3, type: !10)
+!380 = !DILocalVariable(name: "npaw", scope: !20, file: !3, type: !10)
+!381 = !DILocation(line: 51, column: 1, scope: !20)
+!382 = !DILocation(line: 52, column: 1, scope: !20)
+!383 = !DILocation(line: 53, column: 1, scope: !20)
+!384 = !DILocation(line: 54, column: 1, scope: !20)
+!385 = !DILocation(line: 55, column: 1, scope: !20)
+!386 = !DILocation(line: 56, column: 1, scope: !20)
+!387 = !DILocation(line: 58, column: 1, scope: !20)
+!388 = !{!348, !348, i64 0}
+!389 = !DILocation(line: 62, column: 1, scope: !20)
+!390 = distinct !{!390, !378, !389}
+!391 = !DILocation(line: 68, column: 1, scope: !20)
+!392 = !DILocation(line: 66, column: 1, scope: !20)
+!393 = !{!394, !394, i64 0}
+!394 = !{!"t1.15", !348, i64 0}
+!395 = !DILocation(line: 67, column: 1, scope: !20)
+!396 = !{!397, !397, i64 0}
+!397 = !{!"t1.17", !348, i64 0}
+!398 = !DILocation(line: 71, column: 1, scope: !20)
+!399 = !{!400, !400, i64 0}
+!400 = !{!"t1.6", !348, i64 0}
+!401 = !DILocalVariable(name: "val", scope: !20, file: !3, type: !402)
+!402 = !DIBasicType(name: "character", size: 320, align: 8, encoding: DW_ATE_signed)
+!403 = !DILocalVariable(name: "ic", scope: !20, file: !3, type: !10)
+!404 = !DILocation(line: 72, column: 1, scope: !20)
+!405 = !DILocation(line: 74, column: 1, scope: !20)
+!406 = !{!407, !407, i64 0}
+!407 = !{!"t1.5", !348, i64 0}
+!408 = !DILocation(line: 75, column: 1, scope: !20)
+!409 = !{!410, !410, i64 0, i64 0}
+!410 = !{!"unlimited ptr", !349}
+!411 = !DILocalVariable(scope: !20, file: !3, type: !412)
+!412 = !DIBasicType(name: "character", size: 8, align: 8, encoding: DW_ATE_signed)
+!413 = !DILocation(line: 77, column: 1, scope: !20)
+!414 = !DILocation(line: 84, column: 1, scope: !20)
+!415 = !DILocation(line: 87, column: 1, scope: !20)
+!416 = !DILocation(line: 88, column: 1, scope: !20)
+!417 = !DILocation(line: 89, column: 1, scope: !20)
+!418 = distinct !DILocalVariable(scope: !20, file: !3, type: !10, flags: DIFlagArtificial)
+!419 = !DILocation(line: 92, column: 1, scope: !20)
+!420 = !DILocation(line: 93, column: 1, scope: !20)
+!421 = !DILocation(line: 94, column: 1, scope: !20)
+!422 = !DILocation(line: 95, column: 1, scope: !20)
+!423 = !DILocation(line: 96, column: 1, scope: !20)
+!424 = !DILocation(line: 97, column: 1, scope: !20)
+!425 = !DILocation(line: 102, column: 1, scope: !20)
+!426 = !DILocation(line: 103, column: 1, scope: !20)
+!427 = !DILocation(line: 108, column: 1, scope: !20)
+!428 = !{!429, !429, i64 0}
+!429 = !{!"t1.1b", !348, i64 0}
+!430 = !DILocation(line: 115, column: 1, scope: !20)
+!431 = !DILocation(line: 117, column: 1, scope: !20)

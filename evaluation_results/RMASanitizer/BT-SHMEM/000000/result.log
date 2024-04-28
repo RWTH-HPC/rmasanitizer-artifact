@@ -1,0 +1,521 @@
+[2024-04-17 10:59:24,588]:DEBUG: No data found for analyser "analyse" in benchmark run 54. Run analyse step automatically.
+[2024-04-17 10:59:24,588]:DEBUG: Run analyser "analyse"
+[2024-04-17 10:59:24,588]:DEBUG:   available pattern:
+[2024-04-17 10:59:24,589]:DEBUG:          | pattern      | value                               |
+[2024-04-17 10:59:24,589]:DEBUG:          |--------------|-------------------------------------|
+[2024-04-17 10:59:24,589]:DEBUG:          | time         | Time in seconds = .* ${jube_pat_fp} |
+[2024-04-17 10:59:24,590]:DEBUG:          | verification | Verification .*= .* ([a-zA-Z]*)$    |
+[2024-04-17 10:59:24,590]:DEBUG: 
+[2024-04-17 10:59:24,590]:DEBUG:   available derived pattern:
+[2024-04-17 10:59:24,590]:DEBUG:          | pattern | value |
+[2024-04-17 10:59:24,590]:DEBUG:          |---------|-------|
+[2024-04-17 10:59:24,591]:DEBUG:   analyse step "execute"
+[2024-04-17 10:59:24,593]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000059_execute_base_base/work/job.out
+[2024-04-17 10:59:24,597]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,597]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,597]:DEBUG:          |         time |       first:48.25, min:48.25, max:48.25, |
+[2024-04-17 10:59:24,597]:DEBUG:          |              | sum:48.25, sum2:2328.0625, cnt:1,        |
+[2024-04-17 10:59:24,597]:DEBUG:          |              | avg:48.25, std:0, last:48.25             |
+[2024-04-17 10:59:24,600]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000060_execute_base_base/work/job.out
+[2024-04-17 10:59:24,603]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,603]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,603]:DEBUG:          |         time |       first:48.25, min:48.25, max:48.39, |
+[2024-04-17 10:59:24,603]:DEBUG:          |              | sum:96.64, sum2:4669.6546, cnt:2,        |
+[2024-04-17 10:59:24,603]:DEBUG:          |              | avg:48.32, std:0.09899494936517587,      |
+[2024-04-17 10:59:24,604]:DEBUG:          |              | last:48.39                               |
+[2024-04-17 10:59:24,606]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000058_execute_base_base/work/job.out
+[2024-04-17 10:59:24,609]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,609]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,609]:DEBUG:          |         time |       first:48.25, min:48.25, max:48.47, |
+[2024-04-17 10:59:24,609]:DEBUG:          |              | sum:145.11, sum2:7018.995499999999,      |
+[2024-04-17 10:59:24,610]:DEBUG:          |              | cnt:3, avg:48.370000000000005,           |
+[2024-04-17 10:59:24,610]:DEBUG:          |              | std:0.1113552872507917, last:48.47       |
+[2024-04-17 10:59:24,612]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000061_execute_base_base/work/job.out
+[2024-04-17 10:59:24,616]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,616]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,616]:DEBUG:          |         time |       first:48.25, min:48.25, max:48.47, |
+[2024-04-17 10:59:24,616]:DEBUG:          |              | sum:193.54000000000002, sum2:9364.4604,  |
+[2024-04-17 10:59:24,616]:DEBUG:          |              | cnt:4, avg:48.385000000000005,           |
+[2024-04-17 10:59:24,616]:DEBUG:          |              | std:0.09574271077272067, last:48.43      |
+[2024-04-17 10:59:24,619]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000062_execute_base_base/work/job.out
+[2024-04-17 10:59:24,622]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,622]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,622]:DEBUG:          |         time |       first:48.25, min:48.15, max:48.47, |
+[2024-04-17 10:59:24,622]:DEBUG:          |              | sum:241.69000000000003, sum2:11682.8829, |
+[2024-04-17 10:59:24,622]:DEBUG:          |              | cnt:5, avg:48.33800000000001,            |
+[2024-04-17 10:59:24,623]:DEBUG:          |              | std:0.13386560424291816, last:48.15      |
+[2024-04-17 10:59:24,625]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000091_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,629]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,629]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,629]:DEBUG:          |         time |    first:216.96, min:216.96, max:216.96, |
+[2024-04-17 10:59:24,629]:DEBUG:          |              | sum:216.96, sum2:47071.6416, cnt:1,      |
+[2024-04-17 10:59:24,629]:DEBUG:          |              | avg:216.96, std:0, last:216.96           |
+[2024-04-17 10:59:24,632]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000088_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,635]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,635]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,636]:DEBUG:          |         time |    first:216.96, min:216.96, max:217.07, |
+[2024-04-17 10:59:24,636]:DEBUG:          |              | sum:434.03, sum2:94191.0265, cnt:2,      |
+[2024-04-17 10:59:24,636]:DEBUG:          |              | avg:217.015, std:0.077781746093959,      |
+[2024-04-17 10:59:24,636]:DEBUG:          |              | last:217.07                              |
+[2024-04-17 10:59:24,638]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000092_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,642]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,642]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,642]:DEBUG:          |         time |    first:216.96, min:216.96, max:218.65, |
+[2024-04-17 10:59:24,642]:DEBUG:          |              | sum:652.68, sum2:141998.84900000002,     |
+[2024-04-17 10:59:24,642]:DEBUG:          |              | cnt:3, avg:217.55999999999997,           |
+[2024-04-17 10:59:24,643]:DEBUG:          |              | std:0.9455686120105375, last:218.65      |
+[2024-04-17 10:59:24,645]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000089_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,648]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,649]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,649]:DEBUG:          |         time |    first:216.96, min:215.99, max:218.65, |
+[2024-04-17 10:59:24,649]:DEBUG:          |              | sum:868.67, sum2:188650.5291, cnt:4,     |
+[2024-04-17 10:59:24,649]:DEBUG:          |              | avg:217.1675, std:1.1010411739236656,    |
+[2024-04-17 10:59:24,649]:DEBUG:          |              | last:215.99                              |
+[2024-04-17 10:59:24,652]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000090_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,655]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,655]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,655]:DEBUG:          |         time |    first:216.96, min:215.99, max:219.36, |
+[2024-04-17 10:59:24,655]:DEBUG:          |              | sum:1088.03, sum2:236769.33870000002,    |
+[2024-04-17 10:59:24,655]:DEBUG:          |              | cnt:5, avg:217.606,                      |
+[2024-04-17 10:59:24,656]:DEBUG:          |              | std:1.367709764537846, last:219.36       |
+[2024-04-17 10:59:24,658]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000063_execute_base_base/work/job.out
+[2024-04-17 10:59:24,662]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,662]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,662]:DEBUG:          |         time |          first:26.3, min:26.3, max:26.3, |
+[2024-04-17 10:59:24,662]:DEBUG:          |              | sum:26.3, sum2:691.69, cnt:1, avg:26.3,  |
+[2024-04-17 10:59:24,662]:DEBUG:          |              | std:0, last:26.3                         |
+[2024-04-17 10:59:24,664]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000067_execute_base_base/work/job.out
+[2024-04-17 10:59:24,668]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,668]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,668]:DEBUG:          |         time |          first:26.3, min:26.0, max:26.3, |
+[2024-04-17 10:59:24,668]:DEBUG:          |              | sum:52.3, sum2:1367.69, cnt:2,           |
+[2024-04-17 10:59:24,668]:DEBUG:          |              | avg:26.15, std:0.2121320343566717,       |
+[2024-04-17 10:59:24,668]:DEBUG:          |              | last:26.0                                |
+[2024-04-17 10:59:24,671]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000064_execute_base_base/work/job.out
+[2024-04-17 10:59:24,674]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,674]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,674]:DEBUG:          |         time |          first:26.3, min:26.0, max:26.3, |
+[2024-04-17 10:59:24,674]:DEBUG:          |              | sum:78.53, sum2:2055.7029, cnt:3,        |
+[2024-04-17 10:59:24,674]:DEBUG:          |              | avg:26.176666666666666,                  |
+[2024-04-17 10:59:24,675]:DEBUG:          |              | std:0.1569500982269222, last:26.23       |
+[2024-04-17 10:59:24,677]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000065_execute_base_base/work/job.out
+[2024-04-17 10:59:24,680]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,680]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,680]:DEBUG:          |         time |          first:26.3, min:26.0, max:26.3, |
+[2024-04-17 10:59:24,680]:DEBUG:          |              | sum:104.57, sum2:2733.7845, cnt:4,       |
+[2024-04-17 10:59:24,680]:DEBUG:          |              | avg:26.1425, std:0.1452297031147907,     |
+[2024-04-17 10:59:24,681]:DEBUG:          |              | last:26.04                               |
+[2024-04-17 10:59:24,683]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000066_execute_base_base/work/job.out
+[2024-04-17 10:59:24,687]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,687]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,687]:DEBUG:          |         time |          first:26.3, min:26.0, max:26.3, |
+[2024-04-17 10:59:24,687]:DEBUG:          |              | sum:130.62, sum2:3412.387, cnt:5,        |
+[2024-04-17 10:59:24,687]:DEBUG:          |              | avg:26.124000000000002,                  |
+[2024-04-17 10:59:24,687]:DEBUG:          |              | std:0.13240090634160656, last:26.05      |
+[2024-04-17 10:59:24,690]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000095_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,694]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,694]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,694]:DEBUG:          |         time |       first:183.4, min:183.4, max:183.4, |
+[2024-04-17 10:59:24,694]:DEBUG:          |              | sum:183.4, sum2:33635.560000000005,      |
+[2024-04-17 10:59:24,694]:DEBUG:          |              | cnt:1, avg:183.4, std:0, last:183.4      |
+[2024-04-17 10:59:24,697]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000093_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,701]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,701]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,701]:DEBUG:          |         time |      first:183.4, min:183.4, max:183.97, |
+[2024-04-17 10:59:24,701]:DEBUG:          |              | sum:367.37, sum2:67480.5209, cnt:2,      |
+[2024-04-17 10:59:24,701]:DEBUG:          |              | avg:183.685, std:0.40305086528060685,    |
+[2024-04-17 10:59:24,701]:DEBUG:          |              | last:183.97                              |
+[2024-04-17 10:59:24,704]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000096_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,708]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,708]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,708]:DEBUG:          |         time |      first:183.4, min:183.4, max:184.89, |
+[2024-04-17 10:59:24,708]:DEBUG:          |              | sum:552.26, sum2:101664.833, cnt:3,      |
+[2024-04-17 10:59:24,708]:DEBUG:          |              | avg:184.08666666666667,                  |
+[2024-04-17 10:59:24,708]:DEBUG:          |              | std:0.7518200139226262, last:184.89      |
+[2024-04-17 10:59:24,709]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000097_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,712]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,712]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,712]:DEBUG:          |         time |      first:183.4, min:183.4, max:184.89, |
+[2024-04-17 10:59:24,712]:DEBUG:          |              | sum:737.05, sum2:135812.1771, cnt:4,     |
+[2024-04-17 10:59:24,712]:DEBUG:          |              | avg:184.2625, std:0.7074543566022247,    |
+[2024-04-17 10:59:24,712]:DEBUG:          |              | last:184.79                              |
+[2024-04-17 10:59:24,715]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000094_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,719]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,719]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,719]:DEBUG:          |         time |      first:183.4, min:183.4, max:187.39, |
+[2024-04-17 10:59:24,719]:DEBUG:          |              | sum:924.4399999999999, sum2:170927.1892, |
+[2024-04-17 10:59:24,719]:DEBUG:          |              | cnt:5, avg:184.88799999999998,           |
+[2024-04-17 10:59:24,719]:DEBUG:          |              | std:1.526964308687167, last:187.39       |
+[2024-04-17 10:59:24,722]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000038_execute_base_base/work/job.out
+[2024-04-17 10:59:24,725]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,725]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,725]:DEBUG:          |         time |    first:337.69, min:337.69, max:337.69, |
+[2024-04-17 10:59:24,725]:DEBUG:          |              | sum:337.69, sum2:114034.5361, cnt:1,     |
+[2024-04-17 10:59:24,725]:DEBUG:          |              | avg:337.69, std:0, last:337.69           |
+[2024-04-17 10:59:24,728]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000042_execute_base_base/work/job.out
+[2024-04-17 10:59:24,732]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,732]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,732]:DEBUG:          |         time |    first:337.69, min:337.69, max:339.07, |
+[2024-04-17 10:59:24,732]:DEBUG:          |              | sum:676.76, sum2:229003.001, cnt:2,      |
+[2024-04-17 10:59:24,732]:DEBUG:          |              | avg:338.38, std:0.9758073580372925,      |
+[2024-04-17 10:59:24,732]:DEBUG:          |              | last:339.07                              |
+[2024-04-17 10:59:24,735]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000039_execute_base_base/work/job.out
+[2024-04-17 10:59:24,738]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,738]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,738]:DEBUG:          |         time |    first:337.69, min:337.69, max:339.07, |
+[2024-04-17 10:59:24,738]:DEBUG:          |              | sum:1014.69, sum2:343199.6859, cnt:3,    |
+[2024-04-17 10:59:24,738]:DEBUG:          |              | avg:338.23, std:0.7372923436299966,      |
+[2024-04-17 10:59:24,739]:DEBUG:          |              | last:337.93                              |
+[2024-04-17 10:59:24,741]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000040_execute_base_base/work/job.out
+[2024-04-17 10:59:24,745]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,745]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,745]:DEBUG:          |         time |    first:337.69, min:337.44, max:339.07, |
+[2024-04-17 10:59:24,745]:DEBUG:          |              | sum:1352.13, sum2:457065.4395, cnt:4,    |
+[2024-04-17 10:59:24,745]:DEBUG:          |              | avg:338.0325, std:0.7200173608863695,    |
+[2024-04-17 10:59:24,745]:DEBUG:          |              | last:337.44                              |
+[2024-04-17 10:59:24,748]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000041_execute_base_base/work/job.out
+[2024-04-17 10:59:24,751]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,751]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,751]:DEBUG:          |         time |    first:337.69, min:337.44, max:339.07, |
+[2024-04-17 10:59:24,751]:DEBUG:          |              | sum:1690.43, sum2:571512.3295, cnt:5,    |
+[2024-04-17 10:59:24,751]:DEBUG:          |              | avg:338.086, std:0.6349251924372715,     |
+[2024-04-17 10:59:24,752]:DEBUG:          |              | last:338.3                               |
+[2024-04-17 10:59:24,754]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000070_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,758]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,758]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,758]:DEBUG:          |         time |    first:783.63, min:783.63, max:783.63, |
+[2024-04-17 10:59:24,758]:DEBUG:          |              | sum:783.63, sum2:614075.9769, cnt:1,     |
+[2024-04-17 10:59:24,758]:DEBUG:          |              | avg:783.63, std:0, last:783.63           |
+[2024-04-17 10:59:24,761]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000071_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,764]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,764]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,764]:DEBUG:          |         time |    first:783.63, min:783.63, max:786.05, |
+[2024-04-17 10:59:24,764]:DEBUG:          |              | sum:1569.6799999999998,                  |
+[2024-04-17 10:59:24,764]:DEBUG:          |              | sum2:1231950.5794, cnt:2,                |
+[2024-04-17 10:59:24,765]:DEBUG:          |              | avg:784.8399999999999,                   |
+[2024-04-17 10:59:24,765]:DEBUG:          |              | std:1.7111984105294622, last:786.05      |
+[2024-04-17 10:59:24,767]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000068_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,771]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,771]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,771]:DEBUG:          |         time |    first:783.63, min:783.63, max:786.05, |
+[2024-04-17 10:59:24,771]:DEBUG:          |              | sum:2354.7599999999998,                  |
+[2024-04-17 10:59:24,771]:DEBUG:          |              | sum2:1848301.1858, cnt:3, avg:784.92,    |
+[2024-04-17 10:59:24,771]:DEBUG:          |              | std:1.2179080426340645, last:785.08      |
+[2024-04-17 10:59:24,774]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000072_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,777]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,777]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,777]:DEBUG:          |         time |    first:783.63, min:783.63, max:786.56, |
+[2024-04-17 10:59:24,777]:DEBUG:          |              | sum:3141.3199999999997,                  |
+[2024-04-17 10:59:24,777]:DEBUG:          |              | sum2:2466977.8194, cnt:4,                |
+[2024-04-17 10:59:24,777]:DEBUG:          |              | avg:785.3299999999999,                   |
+[2024-04-17 10:59:24,777]:DEBUG:          |              | std:1.2889013410021097, last:786.56      |
+[2024-04-17 10:59:24,780]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000069_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,783]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,783]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,783]:DEBUG:          |         time |    first:783.63, min:783.63, max:786.56, |
+[2024-04-17 10:59:24,783]:DEBUG:          |              | sum:3925.4599999999996,                  |
+[2024-04-17 10:59:24,783]:DEBUG:          |              | sum2:3081853.359, cnt:5,                 |
+[2024-04-17 10:59:24,784]:DEBUG:          |              | avg:785.0919999999999,                   |
+[2024-04-17 10:59:24,784]:DEBUG:          |              | std:1.236596134648321, last:784.14       |
+[2024-04-17 10:59:24,786]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000045_execute_base_base/work/job.out
+[2024-04-17 10:59:24,789]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,789]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,789]:DEBUG:          |         time |    first:167.52, min:167.52, max:167.52, |
+[2024-04-17 10:59:24,789]:DEBUG:          |              | sum:167.52, sum2:28062.950400000005,     |
+[2024-04-17 10:59:24,789]:DEBUG:          |              | cnt:1, avg:167.52, std:0, last:167.52    |
+[2024-04-17 10:59:24,791]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000046_execute_base_base/work/job.out
+[2024-04-17 10:59:24,794]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,794]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,794]:DEBUG:          |         time |    first:167.52, min:165.85, max:167.52, |
+[2024-04-17 10:59:24,794]:DEBUG:          |              | sum:333.37, sum2:55569.172900000005,     |
+[2024-04-17 10:59:24,795]:DEBUG:          |              | cnt:2, avg:166.685,                      |
+[2024-04-17 10:59:24,795]:DEBUG:          |              | std:1.1808683245845215, last:165.85      |
+[2024-04-17 10:59:24,797]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000047_execute_base_base/work/job.out
+[2024-04-17 10:59:24,800]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,801]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,801]:DEBUG:          |         time |    first:167.52, min:165.46, max:167.52, |
+[2024-04-17 10:59:24,801]:DEBUG:          |              | sum:498.83000000000004, sum2:82946.1845, |
+[2024-04-17 10:59:24,801]:DEBUG:          |              | cnt:3, avg:166.27666666666667,           |
+[2024-04-17 10:59:24,801]:DEBUG:          |              | std:1.0942729702077785, last:165.46      |
+[2024-04-17 10:59:24,804]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000044_execute_base_base/work/job.out
+[2024-04-17 10:59:24,807]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,807]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,807]:DEBUG:          |         time |    first:167.52, min:165.46, max:167.52, |
+[2024-04-17 10:59:24,807]:DEBUG:          |              | sum:665.9300000000001, sum2:110868.5945, |
+[2024-04-17 10:59:24,807]:DEBUG:          |              | cnt:4, avg:166.48250000000002,           |
+[2024-04-17 10:59:24,808]:DEBUG:          |              | std:0.9837470880922025, last:167.1       |
+[2024-04-17 10:59:24,810]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000043_execute_base_base/work/job.out
+[2024-04-17 10:59:24,813]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,813]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,813]:DEBUG:          |         time |    first:167.52, min:160.16, max:167.52, |
+[2024-04-17 10:59:24,813]:DEBUG:          |              | sum:826.09, sum2:136519.8201, cnt:5,     |
+[2024-04-17 10:59:24,814]:DEBUG:          |              | avg:165.21800000000002,                  |
+[2024-04-17 10:59:24,814]:DEBUG:          |              | std:2.9530695894272547, last:160.16      |
+[2024-04-17 10:59:24,817]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000074_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,820]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,820]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,820]:DEBUG:          |         time |    first:461.62, min:461.62, max:461.62, |
+[2024-04-17 10:59:24,820]:DEBUG:          |              | sum:461.62, sum2:213093.0244, cnt:1,     |
+[2024-04-17 10:59:24,820]:DEBUG:          |              | avg:461.62, std:0, last:461.62           |
+[2024-04-17 10:59:24,823]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000077_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,826]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,826]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,827]:DEBUG:          |         time |     first:461.62, min:461.62, max:463.3, |
+[2024-04-17 10:59:24,827]:DEBUG:          |              | sum:924.9200000000001, sum2:427739.9144, |
+[2024-04-17 10:59:24,827]:DEBUG:          |              | cnt:2, avg:462.46000000000004,           |
+[2024-04-17 10:59:24,827]:DEBUG:          |              | std:1.1879393923576111, last:463.3       |
+[2024-04-17 10:59:24,830]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000075_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,833]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,833]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,833]:DEBUG:          |         time |     first:461.62, min:461.18, max:463.3, |
+[2024-04-17 10:59:24,833]:DEBUG:          |              | sum:1386.1000000000001,                  |
+[2024-04-17 10:59:24,833]:DEBUG:          |              | sum2:640426.9068, cnt:3,                 |
+[2024-04-17 10:59:24,834]:DEBUG:          |              | avg:462.03333333333336,                  |
+[2024-04-17 10:59:24,834]:DEBUG:          |              | std:1.118808890418665, last:461.18       |
+[2024-04-17 10:59:24,836]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000076_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,840]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,840]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,840]:DEBUG:          |         time |     first:461.62, min:460.07, max:463.3, |
+[2024-04-17 10:59:24,840]:DEBUG:          |              | sum:1846.17, sum2:852091.3117, cnt:4,    |
+[2024-04-17 10:59:24,840]:DEBUG:          |              | avg:461.5425, std:1.3409542621907633,    |
+[2024-04-17 10:59:24,840]:DEBUG:          |              | last:460.07                              |
+[2024-04-17 10:59:24,842]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000073_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,846]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,846]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,846]:DEBUG:          |         time |     first:461.62, min:458.98, max:463.3, |
+[2024-04-17 10:59:24,846]:DEBUG:          |              | sum:2305.15, sum2:1062753.9520999999,    |
+[2024-04-17 10:59:24,847]:DEBUG:          |              | cnt:5, avg:461.03000000000003,           |
+[2024-04-17 10:59:24,847]:DEBUG:          |              | std:1.6315330214090729, last:458.98      |
+[2024-04-17 10:59:24,849]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000085_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,852]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,852]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,852]:DEBUG:          |         time |    first:286.44, min:286.44, max:286.44, |
+[2024-04-17 10:59:24,852]:DEBUG:          |              | sum:286.44, sum2:82047.87359999999,      |
+[2024-04-17 10:59:24,852]:DEBUG:          |              | cnt:1, avg:286.44, std:0, last:286.44    |
+[2024-04-17 10:59:24,855]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000087_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,859]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,859]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,859]:DEBUG:          |         time |    first:286.44, min:286.03, max:286.44, |
+[2024-04-17 10:59:24,859]:DEBUG:          |              | sum:572.47, sum2:163861.03449999998,     |
+[2024-04-17 10:59:24,859]:DEBUG:          |              | cnt:2, avg:286.235,                      |
+[2024-04-17 10:59:24,859]:DEBUG:          |              | std:0.2899137802448034, last:286.03      |
+[2024-04-17 10:59:24,862]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000086_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,865]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,865]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,865]:DEBUG:          |         time |    first:286.44, min:286.03, max:286.44, |
+[2024-04-17 10:59:24,865]:DEBUG:          |              | sum:858.54, sum2:245697.0794, cnt:3,     |
+[2024-04-17 10:59:24,865]:DEBUG:          |              | avg:286.18, std:0.22605309113458685,     |
+[2024-04-17 10:59:24,866]:DEBUG:          |              | last:286.07                              |
+[2024-04-17 10:59:24,868]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000083_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,872]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,872]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,872]:DEBUG:          |         time |    first:286.44, min:285.43, max:286.44, |
+[2024-04-17 10:59:24,872]:DEBUG:          |              | sum:1143.97, sum2:327167.3643, cnt:4,    |
+[2024-04-17 10:59:24,872]:DEBUG:          |              | avg:285.9925, std:0.417961321983667,     |
+[2024-04-17 10:59:24,872]:DEBUG:          |              | last:285.43                              |
+[2024-04-17 10:59:24,875]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000084_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,878]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,878]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,878]:DEBUG:          |         time |    first:286.44, min:285.43, max:286.44, |
+[2024-04-17 10:59:24,878]:DEBUG:          |              | sum:1429.72, sum2:408820.4268, cnt:5,    |
+[2024-04-17 10:59:24,878]:DEBUG:          |              | avg:285.944, std:0.3778624088139396,     |
+[2024-04-17 10:59:24,879]:DEBUG:          |              | last:285.75                              |
+[2024-04-17 10:59:24,880]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000049_execute_base_base/work/job.out
+[2024-04-17 10:59:24,884]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,884]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,884]:DEBUG:          |         time |          first:85.7, min:85.7, max:85.7, |
+[2024-04-17 10:59:24,884]:DEBUG:          |              | sum:85.7, sum2:7344.490000000001, cnt:1, |
+[2024-04-17 10:59:24,884]:DEBUG:          |              | avg:85.7, std:0, last:85.7               |
+[2024-04-17 10:59:24,886]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000050_execute_base_base/work/job.out
+[2024-04-17 10:59:24,890]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,890]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,890]:DEBUG:          |         time |         first:85.7, min:82.97, max:85.7, |
+[2024-04-17 10:59:24,890]:DEBUG:          |              | sum:168.67000000000002,                  |
+[2024-04-17 10:59:24,890]:DEBUG:          |              | sum2:14228.510900000001, cnt:2,          |
+[2024-04-17 10:59:24,890]:DEBUG:          |              | avg:84.33500000000001,                   |
+[2024-04-17 10:59:24,890]:DEBUG:          |              | std:1.930401512638833, last:82.97        |
+[2024-04-17 10:59:24,893]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000051_execute_base_base/work/job.out
+[2024-04-17 10:59:24,896]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,896]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,896]:DEBUG:          |         time |         first:85.7, min:82.97, max:85.7, |
+[2024-04-17 10:59:24,896]:DEBUG:          |              | sum:252.74, sum2:21296.2758, cnt:3,      |
+[2024-04-17 10:59:24,896]:DEBUG:          |              | avg:84.24666666666667,                   |
+[2024-04-17 10:59:24,897]:DEBUG:          |              | std:1.3735477178939586, last:84.07       |
+[2024-04-17 10:59:24,899]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000052_execute_base_base/work/job.out
+[2024-04-17 10:59:24,903]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,903]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,903]:DEBUG:          |         time |         first:85.7, min:82.97, max:85.7, |
+[2024-04-17 10:59:24,903]:DEBUG:          |              | sum:335.82, sum2:28198.5622, cnt:4,      |
+[2024-04-17 10:59:24,903]:DEBUG:          |              | avg:83.955, std:1.2641334317761976,      |
+[2024-04-17 10:59:24,903]:DEBUG:          |              | last:83.08                               |
+[2024-04-17 10:59:24,906]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000048_execute_base_base/work/job.out
+[2024-04-17 10:59:24,909]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,909]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,909]:DEBUG:          |         time |         first:85.7, min:82.97, max:85.7, |
+[2024-04-17 10:59:24,909]:DEBUG:          |              | sum:419.83, sum2:35256.2423, cnt:5,      |
+[2024-04-17 10:59:24,909]:DEBUG:          |              | avg:83.966, std:1.095047944156272,       |
+[2024-04-17 10:59:24,910]:DEBUG:          |              | last:84.01                               |
+[2024-04-17 10:59:24,912]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000081_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,916]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,916]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,916]:DEBUG:          |         time |    first:309.29, min:309.29, max:309.29, |
+[2024-04-17 10:59:24,916]:DEBUG:          |              | sum:309.29, sum2:95660.30410000001,      |
+[2024-04-17 10:59:24,916]:DEBUG:          |              | cnt:1, avg:309.29, std:0, last:309.29    |
+[2024-04-17 10:59:24,919]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000082_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,922]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,922]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,922]:DEBUG:          |         time |    first:309.29, min:309.29, max:309.94, |
+[2024-04-17 10:59:24,922]:DEBUG:          |              | sum:619.23, sum2:191723.1077, cnt:2,     |
+[2024-04-17 10:59:24,922]:DEBUG:          |              | avg:309.615, std:0.4596194077636573,     |
+[2024-04-17 10:59:24,923]:DEBUG:          |              | last:309.94                              |
+[2024-04-17 10:59:24,925]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000078_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,929]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,929]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,929]:DEBUG:          |         time |    first:309.29, min:309.29, max:312.89, |
+[2024-04-17 10:59:24,929]:DEBUG:          |              | sum:932.12, sum2:289623.2598, cnt:3,     |
+[2024-04-17 10:59:24,929]:DEBUG:          |              | avg:310.70666666666665,                  |
+[2024-04-17 10:59:24,929]:DEBUG:          |              | std:1.9185497995406382, last:312.89      |
+[2024-04-17 10:59:24,932]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000079_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,935]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,935]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,935]:DEBUG:          |         time |    first:309.29, min:309.29, max:312.89, |
+[2024-04-17 10:59:24,935]:DEBUG:          |              | sum:1241.77, sum2:385506.3823, cnt:4,    |
+[2024-04-17 10:59:24,935]:DEBUG:          |              | avg:310.4425, std:1.653186317389479,     |
+[2024-04-17 10:59:24,936]:DEBUG:          |              | last:309.65                              |
+[2024-04-17 10:59:24,938]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000080_execute_tsan-opt_must/work/job.out
+[2024-04-17 10:59:24,942]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,942]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,942]:DEBUG:          |         time |    first:309.29, min:309.29, max:312.89, |
+[2024-04-17 10:59:24,942]:DEBUG:          |              | sum:1551.87, sum2:481668.3923, cnt:5,    |
+[2024-04-17 10:59:24,942]:DEBUG:          |              | avg:310.37399999999997,                  |
+[2024-04-17 10:59:24,942]:DEBUG:          |              | std:1.4398715220545246, last:310.1       |
+[2024-04-17 10:59:24,945]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000053_execute_base_base/work/job.out
+[2024-04-17 10:59:24,948]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,948]:DEBUG:          | verification | first:SUCCESSFUL, cnt:1, last:SUCCESSFUL |
+[2024-04-17 10:59:24,948]:DEBUG:          |         time |       first:74.94, min:74.94, max:74.94, |
+[2024-04-17 10:59:24,948]:DEBUG:          |              | sum:74.94, sum2:5616.0036, cnt:1,        |
+[2024-04-17 10:59:24,949]:DEBUG:          |              | avg:74.94, std:0, last:74.94             |
+[2024-04-17 10:59:24,951]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000056_execute_base_base/work/job.out
+[2024-04-17 10:59:24,955]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,955]:DEBUG:          | verification | first:SUCCESSFUL, cnt:2, last:SUCCESSFUL |
+[2024-04-17 10:59:24,955]:DEBUG:          |         time |       first:74.94, min:74.94, max:75.78, |
+[2024-04-17 10:59:24,955]:DEBUG:          |              | sum:150.72, sum2:11358.612000000001,     |
+[2024-04-17 10:59:24,955]:DEBUG:          |              | cnt:2, avg:75.36,                        |
+[2024-04-17 10:59:24,955]:DEBUG:          |              | std:0.5939696961971801, last:75.78       |
+[2024-04-17 10:59:24,958]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000057_execute_base_base/work/job.out
+[2024-04-17 10:59:24,961]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,961]:DEBUG:          | verification | first:SUCCESSFUL, cnt:3, last:SUCCESSFUL |
+[2024-04-17 10:59:24,961]:DEBUG:          |         time |       first:74.94, min:74.94, max:75.78, |
+[2024-04-17 10:59:24,961]:DEBUG:          |              | sum:226.48000000000002, sum2:17098.1896, |
+[2024-04-17 10:59:24,961]:DEBUG:          |              | cnt:3, avg:75.49333333333334,            |
+[2024-04-17 10:59:24,962]:DEBUG:          |              | std:0.47930505248074534, last:75.76      |
+[2024-04-17 10:59:24,964]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000054_execute_base_base/work/job.out
+[2024-04-17 10:59:24,967]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,968]:DEBUG:          | verification | first:SUCCESSFUL, cnt:4, last:SUCCESSFUL |
+[2024-04-17 10:59:24,968]:DEBUG:          |         time |       first:74.94, min:74.94, max:75.78, |
+[2024-04-17 10:59:24,968]:DEBUG:          |              | sum:301.92, sum2:22789.3832, cnt:4,      |
+[2024-04-17 10:59:24,968]:DEBUG:          |              | avg:75.48, std:0.3922584182222757,       |
+[2024-04-17 10:59:24,968]:DEBUG:          |              | last:75.44                               |
+[2024-04-17 10:59:24,971]:DEBUG:     scan file BT-SHMEM.benchmarks/000054/000055_execute_base_base/work/job.out
+[2024-04-17 10:59:24,974]:DEBUG:       file "job.out" scanned pattern found:
+[2024-04-17 10:59:24,974]:DEBUG:          | verification | first:SUCCESSFUL, cnt:5, last:SUCCESSFUL |
+[2024-04-17 10:59:24,974]:DEBUG:          |         time |       first:74.94, min:74.94, max:75.85, |
+[2024-04-17 10:59:24,974]:DEBUG:          |              | sum:377.77, sum2:28542.6057, cnt:5,      |
+[2024-04-17 10:59:24,974]:DEBUG:          |              | avg:75.554, std:0.37786240882236394,     |
+[2024-04-17 10:59:24,975]:DEBUG:          |              | last:75.85                               |
+[2024-04-17 10:59:24,988]:DEBUG: sort using: CLASS,tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-17 10:59:24,991]:DEBUG: bench_id;wp_id;compile;measurement;tasks;CLASS;time_avg;time_std;verification
+[2024-04-17 10:59:24,991]:DEBUG: 54;38;base;base;49;D;338.086;0.6349251924372715;SUCCESSFUL
+[2024-04-17 10:59:24,991]:DEBUG: 54;68;tsan-opt;must;49;D;785.0919999999999;1.236596134648321;SUCCESSFUL
+[2024-04-17 10:59:24,991]:DEBUG: 54;43;base;base;100;D;165.21800000000002;2.9530695894272547;SUCCESSFUL
+[2024-04-17 10:59:24,991]:DEBUG: 54;73;tsan-opt;must;100;D;461.03000000000003;1.6315330214090729;SUCCESSFUL
+[2024-04-17 10:59:24,991]:DEBUG: 54;48;base;base;196;D;83.966;1.095047944156272;SUCCESSFUL
+[2024-04-17 10:59:24,991]:DEBUG: 54;78;tsan-opt;must;196;D;310.37399999999997;1.4398715220545246;SUCCESSFUL
+[2024-04-17 10:59:24,991]:DEBUG: 54;53;base;base;225;D;75.554;0.37786240882236394;SUCCESSFUL
+[2024-04-17 10:59:24,992]:DEBUG: 54;86;tsan-opt;must;225;D;285.944;0.3778624088139396;SUCCESSFUL
+[2024-04-17 10:59:24,992]:DEBUG: 54;59;base;base;361;D;48.33800000000001;0.13386560424291816;SUCCESSFUL
+[2024-04-17 10:59:24,992]:DEBUG: 54;88;tsan-opt;must;361;D;217.606;1.367709764537846;SUCCESSFUL
+[2024-04-17 10:59:24,992]:DEBUG: 54;63;base;base;729;D;26.124000000000002;0.13240090634160656;SUCCESSFUL
+[2024-04-17 10:59:24,992]:DEBUG: 54;93;tsan-opt;must;729;D;184.88799999999998;1.526964308687167;SUCCESSFUL
+[2024-04-17 10:59:24,992]:DEBUG: 
+[2024-04-17 10:59:25,002]:DEBUG: sort using: CLASS,tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-17 10:59:25,003]:DEBUG: result:
+[2024-04-17 10:59:25,003]:DEBUG: | bench_id | wp_id |  compile | measurement | tasks | CLASS | time_avg | time_std | verification |
+[2024-04-17 10:59:25,003]:DEBUG: |----------|-------|----------|-------------|-------|-------|----------|----------|--------------|
+[2024-04-17 10:59:25,003]:DEBUG: |       54 |    38 |     base |        base |    49 |     D |  338.086 |    0.635 |   SUCCESSFUL |
+[2024-04-17 10:59:25,003]:DEBUG: |       54 |    68 | tsan-opt |        must |    49 |     D |  785.092 |    1.237 |   SUCCESSFUL |
+[2024-04-17 10:59:25,003]:DEBUG: |       54 |    43 |     base |        base |   100 |     D |  165.218 |    2.953 |   SUCCESSFUL |
+[2024-04-17 10:59:25,003]:DEBUG: |       54 |    73 | tsan-opt |        must |   100 |     D |  461.030 |    1.632 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    48 |     base |        base |   196 |     D |   83.966 |    1.095 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    78 | tsan-opt |        must |   196 |     D |  310.374 |    1.440 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    53 |     base |        base |   225 |     D |   75.554 |    0.378 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    86 | tsan-opt |        must |   225 |     D |  285.944 |    0.378 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    59 |     base |        base |   361 |     D |   48.338 |    0.134 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    88 | tsan-opt |        must |   361 |     D |  217.606 |    1.368 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    63 |     base |        base |   729 |     D |   26.124 |    0.132 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: |       54 |    93 | tsan-opt |        must |   729 |     D |  184.888 |    1.527 |   SUCCESSFUL |
+[2024-04-17 10:59:25,004]:DEBUG: 
+[2024-04-28 19:31:10,448]:DEBUG: sort using: CLASS,tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-28 19:31:10,451]:DEBUG: bench_id;wp_id;compile;measurement;tasks;CLASS;time_avg;time_std;verification
+[2024-04-28 19:31:10,451]:DEBUG: 54;38;base;base;49;D;338.086;0.6349251924372715;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;68;tsan-opt;must;49;D;785.0919999999999;1.236596134648321;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;43;base;base;100;D;165.21800000000002;2.9530695894272547;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;73;tsan-opt;must;100;D;461.03000000000003;1.6315330214090729;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;48;base;base;196;D;83.966;1.095047944156272;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;78;tsan-opt;must;196;D;310.37399999999997;1.4398715220545246;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;53;base;base;225;D;75.554;0.37786240882236394;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;86;tsan-opt;must;225;D;285.944;0.3778624088139396;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;59;base;base;361;D;48.33800000000001;0.13386560424291816;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;88;tsan-opt;must;361;D;217.606;1.367709764537846;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;63;base;base;729;D;26.124000000000002;0.13240090634160656;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 54;93;tsan-opt;must;729;D;184.88799999999998;1.526964308687167;SUCCESSFUL
+[2024-04-28 19:31:10,451]:DEBUG: 
+[2024-04-28 19:31:10,473]:DEBUG: sort using: CLASS,tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-28 19:31:10,474]:DEBUG: result:
+[2024-04-28 19:31:10,474]:DEBUG: | bench_id | wp_id |  compile | measurement | tasks | CLASS | time_avg | time_std | verification |
+[2024-04-28 19:31:10,474]:DEBUG: |----------|-------|----------|-------------|-------|-------|----------|----------|--------------|
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    38 |     base |        base |    49 |     D |  338.086 |    0.635 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    68 | tsan-opt |        must |    49 |     D |  785.092 |    1.237 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    43 |     base |        base |   100 |     D |  165.218 |    2.953 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    73 | tsan-opt |        must |   100 |     D |  461.030 |    1.632 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    48 |     base |        base |   196 |     D |   83.966 |    1.095 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    78 | tsan-opt |        must |   196 |     D |  310.374 |    1.440 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    53 |     base |        base |   225 |     D |   75.554 |    0.378 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    86 | tsan-opt |        must |   225 |     D |  285.944 |    0.378 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    59 |     base |        base |   361 |     D |   48.338 |    0.134 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    88 | tsan-opt |        must |   361 |     D |  217.606 |    1.368 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    63 |     base |        base |   729 |     D |   26.124 |    0.132 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: |       54 |    93 | tsan-opt |        must |   729 |     D |  184.888 |    1.527 |   SUCCESSFUL |
+[2024-04-28 19:31:10,474]:DEBUG: 
+[2024-04-28 19:31:17,605]:DEBUG: sort using: CLASS,tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-28 19:31:17,606]:DEBUG: bench_id;wp_id;must_branch;measurement;tasks;CLASS;time_avg;time_std;verification
+[2024-04-28 19:31:17,606]:DEBUG: 54;38;rmasanitizer;base;49;D;338.086;0.6349251924372715;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;68;rmasanitizer;must;49;D;785.0919999999999;1.236596134648321;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;43;rmasanitizer;base;100;D;165.21800000000002;2.9530695894272547;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;73;rmasanitizer;must;100;D;461.03000000000003;1.6315330214090729;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;48;rmasanitizer;base;196;D;83.966;1.095047944156272;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;78;rmasanitizer;must;196;D;310.37399999999997;1.4398715220545246;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;53;rmasanitizer;base;225;D;75.554;0.37786240882236394;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;86;rmasanitizer;must;225;D;285.944;0.3778624088139396;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;59;rmasanitizer;base;361;D;48.33800000000001;0.13386560424291816;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;88;rmasanitizer;must;361;D;217.606;1.367709764537846;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;63;rmasanitizer;base;729;D;26.124000000000002;0.13240090634160656;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 54;93;rmasanitizer;must;729;D;184.88799999999998;1.526964308687167;SUCCESSFUL
+[2024-04-28 19:31:17,606]:DEBUG: 
+[2024-04-28 19:31:17,624]:DEBUG: sort using: CLASS,tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-04-28 19:31:17,624]:DEBUG: result:
+[2024-04-28 19:31:17,624]:DEBUG: | bench_id | wp_id |  must_branch | measurement | tasks | CLASS | time_avg | time_std | verification |
+[2024-04-28 19:31:17,624]:DEBUG: |----------|-------|--------------|-------------|-------|-------|----------|----------|--------------|
+[2024-04-28 19:31:17,624]:DEBUG: |       54 |    38 | rmasanitizer |        base |    49 |     D |  338.086 |    0.635 |   SUCCESSFUL |
+[2024-04-28 19:31:17,624]:DEBUG: |       54 |    68 | rmasanitizer |        must |    49 |     D |  785.092 |    1.237 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    43 | rmasanitizer |        base |   100 |     D |  165.218 |    2.953 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    73 | rmasanitizer |        must |   100 |     D |  461.030 |    1.632 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    48 | rmasanitizer |        base |   196 |     D |   83.966 |    1.095 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    78 | rmasanitizer |        must |   196 |     D |  310.374 |    1.440 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    53 | rmasanitizer |        base |   225 |     D |   75.554 |    0.378 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    86 | rmasanitizer |        must |   225 |     D |  285.944 |    0.378 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    59 | rmasanitizer |        base |   361 |     D |   48.338 |    0.134 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    88 | rmasanitizer |        must |   361 |     D |  217.606 |    1.368 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    63 | rmasanitizer |        base |   729 |     D |   26.124 |    0.132 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: |       54 |    93 | rmasanitizer |        must |   729 |     D |  184.888 |    1.527 |   SUCCESSFUL |
+[2024-04-28 19:31:17,625]:DEBUG: 

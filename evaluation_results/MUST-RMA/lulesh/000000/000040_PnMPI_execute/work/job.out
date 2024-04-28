@@ -1,0 +1,962 @@
+nodelist=n23m[0149-0150]
+  _____   _ __   __  __  _____   _____
+ |  __ \ | '_ \ |  \/  ||  __ \ |_   _|
+ | |__) || | | || \  / || |__) |  | |
+ |  ___/ |_| |_|| |\/| ||  ___/   | |
+ | |            | |  | || |      _| |_
+ |_|            |_|  |_||_|     |_____|
+
+
+ Application:
+  MPI interface: C
+
+ Global settings:
+  Pcontrol: 5
+
+ Loaded modules:
+  Stack default:
+    metrics-counter (Pcontrol: 1)
+
+# MPI communication: MPI-RMA with lock_all
+# Running problem size 20^3 per domain until completion
+# Num processors: 64
+# Total number of elements: 512000 
+
+To run other sizes, use -s <integer>.
+To run a fixed number of iterations, use -i <integer>.
+To run a more or less balanced region set, use -b <integer>.
+To change the relative costs of regions, use -c <integer>.
+To print out progress, use -p
+To write an output file for VisIt, use -v
+See help (-h) for more options
+
+Run completed:
+   Problem size        =  20
+   MPI tasks           =  64
+   Iteration count     =  2774
+   Final Origin Energy =  1.198525e+06
+   Testing Plane 0 of Energy Array on rank 0:
+        MaxAbsDiff   = 9.022187e-10
+        TotalAbsDiff = 5.974698e-09
+        MaxRelDiff   = 2.970873e-14
+
+Elapsed time         =         48 (s)
+Grind time (us/z/c)  =  2.1791604 (per dom)  ( 48.359928 overall)
+FOM                  =  29369.109 (z/s)
+
+
+
+################################
+
+MPI call stats:
+
+ Rank 0:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     47165 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     47165 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 1:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     69361 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     69361 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 2:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     69361 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     69361 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 3:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     44391 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     44391 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 4:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     66587 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     66587 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 5:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     97107 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     97107 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 6:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     97107 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     97107 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 7:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     63813 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     63813 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 8:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     66587 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     66587 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 9:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     97107 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     97107 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 10:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     97107 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     97107 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 11:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     63813 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     63813 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 12:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     41617 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     41617 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 13:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     61039 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     61039 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 14:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     61039 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     61039 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 15:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     38843 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     38843 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 16:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     61039 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     61039 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 17:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     88785 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     88785 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 18:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     88785 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     88785 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 19:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     58265 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     58265 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 20:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     86011 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     86011 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 21:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 22:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 23:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     83237 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     83237 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 24:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     86011 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     86011 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 25:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 26:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 27:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     83237 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     83237 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 28:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     55491 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     55491 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 29:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     80463 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     80463 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 30:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     80463 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     80463 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 31:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     52717 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     52717 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 32:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     61039 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     61039 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 33:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     88785 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     88785 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 34:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     88785 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     88785 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 35:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     58265 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     58265 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 36:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     86011 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     86011 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 37:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 38:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 39:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     83237 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     83237 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 40:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     86011 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     86011 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 41:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 42:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+    124856 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+    124856 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 43:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     83237 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     83237 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 44:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     55491 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     55491 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 45:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     80463 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     80463 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 46:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     80463 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     80463 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 47:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     52717 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     52717 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 48:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     36069 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     36069 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 49:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     52717 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     52717 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 50:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     52717 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     52717 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 51:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     33295 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     33295 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 52:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     49943 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     49943 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 53:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     72141 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     72141 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 54:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     72141 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     72141 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 55:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     47169 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     47169 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 56:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     49943 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     49943 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 57:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     72141 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     72141 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 58:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     72141 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     72141 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 59:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     47169 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     47169 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 60:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     30521 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     30521 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 61:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     44395 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     44395 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 62:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     44395 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     44395 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Rank 63:
+      2773 MPI_Allreduce
+      8324 MPI_Barrier
+     24971 MPI_Comm_rank
+         1 MPI_Comm_size
+     27747 MPI_Get
+         1 MPI_Init
+         1 MPI_Reduce
+     27747 MPI_Wait
+      8323 MPI_Waitall
+         1 MPI_Win_allocate
+      8325 MPI_Win_fence
+         1 MPI_Win_free
+
+ Total:
+    177472 MPI_Allreduce
+    532736 MPI_Barrier
+   1598144 MPI_Comm_rank
+        64 MPI_Comm_size
+   4694544 MPI_Get
+        64 MPI_Init
+        64 MPI_Reduce
+   4694544 MPI_Wait
+    532672 MPI_Waitall
+        64 MPI_Win_allocate
+    532800 MPI_Win_fence
+        64 MPI_Win_free
+EXECUTION VERIFICATION CHECK: SUCCESS

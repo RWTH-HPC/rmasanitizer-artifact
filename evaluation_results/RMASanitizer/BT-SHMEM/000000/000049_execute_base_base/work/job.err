@@ -1,0 +1,357 @@
++ [[ -n '' ]]
++ global_bashenv=1
++ [[ -e /opt/lmod/lmod/init/profile ]]
++ [[ -r /opt/lmod/lmod/init/profile ]]
++ . /opt/lmod/lmod/init/profile
+++ '[' -z '' ']'
+++ LMOD_ALLOW_ROOT_USE=no
+++ '[' -n '' ']'
+++ '[' no '!=' yes ']'
++++ id -u
+++ '[' 25954 = 0 ']'
+++ '[' -z /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/modules/all ']'
+++ findExec READLINK_CMD /usr/bin/readlink readlink
+++ Nm=READLINK_CMD
+++ confPath=/usr/bin/readlink
+++ execNm=readlink
+++ eval READLINK_CMD=/usr/bin/readlink
++++ READLINK_CMD=/usr/bin/readlink
+++ '[' '!' -x /usr/bin/readlink ']'
+++ unset Nm confPath execNm
+++ findExec PS_CMD /usr/bin/ps ps
+++ Nm=PS_CMD
+++ confPath=/usr/bin/ps
+++ execNm=ps
+++ eval PS_CMD=/usr/bin/ps
++++ PS_CMD=/usr/bin/ps
+++ '[' '!' -x /usr/bin/ps ']'
+++ unset Nm confPath execNm
+++ findExec EXPR_CMD /usr/bin/expr expr
+++ Nm=EXPR_CMD
+++ confPath=/usr/bin/expr
+++ execNm=expr
+++ eval EXPR_CMD=/usr/bin/expr
++++ EXPR_CMD=/usr/bin/expr
+++ '[' '!' -x /usr/bin/expr ']'
+++ unset Nm confPath execNm
+++ findExec BASENAME_CMD /usr/bin/basename basename
+++ Nm=BASENAME_CMD
+++ confPath=/usr/bin/basename
+++ execNm=basename
+++ eval BASENAME_CMD=/usr/bin/basename
++++ BASENAME_CMD=/usr/bin/basename
+++ '[' '!' -x /usr/bin/basename ']'
+++ unset Nm confPath execNm
+++ unset -f findExec
+++ '[' -f /proc/197386/exe ']'
++++ /usr/bin/readlink /proc/197386/exe
+++ my_shell=/usr/bin/bash
++++ /usr/bin/expr /usr/bin/bash : '-*\(.*\)'
+++ my_shell=/usr/bin/bash
++++ /usr/bin/basename /usr/bin/bash
+++ my_shell=bash
+++ case ${my_shell} in
+++ '[' -f /opt/lmod/8.7.32/init/bash ']'
+++ . /opt/lmod/8.7.32/init/bash
++++ '[' -z '' ']'
++++ case "$-" in
++++ __lmod_vx=x
++++ '[' -n x ']'
++++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/opt/lmod/8.7.32/init/bash)
+Shell debugging restarted
++++ unset __lmod_vx
+++ unset my_shell PS_CMD EXPR_CMD BASENAME_CMD MODULEPATH_INIT LMOD_ALLOW_ROOT_USE READLINK_CMD
++ export MUST_RMASANITIZER_PRINT_STATISTICS=1
++ MUST_RMASANITIZER_PRINT_STATISTICS=1
++ export OMP_NUM_THREADS=1
++ OMP_NUM_THREADS=1
++ export time_output_file=/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/BT-SHMEM.benchmarks/000054/000008_compile_base/work/time.out
++ time_output_file=/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/BT-SHMEM.benchmarks/000054/000008_compile_base/work/time.out
++ export 'TSAN_OPTIONS= ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout'
++ TSAN_OPTIONS=' ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout'
++ echo 'nodelist=n23m[0116-0120]'
++ SOURCE_DIR=compile/copy_source
++ LAYOUT_DIR=/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/BT-SHMEM.benchmarks/000054/000049_execute_base_base/work
++ COMPILE_DIR=compile
++ module use /home/rwth1269/modules/
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ module purge
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for path in /home/rwth1269/modules
++ module use /home/rwth1269/modules
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load SOS/1.5.2-ompi
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module SOS/1.5.2-ompi loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load GPI/1.5.1-ompi
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module GPI/1.5.1-ompi loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load netcdf/4.9.2
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module netcdf/4.9.2 loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load GCC/12.3.0
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module GCC/12.3.0 loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load openmpi/4.1.6
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module openmpi/4.1.6 loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load Classic-Flang/16.0.4-c23
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load CMake/3.26.3
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module CMake/3.26.3 loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for modulename in SOS/1.5.2-ompi GPI/1.5.1-ompi netcdf/4.9.2 GCC/12.3.0 openmpi/4.1.6 Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3
++ module load CMake/3.26.3
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_sh_dbg=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output
+[INFO] Module CMake/3.26.3 loaded.
+Shell debugging restarted
++ unset __lmod_sh_dbg
++ return 0
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export OMPI_CC=clang
++ OMPI_CC=clang
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export OMPI_CXX=clang++
++ OMPI_CXX=clang++
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export OMPI_FC=flang
++ OMPI_FC=flang
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export SLURM_MPI_TYPE=pmi2
++ SLURM_MPI_TYPE=pmi2
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export 'OMPI_MCA_btl=^ofi,openib,tcp'
++ OMPI_MCA_btl='^ofi,openib,tcp'
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export 'OMPI_MCA_mtl=^ofi'
++ OMPI_MCA_mtl='^ofi'
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export UCX_UD_MLX5_TIMEOUT=2m
++ UCX_UD_MLX5_TIMEOUT=2m
++ for item in OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang SLURM_MPI_TYPE=pmi2 OMPI_MCA_btl=^ofi,openib,tcp OMPI_MCA_mtl=^ofi UCX_UD_MLX5_TIMEOUT=2m ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:$PATH
++ export PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/CMake/3.26.3-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/libarchive/3.6.2-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/cURL/8.0.1-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/OpenSSL/1.1/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/bzip2/1.0.8-GCCcore-12.3.0/bin:/work/rwth1269/software/c23/classic-flang/bin:/work/rwth1269/software/openmpi/4.1.6/bin:/work/rwth1269/software/netcdf/4.9.2/bin:/work/rwth1269/software/gpi/1.5.1-ompi/bin:/work/rwth1269/software/sos/1.5.2-ompi/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/ncurses/6.4-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/binutils/2.40-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/hwloc/2.9.1-GCCcore-12.3.0/sbin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/hwloc/2.9.1-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/libxml2/2.11.4-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/XZ/5.4.2-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/UCX/1.14.1-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/numactl/2.0.16-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/GCCcore/12.3.0/bin:/usr/local_host/bin:/usr/local_host/sbin:/usr/local_rwth/bin:/usr/local_rwth/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/singularity/bin:/usr/local/bin:/usr/local/sbin:/opt/slurm/current/sbin:/opt/slurm/current/bin
++ PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-SHMEM/../../dep/MUST/c8a53ca67bde2db7f1898e39c173ae2a/install/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/CMake/3.26.3-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/libarchive/3.6.2-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/cURL/8.0.1-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/OpenSSL/1.1/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/bzip2/1.0.8-GCCcore-12.3.0/bin:/work/rwth1269/software/c23/classic-flang/bin:/work/rwth1269/software/openmpi/4.1.6/bin:/work/rwth1269/software/netcdf/4.9.2/bin:/work/rwth1269/software/gpi/1.5.1-ompi/bin:/work/rwth1269/software/sos/1.5.2-ompi/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/ncurses/6.4-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/binutils/2.40-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/hwloc/2.9.1-GCCcore-12.3.0/sbin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/hwloc/2.9.1-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/libxml2/2.11.4-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/XZ/5.4.2-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/UCX/1.14.1-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/numactl/2.0.16-GCCcore-12.3.0/bin:/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/GCCcore/12.3.0/bin:/usr/local_host/bin:/usr/local_host/sbin:/usr/local_rwth/bin:/usr/local_rwth/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/singularity/bin:/usr/local/bin:/usr/local/sbin:/opt/slurm/current/sbin:/opt/slurm/current/bin
++ JUBE_ERR_CODE=0
++ '[' 0 -ne 0 ']'
++ srun compile/bt.D.196
+srun: Warning: can't honor --ntasks-per-node set to 48 which doesn't match the requested tasks 196 with the number of requested nodes 5. Ignoring --ntasks-per-node.
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
+slurmstepd: error: Can't propagate RLIMIT_NPROC of 1027923 from submit host: Invalid argument
++ JUBE_ERR_CODE=0
++ '[' 0 -ne 0 ']'
++ printf 'EXECUTION VERIFICATION CHECK: '
++ grep -q '\[MUST-REPORT\] Error.*race' job.out
++ grep -q '^srun: error:' job.err
++ echo SUCCESS
++ JUBE_ERR_CODE=0
++ '[' 0 -ne 0 ']'
++ touch ready

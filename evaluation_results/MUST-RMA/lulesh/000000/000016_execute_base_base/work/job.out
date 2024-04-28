@@ -1,0 +1,155 @@
+nodelist=r23m[0200-0202]
+# MPI communication: MPI-RMA with lock_all
+# Running problem size 20^3 per domain until completion
+# Num processors: 125
+# Total number of elements: 1000000 
+
+To run other sizes, use -s <integer>.
+To run a fixed number of iterations, use -i <integer>.
+To run a more or less balanced region set, use -b <integer>.
+To change the relative costs of regions, use -c <integer>.
+To print out progress, use -p
+To write an output file for VisIt, use -v
+See help (-h) for more options
+
+Run completed:
+   Problem size        =  20
+   MPI tasks           =  125
+   Iteration count     =  3517
+   Final Origin Energy =  1.791828e+06
+   Testing Plane 0 of Energy Array on rank 0:
+        MaxAbsDiff   = 1.135049e-09
+        TotalAbsDiff = 1.028366e-08
+        MaxRelDiff   = 2.474559e-14
+
+Elapsed time         =         63 (s)
+Grind time (us/z/c)  =  2.2502635 (per dom)  ( 63.313414 overall)
+FOM                  =   55549.05 (z/s)
+
+[MEMUSAGE] Total Memory Consumption (max_rss): 19093.469 MiB
+[MEMUSAGE] Rank 0:	 144.133 MiB
+[MEMUSAGE] Rank 1:	 144.195 MiB
+[MEMUSAGE] Rank 2:	 144.230 MiB
+[MEMUSAGE] Rank 3:	 146.184 MiB
+[MEMUSAGE] Rank 4:	 143.941 MiB
+[MEMUSAGE] Rank 5:	 144.156 MiB
+[MEMUSAGE] Rank 6:	 144.289 MiB
+[MEMUSAGE] Rank 7:	 145.980 MiB
+[MEMUSAGE] Rank 8:	 144.164 MiB
+[MEMUSAGE] Rank 9:	 144.203 MiB
+[MEMUSAGE] Rank 10:	 143.977 MiB
+[MEMUSAGE] Rank 11:	 154.340 MiB
+[MEMUSAGE] Rank 12:	 154.262 MiB
+[MEMUSAGE] Rank 13:	 154.156 MiB
+[MEMUSAGE] Rank 14:	 154.105 MiB
+[MEMUSAGE] Rank 15:	 154.078 MiB
+[MEMUSAGE] Rank 16:	 156.293 MiB
+[MEMUSAGE] Rank 17:	 154.191 MiB
+[MEMUSAGE] Rank 18:	 154.156 MiB
+[MEMUSAGE] Rank 19:	 154.039 MiB
+[MEMUSAGE] Rank 20:	 151.848 MiB
+[MEMUSAGE] Rank 21:	 153.945 MiB
+[MEMUSAGE] Rank 22:	 153.938 MiB
+[MEMUSAGE] Rank 23:	 154.012 MiB
+[MEMUSAGE] Rank 24:	 154.023 MiB
+[MEMUSAGE] Rank 25:	 154.176 MiB
+[MEMUSAGE] Rank 26:	 154.223 MiB
+[MEMUSAGE] Rank 27:	 154.172 MiB
+[MEMUSAGE] Rank 28:	 154.152 MiB
+[MEMUSAGE] Rank 29:	 152.137 MiB
+[MEMUSAGE] Rank 30:	 153.910 MiB
+[MEMUSAGE] Rank 31:	 154.184 MiB
+[MEMUSAGE] Rank 32:	 154.219 MiB
+[MEMUSAGE] Rank 33:	 154.430 MiB
+[MEMUSAGE] Rank 34:	 156.133 MiB
+[MEMUSAGE] Rank 35:	 154.258 MiB
+[MEMUSAGE] Rank 36:	 154.203 MiB
+[MEMUSAGE] Rank 37:	 156.395 MiB
+[MEMUSAGE] Rank 38:	 154.137 MiB
+[MEMUSAGE] Rank 39:	 154.000 MiB
+[MEMUSAGE] Rank 40:	 154.219 MiB
+[MEMUSAGE] Rank 41:	 153.996 MiB
+[MEMUSAGE] Rank 42:	 154.332 MiB
+[MEMUSAGE] Rank 43:	 154.590 MiB
+[MEMUSAGE] Rank 44:	 154.105 MiB
+[MEMUSAGE] Rank 45:	 153.871 MiB
+[MEMUSAGE] Rank 46:	 154.086 MiB
+[MEMUSAGE] Rank 47:	 154.270 MiB
+[MEMUSAGE] Rank 48:	 154.375 MiB
+[MEMUSAGE] Rank 49:	 153.953 MiB
+[MEMUSAGE] Rank 50:	 156.266 MiB
+[MEMUSAGE] Rank 51:	 155.992 MiB
+[MEMUSAGE] Rank 52:	 154.250 MiB
+[MEMUSAGE] Rank 53:	 155.863 MiB
+[MEMUSAGE] Rank 54:	 154.211 MiB
+[MEMUSAGE] Rank 55:	 154.305 MiB
+[MEMUSAGE] Rank 56:	 154.320 MiB
+[MEMUSAGE] Rank 57:	 156.203 MiB
+[MEMUSAGE] Rank 58:	 154.551 MiB
+[MEMUSAGE] Rank 59:	 154.309 MiB
+[MEMUSAGE] Rank 60:	 154.262 MiB
+[MEMUSAGE] Rank 61:	 152.289 MiB
+[MEMUSAGE] Rank 62:	 154.410 MiB
+[MEMUSAGE] Rank 63:	 154.309 MiB
+[MEMUSAGE] Rank 64:	 153.938 MiB
+[MEMUSAGE] Rank 65:	 154.297 MiB
+[MEMUSAGE] Rank 66:	 154.398 MiB
+[MEMUSAGE] Rank 67:	 154.336 MiB
+[MEMUSAGE] Rank 68:	 156.480 MiB
+[MEMUSAGE] Rank 69:	 154.121 MiB
+[MEMUSAGE] Rank 70:	 154.406 MiB
+[MEMUSAGE] Rank 71:	 154.117 MiB
+[MEMUSAGE] Rank 72:	 154.480 MiB
+[MEMUSAGE] Rank 73:	 156.023 MiB
+[MEMUSAGE] Rank 74:	 154.387 MiB
+[MEMUSAGE] Rank 75:	 153.859 MiB
+[MEMUSAGE] Rank 76:	 154.168 MiB
+[MEMUSAGE] Rank 77:	 156.047 MiB
+[MEMUSAGE] Rank 78:	 154.078 MiB
+[MEMUSAGE] Rank 79:	 155.824 MiB
+[MEMUSAGE] Rank 80:	 154.340 MiB
+[MEMUSAGE] Rank 81:	 154.145 MiB
+[MEMUSAGE] Rank 82:	 154.473 MiB
+[MEMUSAGE] Rank 83:	 156.184 MiB
+[MEMUSAGE] Rank 84:	 156.355 MiB
+[MEMUSAGE] Rank 85:	 154.184 MiB
+[MEMUSAGE] Rank 86:	 154.391 MiB
+[MEMUSAGE] Rank 87:	 154.238 MiB
+[MEMUSAGE] Rank 88:	 154.223 MiB
+[MEMUSAGE] Rank 89:	 152.168 MiB
+[MEMUSAGE] Rank 90:	 154.387 MiB
+[MEMUSAGE] Rank 91:	 156.352 MiB
+[MEMUSAGE] Rank 92:	 154.465 MiB
+[MEMUSAGE] Rank 93:	 156.297 MiB
+[MEMUSAGE] Rank 94:	 156.133 MiB
+[MEMUSAGE] Rank 95:	 151.973 MiB
+[MEMUSAGE] Rank 96:	 154.176 MiB
+[MEMUSAGE] Rank 97:	 154.047 MiB
+[MEMUSAGE] Rank 98:	 154.219 MiB
+[MEMUSAGE] Rank 99:	 154.105 MiB
+[MEMUSAGE] Rank 100:	 154.133 MiB
+[MEMUSAGE] Rank 101:	 154.117 MiB
+[MEMUSAGE] Rank 102:	 154.168 MiB
+[MEMUSAGE] Rank 103:	 156.145 MiB
+[MEMUSAGE] Rank 104:	 154.152 MiB
+[MEMUSAGE] Rank 105:	 154.160 MiB
+[MEMUSAGE] Rank 106:	 154.211 MiB
+[MEMUSAGE] Rank 107:	 154.207 MiB
+[MEMUSAGE] Rank 108:	 154.191 MiB
+[MEMUSAGE] Rank 109:	 154.160 MiB
+[MEMUSAGE] Rank 110:	 153.957 MiB
+[MEMUSAGE] Rank 111:	 153.973 MiB
+[MEMUSAGE] Rank 112:	 154.227 MiB
+[MEMUSAGE] Rank 113:	 154.305 MiB
+[MEMUSAGE] Rank 114:	 154.289 MiB
+[MEMUSAGE] Rank 115:	 144.293 MiB
+[MEMUSAGE] Rank 116:	 144.406 MiB
+[MEMUSAGE] Rank 117:	 144.273 MiB
+[MEMUSAGE] Rank 118:	 144.324 MiB
+[MEMUSAGE] Rank 119:	 144.086 MiB
+[MEMUSAGE] Rank 120:	 144.246 MiB
+[MEMUSAGE] Rank 121:	 144.016 MiB
+[MEMUSAGE] Rank 122:	 144.125 MiB
+[MEMUSAGE] Rank 123:	 146.281 MiB
+[MEMUSAGE] Rank 124:	 144.309 MiB
+EXECUTION VERIFICATION CHECK: SUCCESS

@@ -1,0 +1,57 @@
+nodelist=n23m0152
+# MPI communication: MPI-RMA with lock_all
+# Running problem size 20^3 per domain until completion
+# Num processors: 27
+# Total number of elements: 216000 
+
+To run other sizes, use -s <integer>.
+To run a fixed number of iterations, use -i <integer>.
+To run a more or less balanced region set, use -b <integer>.
+To change the relative costs of regions, use -c <integer>.
+To print out progress, use -p
+To write an output file for VisIt, use -v
+See help (-h) for more options
+
+Run completed:
+   Problem size        =  20
+   MPI tasks           =  27
+   Iteration count     =  2031
+   Final Origin Energy =  7.130703e+05
+   Testing Plane 0 of Energy Array on rank 0:
+        MaxAbsDiff   = 2.910383e-10
+        TotalAbsDiff = 2.750312e-09
+        MaxRelDiff   = 1.979550e-14
+
+Elapsed time         =         35 (s)
+Grind time (us/z/c)  =  2.1414285 (per dom)  (  34.79393 overall)
+FOM                  =  12608.406 (z/s)
+
+[MEMUSAGE] Total Memory Consumption (max_rss): 2219.871 MiB
+[MEMUSAGE] Rank 0:	 81.801 MiB
+[MEMUSAGE] Rank 1:	 82.266 MiB
+[MEMUSAGE] Rank 2:	 81.281 MiB
+[MEMUSAGE] Rank 3:	 82.406 MiB
+[MEMUSAGE] Rank 4:	 83.086 MiB
+[MEMUSAGE] Rank 5:	 82.145 MiB
+[MEMUSAGE] Rank 6:	 81.691 MiB
+[MEMUSAGE] Rank 7:	 82.145 MiB
+[MEMUSAGE] Rank 8:	 83.445 MiB
+[MEMUSAGE] Rank 9:	 82.402 MiB
+[MEMUSAGE] Rank 10:	 82.984 MiB
+[MEMUSAGE] Rank 11:	 83.773 MiB
+[MEMUSAGE] Rank 12:	 82.773 MiB
+[MEMUSAGE] Rank 13:	 83.785 MiB
+[MEMUSAGE] Rank 14:	 82.430 MiB
+[MEMUSAGE] Rank 15:	 82.039 MiB
+[MEMUSAGE] Rank 16:	 82.480 MiB
+[MEMUSAGE] Rank 17:	 81.859 MiB
+[MEMUSAGE] Rank 18:	 81.215 MiB
+[MEMUSAGE] Rank 19:	 81.883 MiB
+[MEMUSAGE] Rank 20:	 81.324 MiB
+[MEMUSAGE] Rank 21:	 81.836 MiB
+[MEMUSAGE] Rank 22:	 82.332 MiB
+[MEMUSAGE] Rank 23:	 82.016 MiB
+[MEMUSAGE] Rank 24:	 81.473 MiB
+[MEMUSAGE] Rank 25:	 81.562 MiB
+[MEMUSAGE] Rank 26:	 81.438 MiB
+EXECUTION VERIFICATION CHECK: SUCCESS

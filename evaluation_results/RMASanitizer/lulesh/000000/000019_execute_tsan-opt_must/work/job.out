@@ -1,0 +1,288 @@
+nodelist=r23m[0026,0043,0045]
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Using prebuilt infrastructure at /home/ss540294/.cache/must/prebuilds/92d58bdee39116cfafb401fa88d652eb
+[MUST] Weaver ... success
+[MUST] Generating P^nMPI configuration ... success
+[MUST] Infrastructure in "/home/ss540294/.cache/must/prebuilds/92d58bdee39116cfafb401fa88d652eb" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+# MPI communication: MPI-RMA with lock_all
+# Running problem size 20^3 per domain until completion
+# Num processors: 125
+# Total number of elements: 1000000 
+
+To run other sizes, use -s <integer>.
+To run a fixed number of iterations, use -i <integer>.
+To run a more or less balanced region set, use -b <integer>.
+To change the relative costs of regions, use -c <integer>.
+To print out progress, use -p
+To write an output file for VisIt, use -v
+See help (-h) for more options
+
+Run completed:
+   Problem size        =  20
+   MPI tasks           =  125
+   Iteration count     =  3517
+   Final Origin Energy =  1.791828e+06
+   Testing Plane 0 of Energy Array on rank 0:
+        MaxAbsDiff   = 1.135049e-09
+        TotalAbsDiff = 1.028366e-08
+        MaxRelDiff   = 2.474559e-14
+
+Elapsed time         =      5e+02 (s)
+Grind time (us/z/c)  =  17.854488 (per dom)  ( 502.35387 overall)
+FOM                  =  7001.0409 (z/s)
+
+[GTI] Total Memory Consumption Layer 1 (max_rss): 49028.641 MiB
+[GTI] Rank 0, Layer 1:	393.309 MiB 
+[GTI] Rank 1, Layer 1:	387.078 MiB 
+[GTI] Rank 2, Layer 1:	389.637 MiB 
+[GTI] Rank 3, Layer 1:	387.355 MiB 
+[GTI] Rank 4, Layer 1:	391.121 MiB 
+[GTI] Rank 5, Layer 1:	386.789 MiB 
+[GTI] Rank 6, Layer 1:	376.301 MiB 
+[GTI] Rank 7, Layer 1:	376.719 MiB 
+[GTI] Rank 8, Layer 1:	377.773 MiB 
+[GTI] Rank 9, Layer 1:	382.668 MiB 
+[GTI] Rank 10, Layer 1:	383.285 MiB 
+[GTI] Rank 11, Layer 1:	386.879 MiB 
+[GTI] Rank 12, Layer 1:	385.367 MiB 
+[GTI] Rank 13, Layer 1:	383.730 MiB 
+[GTI] Rank 14, Layer 1:	390.039 MiB 
+[GTI] Rank 15, Layer 1:	395.707 MiB 
+[GTI] Rank 16, Layer 1:	386.254 MiB 
+[GTI] Rank 17, Layer 1:	382.008 MiB 
+[GTI] Rank 18, Layer 1:	384.559 MiB 
+[GTI] Rank 19, Layer 1:	390.777 MiB 
+[GTI] Rank 20, Layer 1:	402.727 MiB 
+[GTI] Rank 21, Layer 1:	390.949 MiB 
+[GTI] Rank 22, Layer 1:	388.777 MiB 
+[GTI] Rank 23, Layer 1:	390.309 MiB 
+[GTI] Rank 24, Layer 1:	407.398 MiB 
+[GTI] Rank 25, Layer 1:	390.246 MiB 
+[GTI] Rank 26, Layer 1:	383.273 MiB 
+[GTI] Rank 27, Layer 1:	384.434 MiB 
+[GTI] Rank 28, Layer 1:	383.359 MiB 
+[GTI] Rank 29, Layer 1:	385.895 MiB 
+[GTI] Rank 30, Layer 1:	386.914 MiB 
+[GTI] Rank 31, Layer 1:	396.938 MiB 
+[GTI] Rank 32, Layer 1:	400.434 MiB 
+[GTI] Rank 33, Layer 1:	398.328 MiB 
+[GTI] Rank 34, Layer 1:	387.355 MiB 
+[GTI] Rank 35, Layer 1:	389.125 MiB 
+[GTI] Rank 36, Layer 1:	396.055 MiB 
+[GTI] Rank 37, Layer 1:	402.008 MiB 
+[GTI] Rank 38, Layer 1:	395.238 MiB 
+[GTI] Rank 39, Layer 1:	388.703 MiB 
+[GTI] Rank 40, Layer 1:	388.086 MiB 
+[GTI] Rank 41, Layer 1:	396.184 MiB 
+[GTI] Rank 42, Layer 1:	397.375 MiB 
+[GTI] Rank 43, Layer 1:	395.957 MiB 
+[GTI] Rank 44, Layer 1:	389.828 MiB 
+[GTI] Rank 45, Layer 1:	395.246 MiB 
+[GTI] Rank 46, Layer 1:	387.309 MiB 
+[GTI] Rank 47, Layer 1:	388.887 MiB 
+[GTI] Rank 48, Layer 1:	393.449 MiB 
+[GTI] Rank 49, Layer 1:	393.863 MiB 
+[GTI] Rank 50, Layer 1:	391.340 MiB 
+[GTI] Rank 51, Layer 1:	388.574 MiB 
+[GTI] Rank 52, Layer 1:	384.902 MiB 
+[GTI] Rank 53, Layer 1:	381.637 MiB 
+[GTI] Rank 54, Layer 1:	391.961 MiB 
+[GTI] Rank 55, Layer 1:	385.137 MiB 
+[GTI] Rank 56, Layer 1:	399.969 MiB 
+[GTI] Rank 57, Layer 1:	395.551 MiB 
+[GTI] Rank 58, Layer 1:	396.359 MiB 
+[GTI] Rank 59, Layer 1:	385.578 MiB 
+[GTI] Rank 60, Layer 1:	382.113 MiB 
+[GTI] Rank 61, Layer 1:	398.160 MiB 
+[GTI] Rank 62, Layer 1:	398.160 MiB 
+[GTI] Rank 63, Layer 1:	398.457 MiB 
+[GTI] Rank 64, Layer 1:	387.750 MiB 
+[GTI] Rank 65, Layer 1:	385.707 MiB 
+[GTI] Rank 66, Layer 1:	397.867 MiB 
+[GTI] Rank 67, Layer 1:	399.000 MiB 
+[GTI] Rank 68, Layer 1:	399.238 MiB 
+[GTI] Rank 69, Layer 1:	386.207 MiB 
+[GTI] Rank 70, Layer 1:	388.523 MiB 
+[GTI] Rank 71, Layer 1:	386.758 MiB 
+[GTI] Rank 72, Layer 1:	393.453 MiB 
+[GTI] Rank 73, Layer 1:	392.137 MiB 
+[GTI] Rank 74, Layer 1:	393.484 MiB 
+[GTI] Rank 75, Layer 1:	389.172 MiB 
+[GTI] Rank 76, Layer 1:	383.438 MiB 
+[GTI] Rank 77, Layer 1:	383.141 MiB 
+[GTI] Rank 78, Layer 1:	382.328 MiB 
+[GTI] Rank 79, Layer 1:	386.363 MiB 
+[GTI] Rank 80, Layer 1:	387.184 MiB 
+[GTI] Rank 81, Layer 1:	397.148 MiB 
+[GTI] Rank 82, Layer 1:	396.695 MiB 
+[GTI] Rank 83, Layer 1:	396.578 MiB 
+[GTI] Rank 84, Layer 1:	386.168 MiB 
+[GTI] Rank 85, Layer 1:	387.633 MiB 
+[GTI] Rank 86, Layer 1:	396.711 MiB 
+[GTI] Rank 87, Layer 1:	398.387 MiB 
+[GTI] Rank 88, Layer 1:	402.230 MiB 
+[GTI] Rank 89, Layer 1:	389.098 MiB 
+[GTI] Rank 90, Layer 1:	385.801 MiB 
+[GTI] Rank 91, Layer 1:	399.535 MiB 
+[GTI] Rank 92, Layer 1:	401.035 MiB 
+[GTI] Rank 93, Layer 1:	397.465 MiB 
+[GTI] Rank 94, Layer 1:	387.832 MiB 
+[GTI] Rank 95, Layer 1:	389.941 MiB 
+[GTI] Rank 96, Layer 1:	391.902 MiB 
+[GTI] Rank 97, Layer 1:	390.469 MiB 
+[GTI] Rank 98, Layer 1:	389.129 MiB 
+[GTI] Rank 99, Layer 1:	391.645 MiB 
+[GTI] Rank 100, Layer 1:	410.664 MiB 
+[GTI] Rank 101, Layer 1:	390.043 MiB 
+[GTI] Rank 102, Layer 1:	392.594 MiB 
+[GTI] Rank 103, Layer 1:	389.930 MiB 
+[GTI] Rank 104, Layer 1:	417.273 MiB 
+[GTI] Rank 105, Layer 1:	393.336 MiB 
+[GTI] Rank 106, Layer 1:	395.688 MiB 
+[GTI] Rank 107, Layer 1:	402.480 MiB 
+[GTI] Rank 108, Layer 1:	399.129 MiB 
+[GTI] Rank 109, Layer 1:	403.414 MiB 
+[GTI] Rank 110, Layer 1:	397.004 MiB 
+[GTI] Rank 111, Layer 1:	397.590 MiB 
+[GTI] Rank 112, Layer 1:	402.383 MiB 
+[GTI] Rank 113, Layer 1:	399.887 MiB 
+[GTI] Rank 114, Layer 1:	404.973 MiB 
+[GTI] Rank 115, Layer 1:	387.910 MiB 
+[GTI] Rank 116, Layer 1:	388.539 MiB 
+[GTI] Rank 117, Layer 1:	390.727 MiB 
+[GTI] Rank 118, Layer 1:	391.863 MiB 
+[GTI] Rank 119, Layer 1:	389.953 MiB 
+[GTI] Rank 120, Layer 1:	416.598 MiB 
+[GTI] Rank 121, Layer 1:	393.270 MiB 
+[GTI] Rank 122, Layer 1:	394.871 MiB 
+[GTI] Rank 123, Layer 1:	393.957 MiB 
+[GTI] Rank 124, Layer 1:	417.512 MiB 
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST] Execution finished.
+EXECUTION VERIFICATION CHECK: SUCCESS

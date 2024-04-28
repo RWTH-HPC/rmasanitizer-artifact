@@ -1,0 +1,48 @@
+nodelist=n23m[0380,0382-0396]
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Using prebuilt infrastructure at /home/ss540294/.cache/must/prebuilds/92d58bdee39116cfafb401fa88d652eb
+[MUST] Weaver ... success
+[MUST] Generating P^nMPI configuration ... success
+[MUST] Infrastructure in "/home/ss540294/.cache/must/prebuilds/92d58bdee39116cfafb401fa88d652eb" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(backtrace+0xda)[0x5560cd58d38a]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/d5e6efd4be8e2d532c158c02e5c99806/install/modules//libcStratSimpleUp.so(+0x1f548)[0x7f7630db9548]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/d5e6efd4be8e2d532c158c02e5c99806/install/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7f7630db968b]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0x32070)[0x5560cd573070]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0x32596)[0x5560cd573596]
+/lib64/libpthread.so.0(+0x12cf0)[0x7f76354f4cf0]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xe21c5)[0x5560cd6231c5]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xe0baf)[0x5560cd621baf]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xda93c)[0x5560cd61b93c]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(__kmp_invoke_microtask+0x93)[0x7f763526af63]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(+0x3e9a7)[0x7f76351d99a7]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(__kmp_fork_call+0x2686)[0x7f76351d9236]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(__kmpc_fork_call+0x135)[0x7f76351c6d35]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xd9fd2)[0x5560cd61afd2]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xd896c)[0x5560cd61996c]
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x7f7634e10d85]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0x2365e)[0x5560cd56465e]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(backtrace+0xda)[0x55a51a49638a]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/d5e6efd4be8e2d532c158c02e5c99806/install/modules//libcStratSimpleUp.so(+0x1f548)[0x7fcd1fe7d548]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/d5e6efd4be8e2d532c158c02e5c99806/install/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fcd1fe7d68b]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0x32070)[0x55a51a47c070]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0x32596)[0x55a51a47c596]
+/lib64/libpthread.so.0(+0x12cf0)[0x7fcd245e3cf0]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xe21c5)[0x55a51a52c1c5]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xe0baf)[0x55a51a52abaf]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xda93c)[0x55a51a52493c]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(__kmp_invoke_microtask+0x93)[0x7fcd24359f63]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(+0x3e9a7)[0x7fcd242c89a7]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(__kmp_fork_call+0x2686)[0x7fcd242c8236]
+/work/rwth1269/software/c23/classic-flang/lib/libomp.so(__kmpc_fork_call+0x135)[0x7fcd242b5d35]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xd9fd2)[0x55a51a523fd2]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0xd896c)[0x55a51a52296c]
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x7fcd23effd85]
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000036/000056_execute_tsan-opt_must/work/compile/miniMD_openmpi.tsan-opt.621478ac84d21ca74c30829c6440dd70(+0x2365e)[0x55a51a46d65e]
+rank 378 (of 768), pid 208330 caught signal nr 11
+Waiting up to 30 seconds for analyses to be finished.
+rank 366 (of 768), pid 208318 caught signal nr 11
+Waiting up to 30 seconds for analyses to be finished.
+[MUST] Execution finished.
+EXECUTION VERIFICATION CHECK: FAILURE

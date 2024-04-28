@@ -1,0 +1,103 @@
+nodelist=n23m[0405-0408],r23m[0001-0004]
+[MUST] Unknown environment option MUST_RMASANITIZER_PRINT_STATISTICS=1 is ignored
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Using prebuilt infrastructure at /home/ss540294/.cache/must/prebuilds/326e0ada2f8b8354b80052745e731115
+[MUST] Weaver ... success
+[MUST] Generating P^nMPI configuration ... success
+[MUST] Infrastructure in "/home/ss540294/.cache/must/prebuilds/326e0ada2f8b8354b80052745e731115" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+[MUST-REPORT] Error: from: call @203: Remote data race at rank 203 between a write of size 8 at  Concurrent region of reference 1 started at reference 3 and ended at reference 4. 
+[MUST-REPORT]  Concurrent region of reference 2 started at reference 5 and ended at reference 6. 
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call shmem_putmemmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:435
+[MUST-REPORT]  @rank 187, threadid 1;
+[MUST-REPORT] Reference 2: call shmem_putmemmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:467
+[MUST-REPORT]  @rank 204, threadid 1;
+[MUST-REPORT] Reference 3: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:475
+[MUST-REPORT]  @rank 203, threadid 0;
+[MUST-REPORT] Reference 4: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:475
+[MUST-REPORT]  @rank 203, threadid 0;
+[MUST-REPORT] Reference 5: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:423
+[MUST-REPORT]  @rank 203, threadid 0;
+[MUST-REPORT] Reference 6: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:475
+[MUST-REPORT]  @rank 203, threadid 0;
+==================
+WARNING: ThreadSanitizer: data race (pid=199505)
+  Write of size 8 at 0x5604edf8af20 by thread T15:
+    #0 <null> <null> (libpnmpi.so+0x258cb0)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x00bb00000009)
+    #3 <null> <null> (0x0001000000bb)
+    #4 <null> <null> (0x0000000d6e83)
+    #5 <null> <null> (stencil.tsan-opt.f686f791bbfcf8d98529e0563aaa0ef7+0xd6e82)
+
+  Previous write of size 8 at 0x5604edf8af20 by thread T17:
+    #0 <null> <null> (libpnmpi.so+0x258cb0)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x00cc00000008)
+    #3 <null> <null> (0x0001000000cc)
+    #4 <null> <null> (0x0000000d72a3)
+[MUST-REPORT] Error: from: call @259: Remote data race at rank 259 between a write of size 8 at  Concurrent region of reference 1 started at reference 3 and ended at reference 4. 
+[MUST-REPORT]  Concurrent region of reference 2 started at reference 5 and ended at reference 6. 
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call shmem_putmemmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:467
+[MUST-REPORT]  @rank 260, threadid 1;
+[MUST-REPORT] Reference 2: call shmem_putmemmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:445
+[MUST-REPORT]  @rank 275, threadid 1;
+[MUST-REPORT] Reference 3: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:475
+[MUST-REPORT]  @rank 259, threadid 0;
+[MUST-REPORT] Reference 4: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:475
+[MUST-REPORT]  @rank 259, threadid 0;
+[MUST-REPORT] Reference 5: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:423
+[MUST-REPORT]  @rank 259, threadid 0;
+[MUST-REPORT] Reference 6: call shmem_barrier_allmain
+[MUST-REPORT] /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil_shmem/PRK_stencil_shmem.benchmarks/000065/000004_compile/work/copy_source/SHMEM/Stencil/stencil.c:475
+[MUST-REPORT]  @rank 259, threadid 0;
+==================
+WARNING: ThreadSanitizer: data race (pid=186816)
+  Write of size 8 at 0x559108c57cc0 by thread T17:
+    #0 <null> <null> (libpnmpi.so+0x258cb0)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x01040000000c)
+    #3 <null> <null> (0x000100000104)
+    #4 <null> <null> (0x0000000d72a3)
+    #5 <null> <null> (stencil.tsan-opt.f686f791bbfcf8d98529e0563aaa0ef7+0xd72a2)
+
+  Previous write of size 8 at 0x559108c57cc0 by thread T18:
+    #0 <null> <null> (libpnmpi.so+0x258cb0)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x011300000006)
+    #3 <null> <null> (0x000100000113)
+    #4 <null> <null> (0x0000000d7105)
+    #5 <null> <null> (stencil.tsan-opt.f686f791bbfcf8d98529e0563aaa0ef7+0xd7104)
+
+  Thread T17 'rank 260' (tid=0, running) created by thread T3 at:
+    #0 <null> <null> (libtargetChecks.so+0x112fa)
+
+  Thread T18 'rank 275' (tid=0, running) created by thread T3 at:
+    #0 <null> <null> (libtargetChecks.so+0x112fa)
+
+SUMMARY: ThreadSanitizer: data race (/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/00fc12af05de4d1d572fa57899019d10/install/lib/libpnmpi.so+0x258cb0) 
+==================
+    #5 <null> <null> (stencil.tsan-opt.f686f791bbfcf8d98529e0563aaa0ef7+0xd72a2)
+
+  Thread T15 'rank 187' (tid=0, running) created by thread T3 at:
+    #0 <null> <null> (libtargetChecks.so+0x112fa)
+
+  Thread T17 'rank 204' (tid=0, running) created by thread T3 at:
+    #0 <null> <null> (libtargetChecks.so+0x112fa)
+
+SUMMARY: ThreadSanitizer: data race (/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/00fc12af05de4d1d572fa57899019d10/install/lib/libpnmpi.so+0x258cb0) 
+==================
