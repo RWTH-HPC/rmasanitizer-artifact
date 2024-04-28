@@ -145,6 +145,9 @@ COPY classification_quality/rmaracebench/util/run_test.py /rmaracebench/run_test
 COPY classification_quality/rmaracebench/util/parse_results.py /rmaracebench/parse_results.py
 COPY classification_quality/rmaracebench/util/generate.py /rmaracebench/generate.py
 
+# Script to generate results for reproducibility
+COPY classification_quality/generate_results.sh /rmaracebench/generate_results.sh
+
 # Allow oversubscription for OpenMPI
 ENV OMPI_MCA_rmaps_base_oversubscribe=1
 

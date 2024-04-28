@@ -2,6 +2,8 @@
 
 set -e
 
-docker build . -t rmaracebench
-docker run -it rmaracebench
-docker run -v $(pwd)/result-rmasanitizer:/result -it rmaracebench python run_test.py tools --rma-model MPIRMA --output-folder /result --tool 'RMASanitizer' 
+#docker build -f classification_quality/Dockerfile . -t rmaracebench
+docker run --name eval -it rmaracebench /bin/bash generate_results.sh
+docker cp eval:/rmaracebench/results .
+docker stop eval
+docker rm eval

@@ -4,39 +4,45 @@
 \begin{document}
 
 In the following, we document the steps to reproduce the results on classification quality and the overhead study.
-For the classification quality experiment, we expect to set up and run everything within 60 to 90 minutes.
-For the overhead study, in case of all software requirements are installed, the execution of the overhead study requires running a few JUBE commands and finally parsing the output to a Python script. While running all the commands will only take a few minutes, the execution of the jobs using Slurm will take a few hours.
+For the classification quality experiment, we expect to set up and run everything within 90 to 120 minutes (the test cases take some time to get executed).
+For the overhead study, in case of all software requirements installed, the execution of the overhead study requires running a few JUBE commands and finally parsing the output with a Python script. While running all the commands will only take a few minutes, the execution of the jobs using Slurm will take a few hours.
 
 \subsection*{Classification Quality}
 To reproduce the classification quality results, an installation of Docker or Podman is required.
-
 The following steps can \textit{all} be automatically executed by running the script \texttt{classification\_quality.sh} of the computational artifact.
-Create the Docker container of RMARaceBench using the Dockerfile in this repository, run the container. Within the container, run the test harness of RMARaceBench.
+Create the Docker container of RMARaceBench using the Dockerfile in this repository and run the container.
+The container itself comes with a shell script that runs all commands to reproduce the results.
+Finally, the results can be copied out of the container.
+Assuming that \texttt{\$ROOT} is the root folder of the computational artifact, the following is executed:
 {
 \small
 \begin{verbatim}
-# cd classification_quality/rmaracebench
-# docker build . -t rmaracebench
-# docker run -it rmaracebench
-# python run_test.py tools --rma-model MPIRMA --tool 'MUST-RMA' 'PARCOACH-dynamic' 'PARCOACH-static'`
-# python run_test.py tools --rma-model MPIRMA --tool 'RMASanitizer'
-# python run_test.py tools --rma-model SHMEM --tool 'RMASanitizer'
-# python run_test.py tools --rma-model GASPI --tool 'RMASanitizer'
+# cd $ROOT
+# docker build -f classification_quality/Dockerfile . \
+               -t rmaracebench
+# docker run --name eval -it rmaracebench \ 
+              /bin/bash generate_results.sh
+# docker cp eval:/rmaracebench/results .
 \end{verbatim}
 }
 
 After following these steps, the results generated should match those given in the computational artifact and represent the Table 3 in the paper.
+In particular, the files \texttt{results\_parsed} in each result folder contains the values (TP, TN, FP, FN, Accuracy) that have been copied into the table.
 
-Note: In very recent Linux kernel versions newer than 6.0, the address space layout randomization (ASLR) bit count must be below or equal 28. This can be done temporarily (until system reboot) on typical Linux systemd-based systems using \texttt{sysctl vm.mmap\_rnd\_bits=28}. This command needs root permissions. This is a requirement of the ThreadSanitizer version shipped MUST-RMA and RMASanitizer.
+Note: In very recent Linux kernel versions newer than 6.0, the address space layout randomization (ASLR) bit count must be below or equal 28. This is a requirement of the ThreadSanitizer version shipped MUST-RMA and RMASanitizer. This can be done temporarily (until system reboot) on typical Linux systemd-based systems using \texttt{sysctl vm.mmap\_rnd\_bits=28}. The command needs root permissions. 
 
 
 \section*{Overhead Study}
-The overhead study was performed in JUBE. The previously mentioned software (OpenMPI, Sandia SHMEM, GPI-2, Clang/Classic-Flang) has to be installed to be executed.
+The overhead study is designed in JUBE.
+In the following, we assume that OpenMPI, Sandia SHMEM, GPI-2, Clang/Classic-Flang are installed on the cluster.
+To reproduce the results, we can provide access to CLAIX-23 which has all the dependencies already installed.
 
-To run the benchmarks, we used a JUBE workflow that builds RMASanitizer and MUST-RMA, builds the source codes, submits the jobs via Slurm, and finally evaluates the results to generate output tables.
-For MUST-RMA, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA}, \texttt{lulesh}, \texttt{miniMD}.
-For RMASanitizer, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA},  \texttt{lulesh}, \texttt{miniMD} \texttt{PRK\_stencil\_shmem}, \texttt{BT-SHMEM}, \texttt{CFD-Proxy}.
-For each benchmark \texttt{benchname} with MUST-RMA or RMASanitizer, we executed the following to build and submit the benchmark:
+The JUBE workflow automatically builds the tools (RMASanitizer and MUST-RMA), builds the source codes, submits the jobs with the correct input sizes via Slurm, and finally evaluates the results to generate output tables.
+For MUST-RMA, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA}, \texttt{miniMD}, \texttt{lulesh}.
+For RMASanitizer, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA},  \texttt{miniMD}, \texttt{lulesh} \texttt{PRK\_stencil\_shmem}, \texttt{BT-SHMEM}, \texttt{CFD-Proxy}.
+
+For simplicity, the following steps are available in a script \texttt{overhead\_submit.sh} and \texttt{overhead\_results.sh} that can be executed to generate the results and the final plot.
+For each benchmark \texttt{benchname} with MUST-RMA or RMASanitizer, the following is executed:
 
 {
 \small
@@ -70,8 +76,5 @@ Finally, the results can be plotted with the plotting script that parses all the
 \end{verbatim}
 }
 
-This will generate exactly the plots of Figure 9 in the paper. The paper also makes statements about them memory usage and the number of RMA operations executed per second. This data is also included in the result tables generated by JUBE.
-
-For simplicity, all those steps are available in a script \texttt{overhead\_submit.sh} and \texttt{overhead\_results.sh} that can be executed to generate the results and the plot.
-
+This will generate exactly the plots of Figure 9 in the paper. The paper also makes statements about the memory usage and the number of RMA operations executed per second. This data is also included in the result tables generated by JUBE.
 \end{document}
