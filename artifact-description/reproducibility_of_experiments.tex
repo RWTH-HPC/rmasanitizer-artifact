@@ -48,11 +48,13 @@ For each benchmark \texttt{benchname} with MUST-RMA or RMASanitizer, the followi
 \small
 \begin{verbatim}
 # Run benchmark with MUST-RMA
-# jube run <benchmark>.xml -o MUST-RMA/<benchmark> \
-  --tag M ignorelist pnmpi memusage rebuild_source must-rma
+# jube run evaluation/jube/<benchmakr>/<benchmark>.xml \
+  -o MUST-RMA/<benchmark> --tag M ignorelist pnmpi \ 
+  memusage rebuild_source must-rma
 # Run benchmark with RMASanitizer
-# jube run <benchmark>.xml -o RMASanitizer/<benchmark> \
-  --tag M ignorelist pnmpi memusage rebuild_source
+# jube run evaluation/jube/<benchmakr>/<benchmark>.xml \
+  -o RMASanitizer/<benchmark> --tag M ignorelist pnmpi \ 
+  memusage rebuild_source tsan-opt
 \end{verbatim}
 }
 
@@ -62,9 +64,9 @@ After all jobs completed, the results can be retrieved via JUBE that parses the 
 \small
 \begin{verbatim}
 # Parse result of benchmark with MUST-RMA
-# jube result MUST-RMA/<benchmark>/000000
+# jube result evaluation/MUST-RMA/<benchmark>
 # Parse result of benchmark with RMASanitizer
-# jube result RMASanitizer/<benchmark>/000000
+# jube result evaluation/RMASanitizer/<benchmark>
 \end{verbatim}
 }
 
@@ -72,7 +74,7 @@ Finally, the results can be plotted with the plotting script that parses all the
 {
 \small
 \begin{verbatim}
-# python evaluation_results/plots/plot_performance_results.py
+# python evaluation/plots/plot_performance_results.py
 \end{verbatim}
 }
 
