@@ -9,7 +9,7 @@ Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Je
 - [RMASanitizer](RMASanitizer/): Source code of RMASanitizer (for a detailed explanation, see below)
 - [classification_quality](classification_quality/): Results of RMASanitizer, MUST-RMA and PARCOACH-{dynamic,static} on RMARaceBench
   - The exact version of RMARaceBench used is also included in this repo.
-- [evaluation](evaluation/): Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper
+- [overhead_evaluation](overhead_evaluation/): Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper
 - [classification_quality.sh](classification_quality.sh): Script to reproduce classification quality results (Table 3, Section 6.1)
 - [overhead_submit.sh](overhead_submit.sh) / [overhead_result.sh](overhead_result.sh): Scripts to reproduce the overhead results (Figure 9, Section 6.2)
 

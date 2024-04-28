@@ -3,17 +3,17 @@
 
 \begin{document}
 
-In the following, we document the steps to reproduce the results on classification quality and the overhead study.
+In the following, we document the steps to reproduce the results of the classification quality and the overhead study.
 For the classification quality experiment, we expect to set up and run everything within 90 to 120 minutes (the test cases take some time to get executed).
 For the overhead study, in case of all software requirements installed, the execution of the overhead study requires running a few JUBE commands and finally parsing the output with a Python script. While running all the commands will only take a few minutes, the execution of the jobs using Slurm will take a few hours.
 
 \subsection*{Classification Quality}
 To reproduce the classification quality results, an installation of Docker or Podman is required.
 The following steps can \textit{all} be automatically executed by running the script \texttt{classification\_quality.sh} of the computational artifact.
-Create the Docker container of RMARaceBench using the Dockerfile in this repository and run the container.
+First, the Docker container of RMARaceBench is created using the Dockerfile in the repository.
 The container itself comes with a shell script that runs all commands to reproduce the results.
 Finally, the results can be copied out of the container.
-Assuming that \texttt{\$ROOT} is the root folder of the computational artifact, the following is executed:
+Assuming that \texttt{\$ROOT} is the root folder of the computational artifact, the following should be executed
 {
 \small
 \begin{verbatim}
@@ -27,7 +27,7 @@ Assuming that \texttt{\$ROOT} is the root folder of the computational artifact, 
 }
 
 After following these steps, the results generated should match those given in the computational artifact and represent the Table 3 in the paper.
-In particular, the files \texttt{results\_parsed} in each result folder contains the values (TP, TN, FP, FN, Accuracy) that have been copied into the table.
+In particular, the files \texttt{results\_parsed} in each result folder contain the values (TP, TN, FP, FN, Accuracy) that have been copied into the table.
 
 Note: In very recent Linux kernel versions newer than 6.0, the address space layout randomization (ASLR) bit count must be below or equal 28. This is a requirement of the ThreadSanitizer version shipped MUST-RMA and RMASanitizer. This can be done temporarily (until system reboot) on typical Linux systemd-based systems using \texttt{sysctl vm.mmap\_rnd\_bits=28}. The command needs root permissions. 
 
@@ -35,7 +35,7 @@ Note: In very recent Linux kernel versions newer than 6.0, the address space lay
 \section*{Overhead Study}
 The overhead study is designed in JUBE.
 In the following, we assume that OpenMPI, Sandia SHMEM, GPI-2, Clang/Classic-Flang are installed on the cluster.
-To reproduce the results, we can provide access to CLAIX-23 which has all the dependencies already installed.
+To reproduce the results, we can provide access to CLAIX-2023 which has all the dependencies already installed.
 
 The JUBE workflow automatically builds the tools (RMASanitizer and MUST-RMA), builds the source codes, submits the jobs with the correct input sizes via Slurm, and finally evaluates the results to generate output tables.
 For MUST-RMA, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA}, \texttt{miniMD}, \texttt{lulesh}.
@@ -48,11 +48,13 @@ For each benchmark \texttt{benchname} with MUST-RMA or RMASanitizer, the followi
 \small
 \begin{verbatim}
 # Run benchmark with MUST-RMA
-# jube run evaluation/jube/<benchmakr>/<benchmark>.xml \
+# jube run \
+  overhead_evaluation/jube/<benchmark>/<benchmark>.xml \
   -o MUST-RMA/<benchmark> --tag M ignorelist pnmpi \ 
   memusage rebuild_source must-rma
 # Run benchmark with RMASanitizer
-# jube run evaluation/jube/<benchmakr>/<benchmark>.xml \
+# jube run \
+  overhead_evaluation/jube/<benchmark>/<benchmark>.xml \
   -o RMASanitizer/<benchmark> --tag M ignorelist pnmpi \ 
   memusage rebuild_source tsan-opt
 \end{verbatim}
@@ -64,19 +66,19 @@ After all jobs completed, the results can be retrieved via JUBE that parses the 
 \small
 \begin{verbatim}
 # Parse result of benchmark with MUST-RMA
-# jube result evaluation/MUST-RMA/<benchmark>
+# jube result overhead_evaluation/MUST-RMA/<benchmark>
 # Parse result of benchmark with RMASanitizer
-# jube result evaluation/RMASanitizer/<benchmark>
+# jube result overhead_evaluation/RMASanitizer/<benchmark>
 \end{verbatim}
 }
 
 Finally, the results can be plotted with the plotting script that parses all the output tables of JUBE:
 {
-\small
+\footnotesize
 \begin{verbatim}
-# python evaluation/plots/plot_performance_results.py
+# python overhead_evaluation/plots/plot_performance_results.py
 \end{verbatim}
 }
 
-This will generate exactly the plots of Figure 9 in the paper. The paper also makes statements about the memory usage and the number of RMA operations executed per second. This data is also included in the result tables generated by JUBE.
+This will generate exactly the plots of Figure 9 in the paper. The paper also makes statements about the memory usage and the number of RMA operations executed per second. This data is also included in the result tables generated by JUBE that can be found in the \texttt{result} folder of each benchmark.
 \end{document}

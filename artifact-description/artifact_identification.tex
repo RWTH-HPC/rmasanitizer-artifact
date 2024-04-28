@@ -16,7 +16,7 @@ The artifact provides the source code of RMASanitizer itself to review and under
 \subsection*{Computational Artifact Structure}
 The computational artifact is available at 
 \begin{center}
-\url{https://hpc.rwth-aachen.de/papers/icpp24-rmasanitizer.tar.gz}.
+\url{https://hpc.rwth-aachen.de/papers/icpp24-rmasanitizer.tar.gz}
 \end{center}
 
 It will be published on Zenodo and GitHub upon paper acceptance.
@@ -24,7 +24,7 @@ The computational artifact contains the following folders:
 \begin{itemize}
     \item \texttt{RMASanitizer}: Source code of RMASanitizer (for a detailed explanation, see the README in the computational artifact) (Section 5)
     \item \texttt{classification\_quality}: Results of RMASanitizer, MUST-RMA and PARCOACH-(dynamic,static) on RMARaceBench (Table 3, Section 6.1)
-    \item \texttt{evaluation}: Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper (Figure 9, Section 6.2)
+    \item \texttt{overhead\_evaluation}: Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper (Figure 9, Section 6.2)
     \item \texttt{classification\_quality.sh}: Script to reproduce classification quality results (Table 3, Section 6.1)
     \item \texttt{overhead\_submit.sh/overhead\_results.sh}: Scripts to reproduce the overhead results (Figure 9, Section 6.2)
 \end{itemize}
@@ -49,7 +49,7 @@ The classification quality benchmarks can be executed on any arbitrary system wi
 
 \subsection*{Overhead Study Results}
 The performance evaluation uses the JUBE benchmarking environment\footnote{\url{https://apps.fz-juelich.de/jsc/jube/jube2/docu}} for reproducible benchmark setups.
-The raw performance results are available in the folder \texttt{evaluation/} for RMASanitizer and MUST-RMA in subfolders for each benchmark. In particular, each subfolder has a folder  \texttt{result} that contains the measured results in a CSV file \texttt{result\_csv.dat} and in a human-readable \texttt{result.dat} format.
+The raw performance results are available in the folder \texttt{overhead\_evaluation} for RMASanitizer and MUST-RMA in subfolders for each benchmark. In particular, each subfolder has a folder  \texttt{result} that contains the measured results in a CSV file \texttt{result\_csv.dat} and in a human-readable \texttt{result.dat} format.
 
 The following software versions were used to run the experiments:
 \begin{itemize}
@@ -62,8 +62,8 @@ The following software versions were used to run the experiments:
 \item Python 3 with pandas, matplotlib, seaborn (for plots)
 \end{itemize}
 
-The overhead benchmarks were executed on the CLAIX-23 cluster\footnote{\url{https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/fbd107191cf14c4b8307f44f545cf68a/}} of RWTH Aachen University. Each node is equipped with 2x Intel Xeon 8468 Sapphire Rapids with disabled SMT and 256 GB of main memory. The nodes are connected via InfiniBand.
+The overhead benchmarks were executed on the CLAIX-2023 cluster\footnote{\url{https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/fbd107191cf14c4b8307f44f545cf68a/}} of RWTH Aachen University. Each node is equipped with 2x Intel Xeon 8468 Sapphire Rapids with disabled SMT and 256 GB of main memory. The nodes are connected via InfiniBand.
 
-As the overhead studies run experiments with up to 768 processes (requiring up to 1536 cores), any cluster with up to 1536 cores and preferably an InifiniBand interconnect should be feasible to run the experiments. Upon request, we can also grant access to CLAIX-23 to reproduce our measurements.
+As the overhead studies run experiments with up to 768 processes (requiring up to 1536 cores), any cluster with exactly or more than 1536 cores and preferably an InifiniBand interconnect should be feasible to run the experiments. Upon request, we can also grant access to CLAIX-23 to reproduce our measurements.
 
 \end{document}
