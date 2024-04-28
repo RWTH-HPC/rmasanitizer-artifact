@@ -11,7 +11,7 @@ Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Je
   - The exact version of RMARaceBench used is also included in this repo.
 - [evaluation](evaluation/): Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper
 - [classification_quality.sh](classification_quality.sh): Script to reproduce classification quality results (Table 3, Section 6.1)
-- [overhead_submit.sh](overhead_results.sh): Scripts to reproduce the overhead results (Figure 9, Section 6.2)
+- [overhead_submit.sh](overhead_submit.sh) / [overhead_result.sh](overhead_result.sh): Scripts to reproduce the overhead results (Figure 9, Section 6.2)
 
 ## Software Architecture of RMASanitizer
 RMASanitizer has been integrated as a tool within the MPI correctness checking framework MUST. It utilizes ThreadSanitizer for the RMA race detection.
