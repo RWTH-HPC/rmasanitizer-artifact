@@ -1,0 +1,33 @@
+/* Part of the MUST Project, under BSD-3-Clause License
+ * See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
+ * @file BaseShmemHandling.h
+ * 		 Utility header for OpenSHMEM specification.
+ *       Used in shmem_base_specification.xml
+ *
+ * @author Simon Schwitanski
+ * @date 16.02.2023
+ */
+
+#pragma once
+
+#include <shmem.h>
+#include <cstdint>
+
+/**
+ * Converts a team handle to an integer.
+ * @param team to convert.
+ * @return integer.
+ */
+inline @MUST_SHMEM_TEAM_TYPE@ BaseShmem_ShmemTeam2int (shmem_team_t team) { return (@MUST_SHMEM_TEAM_TYPE@)(team); }
+
+
+/**
+ * Converts a context handle to an integer.
+ * @param ctx to convert.
+ * @return integer.
+ */
+inline @MUST_SHMEM_CTX_TYPE@ BaseShmem_ShmemCtx2int (shmem_ctx_t ctx) { return (@MUST_SHMEM_CTX_TYPE@)(ctx); }

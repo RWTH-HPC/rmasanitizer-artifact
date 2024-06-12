@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE analysis-specification PUBLIC "must_base" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification group-name="MUST_OneSidedChecks" include-path="" path-to-libs="@CMAKE_INSTALL_PREFIX@/modules">
+    <analyses>
+        <analysis name="AppThrAnn">
+            <registered-name>AppThrAnn</registered-name>
+            <module-name>libappThrAnn</module-name>
+            <header-name>I_AppThrAnn.h</header-name>
+            <interface-type>I_AppThrAnn</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">BaseConstants</analysis-depend>
+                <analysis-depend group="MUST_Resource">WinTrack</analysis-depend>
+                <analysis-depend group="MUST_TSan_Annotations">TSan</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+            </analysis-function>
+            <analysis-function name="winLock">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="lock_type" />
+                <analysis-argument order="3" type="int" name="rank" />
+                <analysis-argument order="4" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="winUnlock">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="rank" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="annotateHappensBefore">
+                <analysis-argument order="0" type="void*" name="ann" />
+            </analysis-function>
+        </analysis>
+        <analysis name="RMASanitize">
+            <registered-name>RMASanitize</registered-name>
+            <module-name>libRMASanitize</module-name>
+            <header-name>I_RMASanitize.h</header-name>
+            <interface-type>I_RMASanitize</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="GTI_IMPLICIT">VectorClock</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+            </analysis-function>
+            <analysis-function name="receiveSync">
+                <analysis-argument order="0" name="remoteRank" type="int" />
+                <analysis-argument order="1" name="ownRank" type="int" />
+            </analysis-function>
+            <analysis-function name="receiveRemoteAccess">
+                <analysis-argument order="0" name="origin" type="int" />
+                <analysis-argument order="1" name="rmaId" type="uint64_t" />
+                <analysis-argument order="2" name="pId" type="uint64_t" />
+                <analysis-argument order="3" name="lId" type="uint64_t" />
+                <analysis-argument order="4" name="memAddresses" type="int64_t*" />
+                <analysis-argument order="5" name="memSizes" type="size_t*" />
+                <analysis-argument order="6" name="memIntervalsSize" type="size_t" />
+                <analysis-argument order="7" name="isStore" type="int" />
+                <analysis-argument order="8" name="isAtomic" type="int" />
+                <analysis-argument order="9" name="target" type="int" />
+                <analysis-argument order="10" name="segment" type="uint64_t" />
+                <analysis-argument order="11" name="context" type="uint64_t" />
+                <analysis-argument order="12" name="datatype" type="uint64_t" />
+                <analysis-argument order="13" name="datatypeSize" type="uint64_t" />
+                <analysis-argument order="14" name="epoch" type="int" />
+                <analysis-argument order="15" name="originClock" type="unsigned long long" />
+                <analysis-argument order="16" name="vectorClock" type="unsigned long long*" />
+                <analysis-argument order="17" name="vectorClockSize" type="size_t" />
+            </analysis-function>
+            <analysis-function name="receiveRemoteBulkComplete">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="origin" type="int" />
+                <analysis-argument order="3" name="target" type="int" />
+                <analysis-argument order="4" name="context" type="uint64_t" />
+                <analysis-argument order="5" name="epoch" type="int" />
+                <analysis-argument order="6" name="isLocalOnly" type="int" />
+                <analysis-argument order="7" name="originClock" type="unsigned long long" />
+                <analysis-argument order="8" name="vectorClock" type="unsigned long long*" />
+            </analysis-function>
+            <analysis-function name="receiveRemoteComplete">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="origin" type="int" />
+                <analysis-argument order="3" name="handle" type="uint64_t" />
+                <analysis-argument order="4" name="isLocalOnly" type="int" />
+                <analysis-argument order="5" name="originClock" type="unsigned long long" />
+                <analysis-argument order="6" name="vectorClock" type="unsigned long long*" />
+            </analysis-function>
+            <analysis-function name="receiveNotification">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="context" type="uint64_t" />
+                <analysis-argument order="3" name="sigaddr" type="uint64_t" />
+                <analysis-argument order="4" name="rmaId" type="uint64_t" />
+            </analysis-function>
+            <analysis-function name="receiveNotificationAck">
+                <analysis-argument order="0" name="context" type="uint64_t" />
+                <analysis-argument order="1" name="sigaddr" type="uint64_t" />
+                <analysis-argument order="2" name="target" type="int" />
+            </analysis-function>
+        </analysis>
+        <analysis name="MPIRMAWrapper">
+            <registered-name>MPIRMAWrapper</registered-name>
+            <module-name>libMPIRMAWrapper</module-name>
+            <header-name>I_MPIRMAWrapper.h</header-name>
+            <interface-type>I_MPIRMAWrapper</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">RMASanitize</analysis-depend>
+                <analysis-depend group="MUST_Resource">BaseConstants</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">RequestTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">GroupTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">OpTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">WinTrack</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+            </analysis-function>
+            <analysis-function name="winCreate">
+                <analysis-argument order="0" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="1" type="void*" name="base" />
+                <analysis-argument order="2" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winFree">
+                <analysis-argument order="0" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="Get">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="int" name="targetdisp" />
+                <analysis-argument order="7" type="int" name="targetcount" />
+                <analysis-argument order="8" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="9" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="10" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="11" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="Put">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="int" name="targetdisp" />
+                <analysis-argument order="7" type="int" name="targetcount" />
+                <analysis-argument order="8" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="9" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="10" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="11" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="Accumulate">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="int" name="targetdisp" />
+                <analysis-argument order="7" type="int" name="targetcount" />
+                <analysis-argument order="8" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="9" type="@OP_F_TYPE@" name="op" />
+                <analysis-argument order="10" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="11" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="12" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="GetAccumulate">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="@AINT_TYPE@" name="resultaddr" />
+                <analysis-argument order="6" type="int" name="resultcount" />
+                <analysis-argument order="7" type="@DATATYPE_F_TYPE@" name="resulttype" />
+                <analysis-argument order="8" type="int" name="target" />
+                <analysis-argument order="9" type="int" name="targetdisp" />
+                <analysis-argument order="10" type="int" name="targetcount" />
+                <analysis-argument order="11" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="12" type="@OP_F_TYPE@" name="op" />
+                <analysis-argument order="13" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="14" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="15" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="originCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="int" name="isLocalOnly" />
+                <analysis-argument order="4" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="originCompletionRank">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="target" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="4" type="int" name="isLocalOnly" />
+            </analysis-function>
+            <analysis-function name="winLock">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="lock_type" />
+                <analysis-argument order="3" type="int" name="rank" />
+                <analysis-argument order="4" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="activeTargetCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winStart">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@GROUP_F_TYPE@" name="group" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="4" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winComplete">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winPost">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@GROUP_F_TYPE@" name="group" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="4" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winWait">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="passiveTargetCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="passiveTargetCompletionRank">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="target" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="privateWindowUpdate">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="completedRequest">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@REQUEST_F_TYPE@" name="request" />
+            </analysis-function>
+            <analysis-function name="completedRequests">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@REQUEST_F_TYPE@*" name="requests" />
+                <analysis-argument order="3" type="int" name="count" />
+            </analysis-function>
+        </analysis>
+        @ENABLE_OPENSHMEM_PREFIX@
+        <analysis name="SHMEMRMAWrapper">
+            <registered-name>SHMEMRMAWrapper</registered-name>
+            <module-name>libSHMEMRMAWrapper</module-name>
+            <header-name>I_SHMEMRMAWrapper.h</header-name>
+            <interface-type>I_SHMEMRMAWrapper</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">RMASanitize</analysis-depend>
+                <analysis-depend group="MUST_Resource">ShmemTeamTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">ShmemSegmentTrack</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+            </analysis-function>
+            <analysis-function name="addDefaultContext">
+                <analysis-argument order="0" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="addContext">
+                <analysis-argument order="0" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="Alloc">
+                <analysis-argument order="0" type="void*" name="allocPtr" />
+                <analysis-argument order="1" type="size_t" name="size" />
+            </analysis-function>
+            <analysis-function name="Realloc">
+                <analysis-argument order="0" type="void*" name="newPtr" />
+                <analysis-argument order="1" type="void*" name="oldPtr" />
+                <analysis-argument order="2" type="size_t" name="size" />
+            </analysis-function>
+            <analysis-function name="Calloc">
+                <analysis-argument order="0" type="void*" name="allocPtr" />
+                <analysis-argument order="1" type="size_t" name="count" />
+                <analysis-argument order="2" type="size_t" name="size" />
+            </analysis-function>
+            <analysis-function name="Free">
+                <analysis-argument order="0" type="void*" name="freePtr" />
+            </analysis-function>
+            <analysis-function name="Get">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="void*" name="dest" />
+                <analysis-argument order="3" type="void*" name="source" />
+                <analysis-argument order="4" type="ptrdiff_t" name="destStride" />
+                <analysis-argument order="5" type="ptrdiff_t" name="sourceStride" />
+                <analysis-argument order="6" type="size_t" name="numElem" />
+                <analysis-argument order="7" type="size_t" name="sizeElem" />
+                <analysis-argument order="8" type="int" name="type" />
+                <analysis-argument order="9" type="int" name="target" />
+                <analysis-argument order="10" type="void*" name="ann" />
+                <analysis-argument order="11" type="bool" name="isBlocking" />
+                <analysis-argument order="12" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="Put">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="void*" name="dest" />
+                <analysis-argument order="3" type="void*" name="source" />
+                <analysis-argument order="4" type="ptrdiff_t" name="destStride" />
+                <analysis-argument order="5" type="ptrdiff_t" name="sourceStride" />
+                <analysis-argument order="6" type="size_t" name="numElem" />
+                <analysis-argument order="7" type="size_t" name="sizeElem" />
+                <analysis-argument order="8" type="int" name="type" />
+                <analysis-argument order="9" type="int" name="target" />
+                <analysis-argument order="10" type="void*" name="ann" />
+                <analysis-argument order="11" type="bool" name="isBlocking" />
+                <analysis-argument order="12" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="WriteTeam">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="void*" name="dest" />
+                <analysis-argument order="3" type="void*" name="source" />
+                <analysis-argument order="4" type="size_t" name="numElem" />
+                <analysis-argument order="5" type="size_t" name="sizeElem" />
+                <analysis-argument order="6" type="int" name="type" />
+                <analysis-argument order="7" type="@MUST_SHMEM_TEAM_TYPE@" name="team" />
+                <analysis-argument order="8" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="AtomicFetch">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="void*" name="dest" />
+                <analysis-argument order="3" type="void*" name="source" />
+                <analysis-argument order="4" type="size_t" name="sizeElem" />
+                <analysis-argument order="5" type="int" name="type" />
+                <analysis-argument order="6" type="int" name="target" />
+                <analysis-argument order="7" type="bool" name="isBlocking" />
+                <analysis-argument order="8" type="void*" name="ann" />
+                <analysis-argument order="9" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="AtomicSet">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="void*" name="dest" />
+                <analysis-argument order="3" type="size_t" name="sizeElem" />
+                <analysis-argument order="4" type="int" name="type" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="void*" name="ann" />
+                <analysis-argument order="7" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="waitUntil">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="uint64_t" name="addr" />
+                <analysis-argument order="3" type="uint64_t" name="value" />
+            </analysis-function>
+            <analysis-function name="fence">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="originCompletion">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+            </analysis-function>
+            <analysis-function name="targetCompletion">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+            </analysis-function>
+            <analysis-function name="targetCompletionTeam">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_SHMEM_TEAM_TYPE@" name="team" />
+                <analysis-argument order="3" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="originCompletionTeam">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_SHMEM_TEAM_TYPE@" name="team" />
+                <analysis-argument order="3" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="bulkTargetCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_SHMEM_TEAM_TYPE@" name="team" />
+                <analysis-argument order="3" type="@MUST_SHMEM_CTX_TYPE@" name="ctx" />
+            </analysis-function>
+            <analysis-function name="receiveAtomicSet">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="uint64_t" name="segmentId" />
+                <analysis-argument order="3" type="uint64_t" name="contextId" />
+                <analysis-argument order="4" type="uint64_t" name="offset" />
+                <analysis-argument order="5" type="int" name="target" />
+            </analysis-function>
+        </analysis>
+        @ENABLE_OPENSHMEM_POSTFIX@
+        @ENABLE_GASPI_PREFIX@
+        <analysis name="GASPIRMAWrapper">
+            <registered-name>GASPIRMAWrapper</registered-name>
+            <module-name>libGASPIRMAWrapper</module-name>
+            <header-name>I_GASPIRMAWrapper.h</header-name>
+            <interface-type>I_GASPIRMAWrapper</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">RMASanitize</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+            </analysis-function>
+            <analysis-function name="SegmentAlloc">
+                <analysis-argument order="0" type="@MUST_GASPI_SEGMENT_ID_TYPE@" name="segmentId" />
+                <analysis-argument order="1" type="@MUST_GASPI_SIZE_TYPE@" name="size" />
+                <analysis-argument order="2" type="@MUST_GASPI_POINTER_TYPE@" name="ptr" />
+            </analysis-function>
+            <analysis-function name="SegmentRegister">
+                <analysis-argument order="0" type="@MUST_GASPI_SEGMENT_ID_TYPE@" name="segmentId" />
+                <analysis-argument order="1" type="@MUST_GASPI_RANK_TYPE@" name="rank" />
+            </analysis-function>
+            <analysis-function name="SegmentCreate">
+                <analysis-argument order="0" type="@MUST_GASPI_SEGMENT_ID_TYPE@" name="segmentId" />
+                <analysis-argument order="1" type="@MUST_GASPI_SIZE_TYPE@" name="size" />
+                <analysis-argument order="2" type="@MUST_GASPI_GROUP_TYPE@" name="group" />
+                <analysis-argument order="3" type="@MUST_GASPI_POINTER_TYPE@" name="ptr" />
+            </analysis-function>
+            <analysis-function name="SegmentDelete">
+                <analysis-argument order="0" type="@MUST_GASPI_SEGMENT_ID_TYPE@" name="segmentId" />
+            </analysis-function>
+            <analysis-function name="Access">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" name="segment_id_local" type="@MUST_GASPI_SEGMENT_ID_TYPE@" />
+				<analysis-argument order="3" name="offset_local" type="@MUST_GASPI_OFFSET_TYPE@" />
+				<analysis-argument order="4" name="rank" type="@MUST_GASPI_RANK_TYPE@" />
+				<analysis-argument order="5" name="segment_id_remote" type="@MUST_GASPI_SEGMENT_ID_TYPE@" />
+				<analysis-argument order="6" name="offset_remote" type="@MUST_GASPI_OFFSET_TYPE@" />
+				<analysis-argument order="7" name="size" type="@MUST_GASPI_SIZE_TYPE@" />
+				<analysis-argument order="8" name="queue" type="@MUST_GASPI_QUEUE_ID_TYPE@" />
+                <analysis-argument order="9" name="isStore" type="int" />
+                <analysis-argument order="10" name="ann" type="void*" />
+            </analysis-function>
+            <analysis-function name="AccessList">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" name="num" type="@MUST_GASPI_NUMBER_TYPE@" />
+                <analysis-argument order="3" name="segment_id_local" type="@MUST_GASPI_SEGMENT_ID_TYPE@*" />
+				<analysis-argument order="4" name="offset_local" type="@MUST_GASPI_OFFSET_TYPE@*" />
+				<analysis-argument order="5" name="rank" type="@MUST_GASPI_RANK_TYPE@" />
+				<analysis-argument order="6" name="segment_id_remote" type="@MUST_GASPI_SEGMENT_ID_TYPE@*" />
+				<analysis-argument order="7" name="offset_remote" type="@MUST_GASPI_OFFSET_TYPE@*" />
+				<analysis-argument order="8" name="size" type="@MUST_GASPI_SIZE_TYPE@*" />
+				<analysis-argument order="9" name="queue" type="@MUST_GASPI_QUEUE_ID_TYPE@" />
+                <analysis-argument order="10" name="isStore" type="int" />
+                <analysis-argument order="11" name="ann" type="void*" />
+            </analysis-function>
+            <analysis-function name="AtomicAccess">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" name="segment_id" type="@MUST_GASPI_SEGMENT_ID_TYPE@" />
+                <analysis-argument order="3" name="offset" type="@MUST_GASPI_OFFSET_TYPE@*" />
+				<analysis-argument order="4" name="rank" type="@MUST_GASPI_RANK_TYPE@" />
+                <analysis-argument order="5" name="size" type="size_t" />
+            </analysis-function>
+            <analysis-function name="Wait">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_GASPI_QUEUE_ID_TYPE@" name="queue" />
+            </analysis-function>
+            <analysis-function name="Barrier">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_GASPI_GROUP_TYPE@" name="group" />
+            </analysis-function>
+            <analysis-function name="Notify">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_GASPI_RANK_TYPE@" name="rank" />
+                <analysis-argument order="3" type="@MUST_GASPI_NOTIFICATIONID_TYPE@" name="notificationId" />
+            </analysis-function>
+            <analysis-function name="NotifyWait">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@MUST_GASPI_NOTIFICATIONID_TYPE@" name="notificationBegin" />
+                <analysis-argument order="2" type="@MUST_GASPI_NOTIFICATIONID_TYPE@" name="firstId" />
+            </analysis-function>
+            <analysis-function name="ReceiveNotification">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@MUST_GASPI_NOTIFICATIONID_TYPE@" name="notificationId" />
+                <analysis-argument order="3" type="int" name="origin" />
+            </analysis-function>
+        </analysis>
+        @ENABLE_GASPI_POSTFIX@
+        <analysis name="RMATrack">
+            <registered-name>RMATrack</registered-name>
+            <module-name>librMATrack</module-name>
+            <header-name>I_RMATrack.h</header-name>
+            <interface-type>I_RMATrack</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+                <analysis-depend group="MUST_Resource">BaseConstants</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">RequestTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">GroupTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">OpTrack</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">WinTrack</analysis-depend>
+                <analysis-depend group="GTI_IMPLICIT">VectorClock</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+            </analysis-function>
+            <analysis-function name="addGetOperation">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="int" name="targetdisp" />
+                <analysis-argument order="7" type="int" name="targetcount" />
+                <analysis-argument order="8" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="9" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="10" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="11" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="addPutOperation">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="int" name="targetdisp" />
+                <analysis-argument order="7" type="int" name="targetcount" />
+                <analysis-argument order="8" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="9" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="10" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="11" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="addAccumulateOperation">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="int" name="target" />
+                <analysis-argument order="6" type="int" name="targetdisp" />
+                <analysis-argument order="7" type="int" name="targetcount" />
+                <analysis-argument order="8" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="9" type="@OP_F_TYPE@" name="op" />
+                <analysis-argument order="10" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="11" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="12" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="addGetAccumulateOperation">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@AINT_TYPE@" name="originaddr" />
+                <analysis-argument order="3" type="int" name="origincount" />
+                <analysis-argument order="4" type="@DATATYPE_F_TYPE@" name="origintype" />
+                <analysis-argument order="5" type="@AINT_TYPE@" name="resultaddr" />
+                <analysis-argument order="6" type="int" name="resultcount" />
+                <analysis-argument order="7" type="@DATATYPE_F_TYPE@" name="resulttype" />
+                <analysis-argument order="8" type="int" name="target" />
+                <analysis-argument order="9" type="int" name="targetdisp" />
+                <analysis-argument order="10" type="int" name="targetcount" />
+                <analysis-argument order="11" type="@DATATYPE_TYPE@" name="targettype" />
+                <analysis-argument order="12" type="@OP_F_TYPE@" name="op" />
+                <analysis-argument order="13" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="14" type="@REQUEST_F_TYPE@" name="requesttype" />
+                <analysis-argument order="15" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="originCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="int" name="isLocalOnly" />
+                <analysis-argument order="4" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="originCompletionRank">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="target" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="4" type="int" name="isLocalOnly" />
+            </analysis-function>
+            <analysis-function name="winLock">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="lock_type" />
+                <analysis-argument order="3" type="int" name="rank" />
+                <analysis-argument order="4" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="activeTargetCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winStart">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@GROUP_F_TYPE@" name="group" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="4" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winComplete">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winPost">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@GROUP_F_TYPE@" name="group" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="4" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winWait">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="passiveTargetCompletionAll">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="3" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="passiveTargetCompletionRank">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="target" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="privateWindowUpdate">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="completedRequest">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@REQUEST_F_TYPE@" name="request" />
+            </analysis-function>
+            <analysis-function name="completedRequests">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="@REQUEST_F_TYPE@*" name="requests" />
+                <analysis-argument order="3" type="int" name="count" />
+            </analysis-function>
+            <analysis-function name="addRemoteRMA">
+                <analysis-argument order="0" name="origin" type="int" />
+                <analysis-argument order="1" name="rmaId" type="uint64_t" />
+                <analysis-argument order="2" name="pId" type="uint64_t" />
+                <analysis-argument order="3" name="lId" type="uint64_t" />
+                <analysis-argument order="4" name="isStore" type="int" />
+                <analysis-argument order="5" name="isAtomic" type="int" />
+                <analysis-argument order="6" name="isLocked" type="int" />
+                <analysis-argument order="7" name="target" type="int" />
+                <analysis-argument order="8" name="disp" type="int" />
+                <analysis-argument order="9" name="count" type="int" />
+                <analysis-argument order="10" name="originDatatype" type="uint64_t" />
+                <analysis-argument order="11" name="targetDatatype" type="uint64_t" />
+                <analysis-argument order="12" name="win" type="uint64_t" />
+                <analysis-argument order="13" name="epoch" type="int" />
+                <analysis-argument order="14" name="originClock" type="unsigned long long" />
+                <analysis-argument order="15" name="vectorClock" type="unsigned long long*" />
+                <analysis-argument order="16" name="vectorClockSize" type="size_t" />
+            </analysis-function>
+            <analysis-function name="addRemoteTargetCompletion">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="origin" type="int" />
+                <analysis-argument order="3" name="target" type="int" />
+                <analysis-argument order="4" name="win" type="uint64_t" />
+                <analysis-argument order="5" name="isLocalOnly" type="int" />
+                <analysis-argument order="6" name="rmaId" type="uint64_t" />
+                <analysis-argument order="7" name="epoch" type="int" />
+            </analysis-function>
+            <analysis-function name="receiveSync">
+                <analysis-argument order="0" name="remoteRank" type="int" />
+                <analysis-argument order="1" name="ownRank" type="int" />
+            </analysis-function>
+        </analysis>
+        <analysis name="TSanSyncClockRecorder">
+			<registered-name>TSanSyncClockRecorder</registered-name>
+			<module-name>libtSanSyncClockRecorder</module-name>
+			<header-name>I_TSanSyncClockRecorder.h</header-name>
+			<interface-type>I_TSanSyncClockRecorder</interface-type>
+			<is-global>0</is-global>
+			<is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="GTI_IMPLICIT">VectorClock</analysis-depend>
+            </dependencies>
+            <analysis-function name="storeSyncClock">
+                <analysis-argument order="0" type="void*" name="ann" intent="in" />
+                <analysis-argument order="1" type="uint64_t" name="lId" intent="in" />
+            </analysis-function>
+		</analysis>
+        <analysis name="OriginChecks">
+            <registered-name>OriginChecks</registered-name>
+            <module-name>liboriginChecks</module-name>
+            <header-name>I_OriginChecks.h</header-name>
+            <interface-type>I_OriginChecks</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+                <analysis-depend group="MUST_Resource">BaseConstants</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">RequestTrack</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">WinTrack</analysis-depend>
+                <analysis-depend group="MUST_TSan_Annotations">TSan</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">RMASanitize</analysis-depend>
+            </dependencies>
+            <analysis-function name="originOpStart">
+                <analysis-argument order="0" name="rmaId" type="uint64_t" />
+            </analysis-function>
+            <analysis-function name="originOpComplete">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="rmaId" type="uint64_t*" />
+                <analysis-argument order="3" name="rmaIdLen" type="int" />
+            </analysis-function>
+        </analysis>
+        <analysis name="RaceChecksList">
+            <registered-name>RaceChecksList</registered-name>
+            <module-name>libraceChecksList</module-name>
+            <header-name>I_RaceChecksList.h</header-name>
+            <interface-type>I_RaceChecksList</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+                <analysis-depend group="MUST_Resource">BaseConstants</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">RequestTrack</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">WinTrack</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">RMASanitize</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">TSanSyncClockRecorder</analysis-depend>
+                <analysis-depend group="GTI_IMPLICIT">VectorClock</analysis-depend>
+                <analysis-depend group="MUST_Base">GenerateLocationId</analysis-depend>
+            </dependencies>
+            <analysis-function name="originOpStart">
+                <analysis-argument order="0" name="rmaId" type="uint64_t" />
+            </analysis-function>
+            <analysis-function name="originOpComplete">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="rmaId" type="uint64_t*" />
+                <analysis-argument order="3" name="rmaIdLen" type="int" />
+            </analysis-function>
+            <analysis-function name="targetOpStart">
+                <analysis-argument order="0" name="rmaId" type="uint64_t" />
+            </analysis-function>
+            <analysis-function name="targetOpComplete">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="rmaId" type="uint64_t*" />
+                <analysis-argument order="3" name="rmaIdLen" type="int" />
+            </analysis-function>
+            <analysis-function name="winCreate">
+                <analysis-argument order="0" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="1" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winLock">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="lock_type" />
+                <analysis-argument order="3" type="int" name="rank" />
+                <analysis-argument order="4" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="5" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="tsanAccess">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int8_t" name="isRead" />
+                <analysis-argument order="3" type="void*" name="addr" />
+                <analysis-argument order="4" type="int64_t" name="count" />
+            </analysis-function>
+            <analysis-function name="winFence">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="assert" />
+                <analysis-argument order="3" type="@WIN_F_TYPE@" name="win" />
+            </analysis-function>
+            <analysis-function name="tsanAccessBulk">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="readPc" type="void**" />
+                <analysis-argument order="2" name="readPcNum" type="size_t*" />
+                <analysis-argument order="3" name="readStartAddr" type="void**" />
+                <analysis-argument order="4" name="readEndAddr" type="void**" />
+                <analysis-argument order="5" name="readLen" type="size_t" />
+                <analysis-argument order="6" name="readPcLen" type="size_t" />
+                <analysis-argument order="7" name="writePc" type="void**" />
+                <analysis-argument order="8" name="writePcNum" type="size_t*" />
+                <analysis-argument order="9" name="writeStartAddr" type="void**" />
+                <analysis-argument order="10" name="writeEndAddr" type="void**" />
+                <analysis-argument order="11" name="writeLen" type="size_t" />
+                <analysis-argument order="12" name="writePcLen" type="size_t" />
+            </analysis-function>
+        </analysis>
+        <analysis name="TargetChecks">
+            <registered-name>TargetChecks</registered-name>
+            <module-name>libtargetChecks</module-name>
+            <header-name>I_TargetChecks.h</header-name>
+            <interface-type>I_TargetChecks</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+                <analysis-depend group="MUST_Resource">BaseConstants</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">RequestTrack</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">WinTrack</analysis-depend>
+                <analysis-depend group="MUST_TSan_Annotations">TSan</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">RMASanitize</analysis-depend>
+                <analysis-depend group="MUST_OneSidedChecks">TSanSyncClockRecorder</analysis-depend>
+                <analysis-depend group="GTI_IMPLICIT">VectorClock</analysis-depend>
+            </dependencies>
+            <analysis-function name="targetOpStart">
+                <analysis-argument order="0" name="rmaId" type="uint64_t" />
+            </analysis-function>
+            <analysis-function name="targetOpComplete">
+                <analysis-argument order="0" name="pId" type="uint64_t" />
+                <analysis-argument order="1" name="lId" type="uint64_t" />
+                <analysis-argument order="2" name="rmaId" type="uint64_t*" />
+                <analysis-argument order="3" name="rmaIdLen" type="int" />
+            </analysis-function>
+            <analysis-function name="winCreate">
+                <analysis-argument order="0" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="1" type="void*" name="ann" />
+            </analysis-function>
+            <analysis-function name="winLock">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="lock_type" />
+                <analysis-argument order="3" type="int" name="rank" />
+                <analysis-argument order="4" type="@WIN_F_TYPE@" name="win" />
+                <analysis-argument order="5" type="void*" name="ann" />
+            </analysis-function>
+        </analysis>
+    </analyses>
+    <operations>
+        <operation return-type="int" name="return0">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>int RETURN = 0;</source-template>
+        </operation>
+        <operation return-type="int" name="return1">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>int RETURN = 1;</source-template>
+        </operation>
+        <operation return-type="int" name="getRmaTypeGet">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>int RETURN = 0;</source-template>
+        </operation>
+        <operation return-type="int" name="getRmaTypePut">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>int RETURN = 1;</source-template>
+        </operation>
+        <operation return-type="int" name="getRmaTypeAccumulate">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>int RETURN = 2;</source-template>
+        </operation>
+        <operation return-type="int" name="getRmaTypeGetAccumulate">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>int RETURN = 3;</source-template>
+        </operation>
+                <operation return-type="int" name="shmemGetSelf">
+            <extra-headers>
+                <header>pshmem.h</header>
+            </extra-headers>
+            <operation-arguments />
+            <source-template>int RETURN = shmem_my_pe();</source-template>
+        </operation>
+        <operation return-type="void*" name="getNullptr">
+            <extra-headers></extra-headers>
+            <operation-arguments />
+            <source-template>
+                void* RETURN = NULL;
+            </source-template>
+        </operation>
+        <operation return-type="void*" name="getRetPtr">
+            <extra-headers></extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="void*" />
+            </operation-arguments>
+            <source-template>
+                void* RETURN = ARG0;
+            </source-template>
+        </operation>
+        <operation return-type="void*" name="ptrDiscardConst">
+            <extra-headers></extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="const void*" />
+            </operation-arguments>
+            <source-template>
+                void* RETURN = (void*) ARG0;
+            </source-template>
+        </operation>
+        <operation return-type="uint64_t" name="intptr2uint64t">
+            <extra-headers></extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="int*" name="value" />
+            </operation-arguments>
+            <source-template>uint64_t RETURN = (uint64_t) ARG0;</source-template>
+        </operation>
+        <operation return-type="int" name="blockingOp">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = 1;</source-template>
+        </operation>
+        <operation return-type="int" name="nonBlockingOp">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = 0;</source-template>
+        </operation>
+        <operation return-type="void*" name="returnNULL">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>void* RETURN = NULL;</source-template>
+        </operation>
+        <operation return-type="ptrdiff_t" name="constVal0">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>ptrdiff_t RETURN = 0;</source-template>
+        </operation>
+        <operation return-type="ptrdiff_t" name="constVal1">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>ptrdiff_t RETURN = 1;</source-template>
+        </operation>
+        <operation return-type="size_t" name="size8">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = 1;</source-template>
+        </operation>
+        <operation return-type="size_t" name="size16">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = 2;</source-template>
+        </operation>
+        <operation return-type="size_t" name="size32">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = 4;</source-template>
+        </operation>
+        <operation return-type="size_t" name="size64">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = 8;</source-template>
+        </operation>
+        <operation return-type="size_t" name="size128">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = 16;</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeFLOAT">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(float);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeDOUBLE">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(double);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeLONGDOUBLE">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(long double);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeCHAR">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(char);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeSCHAR">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(signed char);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeSHORT">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(short);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeINT">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(int);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeLONG">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(long);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeLONGLONG">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(long long);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUCHAR">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(unsigned char);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUSHORT">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(unsigned short);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUINT">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(unsigned int);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeULONG">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(unsigned long);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeULONGLONG">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(unsigned long long);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeINT8">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(int8_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeINT16">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(int16_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeINT32">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(int32_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeINT64">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(int64_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUINT8">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(uint8_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUINT16">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(uint16_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUINT32">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(uint32_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeUINT64">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(uint64_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizeSIZE">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(size_t);</source-template>
+        </operation>
+        <operation return-type="size_t" name="sizePTRDIFF">
+            <extra-headers></extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>size_t RETURN = sizeof(ptrdiff_t);</source-template>
+        </operation>
+        <operation return-type="int" name="returnSHMEMTypeCHAR">
+            <extra-headers>BaseIds.h</extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = (int) MUST_SHMEM_TYPE_CHAR;</source-template>
+        </operation>
+        <operation return-type="int" name="returnSHMEMTypeSHORT">
+            <extra-headers>BaseIds.h</extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = (int) MUST_SHMEM_TYPE_SHORT;</source-template>
+        </operation>
+        <operation return-type="int" name="returnSHMEMTypeINT">
+            <extra-headers>BaseIds.h</extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = (int) MUST_SHMEM_TYPE_INT;</source-template>
+        </operation>
+        <operation return-type="int" name="returnSHMEMTypeFLOAT">
+            <extra-headers>BaseIds.h</extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = (int) MUST_SHMEM_TYPE_FLOAT;</source-template>
+        </operation>
+        <operation return-type="int" name="returnSHMEMTypeLONG">
+            <extra-headers>BaseIds.h</extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = (int) MUST_SHMEM_TYPE_LONG;</source-template>
+        </operation>
+                <operation return-type="int" name="returnSHMEMTypeDOUBLE">
+            <extra-headers>BaseIds.h</extra-headers>
+            <operation-arguments></operation-arguments>
+            <source-template>int RETURN = (int) MUST_SHMEM_TYPE_DOUBLE;</source-template>
+        </operation>
+        <operation return-type="@MUST_SHMEM_TEAM_TYPE@" name="returnSHMEMTeamWorld">
+            <extra-headers>
+                <header>mustFeaturetested.h</header>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>@MUST_SHMEM_TEAM_TYPE@ RETURN = MUST_SHMEM_Team_m2i (SHMEM_TEAM_WORLD);</source-template>
+        </operation>
+        <operation return-type="@MUST_SHMEM_CTX_TYPE@" name="returnSHMEMDefaultCtx">
+            <extra-headers>
+                <header>mustFeaturetested.h</header>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>@MUST_SHMEM_CTX_TYPE@ RETURN = MUST_SHMEM_Ctx_m2i (SHMEM_CTX_DEFAULT);</source-template>
+        </operation>
+    </operations>
+</analysis-specification>

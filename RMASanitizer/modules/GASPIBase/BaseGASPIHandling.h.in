@@ -1,0 +1,81 @@
+/* Part of the MUST Project, under BSD-3-Clause License
+ * See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
+ * @file BaseGASPIHandling.h
+ * 		 Utility header for GASPI specification.
+ *       Used in gaspi_base_specification.xml
+ *
+ * @author Yussur Mustafa Oraji
+ * @date 04.09.2023
+ */
+
+#pragma once
+
+#include <GASPI.h>
+#include <cstdint>
+
+/**
+ * Converts a GASPI segment id to an integer.
+ * @param segment_id to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_SEGMENT_ID_TYPE@ BaseGASPI_SegmentID2int(gaspi_segment_id_t segment_id) { return (@MUST_GASPI_SEGMENT_ID_TYPE@)segment_id; }
+
+/**
+ * Converts a GASPI offset to an integer.
+ * @param offset to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_OFFSET_TYPE@ BaseGASPI_Offset2int(gaspi_offset_t offset) { return (@MUST_GASPI_OFFSET_TYPE@)offset; }
+
+/**
+ * Converts a group handle to an integer.
+ * @param group to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_GROUP_TYPE@ BaseGASPI_Group2int(gaspi_group_t group) { return (@MUST_GASPI_GROUP_TYPE@)group; }
+
+/**
+ * Converts a queue ID to an integer.
+ * @param queue to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_QUEUEID_TYPE@ BaseGASPI_QueueID2int(gaspi_queue_id_t queue) { return (@MUST_GASPI_QUEUEID_TYPE@)queue; }
+
+/**
+ * Converts a rank to an integer.
+ * @param rank to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_RANK_TYPE@ BaseGASPI_Rank2int(gaspi_rank_t rank) { return (@MUST_GASPI_RANK_TYPE@)rank; }
+
+/**
+ * Converts a notification ID to an integer.
+ * @param notify_id to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_NOTIFICATIONID_TYPE@ BaseGASPI_NotificationID2int(gaspi_notification_id_t notify_id) { return (@MUST_GASPI_NOTIFICATIONID_TYPE@)notify_id; }
+
+/**
+ * Converts a GASPI number to an integer.
+ * @param num to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_NUMBER_TYPE@ BaseGASPI_Number2int(gaspi_number_t num) { return (@MUST_GASPI_NUMBER_TYPE@)num; }
+
+/**
+ * Converts a GASPI size to an integer.
+ * @param size to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_SIZE_TYPE@ BaseGASPI_Size2int(gaspi_size_t size) { return (@MUST_GASPI_SIZE_TYPE@)size; }
+
+/**
+ * Converts a GASPI pointer to an integer.
+ * @param size to convert.
+ * @return integer.
+ */
+inline @MUST_GASPI_POINTER_TYPE@ BaseGASPI_Pointer2int(gaspi_pointer_t pointer) { return (@MUST_GASPI_POINTER_TYPE@)pointer; }

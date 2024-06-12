@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE analysis-specification PUBLIC "Shmem_General" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification group-name="Shmem_Base" include-path="" path-to-libs="@CMAKE_INSTALL_PREFIX@/modules">
+    <analyses></analyses>
+    <operations>
+        <operation return-type="@MUST_SHMEM_TEAM_TYPE@" name="convertShmemTeam2int">
+            <extra-headers>
+                <header>BaseShmemHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="shmem_team_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_SHMEM_TEAM_TYPE@ RETURN = BaseShmem_ShmemTeam2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_SHMEM_TEAM_TYPE@" name="deref_convertShmemTeam2int">
+            <extra-headers>
+                <header>BaseShmemHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="shmem_team_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_SHMEM_TEAM_TYPE@ RETURN = ARG0 ? BaseShmem_ShmemTeam2int(*ARG0) : 0;
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_SHMEM_CTX_TYPE@" name="convertShmemCtx2int">
+            <extra-headers>
+                <header>BaseShmemHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="shmem_ctx_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_SHMEM_CTX_TYPE@ RETURN = BaseShmem_ShmemCtx2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_SHMEM_CTX_TYPE@" name="deref_convertShmemCtx2int">
+            <extra-headers>
+                <header>BaseShmemHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="shmem_ctx_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_SHMEM_CTX_TYPE@ RETURN = ARG0 ? BaseShmem_ShmemCtx2int(*ARG0) : 0;
+            </source-template>
+        </operation>
+    </operations>
+</analysis-specification>

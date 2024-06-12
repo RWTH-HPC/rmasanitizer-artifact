@@ -1,0 +1,159 @@
+/* Part of the MUST Project, under BSD-3-Clause License
+ * See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
+ * @file MustTypes.h
+ *       @see MustTypes.
+ *
+ *  @date 20.05.2011
+ *  @author Joachim Protze
+ */
+
+#include <stdint.h>
+
+#ifndef MUSTTYPES_H
+#define MUSTTYPES_H
+
+/**
+  * Type used for logical timestamps.
+  */
+typedef unsigned long MustLTimeStamp;
+
+/**
+ * Datatype used for MPI communicator handles.
+ */
+// TODO: think about negative values (especially for lb!) 
+//           <-/-> MPI-2.2, 2.5.6 !!!
+
+typedef @AINT_TYPE@ MustAddressType;
+//typedef long MustAddressType;
+//typedef int64_t MustLBType;
+
+/**
+ * Datatype used for MPI request handles.
+ */
+typedef @REQUEST_F_TYPE@ MustRequestType;
+
+/**
+ * Datatype used for MPI RMA window handles.
+ */
+typedef @WIN_F_TYPE@ MustWinType;
+
+/**
+ * Datatype used for MPI file handles.
+ */
+typedef @FILE_F_TYPE@ MustFileType;
+
+/**
+ * Datatype used for MPI datatype handles.
+ */
+typedef @DATATYPE_F_TYPE@ MustDatatypeType;
+
+/**
+ * Datatype used for MPI info handles.
+ */
+typedef @INFO_F_TYPE@ MustInfoType;
+
+/**
+ * Datatype used for MPI operation handles.
+ */
+typedef @OP_F_TYPE@ MustOpType;
+
+/**
+ * Datatype used for MPI key-value handles.
+ */
+typedef @KEYVAL_TYPE@ MustKeyvalType;
+
+/**
+ * Datatype used for MPI communicator handles.
+ */
+typedef @COMM_F_TYPE@ MustCommType;
+
+/**
+ * Datatype used to represent MPI group handles.
+ */
+typedef @GROUP_F_TYPE@ MustGroupType;
+
+/**
+ * Datatype used to represent MPI error handles.
+ */
+typedef @ERRHANDLER_F_TYPE@ MustErrType;
+
+/**
+ * Datatype used to represent MPI error handles.
+ */
+typedef @ERRHANDLER_F_TYPE@ MustRemoteIdType;
+
+/**
+ * Datatype used for MPI session handles.
+ */
+#ifdef HAVE_MPI_SESSION
+typedef @SESSION_F_TYPE@ MustSessionType;
+#endif /*HAVE_MPI_SESSION*/
+
+// Ensure definition exists in installed file
+#undef ENABLE_GASPI
+#cmakedefine ENABLE_GASPI
+
+#ifdef ENABLE_GASPI
+/**
+ * Datatype for GASPI segment IDs
+ */
+typedef @MUST_GASPI_SEGMENT_ID_TYPE@ MustGASPISegmentIDType;
+/**
+ * Datatype for GASPI offsets
+ */
+typedef @MUST_GASPI_OFFSET_TYPE@ MustGASPIOffsetType;
+/**
+ * Datatype for GASPI ranks
+ */
+typedef @MUST_GASPI_RANK_TYPE@ MustGASPIRankType;
+/**
+ * Datatype for GASPI groups
+ */
+typedef @MUST_GASPI_GROUP_TYPE@ MustGASPIGroupType;
+/**
+ * Datatype for GASPI queues
+ */
+typedef @MUST_GASPI_QUEUEID_TYPE@ MustGASPIQueueIDType;
+/**
+ * Datatype for GASPI Notification IDs
+ */
+typedef @MUST_GASPI_NOTIFICATIONID_TYPE@ MustGASPINotificationIDType;
+/**
+ * Datatype for GASPI Numbers
+ */
+typedef @MUST_GASPI_NUMBER_TYPE@ MustGASPINumberType;
+/**
+ * Datatype for GASPI size
+ */
+typedef @MUST_GASPI_SIZE_TYPE@ MustGASPISizeType;
+/**
+ * Datatype for GASPI pointer
+ */
+typedef @MUST_GASPI_POINTER_TYPE@ MustGASPIPointerType;
+#endif
+
+#undef ENABLE_OPENSHMEM
+#cmakedefine ENABLE_OPENSHMEM
+
+#ifdef ENABLE_OPENSHMEM
+/**
+ * Datatype for OpenSHMEM teams
+ */
+typedef @MUST_SHMEM_TEAM_TYPE@ MustShmemTeamType;
+
+/**
+ * Datatype for OpenSHMEM contexts
+*/
+typedef @MUST_SHMEM_CTX_TYPE@ MustShmemCtxType;
+
+/**
+ * Handle for OpenSHMEM segments
+ */
+typedef uint64_t MustShmemSegmentType;
+#endif
+
+#endif /*MUSTTYPES_H*/

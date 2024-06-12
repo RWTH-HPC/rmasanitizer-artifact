@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE analysis-specification PUBLIC "GASPI_General" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification group-name="GASPI_Base" include-path="" path-to-libs="@CMAKE_INSTALL_PREFIX@/modules">
+    <analyses></analyses>
+    <operations>
+        <operation return-type="@MUST_GASPI_SEGMENT_ID_TYPE@" name="convertSegmentID2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_segment_id_t" />
+            </operation-arguments>
+            <source-template>
+                int RETURN = BaseGASPI_SegmentID2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_SEGMENT_ID_TYPE@*" name="convertSegmentIDPtr2intPtr">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_segment_id_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_SEGMENT_ID_TYPE@* RETURN = (@MUST_GASPI_SEGMENT_ID_TYPE@*) ARG0;
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_OFFSET_TYPE@" name="convertOffset2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_offset_t" />
+            </operation-arguments>
+            <source-template>
+                int RETURN = BaseGASPI_Offset2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_OFFSET_TYPE@*" name="convertOffsetPtr2intPtr">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_offset_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_OFFSET_TYPE@* RETURN = (@MUST_GASPI_OFFSET_TYPE@*) ARG0;
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_GROUP_TYPE@" name="convertGroup2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_group_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_GROUP_TYPE@ RETURN = BaseGASPI_Group2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_QUEUEID_TYPE@" name="convertQueueID2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_queue_id_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_QUEUEID_TYPE@ RETURN = BaseGASPI_QueueID2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_RANK_TYPE@" name="convertRank2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_rank_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_RANK_TYPE@ RETURN = BaseGASPI_Rank2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_RANK_TYPE@" name="deref_convertRank2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_rank_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_RANK_TYPE@ RETURN = BaseGASPI_Rank2int(*ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_NUMBER_TYPE@" name="convertNumber2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_number_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_NUMBER_TYPE@ RETURN = BaseGASPI_Number2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_SIZE_TYPE@" name="convertSize2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_size_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_SIZE_TYPE@ RETURN = BaseGASPI_Size2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_SIZE_TYPE@*" name="convertSizePtr2intPtr">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_size_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_SIZE_TYPE@* RETURN = (@MUST_GASPI_SIZE_TYPE@*) ARG0;
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_NOTIFICATIONID_TYPE@" name="convertNotificationID2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_notification_id_t" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_NOTIFICATIONID_TYPE@ RETURN = BaseGASPI_NotificationID2int(ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_NOTIFICATIONID_TYPE@" name="deref_convertNotificationID2int">
+            <extra-headers>
+                <header>BaseGASPIHandling.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="gaspi_notification_id_t*" />
+            </operation-arguments>
+            <source-template>
+                @MUST_GASPI_NOTIFICATIONID_TYPE@ RETURN = BaseGASPI_NotificationID2int(*ARG0);
+            </source-template>
+        </operation>
+        <operation return-type="@MUST_GASPI_POINTER_TYPE@" name="getSegmentPtr">
+            <extra-headers>
+                <header>mustFeaturetested.h</header>
+            </extra-headers>
+            <operation-arguments>
+                <operation-argument order="0" type="segmentId" />
+            </operation-arguments>
+            <source-template>gaspi_pointer_t segment_data;
+                             gaspi_segment_ptr(ARG0, &amp;segment_data);
+                             @MUST_GASPI_POINTER_TYPE@ RETURN = BaseGASPI_Pointer2int(segment_data);</source-template>
+        </operation>
+        <operation return-type="size_t" name="getAtomicValueSize">
+            <extra-headers>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>size_t RETURN = sizeof(gaspi_atomic_value_t);</source-template>
+        </operation>
+    </operations>
+</analysis-specification>
