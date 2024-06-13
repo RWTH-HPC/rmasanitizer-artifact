@@ -7,9 +7,3 @@ python run_test.py tools --rma-model GASPI -o results/results-rmasanitizer-gaspi
 
 # Run tests for the other tools
 python run_test.py tools --rma-model MPIRMA -o results/results-other-tools --tool 'MUST-RMA' 'PARCOACH-dynamic' 'PARCOACH-static'
-
-# Parse results
-python parse_results.py results/results-rmasanitizer-mpirma/results.csv
-python parse_results.py results/results-rmasanitizer-shmem/results.csv
-python parse_results.py results/results-rmasanitizer-gaspi/results.csv
-python parse_results.py results/results-other-tools/results.csv

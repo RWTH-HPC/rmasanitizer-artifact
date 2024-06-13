@@ -116,7 +116,7 @@ RUN rm -rf ./MUST-RMA/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./MUS
 RUN cd MUST-RMA && \
     mkdir -p build && \
     cd build && \
-    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_BUILD_TYPE=Release -DUSE_BACKWARD=ON -DENABLE_FORTRAN=OFF -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/must .. && \
+    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_PREFIX_PATH='/usr/lib/llvm-16/;/usr/lib/;/usr/lib64/' -DCMAKE_BUILD_TYPE=Release -DUSE_BACKWARD=ON -DENABLE_FORTRAN=OFF -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/must .. && \
     make -j$(nproc) install && \
     make -j$(nproc) -j32 install-prebuilds
 
@@ -147,6 +147,7 @@ COPY classification_quality/rmaracebench/util/generate.py /rmaracebench/generate
 
 # Script to generate results for reproducibility
 COPY classification_quality/generate_results.sh /rmaracebench/generate_results.sh
+COPY classification_quality/parse_results.sh /rmaracebench/parse_results.sh
 
 # Allow oversubscription for OpenMPI
 ENV OMPI_MCA_rmaps_base_oversubscribe=1
