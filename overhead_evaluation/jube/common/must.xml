@@ -9,13 +9,14 @@
       <parameter name="must_prerequisite_modules"  separator=";" mode="python">
         " ".join(${prerequisite_modules_dict}.get("${cmake_module}", []) + ["${cmake_module}"])
       </parameter>
-      <parameter name="must_root">/opt/rmasanitizer/</parameter>
+      <parameter name="must_root" tag="!must-rma">/opt/rmasanitizer/</parameter>
+      <parameter name="must_root" tag="must-rma">/opt/must-rma/</parameter>
       <parameter name="must_build_folder">${must_root}/build</parameter>
       <parameter name="must_install_folder">${must_root}</parameter>
       <parameter name="must_repo_folder" tag="must-rma">${jube_benchmark_home}/../../../../MUST-RMA</parameter>
       <parameter name="must_repo_folder" tag="!must-rma">${jube_benchmark_home}/../../../../RMASanitizer</parameter>
       <parameter name="must_branch" tag="must-rma">must-rma</parameter>
-      <parameter name="must_branch" tag="must-rma">rmasanitizer</parameter>
+      <parameter name="must_branch" tag="!must-rma">rmasanitizer</parameter>
       <!-- path to a custom must installation can be set here -->
       <parameter name="mustbin_path" type="string">${must_install_folder}/bin</parameter>
       <parameter name="must_stats_compile_flags" tag="!filterstats"></parameter>
