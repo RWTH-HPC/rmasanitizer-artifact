@@ -68,28 +68,32 @@ ENV FC=flang
 
 WORKDIR /externals
 
-RUN apt-get -y -qq --no-install-recommends install libibverbs1 librdmacm1 librdmacm-dev \
-    libibmad5 libibumad3 librdmacm1 ibverbs-providers rdmacm-utils \
-    infiniband-diags libfabric1 ibverbs-utils
-
-# Install UCX
-RUN     wget https://github.com/openucx/ucx/releases/download/v1.16.0/ucx-1.16.0.tar.gz && \
-        tar -xvf ucx-1.16.0.tar.gz && cd ucx-1.16.0 && \
-        CC=gcc CXX=g++ ./configure --prefix=/opt/ucx --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= --disable-dependency-tracking --disable-optimizations --disable-logging --disable-debug --disable-assertions --enable-mt --disable-params-check --without-go --without-java --enable-cma --with-verbs --with-rdmacm --without-rocm --with-xpmem --without-fuse3 --without-ugni && \
-        make -j$(nproc) install
-
-
-ENV PATH="/opt/ucx/bin:$PATH"
-ENV LD_LIBRARY_PATH="/opt/ucx/lib:$LD_LIBRARY_PATH"
-ENV LIBRARY_PATH="/opt/ucx/lib:$LIBRARY_PATH"
-ENV CPATH="/opt/ucx/include:$CPATH"
-ENV CMAKE_PREFIX_PATH="/opt/ucx:$CMAKE_PREFIX_PATH"
+# RUN apt-get -y -qq --no-install-recommends install libibverbs1 librdmacm1 librdmacm-dev \
+#     libibmad5 libibumad3 librdmacm1 ibverbs-providers rdmacm-utils \
+#     infiniband-diags libfabric1 ibverbs-utils
 
 # # Install OpenMPI
+# RUN apt-get update \
+#     && apt-get -y -qq --no-install-recommends install \
+#     openmpi-bin \
+#     libopenmpi-dev \
+#     && apt-get -yq clean
+
+# # Delete shmem headers from OpenMPI installation that could conflict with OpenSHMEM
+# RUN rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem.h && \
+#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/pshmem.h && \
+#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem.fh && \
+#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmemx.h && \
+#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/pshmemx.h && \
+#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem-compat.h && \
+#     rm /lib/x86_64-linux-gnu/liboshmem.so*
+
+
+# Install OpenMPI
 RUN     wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.tar.gz && \
         tar -xf openmpi-4.1.6.tar.gz && \
         cd openmpi-4.1.6 && \
-        ./configure --prefix=/usr --with-ucx=/opt/ucx --enable-oshmem=no --enable-mpi1-compatibility && \
+        ./configure --prefix=/usr --with-ofi --enable-oshmem=no --enable-mpi1-compatibility && \
         make -j$(nproc) install
 
 ENV OMPI_CC=clang
@@ -109,7 +113,7 @@ RUN     wget https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.2.ta
         cd SOS-1.5.2 && \
         patch -p1 < /sandia_shmem.patch && \
         ./autogen.sh && \
-        CC=mpicc CXX=mpicxx FC=mpifort ./configure --prefix=/usr --with-ucx=/opt/ucx --enable-pmi-mpi --disable-cxx --enable-fortran --enable-error-checking --enable-visibility=no --enable-profiling=yes && \
+        CC=mpicc CXX=mpicxx FC=mpifort ./configure --prefix=/usr --with-ofi=/usr --enable-pmi-mpi --disable-cxx --enable-fortran --enable-error-checking --enable-visibility=no --enable-profiling=yes && \
         make -j$(nproc) install
 
 
@@ -119,7 +123,7 @@ ENV LIBRARY_PATH="/opt/sos/lib:$LIBRARY_PATH"
 ENV CPATH="/opt/sos/include:$CPATH"
 ENV CMAKE_PREFIX_PATH="/opt/sos:$CMAKE_PREFIX_PATH"
 
-RUN apt-get install libibverbs-dev
+# RUN apt-get install libibverbs-dev
 
 # Install GPI (GASPI)
 RUN    wget https://github.com/cc-hpc-itwm/GPI-2/archive/refs/tags/v1.5.1.tar.gz -O GPI-2-1.5.1.tar.gz && \
@@ -135,27 +139,24 @@ ENV LIBRARY_PATH="/opt/gpi/lib64:$LIBRARY_PATH"
 ENV CPATH="/opt/gpi/include:$CPATH"
 ENV CMAKE_PREFIX_PATH="/opt/gpi:$CMAKE_PREFIX_PATH"
 
-# Install MUST
-# COPY MUST-RMA ./MUST-RMA
-# RUN rm -rf ./MUST-RMA/.git && echo "0.0.0" > ./MUST-RMA/.version
-# RUN rm -rf ./MUST-RMA/externals/GTI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/.version
-# RUN rm -rf ./MUST-RMA/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/externals/PnMPI/.version
-# RUN cd MUST-RMA && \
-#     mkdir -p build && \
-#     cd build && \
-#     CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_PREFIX_PATH='/usr/lib/llvm-16/;/usr/lib/;/usr/lib64/' -DCMAKE_BUILD_TYPE=Release -DUSE_BACKWARD=ON -DENABLE_FORTRAN=OFF -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/must .. && \
-#     make -j$(nproc) install && \
-#     make -j$(nproc) -j32 install-prebuilds
-
-
 ENV LD_LIBRARY_PATH="/usr/lib64:$LD_LIBRARY_PATH"
 ENV LIBRARY_PATH="/usr/lib64:$LIBRARY_PATH"
 ENV CMAKE_LIBRARY_PATH="/usr/lib64:$CMAKE_LIBRARY_PATH"
-# # Install RMASanitizer
+
+# Install MUST
+COPY MUST-RMA ./MUST-RMA
+# RUN rm -rf ./MUST-RMA/.git && echo "0.0.0" > ./MUST-RMA/.version
+# RUN rm -rf ./MUST-RMA/externals/GTI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/.version
+# RUN rm -rf ./MUST-RMA/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/externals/PnMPI/.version
+RUN cd MUST-RMA && \
+    mkdir -p build && \
+    cd build && \
+    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_BUILD_TYPE=Release -DUSE_BACKWARD=ON -DENABLE_FORTRAN=OFF -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/must-rma .. && \
+    make -j$(nproc) install && \
+    make -j$(nproc) -j32 install-prebuilds
+
+# Install RMASanitizer
 COPY RMASanitizer ./rmasanitizer
-# RUN rm -rf ./rmasanitizer/.git && echo "0.0.0" > ./rmasanitizer/.version
-# RUN rm -rf ./rmasanitizer/externals/GTI/.git && echo "0.0.0" > ./rmasanitizer/externals/GTI/.version
-# RUN rm -rf ./rmasanitizer/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./rmasanitizer/externals/GTI/externals/PnMPI/.version
 
 RUN cd ./rmasanitizer && \
     mkdir -p build && \
@@ -219,3 +220,8 @@ ENV JUBE_INCLUDE_PATH=/opt/venv/share/jube/platform/slurm
 
 ENV OMPI_ALLOW_RUN_AS_ROOT=1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+
+
+RUN apt-get -y -qq --no-install-recommends install \
+    netcdf-bin \
+    libnetcdf-dev

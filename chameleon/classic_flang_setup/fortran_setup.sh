@@ -24,7 +24,7 @@ git clone --recursive --depth=1 --branch release_16x https://github.com/flang-co
 cd "${builddir}/classic-flang-llvm-project"
 mkdir build && cd build
 cmake ../llvm -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${installdir}/classic-flang" -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;openmp;libc" -DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi;libunwind" -DLLVM_ENABLE_LIBEDIT=OFF -DGCC_INSTALL_PREFIX="$EBROOTGCCCORE" -DLLVM_ENABLE_CLASSIC_FLANG=ON -DFLANG_BUILD_NEW_DRIVER=OFF -DLLVM_FORCE_ENABLE_STATS=1
-cmake --build . -j6 --target install
+cmake --build . -j$(nproc) --target install
 
 # Build and install libpgmath (requirement for flang frontend)
 cd "${builddir}"
@@ -32,14 +32,14 @@ git clone --recursive https://github.com/flang-compiler/flang
 cd "${builddir}/flang/runtime/libpgmath"
 mkdir -p build && cd ./build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${installdir}/classic-flang" -DGCC_INSTALL_PREFIX="$EBROOTGCCCORE" -DCMAKE_C_COMPILER="${installdir}/classic-flang/bin/clang" -DCMAKE_CXX_COMPILER="${installdir}/classic-flang/bin/clang++" -DCMAKE_Fortran_COMPILER="${installdir}/classic-flang/bin/flang" -DCMAKE_Fortran_COMPILER_ID=Flang
-cmake --build . -j6 --target install
+cmake --build . -j$(nproc) --target install
 
 # Build and install flang frontend
 cd "${builddir}/flang"
 git apply "${scriptdir}/fix_flang_compile.patch"
 mkdir -p build && cd ./build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${installdir}/classic-flang" -DGCC_INSTALL_PREFIX="$EBROOTGCCCORE" -DCMAKE_C_COMPILER="${installdir}/classic-flang/bin/clang" -DCMAKE_CXX_COMPILER="${installdir}/classic-flang/bin/clang++" -DCMAKE_Fortran_COMPILER="${installdir}/classic-flang/bin/flang" -DCMAKE_Fortran_COMPILER_ID=Flang -DLLVM_FORCE_ENABLE_STATS=1
-cmake --build . -j6 --target install
+cmake --build . -j$(nproc) --target install
 
 export PATH=${installdir}/classic-flang/bin:$PATH
 export LD_LIBRARY_PATH=${installdir}/classic-flang/lib:$LD_LIBRARY_PATH
