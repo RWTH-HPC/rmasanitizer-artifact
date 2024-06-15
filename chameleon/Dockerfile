@@ -182,34 +182,11 @@ RUN cd ./rmasanitizer && \
 
 # WORKDIR /
 
-# # Run script
-# COPY classification_quality/rmaracebench/MPIRMA /rmaracebench/MPIRMA
-# COPY classification_quality/rmaracebench/SHMEM /rmaracebench/SHMEM
-# COPY classification_quality/rmaracebench/GASPI /rmaracebench/GASPI
-# COPY classification_quality/rmaracebench/templates /rmaracebench/templates
-# COPY classification_quality/rmaracebench/util/run_test.py /rmaracebench/run_test.py
-# COPY classification_quality/rmaracebench/util/parse_results.py /rmaracebench/parse_results.py
-# COPY classification_quality/rmaracebench/util/generate.py /rmaracebench/generate.py
-
-# # Script to generate results for reproducibility
-# COPY classification_quality/generate_results.sh /rmaracebench/generate_results.sh
-
-# # Allow oversubscription for OpenMPI
-# ENV OMPI_MCA_rmaps_base_oversubscribe=1
 
 # # Run as non-privileged user
 # RUN useradd -ms /bin/bash user
 # RUN chown -R user:user /rmaracebench
 # USER user
-
-# ENV OMPI_CC=clang
-# ENV OMPI_CXX=clang++
-# ENV MPICH_CC=clang
-# ENV MPICH_CXX=clang++
-# ENV PATH="/opt/parcoach/bin:$PATH"
-# ENV LD_LIBRARY_PATH="/usr/lib64:$LD_LIBRARY_PATH"
-
-# WORKDIR /rmaracebench
 
 # Install Python dependencies and ensure to activate virtualenv (by setting PATH variable)
 ENV VIRTUAL_ENV=/opt/venv
@@ -217,6 +194,9 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN pip3 install http://apps.fz-juelich.de/jsc/jube/download.php?version=latest
 ENV JUBE_INCLUDE_PATH=/opt/venv/share/jube/platform/slurm
+
+# Install Python dependencies for plots
+RUN pip3 install -r overhead_evaluation/plots/requirements.txt
 
 ENV OMPI_ALLOW_RUN_AS_ROOT=1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
