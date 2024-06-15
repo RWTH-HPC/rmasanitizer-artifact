@@ -41,7 +41,7 @@
          "must": ":"}.get("${measurement_mode}", ":")
       </parameter>
       <parameter name="output_redirection" tag="chameleon">>${outlogfile} 2>${errlogfile}</parameter>
-      <parameter name="output_redirection" mode="python" tag="!chameleon"></parameter>
+      <parameter name="output_redirection" tag="!chameleon"></parameter>
       <parameter name="submit" tag="chameleon">/usr/bin/bash</parameter>
       <!-- <parameter name="collect_raw_data" type="string" mode="python"> True </parameter>  -->
     </parameterset>
@@ -54,8 +54,11 @@
 
     <parameterset name="ignorelist_pset">
       <parameter name="ignorelist" mode="python" tag="!ignorelist">0</parameter>
-      <parameter name="ignorelist" mode="python" tag="ignorelist">
-        not ("${measurement_mode}" == "base" and "${compile_mode}" == "base") and not ("${measurement_mode}" == "must" and "${compile_mode}" == "tsan") and not ("${measurement_mode}" == "must" and "${compile_mode}" == "tsan-opt")
+      <parameter name="ignorelist" mode="python" tag="ignorelist+!tsan-opt">
+        not ("${measurement_mode}" == "base" and "${compile_mode}" == "base") and not ("${measurement_mode}" == "must" and "${compile_mode}" == "tsan")
+      </parameter> <!-- ("${measurement_mode}" == "base" and "${compile_mode}" == "tsan-opt") or  -->
+      <parameter name="ignorelist" mode="python" tag="ignorelist+tsan-opt">
+        not ("${measurement_mode}" == "base" and "${compile_mode}" == "base") and not ("${measurement_mode}" == "must" and "${compile_mode}" == "tsan-opt")
       </parameter> <!-- ("${measurement_mode}" == "base" and "${compile_mode}" == "tsan-opt") or  -->
     </parameterset>   
 
