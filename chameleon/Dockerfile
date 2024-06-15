@@ -50,7 +50,7 @@ ENV CC=clang-16
 ENV CXX=clang++-16
 
 # Install Clang + Flang 16
-COPY classic_flang_setup /classic_flang_setup
+COPY chameleon/classic_flang_setup /classic_flang_setup
 
 RUN sh /classic_flang_setup/fortran_setup.sh /build /opt/clang
 
@@ -102,7 +102,7 @@ ENV CPATH="/opt/openmpi/include:$CPATH"
 ENV CMAKE_PREFIX_PATH="/opt/openmpi:$CMAKE_PREFIX_PATH"
 
 RUN apt-get install patch
-COPY sandia_shmem.patch /sandia_shmem.patch
+COPY chameleon/sandia_shmem.patch /sandia_shmem.patch
 # Install OpenSHMEM
 RUN     wget https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.2.tar.gz -O SOS-1.5.2.tar.gz && \
         tar -xf SOS-1.5.2.tar.gz && \
@@ -216,3 +216,6 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN pip3 install http://apps.fz-juelich.de/jsc/jube/download.php?version=latest
 ENV JUBE_INCLUDE_PATH=/opt/venv/share/jube/platform/slurm
+
+ENV OMPI_ALLOW_RUN_AS_ROOT=1
+ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
