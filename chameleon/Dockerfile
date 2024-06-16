@@ -34,24 +34,36 @@ RUN apt-get update \
     gdb \
     wget \
     googletest \
-    && apt-get -yq clean
-
-
-RUN apt-get -y -qq --no-install-recommends install \
     zstd \
     libzstd-dev \
     clang-16 \
     libomp-16-dev \
     clang-format-16 \
     llvm-16 \
-    llvm-16-dev
+    llvm-16-dev \
+    patch \
+    && apt-get -yq clean
+
+# TeXLive for plots
+RUN apt-get -y -qq --no-install-recommends install \
+    dvipng \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    cm-super \
+    && apt-get -yq clean
+
+# NetCDF for CFD-Proxy
+RUN apt-get -y -qq --no-install-recommends install \
+    netcdf-bin \
+    libnetcdf-dev \
+    && apt-get -yq clean
+
 
 ENV CC=clang-16
 ENV CXX=clang++-16
 
 # Install Clang + Flang 16
 COPY chameleon/classic_flang_setup /classic_flang_setup
-
 RUN sh /classic_flang_setup/fortran_setup.sh /build /opt/clang
 
 ENV PATH="/opt/clang/classic-flang/bin:$PATH"
@@ -68,27 +80,6 @@ ENV FC=flang
 
 WORKDIR /externals
 
-# RUN apt-get -y -qq --no-install-recommends install libibverbs1 librdmacm1 librdmacm-dev \
-#     libibmad5 libibumad3 librdmacm1 ibverbs-providers rdmacm-utils \
-#     infiniband-diags libfabric1 ibverbs-utils
-
-# # Install OpenMPI
-# RUN apt-get update \
-#     && apt-get -y -qq --no-install-recommends install \
-#     openmpi-bin \
-#     libopenmpi-dev \
-#     && apt-get -yq clean
-
-# # Delete shmem headers from OpenMPI installation that could conflict with OpenSHMEM
-# RUN rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem.h && \
-#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/pshmem.h && \
-#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem.fh && \
-#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmemx.h && \
-#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/pshmemx.h && \
-#     rm /usr/lib/x86_64-linux-gnu/openmpi/include/shmem-compat.h && \
-#     rm /lib/x86_64-linux-gnu/liboshmem.so*
-
-
 # Install OpenMPI
 RUN     wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.tar.gz && \
         tar -xf openmpi-4.1.6.tar.gz && \
@@ -98,16 +89,13 @@ RUN     wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.t
 
 ENV OMPI_CC=clang
 ENV OMPI_CXX=clang++
+# Allow to run OpenMPI as root in container
+ENV OMPI_ALLOW_RUN_AS_ROOT=1
+ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
-ENV PATH="/opt/openmpi/bin:$PATH"
-ENV LD_LIBRARY_PATH="/opt/openmpi/lib:$LD_LIBRARY_PATH"
-ENV LIBRARY_PATH="/opt/openmpi/lib:$LIBRARY_PATH"
-ENV CPATH="/opt/openmpi/include:$CPATH"
-ENV CMAKE_PREFIX_PATH="/opt/openmpi:$CMAKE_PREFIX_PATH"
 
-RUN apt-get install patch
-COPY chameleon/sandia_shmem.patch /sandia_shmem.patch
 # Install OpenSHMEM
+COPY chameleon/sandia_shmem.patch /sandia_shmem.patch
 RUN     wget https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.2.tar.gz -O SOS-1.5.2.tar.gz && \
         tar -xf SOS-1.5.2.tar.gz && \
         cd SOS-1.5.2 && \
@@ -117,14 +105,6 @@ RUN     wget https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.2.ta
         make -j$(nproc) install
 
 
-ENV PATH="/opt/sos/bin:$PATH"
-ENV LD_LIBRARY_PATH="/opt/sos/lib:$LD_LIBRARY_PATH"
-ENV LIBRARY_PATH="/opt/sos/lib:$LIBRARY_PATH"
-ENV CPATH="/opt/sos/include:$CPATH"
-ENV CMAKE_PREFIX_PATH="/opt/sos:$CMAKE_PREFIX_PATH"
-
-# RUN apt-get install libibverbs-dev
-
 # Install GPI (GASPI)
 RUN    wget https://github.com/cc-hpc-itwm/GPI-2/archive/refs/tags/v1.5.1.tar.gz -O GPI-2-1.5.1.tar.gz && \
        tar -xf GPI-2-1.5.1.tar.gz && \
@@ -133,21 +113,12 @@ RUN    wget https://github.com/cc-hpc-itwm/GPI-2/archive/refs/tags/v1.5.1.tar.gz
        OMPI_CC=clang OMPI_CXX=clang++ CC=mpicc CXX=mpicxx ./configure --prefix=/usr --with-mpi --with-infiniband=no --with-ethernet --with-pbs=no --disable-debug-lib && \
        make -j$(nproc) install
 
-ENV PATH="/opt/gpi/bin:$PATH"
-ENV LD_LIBRARY_PATH="/opt/gpi/lib64:$LD_LIBRARY_PATH"
-ENV LIBRARY_PATH="/opt/gpi/lib64:$LIBRARY_PATH"
-ENV CPATH="/opt/gpi/include:$CPATH"
-ENV CMAKE_PREFIX_PATH="/opt/gpi:$CMAKE_PREFIX_PATH"
-
 ENV LD_LIBRARY_PATH="/usr/lib64:$LD_LIBRARY_PATH"
 ENV LIBRARY_PATH="/usr/lib64:$LIBRARY_PATH"
 ENV CMAKE_LIBRARY_PATH="/usr/lib64:$CMAKE_LIBRARY_PATH"
 
-# Install MUST
+# Install MUST-RMA
 COPY MUST-RMA ./MUST-RMA
-# RUN rm -rf ./MUST-RMA/.git && echo "0.0.0" > ./MUST-RMA/.version
-# RUN rm -rf ./MUST-RMA/externals/GTI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/.version
-# RUN rm -rf ./MUST-RMA/externals/GTI/externals/PnMPI/.git && echo "0.0.0" > ./MUST-RMA/externals/GTI/externals/PnMPI/.version
 RUN cd MUST-RMA && \
     mkdir -p build && \
     cd build && \
@@ -158,7 +129,7 @@ RUN cd MUST-RMA && \
         -DENABLE_TYPEART=OFF \
         -DCMAKE_INSTALL_PREFIX=/opt/must-rma .. && \
     make -j$(nproc) install && \
-    make -j$(nproc) -j32 install-prebuilds
+    make -j$(nproc) install-prebuilds
 
 # Install RMASanitizer
 COPY RMASanitizer ./rmasanitizer
@@ -182,21 +153,16 @@ RUN cd ./rmasanitizer && \
         -DENABLE_STACKTRACE=OFF .. && \
     make -j$(nproc) install
 
-# # Clean up externals
-# RUN rm -rf /externals
-
-# WORKDIR /
-
-
-# # Run as non-privileged user
-# RUN useradd -ms /bin/bash user
-# RUN chown -R user:user /rmaracebench
-# USER user
+# clean up externals folder
+WORKDIR /
+RUN rm -r /externals
 
 # Install Python dependencies and ensure to activate virtualenv (by setting PATH variable)
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Install JUBE
 RUN pip3 install http://apps.fz-juelich.de/jsc/jube/download.php?version=latest
 ENV JUBE_INCLUDE_PATH=/opt/venv/share/jube/platform/slurm
 
@@ -204,21 +170,5 @@ ENV JUBE_INCLUDE_PATH=/opt/venv/share/jube/platform/slurm
 COPY overhead_evaluation/plots/requirements.txt /requirements.txt
 RUN pip3 install -r /requirements.txt
 
-# TeXlive for plots
-
-
-ENV OMPI_ALLOW_RUN_AS_ROOT=1
-ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
-
-# NetCDF for CFD-Proxy
-RUN apt-get -y -qq --no-install-recommends install \
-    netcdf-bin \
-    libnetcdf-dev
-
-
-
-RUN apt-get -y -qq --no-install-recommends install \
-    dvipng \
-    texlive-latex-extra \
-    texlive-fonts-recommended \
-    cm-super
+RUN useradd -ms /bin/bash user
+WORKDIR /home/user
