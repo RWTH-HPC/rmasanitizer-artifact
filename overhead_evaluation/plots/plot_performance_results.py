@@ -4,6 +4,19 @@ import seaborn as sns
 import matplotlib.ticker as mticker
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
+import argparse
+import itertools
+from pathlib import Path
+import os
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('results_path', type=str, help="Path to the experiment results")
+parser.add_argument('--usetex', action='store_true', help="Renders figures with TeX formatting, requires installed TeX distribution", default=False)
+parser.add_argument('--process-selector', action='store_true', help="Only select a certain number of displayed process numbers (required to get exact figure of the paper)")
+
+args = parser.parse_args()
+
 
 benchmark_name_map = {
     "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{1000 iters, $48 \cdot 10^6$ elems per proc }",
@@ -15,32 +28,32 @@ benchmark_name_map = {
     "CFD-Proxy": "CFD-Proxy -- strong (GASPI)\n{1000 iters, F6 airplane mesh}"
 }
 
-benchmark_task_selector = {
+benchmark_process_selector = {
     "BT-RMA": [49,100,225,361,729],
     "BT-SHMEM": [49,100,225,361,729],
     "lulesh": [64,125,216,343,729],
 }
 
 rmasanitizer_benchmark_paths = {
-    "PRK_stencil": "overhead_evaluation/RMASanitizer/PRK_stencil/000000/result/result_csv.dat",
-    "BT-RMA": "overhead_evaluation/RMASanitizer/BT-RMA/000000/result/result_csv.dat",
-    "lulesh": "overhead_evaluation/RMASanitizer/lulesh/000000/result/result_csv.dat",
-    "miniMD": "overhead_evaluation/RMASanitizer/miniMD/000000/result/result_csv.dat",
-    "PRK_stencil_shmem": "overhead_evaluation/RMASanitizer/PRK_stencil_shmem/000000/result/result_csv.dat",
-    "BT-SHMEM": "overhead_evaluation/RMASanitizer/BT-SHMEM/000000/result/result_csv.dat",
-    "CFD-Proxy": "overhead_evaluation/RMASanitizer/CFD-Proxy/000000/result/result_csv.dat",
+    "PRK_stencil": f"{args.results_path}/RMASanitizer/PRK_stencil/000000/result/result_csv.dat",
+    "BT-RMA": f"{args.results_path}/RMASanitizer/BT-RMA/000000/result/result_csv.dat",
+    "lulesh": f"{args.results_path}/RMASanitizer/lulesh/000000/result/result_csv.dat",
+    "miniMD": f"{args.results_path}/RMASanitizer/miniMD/000000/result/result_csv.dat",
+    "PRK_stencil_shmem": f"{args.results_path}/RMASanitizer/PRK_stencil_shmem/000000/result/result_csv.dat",
+    "BT-SHMEM": f"{args.results_path}/RMASanitizer/BT-SHMEM/000000/result/result_csv.dat",
+    "CFD-Proxy": f"{args.results_path}/RMASanitizer/CFD-Proxy/000000/result/result_csv.dat",
 }
 
 mustrma_benchmark_paths = {
-    "PRK_stencil": "overhead_evaluation/MUST-RMA/PRK_stencil/000000/result/result_csv.dat",
-    "BT-RMA": "overhead_evaluation/MUST-RMA/BT-RMA/000000/result/result_csv.dat",
-    "lulesh": "overhead_evaluation/MUST-RMA/lulesh/000000/result/result_csv.dat",
-    "miniMD": "overhead_evaluation/MUST-RMA/miniMD/000000/result/result_csv.dat",
+    "PRK_stencil": f"{args.results_path}/MUST-RMA/PRK_stencil/000000/result/result_csv.dat",
+    "BT-RMA": f"{args.results_path}/MUST-RMA/BT-RMA/000000/result/result_csv.dat",
+    "lulesh": f"{args.results_path}/MUST-RMA/lulesh/000000/result/result_csv.dat",
+    "miniMD": f"{args.results_path}/MUST-RMA/miniMD/000000/result/result_csv.dat",
 }
 
 plt.rc('pdf', fonttype=42)
 plt.rcParams.update({
-    "text.usetex": True,
+    "text.usetex": args.usetex,
     "font.family": "sans-serif"
 })
 
@@ -52,18 +65,23 @@ def read_csv(benchmark_name, csv_file) -> pd.DataFrame:
     # Drop columns which have no values
     df = df.dropna(axis=1, how='all')
     # Fill empty cells with empty string
-    df = df.fillna('None')
+    # df = df.fillna('None')
 
     # Drop all columns except tasks, measurement time_avg, time_std
     df = df[['tasks', 'measurement',
              'time_avg', 'time_std']]
     df['benchmark'] = benchmark_name
 
+    # fallback: fill NaN values with 0
+    if df["time_avg"].isnull().any().any():
+        print(f"Found NaN value in {csv_file}, this should not happen, filling with 0")
+        df["time_avg"].fillna(value=0)
+
     # Calculate tool slowdown
     target_column = "time_avg"
     df["tool slowdown"] = [row[target_column]/df.loc[(df['measurement'] == "base")
                                                      & (df['tasks'] == row['tasks'])][target_column].iloc[0] for index, row in df.iterrows()]
-    
+        
     df["time_std_rel"] = df["time_std"] / df["time_avg"]
     target_column = "time_std_rel"
     df["tool slowdown std rel"] = [row[target_column] + df.loc[(df['measurement'] == "base")
@@ -78,21 +96,24 @@ def read_csv(benchmark_name, csv_file) -> pd.DataFrame:
     return df
 
 
-def create_plots(dfs) -> None:
+def create_plots(rmasan_dfs, mustrma_dfs) -> None:
     sns.set_theme(rc={"lines.linewidth": 0.8})
     plt.rc('axes', axisbelow=True)
     fig, axs = plt.subplots(ncols=4, nrows=2, figsize=(12, 3), constrained_layout=True)
 
-    for ax, df in zip(axs.flat, dfs):
-        benchmark = df["benchmark"][0]
+    # zip together RMASan and MUSTRMA dfs to plot them together
+    zipped_dfs = list(itertools.zip_longest(rmasan_dfs, mustrma_dfs))
+
+    for ax, (rmasan_df, mustrma_df) in zip(axs.flat, zipped_dfs):
+        benchmark = rmasan_df["benchmark"][0]
 
         # Only take those rows with task numbers that we are interested in
-        if benchmark in benchmark_task_selector:
-            df = df[df['tasks'].isin(benchmark_task_selector[benchmark])].copy()
+        if args.process_selector and benchmark in benchmark_process_selector:
+            rmasan_df = rmasan_df[rmasan_df['tasks'].isin(benchmark_process_selector[benchmark])].copy()
 
-        df['tasks'] = df['tasks'].astype(str)
+        rmasan_df['tasks'] = rmasan_df['tasks'].astype(str)
 
-        df.plot.bar(x='tasks', y='tool slowdown', color=["#dedede"], edgecolor="black", width=0.8, rot=0, ax=ax)
+        rmasan_df.plot.bar(x='tasks', y='tool slowdown', color=["#dedede"], edgecolor="black", width=0.8, rot=0, ax=ax)
         ax2 = ax.twinx()
 
         ax.get_legend().remove()
@@ -116,16 +137,16 @@ def create_plots(dfs) -> None:
 
         ax2.set_ylabel("Runtime [s]", fontsize=9)
         
-        if benchmark in mustrma_benchmark_paths:
-            mustrma_df = read_csv(benchmark, mustrma_benchmark_paths[benchmark])
+        if mustrma_df is not None:
+            # mustrma_df = read_csv(benchmark, mustrma_benchmark_paths[benchmark])
             # Only take those rows with task numbers that we are interested in
-            if benchmark in benchmark_task_selector:
-                mustrma_df = mustrma_df[mustrma_df['tasks'].isin(benchmark_task_selector[benchmark])]
+            if args.process_selector and benchmark in benchmark_process_selector:
+                mustrma_df = mustrma_df[mustrma_df['tasks'].isin(benchmark_process_selector[benchmark])]
             mustrma_df['tasks'] = mustrma_df['tasks'].astype(str)
             mustrma_df.plot(kind='line', x='tasks', y='tool_avg', color='#ffa500', ax=ax2, style='.-')
 
-        df.plot(kind='line', x='tasks', y='tool_avg', color='#57ab27', ax=ax2, style='.-')
-        df.plot(kind='line', x='tasks', y='base_avg', color='#00549f', ax=ax2, style='.-')
+        rmasan_df.plot(kind='line', x='tasks', y='tool_avg', color='#57ab27', ax=ax2, style='.-')
+        rmasan_df.plot(kind='line', x='tasks', y='base_avg', color='#00549f', ax=ax2, style='.-')
     
         # ================================
         # Prevent marker cutoff
@@ -135,7 +156,7 @@ def create_plots(dfs) -> None:
         # transform pixel markersize to markersize based on the axis
         markersize_data = (ax2.transData.inverted().transform((1, 1)) - ax2.transData.inverted().transform((0, 0)))[1]*markersize
         # calculate ymargin at the bottom such that the marker are not cutoff
-        ymargin_bottom = min(0, df['tool_avg'].min() - markersize_data, df['base_avg'].min() - markersize_data)
+        ymargin_bottom = min(0, rmasan_df['tool_avg'].min() - markersize_data, rmasan_df['base_avg'].min() - markersize_data)
         ax2.set_ylim(bottom=0 + ymargin_bottom, top=ax2.get_ylim()[1]*1.05)
         ax2.get_legend().remove()
 
@@ -221,8 +242,22 @@ def create_plots(dfs) -> None:
     fig.savefig(f"performance_results.png", bbox_inches='tight')
     fig.savefig(f"performance_results.pdf", bbox_inches='tight')
 
+    print(f"Figures saved at {os.getcwd()}/performance_results.png and {os.getcwd()}/performance_results.pdf")
+
 if __name__ == "__main__":
-    dfs = []
+    rmasan_dfs = []
+    mustrma_dfs = []
     for (benchmark, path) in rmasanitizer_benchmark_paths.items():
-        dfs.append(read_csv(benchmark, path))
-    create_plots(dfs)
+        print(f"Parsing {benchmark} (RMASanitizer)...")
+        if not Path(path).is_file():
+            print(f"The file '{path}' does not exist. Please check the paths (see --help).")
+            exit(1)
+        rmasan_dfs.append(read_csv(benchmark, path))
+
+    for (benchmark, path) in mustrma_benchmark_paths.items():
+        print(f"Parsing {benchmark} (MUST-RMA)...")
+        if not Path(path).is_file():
+            print(f"The file '{path}' does not exist. Please check the paths (see --help).")
+            exit(1)
+        mustrma_dfs.append(read_csv(benchmark, path))
+    create_plots(rmasan_dfs, mustrma_dfs)

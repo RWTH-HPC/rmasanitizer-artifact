@@ -10,7 +10,8 @@
       #Lulesh Configuration 
     -->     
     <parameterset name="config">
-      <parameter name="size" tag="C|(!S+!M+!L)">20</parameter> <!-- Custom size -->
+      <parameter name="size" tag="C|(!test+!S+!M+!L)">10</parameter> <!-- Custom size -->
+      <parameter name="size" tag="test">10</parameter> <!-- with 27 tasks: ~10s / ~1min-->
       <parameter name="size" tag="S">12</parameter> <!-- with 27 tasks: ~10s / ~1min-->
       <parameter name="size" tag="M">20</parameter> <!-- with 27 tasks: ~57s / ~10min -->
       <parameter name="size" tag="L">29</parameter> <!-- with 27 tasks: ~300s / ~20min -->

@@ -12,12 +12,15 @@
     <!-- 
       #miniMD Dataset 
     -->    
-    <parameterset name="dataset" tag="C|(!S+!M+!L)">      
+    <parameterset name="dataset" tag="C|(!test+!S+!M+!L)">      
       <!-- Custom input values, used if tag C is set or none of the following: S, M, L -->
       <parameter name="num_iterations" type="int">1000</parameter>
     </parameterset>
 
     <!-- Presets S, M, L -->
+    <parameterset name="dataset" tag="test">      
+      <parameter name="num_iterations" type="int">100</parameter>
+    </parameterset>
     <parameterset name="dataset" tag="S">      
       <parameter name="num_iterations" type="int">1000</parameter>
     </parameterset>

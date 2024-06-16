@@ -151,7 +151,12 @@ COPY MUST-RMA ./MUST-RMA
 RUN cd MUST-RMA && \
     mkdir -p build && \
     cd build && \
-    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ MPICH_CC=clang MPICH_CXX=clang++ cmake -DCMAKE_BUILD_TYPE=Release -DUSE_BACKWARD=ON -DENABLE_FORTRAN=OFF -DENABLE_TYPEART=OFF -DCMAKE_INSTALL_PREFIX=/opt/must-rma .. && \
+    CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DUSE_BACKWARD=ON \
+        -DENABLE_FORTRAN=ON \
+        -DENABLE_TYPEART=OFF \
+        -DCMAKE_INSTALL_PREFIX=/opt/must-rma .. && \
     make -j$(nproc) install && \
     make -j$(nproc) -j32 install-prebuilds
 
@@ -162,19 +167,19 @@ RUN cd ./rmasanitizer && \
     mkdir -p build && \
     cd build && \
     CC=clang CXX=clang++ OMPI_CC=clang OMPI_CXX=clang++ OMPI_FC=flang cmake \
-    -DMPI_C_COMPILER=$(which mpicc) \
-    -DMPI_CXX_COMPILER=$(which mpicxx)\
-    -DCMAKE_Fortran_COMPILER=$(which mpifort) \
-    -DCMAKE_INSTALL_PREFIX=/opt/rmasanitizer \
-    -DENABLE_FORTRAN=ON \
-    -DENABLE_TSAN=ON \
-    -DENABLE_TYPEART=OFF \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DENABLE_TESTS=0 \
-    -DUSE_BACKWARD=OFF \
-    -DENABLE_OPENSHMEM=ON \
-    -DENABLE_GASPI=ON \
-    -DENABLE_STACKTRACE=OFF .. && \
+        -DMPI_C_COMPILER=$(which mpicc) \
+        -DMPI_CXX_COMPILER=$(which mpicxx)\
+        -DCMAKE_Fortran_COMPILER=$(which mpifort) \
+        -DCMAKE_INSTALL_PREFIX=/opt/rmasanitizer \
+        -DENABLE_FORTRAN=ON \
+        -DENABLE_TSAN=ON \
+        -DENABLE_TYPEART=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DENABLE_TESTS=0 \
+        -DUSE_BACKWARD=OFF \
+        -DENABLE_OPENSHMEM=ON \
+        -DENABLE_GASPI=ON \
+        -DENABLE_STACKTRACE=OFF .. && \
     make -j$(nproc) install
 
 # # Clean up externals
@@ -196,12 +201,24 @@ RUN pip3 install http://apps.fz-juelich.de/jsc/jube/download.php?version=latest
 ENV JUBE_INCLUDE_PATH=/opt/venv/share/jube/platform/slurm
 
 # Install Python dependencies for plots
-RUN pip3 install -r overhead_evaluation/plots/requirements.txt
+COPY overhead_evaluation/plots/requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt
+
+# TeXlive for plots
+
 
 ENV OMPI_ALLOW_RUN_AS_ROOT=1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
-
+# NetCDF for CFD-Proxy
 RUN apt-get -y -qq --no-install-recommends install \
     netcdf-bin \
     libnetcdf-dev
+
+
+
+RUN apt-get -y -qq --no-install-recommends install \
+    dvipng \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    cm-super
