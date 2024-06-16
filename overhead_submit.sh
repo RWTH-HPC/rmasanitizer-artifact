@@ -10,7 +10,7 @@ if [ -d "${result_path}" ]; then
     exit 1
 fi
 
-benchmarks_mustrma=(PRK_stencil  BT-RMA  lulesh  miniMD)
+benchmarks_mustrma=(PRK_stencil BT-RMA lulesh miniMD)
 benchmarks_rmasanitizer=(PRK_stencil BT-RMA lulesh miniMD PRK_stencil_shmem BT-SHMEM CFD-Proxy)
 echo "Running MUST-RMA benchmarks..."
 for benchmark in ${benchmarks_mustrma[*]}

@@ -4,8 +4,8 @@ set -e
 
 result_path=perf-eval-result
 
-benchmarks_mustrma=( PRK_stencil  BT-RMA  lulesh  miniMD )
-benchmarks_rmasanitizer=( PRK_stencil BT-RMA lulesh miniMD PRK_stencil_shmem BT-SHMEM CFD-Proxy )
+benchmarks_mustrma=(PRK_stencil  BT-RMA  lulesh  miniMD)
+benchmarks_rmasanitizer=(PRK_stencil BT-RMA lulesh miniMD PRK_stencil_shmem BT-SHMEM CFD-Proxy)
 for benchmark in ${benchmarks_mustrma[*]}
 do
     echo "== ${benchmark} (MUST-RMA) =="
