@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-RESULTS_DIR=$PWD/results-$(date +"%Y%m%d-%H%M%S")
+RESULTS_DIR=$PWD/cq-results-$(date +"%Y%m%d-%H%M%S")
 echo "Results will be stored in ${RESULTS_DIR}."
 
 mkdir -p $RESULTS_DIR
