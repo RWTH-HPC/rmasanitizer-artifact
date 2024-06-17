@@ -5,6 +5,7 @@
 
 \begin{document}
 \section*{Abstract Identification}
+%START_LATEX
 This is the artifact description for the paper ``RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications'' submitted to the ICPP'24 conference.
 
 
@@ -12,7 +13,7 @@ This is the artifact description for the paper ``RMASanitizer: Generalized Runti
 The paper corresponding to this artifact contributes a generalized race detection tool for Remote Memory Access Programs. In the paper, we make the following contributions: (1) We provide a generalized RMA race detection model compatible with state-of-the-art RMA programming models. (2) We present RMASanitizer, an on-the-fly race detector that works with MPI RMA, OpenSHMEM, and GASPI. (3) We evaluate the classification quality of RMASanitizer and present overhead studies on different RMA proxy apps.
 
 \subsection*{Role of the Artifact}
-The artifact provides the source code of RMASanitizer itself to review and understand the software architecture of RMASanitizer described in the paper. Further, it provides all raw data that was gathered during the experiments to generate the classification quality benchmark (Table 3 of the paper) and overhead study results (Figure 9 of the paper). Also, the artifact provides all resources to reproduce the results of the classification quality benchmark (Table 3 of the paper) as well as the overhead study results (Figure 9 of the paper).
+The artifact provides the source code of RMASanitizer itself to review and understand the software architecture described in the paper. Further, it provides all raw data that was gathered during the experiments to generate the classification quality benchmark (Table 3 of the paper) and overhead study results (Figure 9 of the paper). Also, the artifact provides all resources to reproduce the results of the classification quality benchmark (Table 3 of the paper) as well as the overhead study results (Figure 9 of the paper).
 
 
 \subsection*{Computational Artifact Structure}
@@ -37,7 +38,7 @@ For reproducibility, the required software is shipped in a Docker container (see
 \item Debian 12
 \item OpenMPI 4.1.6 for MPI RMA, Sandia SHMEM 1.5.2 for OpenSHMEM, GPI-2 1.5.1 for GASPI
 \item Clang 16
-\item RMASanitizer (provided in the computational artifact), MUST-RMA\footnote{\url{https://hpc.rwth-aachen.de/must/files/MUST-v1.9.0-rma.tar.gz}}, PARCOACH\footnote{\url{https://gitlab.inria.fr/parcoach/parcoach/-/archive/2.4.2/parcoach-2.4.2.tar.gz}}
+\item RMASanitizer (provided in the artifact), MUST-RMA\footnote{\url{https://hpc.rwth-aachen.de/must/files/MUST-v1.9.0-rma.tar.gz}} (provided in the artifact), PARCOACH\footnote{\url{https://gitlab.inria.fr/parcoach/parcoach/-/archive/2.4.2/parcoach-2.4.2.tar.gz}}
 \end{itemize}
 
 
@@ -56,11 +57,14 @@ The following software versions were used to run the experiments:
 \item Python 3 with pandas, matplotlib, seaborn (for plots)
 \end{itemize}
 
+%STOP_LATEX
 
 \section*{Reproducibility of Experiments}
+
+%START_LATEX
 In the following, we document the steps to reproduce the results of the classification quality and the overhead study.
 For the classification quality experiment, we expect to set up and run everything within 2 hours (the test cases take some time to get executed).
-For the overhead study, in case of all software requirements installed, the execution of the overhead study requires running a few JUBE commands and finally parsing the output with a Python script. While running all the commands will only take a few minutes, the execution of the jobs using Slurm will take a few hours.
+For the overhead study, in case of all software requirements installed, the execution requires running a few JUBE commands and finally parsing the output with a Python script. While running all the commands will only take a few minutes, the execution of the jobs may take a few hours.
 
 \subsection*{Classification Quality}
 To reproduce the classification quality results, an installation of Docker is required.
@@ -78,32 +82,41 @@ Note: In very recent Linux kernel versions newer than 6.0, the address space lay
 \subsection*{Overhead Study}
 The overhead study is designed in JUBE.
 For the results in our paper, we used OpenMPI, Sandia SHMEM, GPI-2, Clang/Classic-Flang.
-The JUBE workflow automatically builds the tools (RMASanitizer and MUST-RMA), builds the source codes, submits the jobs with the correct input sizes via Slurm, and finally evaluates the results to generate output tables.
-For MUST-RMA, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA}, \texttt{miniMD}, \texttt{lulesh}.
-For RMASanitizer, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA},  \texttt{miniMD}, \texttt{lulesh} \texttt{PRK\_stencil\_shmem}, \texttt{BT-SHMEM}, \texttt{CFD-Proxy}.
+For MUST-RMA, the executed benchmarks are \texttt{PRK\_stencil}, \texttt{BT-RMA}, \texttt{miniMD}, \texttt{lulesh}.
+For RMASanitizer, the executed benchmarks are \texttt{PRK\_stencil}, \texttt{BT-RMA},  \texttt{miniMD}, \texttt{lulesh} \texttt{PRK\_stencil\_shmem}, \texttt{BT-SHMEM}, \texttt{CFD-Proxy}.
 
 All steps for reproduction are available in a script \texttt{overhead\_submit.sh} and \texttt{overhead\_results.sh} that can be executed to generate the results and the final plot.
-For each benchmark \texttt{benchname} with MUST-RMA or RMASanitizer, a JUBE workflow is executed that submits everything using Slurm or use any other MPI launcher to run the benchmarks.
-After all jobs completed, the results can be retrieved by running \texttt{overhead\_results.sh} via JUBE that parses the outputs of all jobs to get the results and invokes a plotting script.
+Using \texttt{overhead\_submit.sh}, a JUBE workflow automatically builds the tools (RMASanitizer and MUST-RMA), builds the source codes, submits the jobs with the correct input sizes, and finally evaluates the results to generate output tables.
+After all jobs completed, the results can be retrieved by running \texttt{overhead\_results.sh} that parses the outputs of all jobs to get the results and invokes a plotting script.
 This will generate exactly the plots of Figure 9 in the paper.
 The paper also makes statements about the memory usage and the number of RMA operations executed per second.
 This data is also included in the result tables generated by JUBE that can be found in the \texttt{result} folder of each benchmark.
 
+%STOP_LATEX
+
+
 \section*{Artifact Dependencies and Requirements}
+
+%START_LATEX
 The classification quality benchmarks can be executed on any arbitrary system with Docker installed.
 The overhead benchmarks were executed on the CLAIX-2023 cluster\footnote{\url{https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/fbd107191cf14c4b8307f44f545cf68a/}} of RWTH Aachen University. Each node is equipped with 2x Intel Xeon 8468 Sapphire Rapids with disabled SMT and 256 GB of main memory. The nodes are connected via InfiniBand. As the overhead benchmarks run experiments with up to 768 processes (requiring up to 1536 cores), any cluster with exactly or more than 1536 cores is feasible to run the experiments.
 
 Different to the experiments in the paper, the overhead benchmarks can also run on a single compute node within Docker for simple reproducibility (small-scale experiments).
-For the small-scale experiments experiments, we assume that a compute node with 256 cores is used such that tests with up to 128 application processes can be executed.
+For the small-scale experiments, we assume that a compute node with 256 cores is used such that tests with up to 128 application processes can be executed.
 
 There are no specific restrictions on the required operating system since everything can run in a Docker container. The required software libraries for reproducibility are listed in the abstract identification.
-The input data sets for the overhead experiment in the paper have been chosen to represent realistic workloads.
+The input data sets for the original overhead experiment in the paper have been chosen to represent realistic workloads.
 For the small-scale experiments, the number of iterations and region sizes have been reduced.
-Qualitatively, they show similar results to the figures of the paper.
+Qualitatively, the results are similar to those of the paper, just for a smaller number of processes.
 For details on the concrete changes, we refer to the computational artifact.
 All used datasets are publicly available and shipped with the computational artifact.
 
+%STOP_LATEX
+
 \section*{Artifact Installation Deployment Process}
+
+%START_LATEX
+
 For simplified execution of the experiments, we provide a ChameleonCloud script that sets up a machine suitable for running all evaluations.
 The script is part of the computational artifact and can be executed with
 {
@@ -112,8 +125,8 @@ The script is part of the computational artifact and can be executed with
 $ ./reserve_chameleon_node.sh
 \end{verbatim}
 }
-It will start up a properly configured node (\texttt{compute\_zen3}) using the infrastructure of CHI@TACC using \texttt{openstack}.
-If \texttt{openstack} is not installed on the executing system, a corresponding Docker image can be built and executed with
+It uses \texttt{openstack} to set up a properly configured node (\texttt{compute\_zen3}) using the infrastructure of CHI@TACC.
+If \texttt{openstack} is not installed on the executing (host) system, a corresponding Docker image can be built and executed with
 {
 \small
 \begin{verbatim}
@@ -137,7 +150,8 @@ $ ./classification_quality.sh
 \end{verbatim}
 }
 
-The results will then be available in the folder \texttt{cq-results}.
+The results will be available in the folder \texttt{cq-results-YYMMDD-HHMMSS} for further investigation.
+The script will also print out the summarized results to the command line.
 
 The small-scale experiments of the overhead benchmarks (expected execution time: 4 hours) can be executed with
 {
@@ -147,7 +161,8 @@ $ ./overhead_evaluation_chameleon.sh
 \end{verbatim}
 }
 
-The results will then be available in the folder \texttt{perf-results}.
+The results will be available in the folder \texttt{perf-results-YYMMDD-HHMMSS}.
+In particular, the resulting plotted PNG file is contained within the folder.
 To access the result files from outside container, the script 
 
 {
@@ -160,5 +175,6 @@ $ ./copy_results_to_objectstorage.sh
 copies the result to the ChameleonCloud object storage.
 The files can then be viewed on the ChameleonCloud object storage file viewer.
 
+%STOP_LATEX
 
 \end{document}
