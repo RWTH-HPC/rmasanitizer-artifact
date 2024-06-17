@@ -1,13 +1,16 @@
 #!/usr/bin/env sh
 set -e
 
+RESULTS_DIR=$PWD/results-$(date +"%Y%m%d-%H%M%S")
+echo "Results will be stored in ${RESULTS_DIR}."
+
+mkdir -p $RESULTS_DIR
+
 # generate results
 docker build -f classification_quality/Dockerfile . -t rmaracebench
-docker run --name eval -it rmaracebench /bin/bash generate_results.sh
-docker cp eval:/rmaracebench/results .
-docker stop eval && docker rm eval
+docker run --rm -u $UID:$UID -v ${RESULTS_DIR}:/rmaracebench/results -it rmaracebench /bin/bash generate_results.sh
 
 # analyze results
-docker run --name parse -v $PWD/results:/rmaracebench/results -it rmaracebench /bin/bash /rmaracebench/parse_results.sh
-docker cp parse:/rmaracebench/summaries results
-docker stop eval && docker rm eval
+docker run --rm -u $UID:$UID -v ${RESULTS_DIR}:/rmaracebench/results -it rmaracebench /bin/bash parse_results.sh
+
+echo "Results will are stored in ${RESULTS_DIR}."
