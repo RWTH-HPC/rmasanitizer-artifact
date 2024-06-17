@@ -13,4 +13,4 @@ docker run --rm -u $UID:$UID -v ${RESULTS_DIR}:/rmaracebench/results -it rmarace
 # analyze results
 docker run --rm -u $UID:$UID -v ${RESULTS_DIR}:/rmaracebench/results -it rmaracebench /bin/bash parse_results.sh
 
-echo "Results will are stored in ${RESULTS_DIR}."
+echo "Results are stored in ${RESULTS_DIR}."

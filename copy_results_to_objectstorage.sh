@@ -24,7 +24,7 @@ cq_result=$(find . -maxdepth 1 -print | grep -m1 'cq-results-')
 
 if [ -d "${cq_result}" ]; then
     # Copy *.summary files
-    rsync -zrv --prune-empty-dirs --include '*/' --include '*.summary' --exclude '*' "${cq_result}" "${obj_dir}"
+    rsync -zrv --prune-empty-dirs --include '*/' --include '*.csv' --include '*.summary' --exclude '*' "${cq_result}" "${obj_dir}"
 else
     echo "Could not find any classification quality results to copy."
 fi

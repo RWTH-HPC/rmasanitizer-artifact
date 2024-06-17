@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
 # Parse results in summary files
-mkdir -p summaries
-python parse_results.py results/results-rmasanitizer-mpirma/results.csv --verbose > summaries/rmasanitizer_mpirma.summary
-python parse_results.py results/results-rmasanitizer-shmem/results.csv --verbose >> summaries/rmasanitizer_shmem.summary
-python parse_results.py results/results-rmasanitizer-gaspi/results.csv --verbose >> summaries/rmasanitizer_gaspi.summary
-python parse_results.py results/results-other-tools/results.csv --verbose > summaries/othertools_mpirma.summary
+mkdir -p results/summaries
+python parse_results.py results/results-rmasanitizer-mpirma/results.csv --verbose > results/summaries/rmasanitizer_mpirma.summary
+python parse_results.py results/results-rmasanitizer-shmem/results.csv --verbose >> results/summaries/rmasanitizer_shmem.summary
+python parse_results.py results/results-rmasanitizer-gaspi/results.csv --verbose >> results/summaries/rmasanitizer_gaspi.summary
+python parse_results.py results/results-other-tools/results.csv --verbose > results/summaries/othertools_mpirma.summary
 
 # Get table with total results
 echo "MPI RMA - Other tools"
