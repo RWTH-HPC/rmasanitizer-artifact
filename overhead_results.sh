@@ -21,4 +21,4 @@ do
 done
 
 echo "Plotting results for small dataset..."
-python overhead_evaluation/plots/plot_performance_results.py perf-eval-result --usetex --small-dataset
+python overhead_evaluation/plots/plot_performance_results.py ${result_path} --usetex --small-dataset
