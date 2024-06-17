@@ -28,3 +28,5 @@ if [ -d "${cq_result}" ]; then
 else
     echo "Could not find any classification quality results to copy."
 fi
+
+echo "The files can be viewed in the object storage of the ChameleonCloud."
