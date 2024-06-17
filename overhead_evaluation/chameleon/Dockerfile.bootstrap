@@ -1,0 +1,14 @@
+FROM python:3.12-bookworm
+
+# # Install Python dependencies and ensure to activate virtualenv (by setting PATH variable)
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+RUN pip install python-openstackclient
+RUN pip install git+https://github.com/chameleoncloud/python-blazarclient@chameleoncloud/xena
+
+RUN useradd -ms /bin/bash user
+WORKDIR /home/user
+USER user

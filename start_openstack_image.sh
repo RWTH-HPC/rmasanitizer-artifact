@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker build -f overhead_evaluation/chameleon/Dockerfile.bootstrap -t chameleon_start
+docker build -f overhead_evaluation/chameleon/Dockerfile.bootstrap -t chameleon_start .
 
 echo "===="
 echo "This script expects that application credentials have been created in the ChameleonCLoud infrastructure CHI@TACC."
