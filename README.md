@@ -15,6 +15,9 @@ Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Je
 
 
 ## Reproducing Results
+The results of this artifact can be reproduced on an HPC cluster or using ChameleonCloud.
+
+### Optional: Staring a ChameleonCloud
 For simplified execution of the experiments, we provide a ChameleonCloud script that sets up a machine suitable for running all evaluations.
 The script can be executed with
 ```
