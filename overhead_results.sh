@@ -2,7 +2,7 @@
 
 set -e
 
-result_path=perf-eval-result
+result_path=perf-results
 
 benchmarks_mustrma=(PRK_stencil  BT-RMA  lulesh  miniMD)
 benchmarks_rmasanitizer=(PRK_stencil BT-RMA lulesh miniMD PRK_stencil_shmem BT-SHMEM CFD-Proxy)

@@ -2,7 +2,7 @@
 
 set -e
 
-result_path=perf-eval-result
+result_path=perf-results
 benchmark_size=S
 
 if [ -d "${result_path}" ]; then
