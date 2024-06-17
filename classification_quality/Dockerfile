@@ -151,11 +151,14 @@ COPY classification_quality/parse_results.sh /rmaracebench/parse_results.sh
 
 # Allow oversubscription for OpenMPI
 ENV OMPI_MCA_rmaps_base_oversubscribe=1
+# Allow to run OpenMPI as root in container
+ENV OMPI_ALLOW_RUN_AS_ROOT=1
+ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
 # Run as non-privileged user
-RUN useradd -ms /bin/bash user
-RUN chown -R user:user /rmaracebench
-USER user
+# RUN useradd -ms /bin/bash user
+# RUN chown -R user:user /rmaracebench
+# USER user
 
 ENV OMPI_CC=clang
 ENV OMPI_CXX=clang++
