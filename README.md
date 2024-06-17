@@ -1,4 +1,4 @@
-# RMASanitizer: Runtime Detection of Data Races in RMA Applications - Computational Artifact
+# RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications - Computational Artifact
 
 This is the computational artifact for the paper "RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications" submitted to the ICPP'24 conference.
 
