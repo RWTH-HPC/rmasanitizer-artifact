@@ -14,17 +14,28 @@ parser = argparse.ArgumentParser()
 parser.add_argument('results_path', type=str, help="Path to the experiment results")
 parser.add_argument('--usetex', action='store_true', help="Renders figures with TeX formatting, requires installed TeX distribution", default=False)
 parser.add_argument('--process-selector', action='store_true', help="Only select a certain number of displayed process numbers (required to get exact figure of the paper)")
+parser.add_argument('--small-dataset', action='store_true', help="Use smaller input sizes (JUBE: S) for plot titles")
 
 args = parser.parse_args()
 
 
 benchmark_name_map = {
-    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{1000 iters, $48 \cdot 10^6$ elems per proc }",
-    "BT-RMA": "NPB BT -- strong (MPI RMA)\n{Class D} (162 x 162 x 162)",
+    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{1000 iters, $48 \\cdot 10^6$ elems per proc }",
+    "BT-RMA": "NPB BT -- strong (MPI RMA)\n{Class D} (408 x 408 x 408)",
     "lulesh": "LULESH -- weak (MPI RMA)\n{$20^3$ problem size, 8000 elems per proc}",
     "miniMD": "miniMD -- weak (MPI RMA)\n{400 timesteps, LJ, 260000 atoms per proc}",
-    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{1000 iters, $48 \cdot 10^6$ elements per proc }",
-    "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class D (162 x 162 x 162)}",
+    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{1000 iters, $48 \\cdot 10^6$ elements per proc }",
+    "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class D (408 x 408 x 408}",
+    "CFD-Proxy": "CFD-Proxy -- strong (GASPI)\n{1000 iters, F6 airplane mesh}"
+}
+
+benchmark_name_map_small = {
+    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{100 iters, $32 \\cdot 10^6$ elems per proc }",
+    "BT-RMA": "NPB BT -- strong (MPI RMA)\n{Class C} (162 x 162 x 162)",
+    "lulesh": "LULESH -- weak (MPI RMA)\n{$12^3$ problem size, 1728 elems per proc}",
+    "miniMD": "miniMD -- weak (MPI RMA)\n{40 timesteps, LJ, 260000 atoms per proc}",
+    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{100 iters, $32 \\cdot 10^6$ elements per proc }",
+    "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class C (162 x 162 x 162)}",
     "CFD-Proxy": "CFD-Proxy -- strong (GASPI)\n{1000 iters, F6 airplane mesh}"
 }
 
@@ -118,8 +129,9 @@ def create_plots(rmasan_dfs, mustrma_dfs) -> None:
 
         ax.get_legend().remove()
         
-        ax.set_title(benchmark_name_map[benchmark], fontsize=9)
-        ax.set_xlabel("\# Processes", fontsize=9)
+        title = benchmark_name_map_small[benchmark] if args.small_dataset else benchmark_name_map[benchmark]
+        ax.set_title(title, fontsize=9)
+        ax.set_xlabel("\\# Processes", fontsize=9)
         ax.set_ylabel("Tool Slowdown", fontsize=9)
         ax.tick_params(axis='x', labelsize=8, pad=0)
         ax.tick_params(axis='y', labelsize=8, pad=0)

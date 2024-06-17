@@ -4,7 +4,9 @@
 \usepackage{url}
 
 \begin{document}
+\section*{Abstract Identification}
 This is the artifact description for the paper ``RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications'' submitted to the ICPP'24 conference.
+
 
 \subsection*{Main Contributions}
 The paper corresponding to this artifact contributes a generalized race detection tool for Remote Memory Access Programs. In the paper, we make the following contributions: (1) We provide a generalized RMA race detection model compatible with state-of-the-art RMA programming models. (2) We present RMASanitizer, an on-the-fly race detector that works with MPI RMA, OpenSHMEM, and GASPI. (3) We evaluate the classification quality of RMASanitizer and present overhead studies on different RMA proxy apps.
@@ -14,12 +16,6 @@ The artifact provides the source code of RMASanitizer itself to review and under
 
 
 \subsection*{Computational Artifact Structure}
-The computational artifact is available at 
-\begin{center}
-\url{https://hpc.rwth-aachen.de/papers/icpp24-rmasanitizer.tar.gz}
-\end{center}
-
-It will be published on Zenodo and GitHub upon paper acceptance.
 The computational artifact contains the following folders:
 \begin{itemize}
     \item \texttt{RMASanitizer}: Source code of RMASanitizer (for a detailed explanation, see the README in the computational artifact) (Section 5)
@@ -44,8 +40,6 @@ For reproducibility, the required software is shipped in a Docker container (see
 \item RMASanitizer (provided in the computational artifact), MUST-RMA\footnote{\url{https://hpc.rwth-aachen.de/must/files/MUST-v1.9.0-rma.tar.gz}}, PARCOACH\footnote{\url{https://gitlab.inria.fr/parcoach/parcoach/-/archive/2.3.1/parcoach-2.3.1.tar.gz}}
 \end{itemize}
 
-The classification quality benchmarks can be executed on any arbitrary system with Docker or Podman installed.
-
 
 \subsection*{Overhead Study Results}
 The performance evaluation uses the JUBE benchmarking environment\footnote{\url{https://apps.fz-juelich.de/jsc/jube/jube2/docu}} for reproducible benchmark setups.
@@ -56,14 +50,151 @@ The following software versions were used to run the experiments:
 \item Rocky Linux 8
 \item OpenMPI 4.1.6 for MPI RMA, Sandia SHMEM 1.5.2 for OpenSHMEM, GPI-2 1.5.1 for GASPI
 \item Clang / Classic-Flang 16
-\item RMASanitizer (provided in the computational artifact), MUST-RMA\footnote{\url{https://hpc.rwth-aachen.de/must/files/MUST-v1.9.0-rma.tar.gz}}
+\item RMASanitizer (provided in artifact), MUST-RMA\footnote{\url{https://hpc.rwth-aachen.de/must/files/MUST-v1.9.0-rma.tar.gz}} (provided in the artifact)
 \item JUBE 2.6.1
 \item Slurm scheduler to schedule the jobs generated with JUBE
 \item Python 3 with pandas, matplotlib, seaborn (for plots)
 \end{itemize}
 
-The overhead benchmarks were executed on the CLAIX-2023 cluster\footnote{\url{https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/fbd107191cf14c4b8307f44f545cf68a/}} of RWTH Aachen University. Each node is equipped with 2x Intel Xeon 8468 Sapphire Rapids with disabled SMT and 256 GB of main memory. The nodes are connected via InfiniBand.
 
-As the overhead studies run experiments with up to 768 processes (requiring up to 1536 cores), any cluster with exactly or more than 1536 cores and preferably an InifiniBand interconnect should be feasible to run the experiments. Upon request, we can also grant access to CLAIX-23 to reproduce our measurements.
+\section*{Reproducibility of Experiments}
+In the following, we document the steps to reproduce the results of the classification quality and the overhead study.
+For the classification quality experiment, we expect to set up and run everything within 2 hours (the test cases take some time to get executed).
+For the overhead study, in case of all software requirements installed, the execution of the overhead study requires running a few JUBE commands and finally parsing the output with a Python script. While running all the commands will only take a few minutes, the execution of the jobs using Slurm will take a few hours.
+
+\subsection*{Classification Quality}
+To reproduce the classification quality results, an installation of Docker is required.
+All required step can be executed by running the script \texttt{classification\_quality.sh} of the computational artifact.
+The workflow first creates the Docker container of RMARaceBench using a Dockerfile.
+The container itself comes with a shell script that runs all commands to reproduce the results.
+Finally, the results are copied out of the container and additionally printed to the command line.
+% Assuming that \texttt{\$ROOT} is the root folder of the computational artifact, the following should be executed
+% {
+% \small
+% \begin{verbatim}
+% # cd $ROOT
+% # docker build -f classification_quality/Dockerfile . \
+%                -t rmaracebench
+% # docker run --name eval -it rmaracebench \ 
+%               /bin/bash generate_results.sh
+% # docker cp eval:/rmaracebench/results .
+% \end{verbatim}
+% }
+
+The outputs and results generated by the script should match those given in the computational artifact and represent the Table 3 in the paper.
+In particular, the files \texttt{results\_parsed} in each result folder contain the values (TP, TN, FP, FN, Accuracy) that have been copied into the table.
+
+Note: In very recent Linux kernel versions newer than 6.0, the address space layout randomization (ASLR) bit count must be below or equal 28. This is a requirement of the ThreadSanitizer version shipped MUST-RMA and RMASanitizer. This can be done temporarily (until system reboot) on typical Linux systemd-based systems using \texttt{sysctl vm.mmap\_rnd\_bits=28}. The command needs root permissions. 
+
+
+\section*{Overhead Study}
+The overhead study is designed in JUBE.
+For the results in our paper, we used OpenMPI (4.1.6), Sandia SHMEM (1.5.2), GPI-2 (1.5.2), Clang/Classic-Flang 16.
+The JUBE workflow automatically builds the tools (RMASanitizer and MUST-RMA), builds the source codes, submits the jobs with the correct input sizes via Slurm, and finally evaluates the results to generate output tables.
+For MUST-RMA, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA}, \texttt{miniMD}, \texttt{lulesh}.
+For RMASanitizer, the benchmarks executed are \texttt{PRK\_stencil}, \texttt{BT-RMA},  \texttt{miniMD}, \texttt{lulesh} \texttt{PRK\_stencil\_shmem}, \texttt{BT-SHMEM}, \texttt{CFD-Proxy}.
+
+All steps are available in a script \texttt{overhead\_submit.sh} and \texttt{overhead\_results.sh} that can be executed to generate the results and the final plot.
+For each benchmark \texttt{benchname} with MUST-RMA or RMASanitizer, the following is executed by the script:
+
+{
+\small
+\begin{verbatim}
+# Run benchmark with MUST-RMA
+$ jube run \
+  overhead_evaluation/jube/<benchmark>/<benchmark>.xml \
+  -o MUST-RMA/<benchmark> --tag M ignorelist \ 
+  memusage rebuild_source must-rma
+# Run benchmark with RMASanitizer
+$ jube run \
+  overhead_evaluation/jube/<benchmark>/<benchmark>.xml \
+  -o RMASanitizer/<benchmark> --tag M ignorelist \ 
+  memusage rebuild_source tsan-opt
+\end{verbatim}
+}
+
+After all jobs completed, the results can be retrieved via JUBE that parses the outputs of all jobs:
+
+{
+\small
+\begin{verbatim}
+# Parse result of benchmark with MUST-RMA
+$ jube result overhead_evaluation/MUST-RMA/<benchmark>
+# Parse result of benchmark with RMASanitizer
+$ jube result overhead_evaluation/RMASanitizer/<benchmark>
+\end{verbatim}
+}
+
+Finally, the results are plotted with a the plotting script that parses all the output tables of JUBE:
+{
+\footnotesize
+\begin{verbatim}
+# python overhead_evaluation/plots/plot_performance_results.py \
+    overhead_evaluation
+\end{verbatim}
+}
+
+This will generate exactly the plots of Figure 9 in the paper. The paper also makes statements about the memory usage and the number of RMA operations executed per second. This data is also included in the result tables generated by JUBE that can be found in the \texttt{result} folder of each benchmark.
+
+
+
+\section*{Artifact Dependencies and Requirements}
+The classification quality benchmarks can be executed on any arbitrary system with Docker installed.
+The overhead benchmarks were executed on the CLAIX-2023 cluster\footnote{\url{https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/fbd107191cf14c4b8307f44f545cf68a/}} of RWTH Aachen University. Each node is equipped with 2x Intel Xeon 8468 Sapphire Rapids with disabled SMT and 256 GB of main memory. The nodes are connected via InfiniBand. As the overhead benchmarks run experiments with up to 768 processes (requiring up to 1536 cores), any cluster with exactly or more than 1536 cores is feasible to run the experiments.
+
+Different to the experiments in the paper, the overhead benchmarks can also run on a single compute node within Docker for simple reproducibility (small-scale experiments).
+For the small-scale experiments experiments, we assume that a compute node with 256 cores is used such that tests with up to 128 application processes can be executed.
+
+There are no specific restrictions on the required operating system since everything can run in a Docker container. The required software libraries for reproducibility are listed in the abstract identification.
+The input data sets for the overhead experiment in the paper have been chosen to represent realistic workloads.
+For the small-scale experiments, the number of iterations and region sizes have been reduced.
+Qualitatively, they show similar results to the figures of the paper.
+For details on the concrete changes, we refer to the computational artifact.
+All used datasets are publicly available and shipped with the computational artifact.
+
+\section*{Artifact Installation Deployment Process}
+For simplified execution of the experiments, we provide a ChameleonCloud script that sets up a machine suitable for running all evaluations.
+The script is part of the computational artifact and can be executed with
+{
+\small
+\begin{verbatim}
+$ ./reserve_chameleon_node.sh
+\end{verbatim}
+}
+It will start up a properly configured node (\texttt{compute\_zen3}) using the infrastructure of CHI@TACC using \texttt{openstack}.
+If \texttt{openstack} is not installed on the executing system, a corresponding Docker image can be built and used with
+{
+\small
+\begin{verbatim}
+$ ./start_openstack_image.sh
+\end{verbatim}
+}
+After reserving the node, the script automatically connects via SSH to the machine.
+On the machine, the following script available on the machine itself downloads the artifact:
+{
+\small
+\begin{verbatim}
+$ ./bootstrap.sh
+\end{verbatim}
+}
+
+Within the artifact folder, the classification quality benchmark (expected execution time: 2 hours) can be executed with
+{
+\small
+\begin{verbatim}
+$ ./classification_quality.sh
+\end{verbatim}
+}
+
+The small-scale experiments of the overhead benchmarks (expected execution time: 4 hours) can be executed with
+{
+\small
+\begin{verbatim}
+$ ./overhead_evaluation_chameleon.sh
+\end{verbatim}
+}
+
+
+
 
 \end{document}
