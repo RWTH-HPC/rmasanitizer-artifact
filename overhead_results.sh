@@ -20,5 +20,5 @@ do
     jube result ${result_path}/RMASanitizer/${benchmark}
 done
 
-echo "Plotting results..."
-python overhead_evaluation/plots/plot_performance_results.py perf-eval-result --usetex
+echo "Plotting results for small dataset..."
+python overhead_evaluation/plots/plot_performance_results.py perf-eval-result --usetex --small-dataset
