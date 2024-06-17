@@ -63,7 +63,7 @@ ENV CC=clang-16
 ENV CXX=clang++-16
 
 # Install Clang + Flang 16
-COPY chameleon/classic_flang_setup /classic_flang_setup
+COPY overhead_evaluation/chameleon/classic_flang_setup /classic_flang_setup
 RUN sh /classic_flang_setup/fortran_setup.sh /build /opt/clang
 
 ENV PATH="/opt/clang/classic-flang/bin:$PATH"
@@ -95,7 +95,7 @@ ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
 
 # Install OpenSHMEM
-COPY chameleon/sandia_shmem.patch /sandia_shmem.patch
+COPY overhead_evaluation/chameleon/sandia_shmem.patch /sandia_shmem.patch
 RUN     wget https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.2.tar.gz -O SOS-1.5.2.tar.gz && \
         tar -xf SOS-1.5.2.tar.gz && \
         cd SOS-1.5.2 && \
