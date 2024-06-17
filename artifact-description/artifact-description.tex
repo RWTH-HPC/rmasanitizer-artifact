@@ -162,7 +162,7 @@ $ ./reserve_chameleon_node.sh
 \end{verbatim}
 }
 It will start up a properly configured node (\texttt{compute\_zen3}) using the infrastructure of CHI@TACC using \texttt{openstack}.
-If \texttt{openstack} is not installed on the executing system, a corresponding Docker image can be built and used with
+If \texttt{openstack} is not installed on the executing system, a corresponding Docker image can be built and executed with
 {
 \small
 \begin{verbatim}
@@ -186,6 +186,8 @@ $ ./classification_quality.sh
 \end{verbatim}
 }
 
+The results will then be available in the folder \texttt{cq-results}.
+
 The small-scale experiments of the overhead benchmarks (expected execution time: 4 hours) can be executed with
 {
 \small
@@ -194,7 +196,18 @@ $ ./overhead_evaluation_chameleon.sh
 \end{verbatim}
 }
 
+The results will then be available in the folder \texttt{perf-results}.
+To access the result files from outside container, the script 
 
+{
+\small
+\begin{verbatim}
+$ ./copy_results_to_objectstorage.sh
+\end{verbatim}
+}
+
+copies the result to the ChameleonCloud object storage.
+The files can then be viewed on the ChameleonCloud object storage file viewer.
 
 
 \end{document}
