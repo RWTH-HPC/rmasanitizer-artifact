@@ -13,7 +13,7 @@ Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Je
 - [overhead_evaluation](overhead_evaluation/): Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper (Figure 9, Section 6.2)
 - [overhead_evaluation/plots](overhead_evaluation/plots): Resulting plots (Figure 9, Section 6.2)
 - [classification_quality.sh](classification_quality.sh): Script to reproduce classification quality results (Table 3, Section 6.1)
-- [overhead_submit.sh](overhead_submit.sh) / [overhead_result.sh](overhead_result.sh): Scripts to reproduce the overhead results (Figure 9, Section 6.2)
+- [overhead_submit.sh](overhead_submit.sh) / [overhead_result.sh](overhead_results.sh): Scripts to reproduce the overhead results (Figure 9, Section 6.2)
 
 ## Reproducing Results
 
@@ -77,7 +77,7 @@ To access the result files from outside container, the script
 ```
 
 copies the result to the ChameleonCloud object storage.
-The files can then be viewed on the ChameleonCloud object storage file viewer.
+The files can then be viewed with the ChameleonCloud object storage file viewer.
 
 ## Input Sizes
 
