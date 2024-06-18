@@ -22,6 +22,7 @@ The computational artifact contains the following folders:
     \item \texttt{RMASanitizer}: Source code of RMASanitizer (for a detailed explanation, see the README in the computational artifact) (Section 5)
     \item \texttt{classification\_quality}: Results of RMASanitizer, MUST-RMA and PARCOACH-(dynamic,static) on RMARaceBench (Table 3, Section 6.1)
     \item \texttt{overhead\_evaluation}: Results of RMASanitizer and MUST-RMA on the different proxy apps considered in the paper (Figure 9, Section 6.2)
+    \item \texttt{overhead\_evaluation/plots}: Resulting plots (Figure 9, Section 6.2)
     \item \texttt{classification\_quality.sh}: Script to reproduce classification quality results (Table 3, Section 6.1)
     \item \texttt{overhead\_submit.sh/overhead\_results.sh}: Scripts to reproduce the overhead results (Figure 9, Section 6.2)
 \end{itemize}
@@ -107,7 +108,7 @@ For the small-scale experiments, we assume that a compute node with 256 cores is
 There are no specific restrictions on the required operating system since everything can run in a Docker container. The required software libraries for reproducibility are listed in the abstract identification.
 The input data sets for the original overhead experiment in the paper have been chosen to represent realistic workloads.
 For the small-scale experiments, the number of iterations and region sizes have been reduced.
-Qualitatively, the results are similar to those of the paper, just for a smaller number of processes.
+Qualitatively, the results of the small-scale experiment are similar to that of the large-scale experiment in the paper: RMASanitizer has a significant smaller slowdown than MUST-RMA. With an increasing number of processes, the slowdown of RMASanitizer (and also MUST-RMA) increases.
 For details on the concrete changes, we refer to the computational artifact.
 All used datasets are publicly available and shipped with the computational artifact.
 
@@ -125,7 +126,7 @@ The script is part of the computational artifact and can be executed with
 $ ./reserve_chameleon_node.sh
 \end{verbatim}
 }
-It uses \texttt{openstack} to set up a properly configured node (\texttt{compute\_zen3}) using the infrastructure of CHI@TACC.
+It will start up a properly configured node (\texttt{compute\_zen3}) using using the infrastructure of CHI@TACC with \texttt{openstack}. The image used for the nodes is \texttt{ubuntu2204-rmasan} (CHI@TACC).
 If \texttt{openstack} is not installed on the executing (host) system, a corresponding Docker image can be built and executed with
 {
 \small
@@ -134,7 +135,7 @@ $ ./start_openstack_image.sh
 \end{verbatim}
 }
 After reserving the node, the script automatically connects via SSH to the machine.
-On the machine, the following script available on the machine itself downloads the artifact:
+On the machine, the following script available on the machine itself downloads the artifact to the node:
 {
 \small
 \begin{verbatim}
@@ -150,7 +151,7 @@ $ ./classification_quality.sh
 \end{verbatim}
 }
 
-The results will be available in the folder \texttt{cq-results-YYMMDD-HHMMSS} for further investigation.
+The results will be available in the folder \texttt{cq-results-YYMMDD-HHMMSS} for further investigation. The files in the \texttt{summaries} folder can be used to compare the reproduced results with the reference results (see \texttt{classification\_quality} folder).
 The script will also print out the summarized results to the command line.
 
 The small-scale experiments of the overhead benchmarks (expected execution time: 4 hours) can be executed with
@@ -162,7 +163,9 @@ $ ./overhead_evaluation_chameleon.sh
 }
 
 The results will be available in the folder \texttt{perf-results-YYMMDD-HHMMSS}.
-In particular, the resulting plotted PNG file is contained within the folder.
+In particular, the resulting plotted PNG file is contained in the folder.
+For reference, the paper results (large-scale experiment) and the Chameleon cloud results (small-scale experiment) are in the folder \texttt{overhead\_evaluation/plots/}.
+
 To access the result files from outside container, the script 
 
 {
