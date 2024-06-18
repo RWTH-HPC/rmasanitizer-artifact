@@ -64,7 +64,7 @@ To reproduce the results of the small-scale experiment, run
 
 The results will be available in the folder `perf-results-YYMMDD-HHMMSS`. 
 In particular, the resulting plotted PNG file is contained within the folder.
-For reference, the paper results (large-scale experiment) can be found at [overhead_evaluation/plots/results_largescale.png](overhead_evaluation/plots/performance_results_largescale.png) and the Chameleon cloud results (small-scale experiment) can be found at [overhead_evaluation/plots/results_smallscale.png](overhead_evaluation/plots/performance_results_smallscale.png).
+For reference, the paper results (large-scale experiment) can be found at [overhead_evaluation/plots/results_largescale.png](overhead_evaluation/plots/results_largescale.png) and the Chameleon cloud results (small-scale experiment) can be found at [overhead_evaluation/plots/results_smallscale.png](overhead_evaluation/plots/results_smallscale.png).
 
 Qualitatively, the results of the small-scale experiment are similar to that of the large-scale experiment in the paper: RMASanitizer has a significant smaller slowdown than MUST-RMA. With an increasing number of processes, the slowdown of RMASanitizer (and also MUST-RMA) increases.
 
