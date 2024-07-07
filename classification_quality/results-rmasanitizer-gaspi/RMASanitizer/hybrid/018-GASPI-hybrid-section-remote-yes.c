@@ -3,18 +3,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-// RUN: %must-cc %s -o %must-bin-dir/%basename_t.exe %must-compiler-rma-flags %gaspi-flags
-// RUN: %must-run --must:rma --must:rma-mode %must-rma-mode -np 2 %must-bin-dir/%basename_t.exe 2>&1 | %filecheck -DFILENAME=%basename_t %s
-// CHECK-DAG: data race
-// CHECK-DAG: [[FILENAME]]:70
-// CHECK-DAG: [[FILENAME]]:86
-
 // RACE LABELS BEGIN
 /*
 {
     "RACE_KIND": "remote",
     "ACCESS_SET": ["rma read","load"],
-    "RACE_PAIR": ["gaspi_read@70","STORE@86"],
+    "RACE_PAIR": ["gaspi_read@69","STORE@85"],
     "CONSISTENCY_CALLS": ["gaspi_wait"],
     "SYNC_CALLS": ["gaspi_barrier"],
     "NPROCS": 2,
@@ -32,7 +26,12 @@
 
 int main(int argc, char* argv[])
 {
-    MPI_Init(&argc, &argv);
+    int provided;
+    MPI_Init_thread(&argc, &argv, MPI_THREAD_MULTIPLE, &provided);
+    if (provided < MPI_THREAD_MULTIPLE) {
+        printf("MPI_THREAD_MULTIPLE not supported\n");
+        MPI_Abort(MPI_COMM_WORLD, 1);
+    }
     gaspi_proc_init(GASPI_BLOCK);
 
     gaspi_rank_t rank;

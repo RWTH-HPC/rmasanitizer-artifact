@@ -1,9 +1,9 @@
-Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
-Using prebuild /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
+Using prebuild /root/.cache/must/prebuilds/7b8e809b6bcee8c0f9ff11f616e19b95
+Using prebuild /root/.cache/must/prebuilds/7b8e809b6bcee8c0f9ff11f616e19b95
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
 [MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
-[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780
-[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/47db29af17fd8ef1795e84c042421780" is present and used.
+[MUST] Using prebuilt infrastructure at /root/.cache/must/prebuilds/7b8e809b6bcee8c0f9ff11f616e19b95
+[MUST] Infrastructure in "/root/.cache/must/prebuilds/7b8e809b6bcee8c0f9ff11f616e19b95" is present and used.
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
 [MUST-RUNTIME] [RMASanitize] epoch counter not found for context 0this should not happen.
@@ -11,52 +11,52 @@ read result is 42
 gaspi_allreduce result is 3
 gaspi_allreduce result is 3
 gaspi_allreduce result is 3
-rank 1 (of 3), pid 76337 caught signal nr 11
-rank 2 (of 3), pid 76338 caught signal nr 11
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x561c2f651e3a]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fa2a71f7f18]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fa2a71f805b]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x560d48a0de3a]
-rank 0 (of 3), pid 76336 caught signal nr 11
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7f50a7df7f18]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x561c2f637b20]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7f50a7df805b]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x561c2f638046]
-/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fa2a9d17050]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x560d489f3b20]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x561c2f6dd659]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fa2a9d0224a]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x560d489f4046]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x55e692fc5e3a]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fa7025d4f18]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fa2a9d02305]
-/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fa7025d505b]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x561c2f629461]
-/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f50aa908050]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x55e692fabb20]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x55e692fac046]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x560d48a99659]
-/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fa7050ed050]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x55e693051659]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f50aa8f324a]
-/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fa7050d824a]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fa7050d8305]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f50aa8f3305]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x55e692f9d461]
-/rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x560d489e5461]
+rank 1 (of 3), pid 76307 caught signal nr 11
+rank 2 (of 3), pid 76308 caught signal nr 11
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x561ee7f40e3a]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7ff3d97aff18]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7ff3d97b005b]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x561ee7f26b20]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x561ee7f27046]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7ff3dc118050]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x561ee7fcc659]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x564c94947e3a]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7fc3039f7f18]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7ff3dc10324a]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7fc3039f805b]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7ff3dc103305]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x561ee7f18461]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x564c9492db20]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x564c9492e046]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fc3063f7050]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x564c949d3659]
+rank 0 (of 3), pid 76306 caught signal nr 11
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fc3063e224a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fc3063e2305]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x564c9491f461]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(backtrace+0xda)[0x556fda42fe3a]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(+0x1ef18)[0x7f1a4cbf7f18]
+/opt/rmasanitizer/modules//libcStratSimpleUp.so(_Z15mySignalHandleri+0x12b)[0x7f1a4cbf805b]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x2fb20)[0x556fda415b20]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x30046)[0x556fda416046]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f1a4f518050]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0xd5659)[0x556fda4bb659]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f1a4f50324a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f1a4f503305]
+/rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c.exe-must(+0x21461)[0x556fda407461]
 [MUST-REPORT] Error: from: call @1: Remote data race at rank 1 between a read of size 4 at  Concurrent region of reference 1 started at reference 3 and ended at reference 4. 
 [MUST-REPORT]  References of a representative process:
 [MUST-REPORT] Reference 1: call gaspi_readmain
-[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:70
+[MUST-REPORT] /rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:64
 [MUST-REPORT]  @rank 0, threadid 1;
 [MUST-REPORT] Reference 2: call main
-[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:77
+[MUST-REPORT] /rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:71
 [MUST-REPORT]  @rank 1, threadid 0;
 [MUST-REPORT] Reference 3: call gaspi_barriermain
-[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:66
+[MUST-REPORT] /rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:60
 [MUST-REPORT]  @rank 1, threadid 0;
 [MUST-REPORT] Reference 4: call main
-[MUST-REPORT] /rmaracebench/results-20240409-164631/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:77
+[MUST-REPORT] /rmaracebench/results/results-rmasanitizer-gaspi/RMASanitizer/sync/010-GASPI-sync-wait-allreduce-remote-yes.c:71
 [MUST-REPORT]  @rank 1, threadid 0;
 Waiting up to 30 seconds for analyses to be finished.
 Waiting up to 30 seconds for analyses to be finished.
@@ -69,7 +69,7 @@ a non-zero exit code. Per user-direction, the job has been aborted.
 mpiexec detected that one or more processes exited with non-zero status, thus causing
 the job to be terminated. The first process to do so was:
 
-  Process name: [[21809,1],0]
+  Process name: [[49411,1],2]
   Exit code:    1
 --------------------------------------------------------------------------
 [MUST] Execution finished.

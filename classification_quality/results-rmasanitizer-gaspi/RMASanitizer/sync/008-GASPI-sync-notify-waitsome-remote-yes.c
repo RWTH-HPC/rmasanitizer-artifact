@@ -3,18 +3,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-// RUN: %must-cc %s -o %must-bin-dir/%basename_t.exe %must-compiler-rma-flags %gaspi-flags
-// RUN: %must-run --must:rma --must:rma-mode %must-rma-mode -np 2 %must-bin-dir/%basename_t.exe 2>&1 | %filecheck -DFILENAME=%basename_t %s
-// CHECK-DAG: data race
-// CHECK-DAG: [[FILENAME]]:70
-// CHECK-DAG: [[FILENAME]]:78
-
 // RACE LABELS BEGIN
 /*
 {
     "RACE_KIND": "remote",
     "ACCESS_SET": ["rma write","load"],
-    "RACE_PAIR": ["gaspi_notify_write@70","LOAD@78"],
+    "RACE_PAIR": ["gaspi_notify_write@64","LOAD@72"],
     "CONSISTENCY_CALLS": ["gaspi_wait"],
     "SYNC_CALLS": ["gaspi_notify_waitsome"],
     "NPROCS": 2,

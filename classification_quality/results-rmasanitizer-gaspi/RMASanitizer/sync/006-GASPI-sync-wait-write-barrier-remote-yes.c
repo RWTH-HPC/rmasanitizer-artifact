@@ -3,19 +3,13 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-// RUN: %must-cc %s -o %must-bin-dir/%basename_t.exe %must-compiler-rma-flags %gaspi-flags
-// RUN: %must-run --must:rma --must:rma-mode %must-rma-mode -np 2 %must-bin-dir/%basename_t.exe 2>&1 | %filecheck -DFILENAME=%basename_t %s
-// CHECK-DAG: data race
-// CHECK-DAG: [[FILENAME]]:72
-// CHECK-DAG: [[FILENAME]]:80
-
 // RACE LABELS BEGIN
 /*
 {
     "RACE_KIND": "remote",
     "ACCESS_SET": ["rma write","store"],
     "CONSISTENCY_CALLS": ["gaspi_wait"],
-    "RACE_PAIR": ["gaspi_write@72","LOAD@80"],
+    "RACE_PAIR": ["gaspi_write@66","LOAD@74"],
     "SYNC_CALLS": ["gaspi_barrier"],
     "NPROCS": 2,
     "DESCRIPTION": "Two conflicting operations gaspi_write and a local load with missing consistency of the gaspi_write. 

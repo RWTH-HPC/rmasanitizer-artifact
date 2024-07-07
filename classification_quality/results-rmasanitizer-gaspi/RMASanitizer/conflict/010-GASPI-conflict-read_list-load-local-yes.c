@@ -3,18 +3,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-// RUN: %must-cc %s -o %must-bin-dir/%basename_t.exe %must-compiler-rma-flags %gaspi-flags
-// RUN: %must-run --must:rma --must:rma-mode %must-rma-mode -np 2 %must-bin-dir/%basename_t.exe 2>&1 | %filecheck -DFILENAME=%basename_t %s
-// CHECK-DAG: data race
-// CHECK-DAG: [[FILENAME]]:68
-// CHECK-DAG: [[FILENAME]]:79
-
 // RACE LABELS BEGIN
 /*
 {
     "RACE_KIND": "local",
     "ACCESS_SET": ["local buffer write","load"],
-    "RACE_PAIR": ["gaspi_read_list@68","LOAD@79"],
+    "RACE_PAIR": ["gaspi_read_list@62","LOAD@73"],
     "NPROCS": 2,
     "DESCRIPTION": "Two conflicting operations read_list and load executed concurrently which leads to a race."
 }

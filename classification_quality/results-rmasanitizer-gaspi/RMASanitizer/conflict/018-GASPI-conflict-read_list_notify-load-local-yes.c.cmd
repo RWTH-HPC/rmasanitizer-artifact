@@ -1,2 +1,2 @@
-/opt/rmasanitizer/bin/must-cc -g -fopenmp -lsma -lGPI2 results-20240409-164631/RMASanitizer/conflict/018-GASPI-conflict-read_list_notify-load-local-yes.c -o results-20240409-164631/RMASanitizer/conflict/018-GASPI-conflict-read_list_notify-load-local-yes.c.exe-must
-/opt/rmasanitizer/bin/mustrun -np 2 --must:output stdout --must:rma results-20240409-164631/RMASanitizer/conflict/018-GASPI-conflict-read_list_notify-load-local-yes.c.exe-must
+/opt/rmasanitizer/bin/must-cc -g -fopenmp -lsma -lGPI2 results/results-rmasanitizer-gaspi/RMASanitizer/conflict/018-GASPI-conflict-read_list_notify-load-local-yes.c -o results/results-rmasanitizer-gaspi/RMASanitizer/conflict/018-GASPI-conflict-read_list_notify-load-local-yes.c.exe-must
+/opt/rmasanitizer/bin/mustrun -np 2 --must:output stdout --must:rma results/results-rmasanitizer-gaspi/RMASanitizer/conflict/018-GASPI-conflict-read_list_notify-load-local-yes.c.exe-must
