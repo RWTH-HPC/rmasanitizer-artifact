@@ -20,21 +20,21 @@ args = parser.parse_args()
 
 
 benchmark_name_map = {
-    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{1000 iters, $48 \\cdot 10^6$ elems per proc }",
+    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{1000 iters, $\\mathsf{48 \\cdot 10^6}$ elems per proc }",
     "BT-RMA": "NPB BT -- strong (MPI RMA)\n{Class D} (408 x 408 x 408)",
-    "lulesh": "LULESH -- weak (MPI RMA)\n{$20^3$ problem size, 8000 elems per proc}",
+    "lulesh": "LULESH -- weak (MPI RMA)\n{$\\mathsf{20^3}$ problem size, 8000 elems per proc}",
     "miniMD": "miniMD -- weak (MPI RMA)\n{400 timesteps, LJ, 260000 atoms per proc}",
-    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{1000 iters, $48 \\cdot 10^6$ elements per proc }",
-    "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class D (408 x 408 x 408}",
+    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{1000 iters, $\\mathsf{48 \\cdot 10^6}$ elements per proc }",
+    "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class D (408 x 408 x 408)}",
     "CFD-Proxy": "CFD-Proxy -- strong (GASPI)\n{1000 iters, F6 airplane mesh}"
 }
 
 benchmark_name_map_small = {
-    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{100 iters, $32 \\cdot 10^6$ elems per proc }",
+    "PRK_stencil": "PRK Stencil -- weak (MPI RMA)\n{100 iters, $\\mathsf{32 \\cdot 10^6}$ elems per proc }",
     "BT-RMA": "NPB BT -- strong (MPI RMA)\n{Class C} (162 x 162 x 162)",
-    "lulesh": "LULESH -- weak (MPI RMA)\n{$12^3$ problem size, 1728 elems per proc}",
+    "lulesh": "LULESH -- weak (MPI RMA)\n{$\\mathsf{12^3}$ problem size, 1728 elems per proc}",
     "miniMD": "miniMD -- weak (MPI RMA)\n{40 timesteps, LJ, 260000 atoms per proc}",
-    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{100 iters, $32 \\cdot 10^6$ elements per proc }",
+    "PRK_stencil_shmem": "PRK Stencil -- weak (SHMEM)\n{100 iters, $\\mathsf{32 \\cdot 10^6}$ elements per proc }",
     "BT-SHMEM": "NPB BT -- strong (SHMEM)\n{Class C (162 x 162 x 162)}",
     "CFD-Proxy": "CFD-Proxy -- strong (GASPI)\n{1000 iters, F6 airplane mesh}"
 }
@@ -68,7 +68,7 @@ plt.rcParams.update({
     "font.family": "sans-serif"
 })
 
-plt.rc('text.latex', preamble=r'\usepackage[italic]{mathastext}')
+plt.rc('text.latex')
 
 def read_csv(benchmark_name, csv_file) -> pd.DataFrame:
     # Read csv
@@ -110,7 +110,8 @@ def read_csv(benchmark_name, csv_file) -> pd.DataFrame:
 def create_plots(rmasan_dfs, mustrma_dfs) -> None:
     sns.set_theme(rc={"lines.linewidth": 0.8})
     plt.rc('axes', axisbelow=True)
-    fig, axs = plt.subplots(ncols=4, nrows=2, figsize=(12, 3), constrained_layout=True)
+    fig, axs = plt.subplots(ncols=4, nrows=2, figsize=(12, 3.05), constrained_layout=True)
+    fig.set_constrained_layout_pads(w_pad=4./72., h_pad=4./72., hspace=0.1, wspace=0./100.)
 
     # zip together RMASan and MUSTRMA dfs to plot them together
     zipped_dfs = list(itertools.zip_longest(rmasan_dfs, mustrma_dfs))
@@ -130,12 +131,12 @@ def create_plots(rmasan_dfs, mustrma_dfs) -> None:
         ax.get_legend().remove()
         
         title = benchmark_name_map_small[benchmark] if args.small_dataset else benchmark_name_map[benchmark]
-        ax.set_title(title, fontsize=9)
+        ax.set_title(title, fontsize=10)
         ax.set_xlabel("\\# Processes", fontsize=9)
         ax.set_ylabel("Tool Slowdown", fontsize=9)
-        ax.tick_params(axis='x', labelsize=8, pad=0)
-        ax.tick_params(axis='y', labelsize=8, pad=0)
-        ax.set_ymargin(0.35)
+        ax.tick_params(axis='x', labelsize=9, pad=0)
+        ax.tick_params(axis='y', labelsize=9, pad=0)
+        #ax.set_ymargin(0.35)
         ax.grid(False)
  
         # axis on the right side
@@ -144,10 +145,12 @@ def create_plots(rmasan_dfs, mustrma_dfs) -> None:
         ax.yaxis.set_ticks_position('right')
         if benchmark not in ["CFD-Proxy", "BT-RMA"]:
             ax.set_ylim(0, 15)
+            ax.set_yticks([0,5,10,15])
         else:
             ax.set_ylim(0, 40)
 
         ax2.set_ylabel("Runtime [s]", fontsize=9)
+        ax2.set_ymargin(0.1)
         
         if mustrma_df is not None:
             # mustrma_df = read_csv(benchmark, mustrma_benchmark_paths[benchmark])
@@ -177,8 +180,8 @@ def create_plots(rmasan_dfs, mustrma_dfs) -> None:
         ax2.yaxis.set_label_position('left')
         ax2.yaxis.set_ticks_position('left')
         ax2.set_axisbelow(True)
-        ax2.tick_params(axis='x', labelsize=7, pad=0)
-        ax2.tick_params(axis='y', labelsize=7, pad=0)
+        ax2.tick_params(axis='x', labelsize=9, pad=0)
+        ax2.tick_params(axis='y', labelsize=9, pad=0)
         
         # ================================
         # Background Grid
@@ -227,7 +230,7 @@ def create_plots(rmasan_dfs, mustrma_dfs) -> None:
         for bar in ax.containers[0]:
             height = bar.get_height()
             ypos = height + (0.9*(ax.get_ylim()[1]/15))
-            ax_text.text(bar.get_x() + bar.get_width() / 2., ypos, '%.2f' % height, ha='center', fontsize=7)
+            ax_text.text(bar.get_x() + bar.get_width() / 2., ypos, '%.2f' % height, ha='center', fontsize=8)
 
         # Set axis ax back on the right side
         ax.spines["right"].set_visible(True)
@@ -246,7 +249,7 @@ def create_plots(rmasan_dfs, mustrma_dfs) -> None:
     mustrma_line = mlines.Line2D([], [], color='#ffa500', marker='.', markersize=8, label="Runtime with MUST-RMA")
     rmasan_line = mlines.Line2D([], [], color='#57ab27', marker='.', markersize=8, label="Runtime with RMASanitizer")
     gray_patch = mpatches.Patch(facecolor='#dedede', edgecolor='black', label='Tool Slowdown with RMASanitizer')
-    legend = fig.legend(handles=[base_line, mustrma_line, rmasan_line, gray_patch], title="Legend", loc=(0.79,0.15), fontsize=8)
+    legend = fig.legend(handles=[base_line, mustrma_line, rmasan_line, gray_patch], title="Legend", loc=(0.78,0.15), fontsize=9)
     legend.get_title().set_fontsize(10)
 
     plt.yticks(fontname="Helvetica")
