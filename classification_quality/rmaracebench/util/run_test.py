@@ -120,7 +120,7 @@ class RunTest(ABC):
 
         out, _ = p.communicate()
         if p.returncode != 0:
-            print("ERROR WHEN RUNNING COMMAND: ", end='')
+            print("Return code of the following command is not 0 (this is typically not an error): ", end='')
             print(command)
             result = RunResult.CRASH
 
