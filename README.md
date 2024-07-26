@@ -1,6 +1,6 @@
-# RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications - Computational Artifact
+# RMASanitizer: Generalized Runtime Detection of Data Races in Remote Memory Access Applications - Computational Artifact
 
-This is the computational artifact for the paper "RMASanitizer: Generalized Runtime Detection of Data Races in RMA Applications" submitted to the ICPP'24 conference.
+This is the computational artifact for the paper "RMASanitizer: Generalized Runtime Detection of Data Races in Remote Memory Access Applications" submitted to the ICPP'24 conference.
 
 Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Jenke, Felix Tomski, Matthias S. Müller, Chair for High Performance Computing, IT Center, RWTH Aachen University
 
