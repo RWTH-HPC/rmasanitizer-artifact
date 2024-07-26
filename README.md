@@ -10,10 +10,10 @@ Authors: Simon Schwitanski, Yussur Mustafa Oraji, Cornelius Pätzold, Joachim Je
 - [MUST-RMA](MUST-RMA/): Source code of MUST-RMA
 - [classification_quality](classification_quality/): Results of RMASanitizer, MUST-RMA and PARCOACH-{dynamic,static} on RMARaceBench (Table 3, Section 6.1)
   - The exact version of RMARaceBench used is also included in this repo.
-- [overhead_evaluation](overhead_evaluation/): Results of the large-scale experiment on RMASanitizer and MUST-RMA on the different proxy apps considered in the paper (Figure 9, Section 6.2)
-- [overhead_evaluation/plots](overhead_evaluation/plots): Resulting plots (Figure 9, Section 6.2)
+- [overhead_evaluation](overhead_evaluation/): Results of the large-scale experiment on RMASanitizer and MUST-RMA on the different proxy apps considered in the paper (Figure 10, Section 6.2)
+- [overhead_evaluation/plots](overhead_evaluation/plots): Resulting plots (Figure 10, Section 6.2)
 - [classification_quality.sh](classification_quality.sh): Script to reproduce classification quality results (Table 3, Section 6.1)
-- [overhead_submit.sh](overhead_submit.sh) / [overhead_result.sh](overhead_results.sh): Scripts to reproduce the overhead results (Figure 9, Section 6.2)
+- [overhead_submit.sh](overhead_submit.sh) / [overhead_result.sh](overhead_results.sh): Scripts to reproduce the overhead results (Figure 10, Section 6.2)
 
 ## Reproducing Results
 
