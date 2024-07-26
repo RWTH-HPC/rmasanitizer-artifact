@@ -132,7 +132,7 @@ jube run overhead_evaluation/jube/<benchmark>/<benchmark>.xml -o RMASanitizer/ -
 ## Software Architecture of RMASanitizer
 
 RMASanitizer has been integrated as a tool within the MPI correctness checking framework MUST. It utilizes ThreadSanitizer for the RMA race detection.
-The software components mentioned in Section 5 / in Figure 8 of the paper can be found in the following directories:
+The software components mentioned in Section 5 / in Figure 9 of the paper can be found in the following directories:
 
 - Static analysis (run prior to any runtime analysis): [RMASanitizer/externals/RMAOptimizerPlugin](RMASanitizer/externals/RMAOptimizerPlugin/)
   - Contains the LLVM compiler passes for selective memory access instrumentations
