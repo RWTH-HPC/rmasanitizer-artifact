@@ -126,7 +126,7 @@ The following JUBE commands are used for each benchmark (input size: `S`):
 jube run overhead_evaluation/jube/<benchmark>/<benchmark>.xml -o MUST-RMA/ --tag S ignorelist memusage rebuild_source must-rma chameleon
 
 # Run benchmark with RMASanitizer
-jube run overhead_evaluation/jube/<benchmark>/<benchmark>.xml -o RMASanitizer/ --tag S ignorelist memusage rebuild_source must-rma chameleon
+jube run overhead_evaluation/jube/<benchmark>/<benchmark>.xml -o RMASanitizer/ --tag S ignorelist ignorelist memusage rebuild_source tsan-opt chameleon
 ```
 
 ## Software Architecture of RMASanitizer
